@@ -1,0 +1,5 @@
+
+> permission-v83-spike@0.0.1 faults
+> tsx scripts/run-faults.ts
+
+focused real faults passed; cold fault and export stage fault coverage remains incomplete

@@ -1,0 +1,40 @@
+{
+  "at": "2026-09-23T16:21:17.371311+08:00",
+  "files": [
+    {
+      "path": "交付证据指纹.json",
+      "bytes": 2005,
+      "sha256": "26b125f0cbc73ddbfe85d8d538a121de65ca9b955885191b97ad9371e40d9941"
+    },
+    {
+      "path": "最终核验脚本_v2.py",
+      "bytes": 4131,
+      "sha256": "0a5351f51cfa1605f9e58701b20a17a4f2f56676bf2bc8ac7e25af1180f9393d"
+    },
+    {
+      "path": "最终核验.json",
+      "bytes": 18824,
+      "sha256": "8d2812d22045fabe2854b14abb87435347a7f65edf8e1c9eca14bb62119244a5"
+    },
+    {
+      "path": "最终核验执行结果.txt",
+      "bytes": 125,
+      "sha256": "588063fd01056f808c8d0efa2179e873188e35abb8f45bbc5e85ac98266cfbf3"
+    },
+    {
+      "path": "核验脚本初次路径转义误报.txt",
+      "bytes": 895,
+      "sha256": "ddb58cc4f07a3d12ac3da108d989d30b6211e5d9859aab76af5c7bcc55e3e45b"
+    },
+    {
+      "path": "文档机械核验.txt",
+      "bytes": 261,
+      "sha256": "576179396ae1bdc3724b672753ac481ff842587902d4128dea7ff8c9d1a4639f"
+    },
+    {
+      "path": "最终核验说明.md",
+      "bytes": 1012,
+      "sha256": "c11fbdae9573def5518fe445c27fa7ed8d9dc84b84381008a12f868d4faf7a4e"
+    }
+  ]
+}

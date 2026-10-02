@@ -1,0 +1,5 @@
+
+> permission-v83-spike@0.0.1 explain
+> tsx scripts/explain.ts
+
+Saved exact executed endpoint count/list/aggregate SQL, parameters and EXPLAIN ANALYZE BUFFERS

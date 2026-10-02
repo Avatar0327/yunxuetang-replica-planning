@@ -1,0 +1,4 @@
+seed committed: T1=50000, T2=500, departments=2000, facts=1000000 + 2 fixture facts
+{"focusedChecks":"passed","fullAcceptance":"incomplete","evidenceDir":"evidence/raw/task5-legacy-functional-native"}
+seed committed: T1=50000, T2=500, departments=2000, facts=1000000 + 2 fixture facts
+{"focusedChecks":"passed","fullAcceptance":"incomplete","evidenceDir":"evidence/raw/task5-legacy-functional-casbin"}

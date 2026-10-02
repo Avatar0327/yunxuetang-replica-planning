@@ -1,0 +1,58 @@
+▶ native: person command applies same-action selected object caps
+  ✖ range negative (41.492667ms)
+  ✔ range positive (15.050208ms)
+✖ native: person command applies same-action selected object caps (378.2315ms)
+▶ casbin: person command applies same-action selected object caps
+  ✖ range negative (45.349375ms)
+  ✔ range positive (21.93625ms)
+✖ casbin: person command applies same-action selected object caps (360.704333ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 2
+ℹ fail 4
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 833.457292
+
+✖ failing tests:
+
+test at test/task4-person-cap.test.ts:1:804
+✖ range negative (41.492667ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  
+  200 !== 403
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task4-person-cap.test.ts:9:43)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task4-person-cap.test.ts:9:3)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 200,
+    expected: 403,
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task4-person-cap.test.ts:1:804
+✖ range negative (45.349375ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  
+  200 !== 403
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task4-person-cap.test.ts:9:43)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task4-person-cap.test.ts:9:3)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 200,
+    expected: 403,
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

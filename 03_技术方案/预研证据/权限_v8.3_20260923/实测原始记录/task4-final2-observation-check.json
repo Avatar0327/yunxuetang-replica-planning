@@ -1,0 +1,10 @@
+{
+  "path": "evidence/raw/task4-final2-observations.jsonl",
+  "records": 266,
+  "candidates": {
+    "native": 133,
+    "casbin": 133
+  },
+  "mismatches": [],
+  "sha256": "2dfd986d3f819f070772f218d85a4b29ee812490c25df19a244feeb3ad85d3fa"
+}

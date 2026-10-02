@@ -1,0 +1,186 @@
+▶ native: live domain security boundaries
+  ✖ forced ancestor denies newly supplied child grants (37.516083ms)
+  ✖ category grants require selected source delegability (11.168ms)
+  ✖ recipient own department cannot expand source actual objects (18.534458ms)
+  ✖ source shrink atomically freezes derived membership (19.137917ms)
+✖ native: live domain security boundaries (415.289625ms)
+▶ casbin: live domain security boundaries
+  ✖ forced ancestor denies newly supplied child grants (26.062459ms)
+  ✖ category grants require selected source delegability (12.510666ms)
+  ✖ recipient own department cannot expand source actual objects (19.918166ms)
+  ✖ source shrink atomically freezes derived membership (16.181083ms)
+✖ casbin: live domain security boundaries (367.201959ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 0
+ℹ fail 10
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 877.891625
+
+✖ failing tests:
+
+test at test/task3-protection.test.ts:1:505
+✖ forced ancestor denies newly supplied child grants (37.516083ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  
+  200 !== 403
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-protection.test.ts:11:4)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-protection.test.ts:9:3)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 200,
+    expected: 403,
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task3-protection.test.ts:1:853
+✖ category grants require selected source delegability (11.168ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  
+  200 !== 403
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-protection.test.ts:15:4)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-protection.test.ts:13:3)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 200,
+    expected: 403,
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task3-protection.test.ts:1:1753
+✖ recipient own department cannot expand source actual objects (18.534458ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  
+  200 !== 403
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-protection.test.ts:22:4)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-protection.test.ts:20:3)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 200,
+    expected: 403,
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task3-protection.test.ts:1:2149
+✖ source shrink atomically freezes derived membership (19.137917ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+  + 'active'
+  - 'recheck_required'
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-protection.test.ts:30:4)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-protection.test.ts:24:3)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'active',
+    expected: 'recheck_required',
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task3-protection.test.ts:1:505
+✖ forced ancestor denies newly supplied child grants (26.062459ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  
+  200 !== 403
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-protection.test.ts:11:4)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-protection.test.ts:9:3)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 200,
+    expected: 403,
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task3-protection.test.ts:1:853
+✖ category grants require selected source delegability (12.510666ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  
+  200 !== 403
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-protection.test.ts:15:4)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-protection.test.ts:13:3)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 200,
+    expected: 403,
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task3-protection.test.ts:1:1753
+✖ recipient own department cannot expand source actual objects (19.918166ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  
+  200 !== 403
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-protection.test.ts:22:4)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-protection.test.ts:20:3)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 200,
+    expected: 403,
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task3-protection.test.ts:1:2149
+✖ source shrink atomically freezes derived membership (16.181083ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+  + 'active'
+  - 'recheck_required'
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-protection.test.ts:30:4)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-protection.test.ts:24:3)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'active',
+    expected: 'recheck_required',
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

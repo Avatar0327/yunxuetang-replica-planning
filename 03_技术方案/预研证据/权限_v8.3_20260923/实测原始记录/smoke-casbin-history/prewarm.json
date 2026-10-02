@@ -1,0 +1,50 @@
+[
+  {
+    "url": "http://127.0.0.1:4311",
+    "status": 200,
+    "evidence": {
+      "candidate": "casbin",
+      "revision": 1790106653812,
+      "sourceIds": [
+        "role:m-broad:history:report.history.view"
+      ],
+      "permissionMs": 2.71737399999256,
+      "dataMs": 85.24887500000477,
+      "cache": "L1"
+    },
+    "meta": {
+      "candidate": "casbin",
+      "instance": "A",
+      "pid": 10847,
+      "pubsub": false,
+      "requestAt": "2026-09-22T19:51:56.599Z",
+      "responseAt": "2026-09-22T19:51:56.687Z",
+      "elapsedMs": 88.02937499999825,
+      "queryCount": 5
+    }
+  },
+  {
+    "url": "http://127.0.0.1:4312",
+    "status": 200,
+    "evidence": {
+      "candidate": "casbin",
+      "revision": 1790106653812,
+      "sourceIds": [
+        "role:m-broad:history:report.history.view"
+      ],
+      "permissionMs": 2.8647080000009737,
+      "dataMs": 77.34620800000266,
+      "cache": "L1"
+    },
+    "meta": {
+      "candidate": "casbin",
+      "instance": "B",
+      "pid": 10870,
+      "pubsub": false,
+      "requestAt": "2026-09-22T19:51:56.690Z",
+      "responseAt": "2026-09-22T19:51:56.771Z",
+      "elapsedMs": 80.27612499999668,
+      "queryCount": 5
+    }
+  }
+]

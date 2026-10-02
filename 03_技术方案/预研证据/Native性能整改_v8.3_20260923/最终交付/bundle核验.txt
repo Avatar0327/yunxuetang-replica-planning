@@ -1,0 +1,5 @@
+/Users/peng/Library/Mobile Documents/com~apple~CloudDocs/Agent复刻项目/云学堂复刻规划/03_技术方案/预研证据/Native性能整改_v8.3_20260923/最终交付/Native整改提交历史_817256b.bundle is okay
+The bundle contains this ref:
+817256bf1e1fc722aaa5f0c21878e84fe8df1306 refs/heads/spike/native-performance-v83
+The bundle records a complete history.
+The bundle uses this hash algorithm: sha1

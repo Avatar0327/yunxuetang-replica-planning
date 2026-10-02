@@ -1,0 +1,14 @@
+{"candidate":"native","name":"person-only move denied","expected":403,"actual":403,"at":"2026-09-22T22:07:48.528Z"}
+{"candidate":"native","name":"department source covers D11 and parent D1","expected":200,"actual":200,"at":"2026-09-22T22:07:48.547Z"}
+{"candidate":"native","name":"department parent outside cap","expected":403,"actual":403,"at":"2026-09-22T22:07:48.560Z"}
+{"candidate":"native","name":"department child D11 outside cap","expected":403,"actual":403,"at":"2026-09-22T22:07:48.571Z"}
+{"candidate":"native","name":"department root has no parent object","expected":200,"actual":200,"at":"2026-09-22T22:07:48.584Z"}
+{"candidate":"casbin","name":"person-only move denied","expected":403,"actual":403,"at":"2026-09-22T22:07:48.910Z"}
+{"candidate":"casbin","name":"department source covers D11 and parent D1","expected":200,"actual":200,"at":"2026-09-22T22:07:48.936Z"}
+{"candidate":"casbin","name":"department parent outside cap","expected":403,"actual":403,"at":"2026-09-22T22:07:48.955Z"}
+{"candidate":"casbin","name":"department child D11 outside cap","expected":403,"actual":403,"at":"2026-09-22T22:07:48.971Z"}
+{"candidate":"casbin","name":"department root has no parent object","expected":200,"actual":200,"at":"2026-09-22T22:07:48.991Z"}
+{"candidate":"native","name":"person command cannot borrow broad report role for C","expected":403,"actual":403,"at":"2026-09-22T22:07:49.407Z"}
+{"candidate":"native","name":"person command permits same-source capped B","expected":200,"actual":200,"at":"2026-09-22T22:07:49.428Z"}
+{"candidate":"casbin","name":"person command cannot borrow broad report role for C","expected":403,"actual":403,"at":"2026-09-22T22:07:49.784Z"}
+{"candidate":"casbin","name":"person command permits same-source capped B","expected":200,"actual":200,"at":"2026-09-22T22:07:49.809Z"}

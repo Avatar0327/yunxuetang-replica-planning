@@ -1,0 +1,1987 @@
+{
+  "candidate": "casbin",
+  "project": {
+    "claim": {
+      "status": 200,
+      "body": {
+        "rows": [
+          {
+            "person_id": "X",
+            "company_id": "A",
+            "display_name": "X"
+          }
+        ],
+        "count": 1,
+        "meta": {
+          "candidate": "casbin",
+          "instance": "28192",
+          "pid": 28192,
+          "pubsub": false,
+          "requestAt": "2026-09-22T23:22:25.786Z",
+          "responseAt": "2026-09-22T23:22:25.800Z",
+          "elapsedMs": 13.980875000000026,
+          "authorityObservedAt": "2026-09-22T23:22:25.925Z",
+          "observedRevision": 1790119192223,
+          "queryCount": 23
+        }
+      }
+    },
+    "storedChunks": [
+      {
+        "payload": [
+          {
+            "person_id": "X",
+            "company_id": "A",
+            "display_name": "X"
+          }
+        ]
+      }
+    ]
+  },
+  "account": {
+    "claim": {
+      "status": 200,
+      "body": {
+        "rows": [
+          {
+            "id": "debt-X-A",
+            "kind": "debt",
+            "amount": 30,
+            "currency": "credit",
+            "person_id": "X",
+            "remaining": 30,
+            "data_company_id": "A"
+          }
+        ],
+        "count": 1,
+        "meta": {
+          "candidate": "casbin",
+          "instance": "28192",
+          "pid": 28192,
+          "pubsub": false,
+          "requestAt": "2026-09-22T23:22:25.827Z",
+          "responseAt": "2026-09-22T23:22:25.835Z",
+          "elapsedMs": 8.004375000000039,
+          "authorityObservedAt": "2026-09-22T23:22:25.966Z",
+          "observedRevision": 1790119192223,
+          "queryCount": 21
+        }
+      }
+    },
+    "storedChunks": [
+      {
+        "payload": [
+          {
+            "id": "debt-X-A",
+            "kind": "debt",
+            "amount": 30,
+            "currency": "credit",
+            "person_id": "X",
+            "remaining": 30,
+            "data_company_id": "A"
+          }
+        ]
+      }
+    ]
+  },
+  "accountLegacy": {
+    "first": {
+      "status": 200,
+      "body": {
+        "rows": [
+          {
+            "id": "debt-X-A",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "debt",
+            "amount": 30,
+            "remaining": 30
+          },
+          {
+            "id": "t5-entry-001",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-002",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-003",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-004",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-005",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-006",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-007",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-008",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-009",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-010",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-011",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-012",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-013",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-014",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-015",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-016",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-017",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-018",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-019",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-020",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-021",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-022",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-023",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-024",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-025",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-026",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-027",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-028",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-029",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-030",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-031",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-032",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-033",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-034",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-035",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-036",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-037",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-038",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-039",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-040",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-041",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-042",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-043",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-044",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-045",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-046",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-047",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-048",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-049",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-050",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-051",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-052",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-053",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-054",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-055",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-056",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-057",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-058",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-059",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-060",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-061",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-062",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-063",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-064",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-065",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-066",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-067",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-068",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-069",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-070",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-071",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-072",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-073",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-074",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-075",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-076",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-077",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-078",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-079",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-080",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-081",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-082",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-083",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-084",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-085",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-086",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-087",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-088",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-089",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-090",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-091",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-092",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-093",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-094",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-095",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-096",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-097",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-098",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-099",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-100",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-101",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-102",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-103",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-104",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-105",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-106",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-107",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-108",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-109",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-110",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-111",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-112",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-113",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-114",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-115",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-116",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-117",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-118",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-119",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-120",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-121",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-122",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-123",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-124",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-125",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-126",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-127",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-128",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-129",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-130",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-131",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-132",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-133",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-134",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-135",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-136",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-137",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-138",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-139",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-140",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-141",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-142",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-143",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-144",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-145",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-146",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-147",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-148",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-149",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-150",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-151",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-152",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-153",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-154",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-155",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-156",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-157",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-158",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-159",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-160",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-161",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-162",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-163",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-164",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-165",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-166",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-167",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-168",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-169",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-170",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-171",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-172",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-173",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-174",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-175",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-176",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-177",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-178",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-179",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-180",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-181",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-182",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-183",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-184",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-185",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-186",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-187",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-188",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-189",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-190",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-191",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-192",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-193",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-194",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-195",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-196",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-197",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-198",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-199",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          }
+        ],
+        "count": 206,
+        "revision": 1790119192223,
+        "nextOffset": 200,
+        "meta": {
+          "candidate": "casbin",
+          "instance": "28192",
+          "pid": 28192,
+          "pubsub": false,
+          "requestAt": "2026-09-22T23:22:25.839Z",
+          "responseAt": "2026-09-22T23:22:25.845Z",
+          "elapsedMs": 5.759667000000036,
+          "authorityObservedAt": "2026-09-22T23:22:25.977Z",
+          "observedRevision": 1790119192223,
+          "queryCount": 12
+        }
+      }
+    },
+    "next": {
+      "status": 200,
+      "body": {
+        "rows": [
+          {
+            "id": "t5-entry-200",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-201",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-202",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-203",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-204",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          },
+          {
+            "id": "t5-entry-205",
+            "person_id": "X",
+            "data_company_id": "A",
+            "currency": "credit",
+            "kind": "reward",
+            "amount": 1,
+            "remaining": 1
+          }
+        ],
+        "count": 206,
+        "revision": 1790119192223,
+        "meta": {
+          "candidate": "casbin",
+          "instance": "28192",
+          "pid": 28192,
+          "pubsub": false,
+          "requestAt": "2026-09-22T23:22:25.846Z",
+          "responseAt": "2026-09-22T23:22:25.851Z",
+          "elapsedMs": 5.387499999999989,
+          "authorityObservedAt": "2026-09-22T23:22:25.983Z",
+          "observedRevision": 1790119192223,
+          "queryCount": 12
+        }
+      }
+    }
+  },
+  "logs": "{\"ready\":true,\"port\":\"4311\",\"candidate\":\"casbin\",\"instance\":28192,\"pubsub\":false}\n"
+}

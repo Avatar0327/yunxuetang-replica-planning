@@ -1,0 +1,14 @@
+{"candidate":"native","name":"signed media ticket create real HTTP","expected":200,"actual":200,"at":"2026-09-22T23:12:15.225Z"}
+{"candidate":"native","name":"signed media exact segment before revoke","expected":200,"actual":200,"at":"2026-09-22T23:12:15.245Z"}
+{"candidate":"native","name":"signed media wrong binding denies L /projects/P/media/8","expected":403,"actual":403,"at":"2026-09-22T23:12:15.251Z"}
+{"candidate":"native","name":"signed media wrong binding denies L /projects/Q/media/7","expected":403,"actual":403,"at":"2026-09-22T23:12:15.256Z"}
+{"candidate":"native","name":"signed media wrong binding denies Z /projects/P/media/7","expected":403,"actual":403,"at":"2026-09-22T23:12:15.264Z"}
+{"candidate":"native","name":"signed media wrong binding denies L /projects/P/media/7","expected":403,"actual":403,"at":"2026-09-22T23:12:15.269Z"}
+{"candidate":"native","name":"old signed ticket after revoke next request no bytes","expected":{"status":403,"fragment":null},"actual":{"status":403,"fragment":null},"at":"2026-09-22T23:12:15.282Z"}
+{"candidate":"casbin","name":"signed media ticket create real HTTP","expected":200,"actual":200,"at":"2026-09-22T23:12:15.928Z"}
+{"candidate":"casbin","name":"signed media exact segment before revoke","expected":200,"actual":200,"at":"2026-09-22T23:12:15.948Z"}
+{"candidate":"casbin","name":"signed media wrong binding denies L /projects/P/media/8","expected":403,"actual":403,"at":"2026-09-22T23:12:15.954Z"}
+{"candidate":"casbin","name":"signed media wrong binding denies L /projects/Q/media/7","expected":403,"actual":403,"at":"2026-09-22T23:12:15.960Z"}
+{"candidate":"casbin","name":"signed media wrong binding denies Z /projects/P/media/7","expected":403,"actual":403,"at":"2026-09-22T23:12:15.972Z"}
+{"candidate":"casbin","name":"signed media wrong binding denies L /projects/P/media/7","expected":403,"actual":403,"at":"2026-09-22T23:12:15.979Z"}
+{"candidate":"casbin","name":"old signed ticket after revoke next request no bytes","expected":{"status":403,"fragment":null},"actual":{"status":403,"fragment":null},"at":"2026-09-22T23:12:15.995Z"}

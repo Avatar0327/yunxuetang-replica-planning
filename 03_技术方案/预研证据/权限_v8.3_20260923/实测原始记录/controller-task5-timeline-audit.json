@@ -1,0 +1,58 @@
+{
+  "source": "evidence/raw/task5-final4-timeline.jsonl",
+  "source_sha256": "dbf2cba74774062f2dee0192dc0cc8cf7f85d3325d4e00ebb717f5ede48d0ff9",
+  "results": [
+    {
+      "candidate": "native",
+      "line": 1,
+      "checks": {
+        "two_processes": true,
+        "B_previously_warm": true,
+        "pubsub_absent": true,
+        "revision_increment": true,
+        "different_transaction": true,
+        "host_request_after_revoke_ack": true,
+        "DB_authority_read_after_commit": true,
+        "new_revision_observed": true,
+        "denied_without_business_payload": true
+      },
+      "all_checks": true,
+      "A": "27529",
+      "B": "27512",
+      "db_xmin": "14304",
+      "db_commit": "2026-09-22T23:16:14.103Z",
+      "host_revoke_ack": "2026-09-22T23:16:13.993Z",
+      "host_next_request": "2026-09-22T23:16:13.994Z",
+      "db_next_authority_read": "2026-09-22T23:16:14.108Z",
+      "old_revision": "1790118945615",
+      "new_revision": "1790118945616"
+    },
+    {
+      "candidate": "casbin",
+      "line": 2,
+      "checks": {
+        "two_processes": true,
+        "B_previously_warm": true,
+        "pubsub_absent": true,
+        "revision_increment": true,
+        "different_transaction": true,
+        "host_request_after_revoke_ack": true,
+        "DB_authority_read_after_commit": true,
+        "new_revision_observed": true,
+        "denied_without_business_payload": true
+      },
+      "all_checks": true,
+      "A": "27601",
+      "B": "27561",
+      "db_xmin": "14394",
+      "db_commit": "2026-09-22T23:16:27.159Z",
+      "host_revoke_ack": "2026-09-22T23:16:27.006Z",
+      "host_next_request": "2026-09-22T23:16:27.007Z",
+      "db_next_authority_read": "2026-09-22T23:16:27.164Z",
+      "old_revision": "1790118945620",
+      "new_revision": "1790118945621"
+    }
+  ],
+  "all_checks": true,
+  "limitation": "Controller audit of captured sole-writer media revocation timelines. L2 key existence is separate observed evidence. No direct raw host/DB wallclock ordering inference."
+}

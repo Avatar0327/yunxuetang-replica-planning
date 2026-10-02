@@ -1,0 +1,20 @@
+▶ native: live domain security boundaries
+  ✔ forced ancestor denies newly supplied child grants (35.075375ms)
+  ✔ category grants require selected source delegability (8.73225ms)
+  ✔ recipient own department cannot expand source actual objects (24.22225ms)
+  ✔ source shrink atomically freezes derived membership (26.197583ms)
+✔ native: live domain security boundaries (646.861125ms)
+▶ casbin: live domain security boundaries
+  ✔ forced ancestor denies newly supplied child grants (26.077333ms)
+  ✔ category grants require selected source delegability (9.426833ms)
+  ✔ recipient own department cannot expand source actual objects (22.580541ms)
+  ✔ source shrink atomically freezes derived membership (21.571417ms)
+✔ casbin: live domain security boundaries (375.702084ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1135.625292

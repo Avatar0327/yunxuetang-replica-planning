@@ -1,0 +1,32 @@
+▶ native: company/currency wallet and true positive offset
+  ✔ own split wallet (33.888834ms)
+  ✔ cross-company denied positive same-company works (35.500833ms)
+  ✔ management source and export stay company-bound (16.804792ms)
+✔ native: company/currency wallet and true positive offset (408.603709ms)
+▶ casbin: company/currency wallet and true positive offset
+  ✔ own split wallet (20.186666ms)
+  ✔ cross-company denied positive same-company works (43.517125ms)
+  ✔ management source and export stay company-bound (16.245834ms)
+✔ casbin: company/currency wallet and true positive offset (370.472458ms)
+✔ native: current person state and immutable snapshots (555.340208ms)
+✔ casbin: current person state and immutable snapshots (559.603125ms)
+▶ native: Task4 organization contract
+  ✔ physical company-qualified department (10.341083ms)
+  ✔ physical hierarchy and scale (72.458666ms)
+  ✔ clear nullable current relationships (14.430083ms)
+  ✔ cross-company person department rejected (1.507917ms)
+✔ native: Task4 organization contract (387.128084ms)
+▶ casbin: Task4 organization contract
+  ✔ physical company-qualified department (2.042667ms)
+  ✔ physical hierarchy and scale (63.599375ms)
+  ✔ clear nullable current relationships (15.042125ms)
+  ✔ cross-company person department rejected (1.314584ms)
+✔ casbin: Task4 organization contract (392.957ms)
+ℹ tests 20
+ℹ suites 0
+ℹ pass 20
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2954.138375

@@ -1,0 +1,24 @@
+- generic [ref=f1e1]:
+  - generic [ref=f1e2]:
+    - banner [ref=f1e3]: 云学堂 权限预研 · 合成数据
+    - main [ref=f1e4]:
+      - heading "学习中心" [level=1] [ref=f1e5]
+      - generic [ref=f1e6]:
+        - generic [ref=f1e8] [cursor=pointer]:
+          - generic:
+            - combobox [expanded] [active] [ref=f1e10]
+            - generic [ref=f1e11]: 测试身份 L
+        - button "刷新权限" [ref=f1e16] [cursor=pointer]
+        - button "返回学员端" [ref=f1e18] [cursor=pointer]
+      - generic [ref=f1e20]:
+        - generic [ref=f1e21]: 项目直达
+        - textbox "项目编号" [ref=f1e24]: P
+        - button "打开项目" [ref=f1e25] [cursor=pointer]
+      - paragraph [ref=f1e47]: 当前没有管理任务，你可以继续学习。
+  - tooltip "测试身份 L" [ref=f1e48]:
+    - listbox [ref=f1e52]:
+      - option "测试身份 L" [selected] [ref=f1e53] [cursor=pointer]
+      - option "测试身份 M" [ref=f1e54] [cursor=pointer]
+      - option "测试身份 X" [ref=f1e55] [cursor=pointer]
+      - option "测试身份 Y" [ref=f1e56] [cursor=pointer]
+      - option "测试身份 Z" [ref=f1e57] [cursor=pointer]

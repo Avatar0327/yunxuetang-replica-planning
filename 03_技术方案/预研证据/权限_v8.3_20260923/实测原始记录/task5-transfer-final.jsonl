@@ -1,0 +1,20 @@
+{"candidate":"native","name":"valid customer A sees only old A enrollment snapshot","expected":[{"person_id":"X","company_id":"A","display_name":"X"}],"actual":[{"person_id":"X","company_id":"A","display_name":"X"}],"at":"2026-09-22T23:24:20.270Z"}
+{"candidate":"native","name":"current person node absent before independent role","expected":403,"actual":403,"at":"2026-09-22T23:24:20.277Z"}
+{"candidate":"native","name":"current B person requires independent current-person authorization","expected":["X"],"actual":["X"],"at":"2026-09-22T23:24:20.285Z"}
+{"candidate":"native","name":"current person projection changed while enrollment snapshot stayed A","expected":{"company_id":"B","display_name":"new-B-X"},"actual":{"company_id":"B","display_name":"new-B-X"},"at":"2026-09-22T23:24:20.286Z"}
+{"candidate":"native","name":"old enrollment keeps captured name","expected":{"person_id":"X","company_id":"A","display_name":"X"},"actual":{"person_id":"X","company_id":"A","display_name":"X"},"at":"2026-09-22T23:24:20.295Z"}
+{"candidate":"native","name":"enrollment search cannot reveal transferred current name","expected":[],"actual":[],"at":"2026-09-22T23:24:20.301Z"}
+{"candidate":"native","name":"new company cannot acquire old enrollment","expected":["Y"],"actual":["Y"],"at":"2026-09-22T23:24:20.310Z"}
+{"candidate":"native","name":"new company old progress denies","expected":403,"actual":403,"at":"2026-09-22T23:24:20.315Z"}
+{"candidate":"native","name":"new company old attachment denies","expected":403,"actual":403,"at":"2026-09-22T23:24:20.324Z"}
+{"candidate":"native","name":"export captured enrollment name","expected":"X","actual":"X","at":"2026-09-22T23:24:20.366Z"}
+{"candidate":"casbin","name":"valid customer A sees only old A enrollment snapshot","expected":[{"person_id":"X","company_id":"A","display_name":"X"}],"actual":[{"person_id":"X","company_id":"A","display_name":"X"}],"at":"2026-09-22T23:24:20.784Z"}
+{"candidate":"casbin","name":"current person node absent before independent role","expected":403,"actual":403,"at":"2026-09-22T23:24:20.789Z"}
+{"candidate":"casbin","name":"current B person requires independent current-person authorization","expected":["X"],"actual":["X"],"at":"2026-09-22T23:24:20.797Z"}
+{"candidate":"casbin","name":"current person projection changed while enrollment snapshot stayed A","expected":{"company_id":"B","display_name":"new-B-X"},"actual":{"company_id":"B","display_name":"new-B-X"},"at":"2026-09-22T23:24:20.798Z"}
+{"candidate":"casbin","name":"old enrollment keeps captured name","expected":{"person_id":"X","company_id":"A","display_name":"X"},"actual":{"person_id":"X","company_id":"A","display_name":"X"},"at":"2026-09-22T23:24:20.807Z"}
+{"candidate":"casbin","name":"enrollment search cannot reveal transferred current name","expected":[],"actual":[],"at":"2026-09-22T23:24:20.813Z"}
+{"candidate":"casbin","name":"new company cannot acquire old enrollment","expected":["Y"],"actual":["Y"],"at":"2026-09-22T23:24:20.822Z"}
+{"candidate":"casbin","name":"new company old progress denies","expected":403,"actual":403,"at":"2026-09-22T23:24:20.827Z"}
+{"candidate":"casbin","name":"new company old attachment denies","expected":403,"actual":403,"at":"2026-09-22T23:24:20.836Z"}
+{"candidate":"casbin","name":"export captured enrollment name","expected":"X","actual":"X","at":"2026-09-22T23:24:20.881Z"}

@@ -1,0 +1,18 @@
+{"candidate":"native","name":"signed media ticket create real HTTP","expected":200,"actual":200,"at":"2026-09-22T23:20:35.747Z"}
+{"candidate":"native","name":"signed media exact segment before revoke","expected":200,"actual":200,"at":"2026-09-22T23:20:35.767Z"}
+{"candidate":"native","name":"signed media wrong binding denies L /projects/P/media/8","expected":403,"actual":403,"at":"2026-09-22T23:20:35.773Z"}
+{"candidate":"native","name":"signed media wrong binding denies L /projects/Q/media/7","expected":403,"actual":403,"at":"2026-09-22T23:20:35.779Z"}
+{"candidate":"native","name":"signed media wrong binding denies Z /projects/P/media/7","expected":403,"actual":403,"at":"2026-09-22T23:20:35.787Z"}
+{"candidate":"native","name":"signed media wrong binding denies L /projects/P/media/7","expected":403,"actual":403,"at":"2026-09-22T23:20:35.792Z"}
+{"candidate":"native","name":"valid signature with expired or wrong-tenant binding denies {\"expires\":0}","expected":403,"actual":403,"at":"2026-09-22T23:20:35.797Z"}
+{"candidate":"native","name":"valid signature with expired or wrong-tenant binding denies {\"tenantId\":\"T2\"}","expected":403,"actual":403,"at":"2026-09-22T23:20:35.802Z"}
+{"candidate":"native","name":"old signed ticket after revoke next request no bytes","expected":{"status":403,"fragment":null},"actual":{"status":403,"fragment":null},"at":"2026-09-22T23:20:35.815Z"}
+{"candidate":"casbin","name":"signed media ticket create real HTTP","expected":200,"actual":200,"at":"2026-09-22T23:20:36.464Z"}
+{"candidate":"casbin","name":"signed media exact segment before revoke","expected":200,"actual":200,"at":"2026-09-22T23:20:36.483Z"}
+{"candidate":"casbin","name":"signed media wrong binding denies L /projects/P/media/8","expected":403,"actual":403,"at":"2026-09-22T23:20:36.489Z"}
+{"candidate":"casbin","name":"signed media wrong binding denies L /projects/Q/media/7","expected":403,"actual":403,"at":"2026-09-22T23:20:36.495Z"}
+{"candidate":"casbin","name":"signed media wrong binding denies Z /projects/P/media/7","expected":403,"actual":403,"at":"2026-09-22T23:20:36.510Z"}
+{"candidate":"casbin","name":"signed media wrong binding denies L /projects/P/media/7","expected":403,"actual":403,"at":"2026-09-22T23:20:36.516Z"}
+{"candidate":"casbin","name":"valid signature with expired or wrong-tenant binding denies {\"expires\":0}","expected":403,"actual":403,"at":"2026-09-22T23:20:36.521Z"}
+{"candidate":"casbin","name":"valid signature with expired or wrong-tenant binding denies {\"tenantId\":\"T2\"}","expected":403,"actual":403,"at":"2026-09-22T23:20:36.527Z"}
+{"candidate":"casbin","name":"old signed ticket after revoke next request no bytes","expected":{"status":403,"fragment":null},"actual":{"status":403,"fragment":null},"at":"2026-09-22T23:20:36.542Z"}

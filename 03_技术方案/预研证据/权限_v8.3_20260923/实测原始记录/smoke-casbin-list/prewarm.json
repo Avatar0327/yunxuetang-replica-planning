@@ -1,0 +1,52 @@
+[
+  {
+    "url": "http://127.0.0.1:4311",
+    "status": 200,
+    "evidence": {
+      "candidate": "casbin",
+      "revision": 1790106653812,
+      "sourceIds": [
+        "role:m-broad:personal-learning:report.personal-learning.view",
+        "role:m-dept:personal-learning:report.personal-learning.view"
+      ],
+      "permissionMs": 10.230876000001444,
+      "dataMs": 6.522624999997788,
+      "cache": "cold"
+    },
+    "meta": {
+      "candidate": "casbin",
+      "instance": "A",
+      "pid": 10847,
+      "pubsub": false,
+      "requestAt": "2026-09-22T19:51:53.377Z",
+      "responseAt": "2026-09-22T19:51:53.394Z",
+      "elapsedMs": 16.778666999998677,
+      "queryCount": 10
+    }
+  },
+  {
+    "url": "http://127.0.0.1:4312",
+    "status": 200,
+    "evidence": {
+      "candidate": "casbin",
+      "revision": 1790106653812,
+      "sourceIds": [
+        "role:m-broad:personal-learning:report.personal-learning.view",
+        "role:m-dept:personal-learning:report.personal-learning.view"
+      ],
+      "permissionMs": 8.365750000004482,
+      "dataMs": 4.611417000000074,
+      "cache": "L2"
+    },
+    "meta": {
+      "candidate": "casbin",
+      "instance": "B",
+      "pid": 10870,
+      "pubsub": false,
+      "requestAt": "2026-09-22T19:51:53.398Z",
+      "responseAt": "2026-09-22T19:51:53.411Z",
+      "elapsedMs": 13.00008400000661,
+      "queryCount": 8
+    }
+  }
+]

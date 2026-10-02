@@ -1,0 +1,120 @@
+{
+  "started_at": "2026-09-23T11:27:18.431880+08:00",
+  "input_baseline": "v8.3",
+  "input_verified": 65,
+  "rebaseline_performed": false,
+  "previous_B_business_review": "accepted_NoGo",
+  "candidate": "native",
+  "casbin_rerun_authorized": false,
+  "timebox_person_days": [
+    2,
+    4
+  ],
+  "formal_B1_started": false,
+  "prototype_reuse_credit": 0,
+  "current_phase": "delivered_no_go_optimization_stopped",
+  "stage1_attribution_delivered": true,
+  "stage2_started": true,
+  "permission_gate": "NO_GO",
+  "normal_failure_rate_limit": 0.001,
+  "scope_exclusions": [
+    "10000learners_capacity",
+    "real_media_gateway",
+    "OSS_CDN",
+    "disaster_recovery"
+  ],
+  "local_prototype_repository": "/Users/peng/Agent本地开发/云学堂权限预研",
+  "branch": "spike/native-performance-v83",
+  "formal_business_repository": null,
+  "configured_remotes": [],
+  "plan_commit": "abbb971",
+  "human_signature": null,
+  "historical_failure_ruling": {
+    "at": "2026-09-23T11:48:33.104086+08:00",
+    "user_accepted": true,
+    "old_503": 1789,
+    "old_transport": 244,
+    "status": "root_cause_unrecoverable_preserved",
+    "stage2_basis": "complete_new_Native_same_resource_attribution_after_standalone_stage1_delivery"
+  },
+  "observational_source_commit": "b3ea7781deb481b4f6db9e64189a182d2f879944",
+  "instrumentation_review": "PASS_M1_corrected",
+  "last_updated_at": "2026-09-23T16:21:17.372082+08:00",
+  "stage1_report": "03_技术方案/14_Native性能归因报告.md",
+  "stage1_delivery_commit": "ec2e61662d7947f33bd67e7db96917f123e6fd9d",
+  "candidate1_application_commit": "bc09202a7dd13ca79d75ff60034fda9d36f4569b",
+  "candidate1_measurement_commit": "9f9fe1f399b97c0c9f4bed25bee58c98e41c2007",
+  "candidate1_review": "PASS_minor_documentation_corrected",
+  "candidate1_hot": {
+    "total": 10482,
+    "success": 10425,
+    "http503": 57,
+    "transport": 0,
+    "audit": "complete_0issues",
+    "gate": "NoGo"
+  },
+  "candidate1_cold": {
+    "total": 9077,
+    "success": 8937,
+    "http503": 133,
+    "transport": 7,
+    "audit": "complete_0issues_transport_analysis_v3",
+    "gate": "NoGo"
+  },
+  "candidate1_regression": {
+    "source": "b95e5f4faade6c2728c3e9f620ae27a8eb1b3c77",
+    "tests_pass": 55,
+    "literal_observations": 456,
+    "http_observations": 497
+  },
+  "candidate2_plan_commit": "9645980",
+  "optimization_candidates_max": 2,
+  "candidate2_application_commit": "d8c294f",
+  "candidate2_measurement_commit": "dfa6341a45e55ef75292dce5cb50948cffdbac46",
+  "candidate2_review": "PASS",
+  "optimization_source_frozen": true,
+  "candidate2_hot": {
+    "total": 7789,
+    "success": 7454,
+    "http503": 335,
+    "transport": 0,
+    "pool_acquire_timeouts": 103,
+    "sql_57014": 232,
+    "audit": "complete_0issues",
+    "gate": "NoGo"
+  },
+  "optimization_stopped": true,
+  "candidate2_cold": {
+    "total": 8301,
+    "success": 8136,
+    "http503": 165,
+    "transport": 0,
+    "pool_acquire_timeouts": 55,
+    "sql_57014": 110,
+    "audit": "complete_0issues",
+    "gate": "NoGo"
+  },
+  "candidate2_regression": {
+    "source": "dfa6341a45e55ef75292dce5cb50948cffdbac46",
+    "tests_pass": 55,
+    "literal_observations": 456,
+    "http_observations": 498
+  },
+  "cost_diagnostic": {
+    "source": "817256bf1e1fc722aaa5f0c21878e84fe8df1306",
+    "cells": 32,
+    "trials": 640,
+    "failures": 0,
+    "full_population_audits": 16,
+    "business_concessions_adopted": []
+  },
+  "final_report": "03_技术方案/15_Native权限性能整改报告.md",
+  "delivery_verified": true,
+  "final_content_review": "PASS_no_outstanding_findings",
+  "finished_at": "2026-09-23T16:21:17.372072+08:00",
+  "final_source_commit": "817256bf1e1fc722aaa5f0c21878e84fe8df1306",
+  "archived_raw_files": 811,
+  "delivery_checks": 206,
+  "business_concessions_adopted": [],
+  "final_verification_note": "v2 script corrects Git quoted Chinese path comparison; original source unchanged, false alarm retained."
+}

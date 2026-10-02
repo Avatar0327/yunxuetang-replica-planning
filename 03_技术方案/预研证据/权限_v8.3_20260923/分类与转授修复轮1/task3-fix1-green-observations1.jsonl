@@ -1,0 +1,54 @@
+{"candidate":"native","name":"R1 initial customer assignment","expected":200,"actual":200,"at":"2026-09-22T21:18:30.161Z"}
+{"candidate":"native","name":"R1 original source remains active","expected":"system_origin","actual":"system_origin","at":"2026-09-22T21:18:30.164Z"}
+{"candidate":"native","name":"R1 revoke A then Z recheck suspended","expected":{"status":200,"state":"suspended"},"actual":{"status":200,"state":"suspended"},"at":"2026-09-22T21:18:30.176Z"}
+{"candidate":"native","name":"R1 restored source company recheck active","expected":{"status":200,"state":"active"},"actual":{"status":200,"state":"active"},"at":"2026-09-22T21:18:30.193Z"}
+{"candidate":"native","name":"R2 D1 grantor D2 cap to D2 ownDept create","expected":200,"actual":200,"at":"2026-09-22T21:18:30.212Z"}
+{"candidate":"native","name":"R2 literal recipient objects","expected":["B","E","N"],"actual":["B","E","N"],"at":"2026-09-22T21:18:30.212Z"}
+{"candidate":"native","name":"R2 relative edit","expected":200,"actual":200,"at":"2026-09-22T21:18:30.230Z"}
+{"candidate":"native","name":"R2 relative add member","expected":200,"actual":200,"at":"2026-09-22T21:18:30.245Z"}
+{"candidate":"native","name":"R2 second recipient cap","expected":["B","E","N"],"actual":["B","E","N"],"at":"2026-09-22T21:18:30.245Z"}
+{"candidate":"native","name":"R2 relative recheck","expected":{"status":200,"state":"active","cap":["B","E","N"]},"actual":{"status":200,"state":"active","cap":["B","E","N"]},"at":"2026-09-22T21:18:30.263Z"}
+{"candidate":"native","name":"R2 empty recipient preserves field ceiling","expected":403,"actual":403,"at":"2026-09-22T21:18:30.270Z"}
+{"candidate":"native","name":"R2 empty recipient preserves action ceiling","expected":403,"actual":403,"at":"2026-09-22T21:18:30.274Z"}
+{"candidate":"native","name":"R2 empty recipient preserves delegability","expected":403,"actual":403,"at":"2026-09-22T21:18:30.282Z"}
+{"candidate":"native","name":"R3 selected SELF custom own course","expected":200,"actual":200,"at":"2026-09-22T21:18:30.305Z"}
+{"candidate":"native","name":"R3 saved affected course cap","expected":["review-8a909eec-57e3-4e97-a2a4-e5f6aeecaf97own"],"actual":["review-8a909eec-57e3-4e97-a2a4-e5f6aeecaf97own"],"at":"2026-09-22T21:18:30.305Z"}
+{"candidate":"native","name":"R3 custom subject can browse own course","expected":200,"actual":200,"at":"2026-09-22T21:18:30.313Z"}
+{"candidate":"native","name":"R3 cannot borrow maintain role to grant other uploader","expected":403,"actual":403,"at":"2026-09-22T21:18:30.329Z"}
+{"candidate":"native","name":"R3 custom recheck retains target-only set","expected":{"status":200,"state":"active"},"actual":{"status":200,"state":"active"},"at":"2026-09-22T21:18:30.347Z"}
+{"candidate":"native","name":"R4 source maintains inaccessible","expected":200,"actual":200,"at":"2026-09-22T21:18:30.357Z"}
+{"candidate":"native","name":"R4 inaccessible delegation create","expected":200,"actual":200,"at":"2026-09-22T21:18:30.372Z"}
+{"candidate":"native","name":"R4 recipient maintains inaccessible","expected":200,"actual":200,"at":"2026-09-22T21:18:30.379Z"}
+{"candidate":"native","name":"R4 maintenance survives valid recheck","expected":"active","actual":"active","at":"2026-09-22T21:18:30.397Z"}
+{"candidate":"native","name":"R4 inaccessible M browse denied","expected":403,"actual":403,"at":"2026-09-22T21:18:30.405Z"}
+{"candidate":"native","name":"R4 inaccessible M download denied","expected":403,"actual":403,"at":"2026-09-22T21:18:30.414Z"}
+{"candidate":"native","name":"R4 inaccessible L browse denied","expected":403,"actual":403,"at":"2026-09-22T21:18:30.421Z"}
+{"candidate":"native","name":"R4 inaccessible L download denied","expected":403,"actual":403,"at":"2026-09-22T21:18:30.430Z"}
+{"candidate":"native","name":"R4 recipient can restore accessible state","expected":200,"actual":200,"at":"2026-09-22T21:18:30.440Z"}
+{"candidate":"casbin","name":"R1 initial customer assignment","expected":200,"actual":200,"at":"2026-09-22T21:18:30.762Z"}
+{"candidate":"casbin","name":"R1 original source remains active","expected":"system_origin","actual":"system_origin","at":"2026-09-22T21:18:30.763Z"}
+{"candidate":"casbin","name":"R1 revoke A then Z recheck suspended","expected":{"status":200,"state":"suspended"},"actual":{"status":200,"state":"suspended"},"at":"2026-09-22T21:18:30.774Z"}
+{"candidate":"casbin","name":"R1 restored source company recheck active","expected":{"status":200,"state":"active"},"actual":{"status":200,"state":"active"},"at":"2026-09-22T21:18:30.789Z"}
+{"candidate":"casbin","name":"R2 D1 grantor D2 cap to D2 ownDept create","expected":200,"actual":200,"at":"2026-09-22T21:18:30.806Z"}
+{"candidate":"casbin","name":"R2 literal recipient objects","expected":["B","E","N"],"actual":["B","E","N"],"at":"2026-09-22T21:18:30.807Z"}
+{"candidate":"casbin","name":"R2 relative edit","expected":200,"actual":200,"at":"2026-09-22T21:18:30.824Z"}
+{"candidate":"casbin","name":"R2 relative add member","expected":200,"actual":200,"at":"2026-09-22T21:18:30.840Z"}
+{"candidate":"casbin","name":"R2 second recipient cap","expected":["B","E","N"],"actual":["B","E","N"],"at":"2026-09-22T21:18:30.841Z"}
+{"candidate":"casbin","name":"R2 relative recheck","expected":{"status":200,"state":"active","cap":["B","E","N"]},"actual":{"status":200,"state":"active","cap":["B","E","N"]},"at":"2026-09-22T21:18:30.858Z"}
+{"candidate":"casbin","name":"R2 empty recipient preserves field ceiling","expected":403,"actual":403,"at":"2026-09-22T21:18:30.867Z"}
+{"candidate":"casbin","name":"R2 empty recipient preserves action ceiling","expected":403,"actual":403,"at":"2026-09-22T21:18:30.872Z"}
+{"candidate":"casbin","name":"R2 empty recipient preserves delegability","expected":403,"actual":403,"at":"2026-09-22T21:18:30.879Z"}
+{"candidate":"casbin","name":"R3 selected SELF custom own course","expected":200,"actual":200,"at":"2026-09-22T21:18:30.906Z"}
+{"candidate":"casbin","name":"R3 saved affected course cap","expected":["review-1d46bbbf-3d39-4ce5-8821-53abcf154c0cown"],"actual":["review-1d46bbbf-3d39-4ce5-8821-53abcf154c0cown"],"at":"2026-09-22T21:18:30.907Z"}
+{"candidate":"casbin","name":"R3 custom subject can browse own course","expected":200,"actual":200,"at":"2026-09-22T21:18:30.915Z"}
+{"candidate":"casbin","name":"R3 cannot borrow maintain role to grant other uploader","expected":403,"actual":403,"at":"2026-09-22T21:18:30.935Z"}
+{"candidate":"casbin","name":"R3 custom recheck retains target-only set","expected":{"status":200,"state":"active"},"actual":{"status":200,"state":"active"},"at":"2026-09-22T21:18:30.955Z"}
+{"candidate":"casbin","name":"R4 source maintains inaccessible","expected":200,"actual":200,"at":"2026-09-22T21:18:30.970Z"}
+{"candidate":"casbin","name":"R4 inaccessible delegation create","expected":200,"actual":200,"at":"2026-09-22T21:18:30.986Z"}
+{"candidate":"casbin","name":"R4 recipient maintains inaccessible","expected":200,"actual":200,"at":"2026-09-22T21:18:30.994Z"}
+{"candidate":"casbin","name":"R4 maintenance survives valid recheck","expected":"active","actual":"active","at":"2026-09-22T21:18:31.012Z"}
+{"candidate":"casbin","name":"R4 inaccessible M browse denied","expected":403,"actual":403,"at":"2026-09-22T21:18:31.024Z"}
+{"candidate":"casbin","name":"R4 inaccessible M download denied","expected":403,"actual":403,"at":"2026-09-22T21:18:31.037Z"}
+{"candidate":"casbin","name":"R4 inaccessible L browse denied","expected":403,"actual":403,"at":"2026-09-22T21:18:31.045Z"}
+{"candidate":"casbin","name":"R4 inaccessible L download denied","expected":403,"actual":403,"at":"2026-09-22T21:18:31.055Z"}
+{"candidate":"casbin","name":"R4 recipient can restore accessible state","expected":200,"actual":200,"at":"2026-09-22T21:18:31.065Z"}

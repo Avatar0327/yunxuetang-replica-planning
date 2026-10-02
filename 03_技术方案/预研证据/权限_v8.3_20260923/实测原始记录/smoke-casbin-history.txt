@@ -1,0 +1,5 @@
+
+> permission-v83-spike@0.0.1 benchmark
+> tsx scripts/benchmark.ts
+
+{"startAt":"2026-09-22T19:51:56.772Z","endAt":"2026-09-22T19:51:59.916Z","durationMs":3143.511,"configuredSeconds":3,"concurrency":4,"total":44,"candidate":"casbin","cache":"hot","scenario":"history-broad","phase":"success","urls":["http://127.0.0.1:4311","http://127.0.0.1:4312"],"pageSize":50,"queryCounts":{"5":44},"instances":{"A":23,"B":21},"cacheHits":{"L1":44},"referenceWindow":false,"samplingRatio":1,"success":{"count":44,"p50":281.0105840000001,"p95":388.406917,"p99":394.052167},"denial":{"count":0,"p50":null,"p95":null,"p99":null},"failure":{"count":0,"p50":null,"p95":null,"p99":null},"authorization_error":{"count":0,"p50":null,"p95":null,"p99":null},"permission":{"count":44,"p50":3.1266259999974864,"p95":5.601083000001381,"p99":52.45787500000006},"data":{"count":44,"p50":276.4591250000012,"p95":384.05774999999994,"p99":389.635749999994}}

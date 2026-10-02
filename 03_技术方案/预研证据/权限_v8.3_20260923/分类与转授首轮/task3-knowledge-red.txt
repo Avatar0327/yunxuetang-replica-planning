@@ -1,0 +1,490 @@
+▶ native: knowledge four actions and locked commands
+  ✖ independent knowledge.course.browse (17.119291ms)
+  ✖ independent knowledge.course.maintain (2.5325ms)
+  ✖ independent knowledge.course.distribute (1.017167ms)
+  ✖ independent knowledge.course.download (0.939584ms)
+  ✖ protected download requires only independent capability and current accessibility (0.908167ms)
+  ✖ creator cannot bypass lock via direct (2.289916ms)
+  ✖ creator cannot bypass lock via import (1.250041ms)
+  ✖ creator cannot bypass lock via custom (0.939041ms)
+  ✖ custom replaces browse alone and parent append preserves existing grants (1.056167ms)
+✖ native: knowledge four actions and locked commands (366.608375ms)
+▶ casbin: knowledge four actions and locked commands
+  ✖ independent knowledge.course.browse (3.594125ms)
+  ✖ independent knowledge.course.maintain (0.904ms)
+  ✖ independent knowledge.course.distribute (0.709125ms)
+  ✖ independent knowledge.course.download (0.703916ms)
+  ✖ protected download requires only independent capability and current accessibility (0.730209ms)
+  ✖ creator cannot bypass lock via direct (1.388917ms)
+  ✖ creator cannot bypass lock via import (1.466208ms)
+  ✖ creator cannot bypass lock via custom (0.717417ms)
+  ✖ custom replaces browse alone and parent append preserves existing grants (0.669167ms)
+✖ casbin: knowledge four actions and locked commands (312.411208ms)
+ℹ tests 20
+ℹ suites 0
+ℹ pass 0
+ℹ fail 20
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 774.540375
+
+✖ failing tests:
+
+test at test/task3-knowledge.test.ts:1:1439
+✖ independent knowledge.course.browse (17.119291ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+  +   count: undefined,
+  +   ids: undefined,
+  +   status: 404
+  -   count: 3,
+  -   ids: [
+  -     'know-6f975c86-5d58-4ec1-8090-a9e594a97526browse',
+  -     'know-6f975c86-5d58-4ec1-8090-a9e594a97526classroom',
+  -     'know-6f975c86-5d58-4ec1-8090-a9e594a97526public'
+  -   ],
+  -   status: 200
+    }
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-knowledge.test.ts:17:4)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-knowledge.test.ts:14:121)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { status: 404, ids: undefined, count: undefined },
+    expected: { status: 200, ids: [ 'know-6f975c86-5d58-4ec1-8090-a9e594a97526browse', 'know-6f975c86-5d58-4ec1-8090-a9e594a97526classroom', 'know-6f975c86-5d58-4ec1-8090-a9e594a97526public' ], count: 3 },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task3-knowledge.test.ts:1:1439
+✖ independent knowledge.course.maintain (2.5325ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+  +   count: undefined,
+  +   ids: undefined,
+  +   status: 404
+  -   count: 1,
+  -   ids: [
+  -     'know-6f975c86-5d58-4ec1-8090-a9e594a97526maintain'
+  -   ],
+  -   status: 200
+    }
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-knowledge.test.ts:17:4)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-knowledge.test.ts:14:121)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { status: 404, ids: undefined, count: undefined },
+    expected: { status: 200, ids: [ 'know-6f975c86-5d58-4ec1-8090-a9e594a97526maintain' ], count: 1 },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task3-knowledge.test.ts:1:1439
+✖ independent knowledge.course.distribute (1.017167ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+  +   count: undefined,
+  +   ids: undefined,
+  +   status: 404
+  -   count: 1,
+  -   ids: [
+  -     'know-6f975c86-5d58-4ec1-8090-a9e594a97526distribute'
+  -   ],
+  -   status: 200
+    }
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-knowledge.test.ts:17:4)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-knowledge.test.ts:14:121)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { status: 404, ids: undefined, count: undefined },
+    expected: { status: 200, ids: [ 'know-6f975c86-5d58-4ec1-8090-a9e594a97526distribute' ], count: 1 },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task3-knowledge.test.ts:1:1439
+✖ independent knowledge.course.download (0.939584ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+  +   count: undefined,
+  +   ids: undefined,
+  +   status: 404
+  -   count: 1,
+  -   ids: [
+  -     'know-6f975c86-5d58-4ec1-8090-a9e594a97526download'
+  -   ],
+  -   status: 200
+    }
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-knowledge.test.ts:17:4)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-knowledge.test.ts:14:121)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { status: 404, ids: undefined, count: undefined },
+    expected: { status: 200, ids: [ 'know-6f975c86-5d58-4ec1-8090-a9e594a97526download' ], count: 1 },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task3-knowledge.test.ts:1:1850
+✖ protected download requires only independent capability and current accessibility (0.908167ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+  +   bytes: undefined,
+  -   bytes: 'synthetic-course-bytes',
+      hasStorage: false,
+  +   status: 404
+  -   status: 200
+    }
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-knowledge.test.ts:21:4)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-knowledge.test.ts:19:3)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { status: 404, bytes: undefined, hasStorage: false },
+    expected: { status: 200, bytes: 'synthetic-course-bytes', hasStorage: false },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task3-knowledge.test.ts:1:3336
+✖ creator cannot bypass lock via direct (2.289916ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  
+  404 !== 403
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-knowledge.test.ts:33:4)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-knowledge.test.ts:29:50)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 404,
+    expected: 403,
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task3-knowledge.test.ts:1:3336
+✖ creator cannot bypass lock via import (1.250041ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  
+  404 !== 403
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-knowledge.test.ts:33:4)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-knowledge.test.ts:29:50)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 404,
+    expected: 403,
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task3-knowledge.test.ts:1:3336
+✖ creator cannot bypass lock via custom (0.939041ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  
+  404 !== 403
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-knowledge.test.ts:33:4)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-knowledge.test.ts:29:50)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 404,
+    expected: 403,
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task3-knowledge.test.ts:1:3782
+✖ custom replaces browse alone and parent append preserves existing grants (1.056167ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  
+  404 !== 200
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-knowledge.test.ts:36:156)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-knowledge.test.ts:35:3)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 404,
+    expected: 200,
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task3-knowledge.test.ts:1:1439
+✖ independent knowledge.course.browse (3.594125ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+  +   count: undefined,
+  +   ids: undefined,
+  +   status: 404
+  -   count: 3,
+  -   ids: [
+  -     'know-28ea9d61-11eb-44a1-9082-a1bae62b1e0fbrowse',
+  -     'know-28ea9d61-11eb-44a1-9082-a1bae62b1e0fclassroom',
+  -     'know-28ea9d61-11eb-44a1-9082-a1bae62b1e0fpublic'
+  -   ],
+  -   status: 200
+    }
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-knowledge.test.ts:17:4)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-knowledge.test.ts:14:121)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { status: 404, ids: undefined, count: undefined },
+    expected: { status: 200, ids: [ 'know-28ea9d61-11eb-44a1-9082-a1bae62b1e0fbrowse', 'know-28ea9d61-11eb-44a1-9082-a1bae62b1e0fclassroom', 'know-28ea9d61-11eb-44a1-9082-a1bae62b1e0fpublic' ], count: 3 },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task3-knowledge.test.ts:1:1439
+✖ independent knowledge.course.maintain (0.904ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+  +   count: undefined,
+  +   ids: undefined,
+  +   status: 404
+  -   count: 1,
+  -   ids: [
+  -     'know-28ea9d61-11eb-44a1-9082-a1bae62b1e0fmaintain'
+  -   ],
+  -   status: 200
+    }
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-knowledge.test.ts:17:4)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-knowledge.test.ts:14:121)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { status: 404, ids: undefined, count: undefined },
+    expected: { status: 200, ids: [ 'know-28ea9d61-11eb-44a1-9082-a1bae62b1e0fmaintain' ], count: 1 },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task3-knowledge.test.ts:1:1439
+✖ independent knowledge.course.distribute (0.709125ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+  +   count: undefined,
+  +   ids: undefined,
+  +   status: 404
+  -   count: 1,
+  -   ids: [
+  -     'know-28ea9d61-11eb-44a1-9082-a1bae62b1e0fdistribute'
+  -   ],
+  -   status: 200
+    }
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-knowledge.test.ts:17:4)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-knowledge.test.ts:14:121)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { status: 404, ids: undefined, count: undefined },
+    expected: { status: 200, ids: [ 'know-28ea9d61-11eb-44a1-9082-a1bae62b1e0fdistribute' ], count: 1 },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task3-knowledge.test.ts:1:1439
+✖ independent knowledge.course.download (0.703916ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+  +   count: undefined,
+  +   ids: undefined,
+  +   status: 404
+  -   count: 1,
+  -   ids: [
+  -     'know-28ea9d61-11eb-44a1-9082-a1bae62b1e0fdownload'
+  -   ],
+  -   status: 200
+    }
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-knowledge.test.ts:17:4)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-knowledge.test.ts:14:121)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { status: 404, ids: undefined, count: undefined },
+    expected: { status: 200, ids: [ 'know-28ea9d61-11eb-44a1-9082-a1bae62b1e0fdownload' ], count: 1 },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task3-knowledge.test.ts:1:1850
+✖ protected download requires only independent capability and current accessibility (0.730209ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+  +   bytes: undefined,
+  -   bytes: 'synthetic-course-bytes',
+      hasStorage: false,
+  +   status: 404
+  -   status: 200
+    }
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-knowledge.test.ts:21:4)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-knowledge.test.ts:19:3)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { status: 404, bytes: undefined, hasStorage: false },
+    expected: { status: 200, bytes: 'synthetic-course-bytes', hasStorage: false },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task3-knowledge.test.ts:1:3336
+✖ creator cannot bypass lock via direct (1.388917ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  
+  404 !== 403
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-knowledge.test.ts:33:4)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-knowledge.test.ts:29:50)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 404,
+    expected: 403,
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task3-knowledge.test.ts:1:3336
+✖ creator cannot bypass lock via import (1.466208ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  
+  404 !== 403
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-knowledge.test.ts:33:4)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-knowledge.test.ts:29:50)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 404,
+    expected: 403,
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task3-knowledge.test.ts:1:3336
+✖ creator cannot bypass lock via custom (0.717417ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  
+  404 !== 403
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-knowledge.test.ts:33:4)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-knowledge.test.ts:29:50)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 404,
+    expected: 403,
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task3-knowledge.test.ts:1:3782
+✖ custom replaces browse alone and parent append preserves existing grants (0.669167ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  
+  404 !== 200
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-knowledge.test.ts:36:156)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-knowledge.test.ts:35:3)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 404,
+    expected: 200,
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

@@ -1,0 +1,2 @@
+{"candidate":"native","name":"old enrollment keeps captured name","expected":{"person_id":"X","company_id":"A","display_name":"X"},"actual":{"person_id":"X","company_id":"A","display_name":"new-B-X"},"at":"2026-09-22T22:52:53.674Z"}
+{"candidate":"casbin","name":"old enrollment keeps captured name","expected":{"person_id":"X","company_id":"A","display_name":"X"},"actual":{"person_id":"X","company_id":"A","display_name":"new-B-X"},"at":"2026-09-22T22:52:54.097Z"}

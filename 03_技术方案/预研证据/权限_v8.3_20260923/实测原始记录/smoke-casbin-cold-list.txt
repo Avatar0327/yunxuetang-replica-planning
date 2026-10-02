@@ -1,0 +1,5 @@
+
+> permission-v83-spike@0.0.1 benchmark
+> tsx scripts/benchmark.ts
+
+{"startAt":"2026-09-22T19:53:07.251Z","endAt":"2026-09-22T19:53:10.264Z","durationMs":3012.175792,"configuredSeconds":3,"concurrency":4,"total":783,"candidate":"casbin","cache":"cold","scenario":"list-constrained","phase":"success","urls":["http://127.0.0.1:4311","http://127.0.0.1:4312"],"pageSize":50,"queryCounts":{"2":2,"10":781},"instances":{"B":325,"A":458},"cacheHits":{"none":2,"cold":781},"referenceWindow":false,"samplingRatio":1,"success":{"count":781,"p50":15.06641599999989,"p95":16.805041999999986,"p99":19.889624999999995},"denial":{"count":0,"p50":null,"p95":null,"p99":null},"failure":{"count":2,"p50":19.603791,"p95":20.619583000000006,"p99":20.619583000000006},"authorization_error":{"count":0,"p50":null,"p95":null,"p99":null},"permission":{"count":781,"p50":5.4220000000000255,"p95":6.804583000000093,"p99":9.210083000000395},"data":{"count":781,"p50":9.230083999999806,"p95":10.023208000000068,"p99":10.869874999999865}}

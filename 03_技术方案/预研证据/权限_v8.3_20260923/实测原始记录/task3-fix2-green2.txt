@@ -1,0 +1,14 @@
+✔ native: N1 inherited policy cannot expand its original saved cap (433.858291ms)
+✔ casbin: N1 inherited policy cannot expand its original saved cap (412.0505ms)
+✔ native: N1 persisted category and custom caps are enforced by action (432.920125ms)
+✔ casbin: N1 persisted category and custom caps are enforced by action (412.419666ms)
+✔ native: N1 removing forced ownership freezes reappearing category and custom sources (422.452792ms)
+✔ casbin: N1 removing forced ownership freezes reappearing category and custom sources (431.740083ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2645.916833

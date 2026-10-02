@@ -1,0 +1,1071 @@
+▶ native: I1 appointment natural keys never collide
+  ✖ intended second relation active=false (11.111208ms)
+  ✖ intended second relation active=true (10.839875ms)
+  ✖ intended second relation active=true (9.779209ms)
+  ✖ intended second relation active=false (9.484041ms)
+  ✔ unrelated appointment, backend and revoke boundaries (44.84275ms)
+✖ native: I1 appointment natural keys never collide (441.292459ms)
+▶ native: I2 mixed-case membership is independent of collation
+  ✖ -project add (11.042125ms)
+  ✖ -project remove (15.608292ms)
+  ✖ -team add (14.378209ms)
+  ✖ -team remove (17.832583ms)
+  ✔ -project mixed invalid atomic add (20.383792ms)
+  ✔ -project mixed invalid atomic remove (25.107584ms)
+  ✔ -team mixed invalid atomic add (26.65625ms)
+  ✔ -team mixed invalid atomic remove (32.929459ms)
+  ✖ department subtree and target parent mixed case (8.698292ms)
+  ✔ department unauthorized child atomic (8.791834ms)
+✖ native: I2 mixed-case membership is independent of collation (506.237667ms)
+▶ native: I3 category target equivalence and fail closed
+  ✖ configure equal safe denial (32.701625ms)
+  ✖ append-preview equal safe denial (17.177208ms)
+  ✖ append equal safe denial (16.973584ms)
+  ✖ import equal safe denial (16.552541ms)
+  ✖ recheck equal safe denial (15.99325ms)
+  ✖ authorized create missing parent is safe denial (8.211166ms)
+  ✖ authorized positive and import rollback (19.088458ms)
+  ✔ real Redis fault remains unavailable (1092.88875ms)
+✖ native: I3 category target equivalence and fail closed (1521.932792ms)
+▶ casbin: I1 appointment natural keys never collide
+  ✖ intended second relation active=false (8.971084ms)
+  ✖ intended second relation active=true (9.750292ms)
+  ✖ intended second relation active=true (9.560958ms)
+  ✖ intended second relation active=false (9.3125ms)
+  ✔ unrelated appointment, backend and revoke boundaries (51.952167ms)
+✖ casbin: I1 appointment natural keys never collide (451.064083ms)
+▶ casbin: I2 mixed-case membership is independent of collation
+  ✖ -project add (11.902083ms)
+  ✖ -project remove (15.081625ms)
+  ✖ -team add (14.570417ms)
+  ✖ -team remove (18.3385ms)
+  ✔ -project mixed invalid atomic add (20.305667ms)
+  ✔ -project mixed invalid atomic remove (24.858375ms)
+  ✔ -team mixed invalid atomic add (27.438125ms)
+  ✔ -team mixed invalid atomic remove (31.8115ms)
+  ✖ department subtree and target parent mixed case (11.562292ms)
+  ✔ department unauthorized child atomic (9.138958ms)
+✖ casbin: I2 mixed-case membership is independent of collation (514.848916ms)
+▶ casbin: I3 category target equivalence and fail closed
+  ✖ configure equal safe denial (33.459625ms)
+  ✖ append-preview equal safe denial (17.032292ms)
+  ✖ append equal safe denial (17.693667ms)
+  ✖ import equal safe denial (16.377583ms)
+  ✖ recheck equal safe denial (15.973ms)
+  ✖ authorized create missing parent is safe denial (16.471916ms)
+  ✖ authorized positive and import rollback (19.073625ms)
+  ✔ real Redis fault remains unavailable (1080.963125ms)
+✖ casbin: I3 category target equivalence and fail closed (1517.251375ms)
+✔ I3 damaged existing ancestry is still an unexpected error (0.7135ms)
+ℹ tests 53
+ℹ suites 0
+ℹ pass 15
+ℹ fail 38
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5118.392583
+
+✖ failing tests:
+
+test at test/final-fix-regressions.test.ts:1:2962
+✖ intended second relation active=false (11.111208ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+      {
+  +     active: false,
+  -     active: true,
+        person_id: 'final-native-A-B',
+        project_id: 'final-native-C'
+      },
+  -   {
+  -     active: false,
+  -     person_id: 'final-native-A',
+  -     project_id: 'B-final-native-C'
+  -   }
+    ]
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:41:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:38:48)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ { person_id: 'final-native-A-B', project_id: 'final-native-C', active: false } ],
+    expected: [ { person_id: 'final-native-A-B', project_id: 'final-native-C', active: true }, { person_id: 'final-native-A', project_id: 'B-final-native-C', active: false } ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/final-fix-regressions.test.ts:1:2962
+✖ intended second relation active=true (10.839875ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+      {
+        active: true,
+        person_id: 'final-native-A-B',
+        project_id: 'final-native-C'
+      },
+  -   {
+  -     active: true,
+  -     person_id: 'final-native-A',
+  -     project_id: 'B-final-native-C'
+  -   }
+    ]
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:41:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:38:48)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ { person_id: 'final-native-A-B', project_id: 'final-native-C', active: true } ],
+    expected: [ { person_id: 'final-native-A-B', project_id: 'final-native-C', active: true }, { person_id: 'final-native-A', project_id: 'B-final-native-C', active: true } ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/final-fix-regressions.test.ts:1:2962
+✖ intended second relation active=true (9.779209ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+      {
+        active: true,
+        person_id: 'final-native-A-B',
+        project_id: 'final-native-C'
+      },
+  -   {
+  -     active: true,
+  -     person_id: 'final-native-A',
+  -     project_id: 'B-final-native-C'
+  -   }
+    ]
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:41:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:38:48)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ { person_id: 'final-native-A-B', project_id: 'final-native-C', active: true } ],
+    expected: [ { person_id: 'final-native-A-B', project_id: 'final-native-C', active: true }, { person_id: 'final-native-A', project_id: 'B-final-native-C', active: true } ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/final-fix-regressions.test.ts:1:2962
+✖ intended second relation active=false (9.484041ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+      {
+  +     active: false,
+  -     active: true,
+        person_id: 'final-native-A-B',
+        project_id: 'final-native-C'
+      },
+  -   {
+  -     active: false,
+  -     person_id: 'final-native-A',
+  -     project_id: 'B-final-native-C'
+  -   }
+    ]
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:41:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:38:48)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ { person_id: 'final-native-A-B', project_id: 'final-native-C', active: false } ],
+    expected: [ { person_id: 'final-native-A-B', project_id: 'final-native-C', active: true }, { person_id: 'final-native-A', project_id: 'B-final-native-C', active: false } ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/final-fix-regressions.test.ts:1:6409
+✖ -project add (11.042125ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  
+  403 !== 200
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:75:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:71:105)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 403,
+    expected: 200,
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/final-fix-regressions.test.ts:1:6409
+✖ -project remove (15.608292ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  
+  403 !== 200
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:75:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:71:105)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 403,
+    expected: 200,
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/final-fix-regressions.test.ts:1:6409
+✖ -team add (14.378209ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  
+  403 !== 200
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:75:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:71:105)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 403,
+    expected: 200,
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/final-fix-regressions.test.ts:1:6409
+✖ -team remove (17.832583ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  
+  403 !== 200
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:75:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:71:105)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 403,
+    expected: 200,
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/final-fix-regressions.test.ts:1:8119
+✖ department subtree and target parent mixed case (8.698292ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  
+  403 !== 200
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:90:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:89:4)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 403,
+    expected: 200,
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/final-fix-regressions.test.ts:1:10887
+✖ configure equal safe denial (32.701625ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  ... Skipped lines
+  
+    [
+      {
+        body: {
+          message: '你暂时不能查看或操作这项内容，请联系管理员确认权限'
+        },
+  ...
+        body: {
+  +       message: '服务暂不可用，请稍后重试'
+  -       message: '你暂时不能查看或操作这项内容，请联系管理员确认权限'
+        },
+  +     status: 503
+  -     status: 403
+      },
+      {
+        body: {
+  +       message: '服务暂不可用，请稍后重试'
+  -       message: '你暂时不能查看或操作这项内容，请联系管理员确认权限'
+        },
+  +     status: 503
+  -     status: 403
+      }
+    ]
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:120:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:114:82)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ { status: 403, body: [Object] }, { status: 503, body: [Object] }, { status: 503, body: [Object] } ],
+    expected: [ { status: 403, body: [Object] }, { status: 403, body: [Object] }, { status: 403, body: [Object] } ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/final-fix-regressions.test.ts:1:10887
+✖ append-preview equal safe denial (17.177208ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  ... Skipped lines
+  
+    [
+      {
+        body: {
+          message: '你暂时不能查看或操作这项内容，请联系管理员确认权限'
+        },
+  ...
+        body: {
+  +       message: '服务暂不可用，请稍后重试'
+  -       message: '你暂时不能查看或操作这项内容，请联系管理员确认权限'
+        },
+  +     status: 503
+  -     status: 403
+      },
+      {
+        body: {
+  +       message: '服务暂不可用，请稍后重试'
+  -       message: '你暂时不能查看或操作这项内容，请联系管理员确认权限'
+        },
+  +     status: 503
+  -     status: 403
+      }
+    ]
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:120:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:114:82)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ { status: 403, body: [Object] }, { status: 503, body: [Object] }, { status: 503, body: [Object] } ],
+    expected: [ { status: 403, body: [Object] }, { status: 403, body: [Object] }, { status: 403, body: [Object] } ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/final-fix-regressions.test.ts:1:10887
+✖ append equal safe denial (16.973584ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  ... Skipped lines
+  
+    [
+      {
+        body: {
+          message: '你暂时不能查看或操作这项内容，请联系管理员确认权限'
+        },
+  ...
+        body: {
+  +       message: '服务暂不可用，请稍后重试'
+  -       message: '你暂时不能查看或操作这项内容，请联系管理员确认权限'
+        },
+  +     status: 503
+  -     status: 403
+      },
+      {
+        body: {
+  +       message: '服务暂不可用，请稍后重试'
+  -       message: '你暂时不能查看或操作这项内容，请联系管理员确认权限'
+        },
+  +     status: 503
+  -     status: 403
+      }
+    ]
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:120:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:114:82)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ { status: 403, body: [Object] }, { status: 503, body: [Object] }, { status: 503, body: [Object] } ],
+    expected: [ { status: 403, body: [Object] }, { status: 403, body: [Object] }, { status: 403, body: [Object] } ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/final-fix-regressions.test.ts:1:10887
+✖ import equal safe denial (16.552541ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  ... Skipped lines
+  
+    [
+      {
+        body: {
+          message: '你暂时不能查看或操作这项内容，请联系管理员确认权限'
+        },
+  ...
+        body: {
+  +       message: '服务暂不可用，请稍后重试'
+  -       message: '你暂时不能查看或操作这项内容，请联系管理员确认权限'
+        },
+  +     status: 503
+  -     status: 403
+      },
+      {
+        body: {
+  +       message: '服务暂不可用，请稍后重试'
+  -       message: '你暂时不能查看或操作这项内容，请联系管理员确认权限'
+        },
+  +     status: 503
+  -     status: 403
+      }
+    ]
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:120:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:114:82)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ { status: 403, body: [Object] }, { status: 503, body: [Object] }, { status: 503, body: [Object] } ],
+    expected: [ { status: 403, body: [Object] }, { status: 403, body: [Object] }, { status: 403, body: [Object] } ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/final-fix-regressions.test.ts:1:10887
+✖ recheck equal safe denial (15.99325ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  ... Skipped lines
+  
+    [
+      {
+        body: {
+          message: '你暂时不能查看或操作这项内容，请联系管理员确认权限'
+        },
+  ...
+        body: {
+  +       message: '服务暂不可用，请稍后重试'
+  -       message: '你暂时不能查看或操作这项内容，请联系管理员确认权限'
+        },
+  +     status: 503
+  -     status: 403
+      },
+      {
+        body: {
+  +       message: '服务暂不可用，请稍后重试'
+  -       message: '你暂时不能查看或操作这项内容，请联系管理员确认权限'
+        },
+  +     status: 503
+  -     status: 403
+      }
+    ]
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:120:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:114:82)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ { status: 403, body: [Object] }, { status: 503, body: [Object] }, { status: 503, body: [Object] } ],
+    expected: [ { status: 403, body: [Object] }, { status: 403, body: [Object] }, { status: 403, body: [Object] } ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/final-fix-regressions.test.ts:1:11338
+✖ authorized create missing parent is safe denial (8.211166ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+      body: {
+  +     message: '服务暂不可用，请稍后重试'
+  -     message: '你暂时不能查看或操作这项内容，请联系管理员确认权限'
+      },
+  +   status: 503
+  -   status: 403
+    }
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:123:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:122:4)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { status: 503, body: { message: '服务暂不可用，请稍后重试' } },
+    expected: { status: 403, body: { message: '你暂时不能查看或操作这项内容，请联系管理员确认权限' } },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/final-fix-regressions.test.ts:1:11577
+✖ authorized positive and import rollback (19.088458ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+      body: {
+  +     message: '服务暂不可用，请稍后重试'
+  -     message: '你暂时不能查看或操作这项内容，请联系管理员确认权限'
+      },
+  +   status: 503
+  -   status: 403
+    }
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:129:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:125:4)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { status: 503, body: { message: '服务暂不可用，请稍后重试' } },
+    expected: { status: 403, body: { message: '你暂时不能查看或操作这项内容，请联系管理员确认权限' } },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/final-fix-regressions.test.ts:1:2962
+✖ intended second relation active=false (8.971084ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+      {
+  +     active: false,
+  -     active: true,
+        person_id: 'final-casbin-A-B',
+        project_id: 'final-casbin-C'
+      },
+  -   {
+  -     active: false,
+  -     person_id: 'final-casbin-A',
+  -     project_id: 'B-final-casbin-C'
+  -   }
+    ]
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:41:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:38:48)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ { person_id: 'final-casbin-A-B', project_id: 'final-casbin-C', active: false } ],
+    expected: [ { person_id: 'final-casbin-A-B', project_id: 'final-casbin-C', active: true }, { person_id: 'final-casbin-A', project_id: 'B-final-casbin-C', active: false } ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/final-fix-regressions.test.ts:1:2962
+✖ intended second relation active=true (9.750292ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+      {
+        active: true,
+        person_id: 'final-casbin-A-B',
+        project_id: 'final-casbin-C'
+      },
+  -   {
+  -     active: true,
+  -     person_id: 'final-casbin-A',
+  -     project_id: 'B-final-casbin-C'
+  -   }
+    ]
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:41:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:38:48)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ { person_id: 'final-casbin-A-B', project_id: 'final-casbin-C', active: true } ],
+    expected: [ { person_id: 'final-casbin-A-B', project_id: 'final-casbin-C', active: true }, { person_id: 'final-casbin-A', project_id: 'B-final-casbin-C', active: true } ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/final-fix-regressions.test.ts:1:2962
+✖ intended second relation active=true (9.560958ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+      {
+        active: true,
+        person_id: 'final-casbin-A-B',
+        project_id: 'final-casbin-C'
+      },
+  -   {
+  -     active: true,
+  -     person_id: 'final-casbin-A',
+  -     project_id: 'B-final-casbin-C'
+  -   }
+    ]
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:41:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:38:48)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ { person_id: 'final-casbin-A-B', project_id: 'final-casbin-C', active: true } ],
+    expected: [ { person_id: 'final-casbin-A-B', project_id: 'final-casbin-C', active: true }, { person_id: 'final-casbin-A', project_id: 'B-final-casbin-C', active: true } ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/final-fix-regressions.test.ts:1:2962
+✖ intended second relation active=false (9.3125ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+      {
+  +     active: false,
+  -     active: true,
+        person_id: 'final-casbin-A-B',
+        project_id: 'final-casbin-C'
+      },
+  -   {
+  -     active: false,
+  -     person_id: 'final-casbin-A',
+  -     project_id: 'B-final-casbin-C'
+  -   }
+    ]
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:41:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:38:48)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ { person_id: 'final-casbin-A-B', project_id: 'final-casbin-C', active: false } ],
+    expected: [ { person_id: 'final-casbin-A-B', project_id: 'final-casbin-C', active: true }, { person_id: 'final-casbin-A', project_id: 'B-final-casbin-C', active: false } ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/final-fix-regressions.test.ts:1:6409
+✖ -project add (11.902083ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  
+  403 !== 200
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:75:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:71:105)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 403,
+    expected: 200,
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/final-fix-regressions.test.ts:1:6409
+✖ -project remove (15.081625ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  
+  403 !== 200
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:75:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:71:105)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 403,
+    expected: 200,
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/final-fix-regressions.test.ts:1:6409
+✖ -team add (14.570417ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  
+  403 !== 200
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:75:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:71:105)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 403,
+    expected: 200,
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/final-fix-regressions.test.ts:1:6409
+✖ -team remove (18.3385ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  
+  403 !== 200
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:75:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:71:105)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 403,
+    expected: 200,
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/final-fix-regressions.test.ts:1:8119
+✖ department subtree and target parent mixed case (11.562292ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  
+  403 !== 200
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:90:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:89:4)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 403,
+    expected: 200,
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/final-fix-regressions.test.ts:1:10887
+✖ configure equal safe denial (33.459625ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  ... Skipped lines
+  
+    [
+      {
+        body: {
+          message: '你暂时不能查看或操作这项内容，请联系管理员确认权限'
+        },
+  ...
+        body: {
+  +       message: '服务暂不可用，请稍后重试'
+  -       message: '你暂时不能查看或操作这项内容，请联系管理员确认权限'
+        },
+  +     status: 503
+  -     status: 403
+      },
+      {
+        body: {
+  +       message: '服务暂不可用，请稍后重试'
+  -       message: '你暂时不能查看或操作这项内容，请联系管理员确认权限'
+        },
+  +     status: 503
+  -     status: 403
+      }
+    ]
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:120:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:114:82)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ { status: 403, body: [Object] }, { status: 503, body: [Object] }, { status: 503, body: [Object] } ],
+    expected: [ { status: 403, body: [Object] }, { status: 403, body: [Object] }, { status: 403, body: [Object] } ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/final-fix-regressions.test.ts:1:10887
+✖ append-preview equal safe denial (17.032292ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  ... Skipped lines
+  
+    [
+      {
+        body: {
+          message: '你暂时不能查看或操作这项内容，请联系管理员确认权限'
+        },
+  ...
+        body: {
+  +       message: '服务暂不可用，请稍后重试'
+  -       message: '你暂时不能查看或操作这项内容，请联系管理员确认权限'
+        },
+  +     status: 503
+  -     status: 403
+      },
+      {
+        body: {
+  +       message: '服务暂不可用，请稍后重试'
+  -       message: '你暂时不能查看或操作这项内容，请联系管理员确认权限'
+        },
+  +     status: 503
+  -     status: 403
+      }
+    ]
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:120:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:114:82)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ { status: 403, body: [Object] }, { status: 503, body: [Object] }, { status: 503, body: [Object] } ],
+    expected: [ { status: 403, body: [Object] }, { status: 403, body: [Object] }, { status: 403, body: [Object] } ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/final-fix-regressions.test.ts:1:10887
+✖ append equal safe denial (17.693667ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  ... Skipped lines
+  
+    [
+      {
+        body: {
+          message: '你暂时不能查看或操作这项内容，请联系管理员确认权限'
+        },
+  ...
+        body: {
+  +       message: '服务暂不可用，请稍后重试'
+  -       message: '你暂时不能查看或操作这项内容，请联系管理员确认权限'
+        },
+  +     status: 503
+  -     status: 403
+      },
+      {
+        body: {
+  +       message: '服务暂不可用，请稍后重试'
+  -       message: '你暂时不能查看或操作这项内容，请联系管理员确认权限'
+        },
+  +     status: 503
+  -     status: 403
+      }
+    ]
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:120:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:114:82)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ { status: 403, body: [Object] }, { status: 503, body: [Object] }, { status: 503, body: [Object] } ],
+    expected: [ { status: 403, body: [Object] }, { status: 403, body: [Object] }, { status: 403, body: [Object] } ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/final-fix-regressions.test.ts:1:10887
+✖ import equal safe denial (16.377583ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  ... Skipped lines
+  
+    [
+      {
+        body: {
+          message: '你暂时不能查看或操作这项内容，请联系管理员确认权限'
+        },
+  ...
+        body: {
+  +       message: '服务暂不可用，请稍后重试'
+  -       message: '你暂时不能查看或操作这项内容，请联系管理员确认权限'
+        },
+  +     status: 503
+  -     status: 403
+      },
+      {
+        body: {
+  +       message: '服务暂不可用，请稍后重试'
+  -       message: '你暂时不能查看或操作这项内容，请联系管理员确认权限'
+        },
+  +     status: 503
+  -     status: 403
+      }
+    ]
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:120:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:114:82)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ { status: 403, body: [Object] }, { status: 503, body: [Object] }, { status: 503, body: [Object] } ],
+    expected: [ { status: 403, body: [Object] }, { status: 403, body: [Object] }, { status: 403, body: [Object] } ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/final-fix-regressions.test.ts:1:10887
+✖ recheck equal safe denial (15.973ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  ... Skipped lines
+  
+    [
+      {
+        body: {
+          message: '你暂时不能查看或操作这项内容，请联系管理员确认权限'
+        },
+  ...
+        body: {
+  +       message: '服务暂不可用，请稍后重试'
+  -       message: '你暂时不能查看或操作这项内容，请联系管理员确认权限'
+        },
+  +     status: 503
+  -     status: 403
+      },
+      {
+        body: {
+  +       message: '服务暂不可用，请稍后重试'
+  -       message: '你暂时不能查看或操作这项内容，请联系管理员确认权限'
+        },
+  +     status: 503
+  -     status: 403
+      }
+    ]
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:120:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:114:82)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ { status: 403, body: [Object] }, { status: 503, body: [Object] }, { status: 503, body: [Object] } ],
+    expected: [ { status: 403, body: [Object] }, { status: 403, body: [Object] }, { status: 403, body: [Object] } ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/final-fix-regressions.test.ts:1:11338
+✖ authorized create missing parent is safe denial (16.471916ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+      body: {
+  +     message: '服务暂不可用，请稍后重试'
+  -     message: '你暂时不能查看或操作这项内容，请联系管理员确认权限'
+      },
+  +   status: 503
+  -   status: 403
+    }
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:123:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:122:4)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { status: 503, body: { message: '服务暂不可用，请稍后重试' } },
+    expected: { status: 403, body: { message: '你暂时不能查看或操作这项内容，请联系管理员确认权限' } },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/final-fix-regressions.test.ts:1:11577
+✖ authorized positive and import rollback (19.073625ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+      body: {
+  +     message: '服务暂不可用，请稍后重试'
+  -     message: '你暂时不能查看或操作这项内容，请联系管理员确认权限'
+      },
+  +   status: 503
+  -   status: 403
+    }
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:129:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:125:4)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { status: 503, body: { message: '服务暂不可用，请稍后重试' } },
+    expected: { status: 403, body: { message: '你暂时不能查看或操作这项内容，请联系管理员确认权限' } },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

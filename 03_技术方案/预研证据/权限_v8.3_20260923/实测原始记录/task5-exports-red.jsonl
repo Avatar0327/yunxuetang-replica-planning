@@ -1,0 +1,8 @@
+{"candidate":"native","name":"project export create HTTP","expected":200,"actual":404,"at":"2026-09-22T22:44:25.470Z"}
+{"candidate":"native","name":"account export create HTTP","expected":200,"actual":404,"at":"2026-09-22T22:44:25.474Z"}
+{"candidate":"native","name":"report export create","expected":200,"actual":200,"at":"2026-09-22T22:44:25.493Z"}
+{"candidate":"native","name":"report claim bounded 200 with exact total","expected":{"rows":200,"count":49998,"nextChunk":1},"actual":{"rows":49998,"count":49998},"at":"2026-09-22T22:44:29.933Z"}
+{"candidate":"casbin","name":"project export create HTTP","expected":200,"actual":404,"at":"2026-09-22T22:44:30.269Z"}
+{"candidate":"casbin","name":"account export create HTTP","expected":200,"actual":404,"at":"2026-09-22T22:44:30.270Z"}
+{"candidate":"casbin","name":"report export create","expected":200,"actual":200,"at":"2026-09-22T22:44:30.288Z"}
+{"candidate":"casbin","name":"report claim bounded 200 with exact total","expected":{"rows":200,"count":49998,"nextChunk":1},"actual":{"rows":49998,"count":49998},"at":"2026-09-22T22:44:34.733Z"}

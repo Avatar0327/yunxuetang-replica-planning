@@ -1,0 +1,259 @@
+{
+  "startAt": "2026-09-22T23:02:36.773Z",
+  "endAt": "2026-09-22T23:02:40.109Z",
+  "durationMs": 3336.1706670000003,
+  "configuredSeconds": 3,
+  "concurrency": 4,
+  "total": 62,
+  "candidate": "native",
+  "cache": "hot",
+  "scenario": "mixed",
+  "phase": "success",
+  "urls": [
+    "http://127.0.0.1:4311",
+    "http://127.0.0.1:4312"
+  ],
+  "pageSize": 50,
+  "queryCounts": {
+    "11": 15,
+    "13": 15,
+    "14": 32
+  },
+  "instances": {
+    "25848": 32,
+    "25850": 30
+  },
+  "cacheHits": {
+    "L1": 62
+  },
+  "clientCounts": {
+    "0": 32,
+    "1": 10,
+    "2": 11,
+    "3": 9
+  },
+  "rotation": "Global requestIndex modulo four scenarios; each four-request cycle alternates instance. Single-scenario mode alternates each request.",
+  "referenceWindow": false,
+  "samplingRatio": 1,
+  "truthFile": "evidence/raw/task5-smoke-native-hot/scenario-truth.json",
+  "success": {
+    "count": 62,
+    "p50": 110.42000000000007,
+    "p95": 622.7946659999998,
+    "p99": 734.9053329999999
+  },
+  "denial": {
+    "count": 0,
+    "p50": null,
+    "p95": null,
+    "p99": null
+  },
+  "failure": {
+    "count": 0,
+    "p50": null,
+    "p95": null,
+    "p99": null
+  },
+  "authorization_error": {
+    "count": 0,
+    "p50": null,
+    "p95": null,
+    "p99": null
+  },
+  "measurement_error": {
+    "count": 0,
+    "p50": null,
+    "p95": null,
+    "p99": null
+  },
+  "permission": {
+    "count": 62,
+    "p50": 22.308708999999908,
+    "p95": 51.70374999999967,
+    "p99": 66.00304299999925
+  },
+  "data": {
+    "count": 62,
+    "p50": 59.90300000000025,
+    "p95": 585.8299999999999,
+    "p99": 680.177083
+  },
+  "perScenario": {
+    "list-broad": {
+      "success": {
+        "count": 16,
+        "p50": 13.56795800000009,
+        "p95": 39.50362499999983,
+        "p99": 39.50362499999983
+      },
+      "denial": {
+        "count": 0,
+        "p50": null,
+        "p95": null,
+        "p99": null
+      },
+      "failure": {
+        "count": 0,
+        "p50": null,
+        "p95": null,
+        "p99": null
+      },
+      "authorization_error": {
+        "count": 0,
+        "p50": null,
+        "p95": null,
+        "p99": null
+      },
+      "measurement_error": {
+        "count": 0,
+        "p50": null,
+        "p95": null,
+        "p99": null
+      },
+      "permission": {
+        "count": 16,
+        "p50": 6.745791000000281,
+        "p95": 14.114749999999958,
+        "p99": 14.114749999999958
+      },
+      "data": {
+        "count": 16,
+        "p50": 5.922292000000198,
+        "p95": 30.86041699999987,
+        "p99": 30.86041699999987
+      }
+    },
+    "list-constrained": {
+      "success": {
+        "count": 16,
+        "p50": 67.299125,
+        "p95": 119.51700000000005,
+        "p99": 119.51700000000005
+      },
+      "denial": {
+        "count": 0,
+        "p50": null,
+        "p95": null,
+        "p99": null
+      },
+      "failure": {
+        "count": 0,
+        "p50": null,
+        "p95": null,
+        "p99": null
+      },
+      "authorization_error": {
+        "count": 0,
+        "p50": null,
+        "p95": null,
+        "p99": null
+      },
+      "measurement_error": {
+        "count": 0,
+        "p50": null,
+        "p95": null,
+        "p99": null
+      },
+      "permission": {
+        "count": 16,
+        "p50": 26.57408299999952,
+        "p95": 66.00304299999925,
+        "p99": 66.00304299999925
+      },
+      "data": {
+        "count": 16,
+        "p50": 39.50770899999998,
+        "p95": 79.12787500000013,
+        "p99": 79.12787500000013
+      }
+    },
+    "history-broad": {
+      "success": {
+        "count": 15,
+        "p50": 135.44974999999977,
+        "p95": 156.69499999999994,
+        "p99": 156.69499999999994
+      },
+      "denial": {
+        "count": 0,
+        "p50": null,
+        "p95": null,
+        "p99": null
+      },
+      "failure": {
+        "count": 0,
+        "p50": null,
+        "p95": null,
+        "p99": null
+      },
+      "authorization_error": {
+        "count": 0,
+        "p50": null,
+        "p95": null,
+        "p99": null
+      },
+      "measurement_error": {
+        "count": 0,
+        "p50": null,
+        "p95": null,
+        "p99": null
+      },
+      "permission": {
+        "count": 15,
+        "p50": 5.0063749999999345,
+        "p95": 22.308708999999908,
+        "p99": 22.308708999999908
+      },
+      "data": {
+        "count": 15,
+        "p50": 130.01029199999994,
+        "p95": 147.02204200000006,
+        "p99": 147.02204200000006
+      }
+    },
+    "history-constrained": {
+      "success": {
+        "count": 15,
+        "p50": 600.1356249999999,
+        "p95": 734.9053329999999,
+        "p99": 734.9053329999999
+      },
+      "denial": {
+        "count": 0,
+        "p50": null,
+        "p95": null,
+        "p99": null
+      },
+      "failure": {
+        "count": 0,
+        "p50": null,
+        "p95": null,
+        "p99": null
+      },
+      "authorization_error": {
+        "count": 0,
+        "p50": null,
+        "p95": null,
+        "p99": null
+      },
+      "measurement_error": {
+        "count": 0,
+        "p50": null,
+        "p95": null,
+        "p99": null
+      },
+      "permission": {
+        "count": 15,
+        "p50": 29.300708999999188,
+        "p95": 64.21179100000018,
+        "p99": 64.21179100000018
+      },
+      "data": {
+        "count": 15,
+        "p50": 565.0661250000003,
+        "p95": 680.177083,
+        "p99": 680.177083
+      }
+    }
+  }
+}

@@ -1,0 +1,179 @@
+{
+  "at": "2026-09-23T00:33:36.948873+00:00",
+  "sourceCommit": "cb72484ed8e7547146920fd4312dd24f8c9e2402",
+  "hashPairs": [
+    {
+      "path": "evidence/raw/final-fix-full-campaign/commands.json",
+      "match": true
+    },
+    {
+      "path": "evidence/raw/final-fix-full-campaign/core-races.jsonl",
+      "match": true
+    },
+    {
+      "path": "evidence/raw/final-fix-full-campaign/core-seed.txt",
+      "match": true
+    },
+    {
+      "path": "evidence/raw/final-fix-full-campaign/core-semantic.jsonl",
+      "match": true
+    },
+    {
+      "path": "evidence/raw/final-fix-full-campaign/core.txt",
+      "match": true
+    },
+    {
+      "path": "evidence/raw/final-fix-full-campaign/http-casbin-api.txt",
+      "match": true
+    },
+    {
+      "path": "evidence/raw/final-fix-full-campaign/http-casbin-seed.txt",
+      "match": true
+    },
+    {
+      "path": "evidence/raw/final-fix-full-campaign/http-casbin.jsonl",
+      "match": true
+    },
+    {
+      "path": "evidence/raw/final-fix-full-campaign/http-casbin.txt",
+      "match": true
+    },
+    {
+      "path": "evidence/raw/final-fix-full-campaign/http-native-api.txt",
+      "match": true
+    },
+    {
+      "path": "evidence/raw/final-fix-full-campaign/http-native-seed.txt",
+      "match": true
+    },
+    {
+      "path": "evidence/raw/final-fix-full-campaign/http-native.jsonl",
+      "match": true
+    },
+    {
+      "path": "evidence/raw/final-fix-full-campaign/http-native.txt",
+      "match": true
+    },
+    {
+      "path": "evidence/raw/final-fix-full-campaign/task2-fix1-observations.jsonl",
+      "match": true
+    },
+    {
+      "path": "evidence/raw/final-fix-full-campaign/task2-scope-observations.jsonl",
+      "match": true
+    },
+    {
+      "path": "evidence/raw/final-fix-full-campaign/task3-http.jsonl",
+      "match": true
+    },
+    {
+      "path": "evidence/raw/final-fix-full-campaign/task3-seed.txt",
+      "match": true
+    },
+    {
+      "path": "evidence/raw/final-fix-full-campaign/task3.jsonl",
+      "match": true
+    },
+    {
+      "path": "evidence/raw/final-fix-full-campaign/task3.txt",
+      "match": true
+    },
+    {
+      "path": "evidence/raw/final-fix-full-campaign/task4-http.jsonl",
+      "match": true
+    },
+    {
+      "path": "evidence/raw/final-fix-full-campaign/task4-seed.txt",
+      "match": true
+    },
+    {
+      "path": "evidence/raw/final-fix-full-campaign/task4.jsonl",
+      "match": true
+    },
+    {
+      "path": "evidence/raw/final-fix-full-campaign/task4.txt",
+      "match": true
+    },
+    {
+      "path": "evidence/raw/final-fix-full-campaign/task5-commit-timeline.jsonl",
+      "match": true
+    },
+    {
+      "path": "evidence/raw/final-fix-full-campaign/task5-complex-casbin.json",
+      "match": true
+    },
+    {
+      "path": "evidence/raw/final-fix-full-campaign/task5-complex-native.json",
+      "match": true
+    },
+    {
+      "path": "evidence/raw/final-fix-full-campaign/task5-domain-export-scans-casbin.json",
+      "match": true
+    },
+    {
+      "path": "evidence/raw/final-fix-full-campaign/task5-domain-export-scans-native.json",
+      "match": true
+    },
+    {
+      "path": "evidence/raw/final-fix-full-campaign/task5-http.jsonl",
+      "match": true
+    },
+    {
+      "path": "evidence/raw/final-fix-full-campaign/task5-race-timeline.jsonl",
+      "match": true
+    },
+    {
+      "path": "evidence/raw/final-fix-full-campaign/task5-scans-casbin.json",
+      "match": true
+    },
+    {
+      "path": "evidence/raw/final-fix-full-campaign/task5-scans-native.json",
+      "match": true
+    },
+    {
+      "path": "evidence/raw/final-fix-full-campaign/task5-seed.txt",
+      "match": true
+    },
+    {
+      "path": "evidence/raw/final-fix-full-campaign/task5.jsonl",
+      "match": true
+    },
+    {
+      "path": "evidence/raw/final-fix-full-campaign/task5.txt",
+      "match": true
+    }
+  ],
+  "observations": [
+    {
+      "path": "evidence/raw/final-fix-full-campaign/task2-scope-observations.jsonl",
+      "pairs": 16,
+      "fullRecordDifferences": 0,
+      "expectedFieldsMatchOnly": 0
+    },
+    {
+      "path": "evidence/raw/final-fix-full-campaign/task2-fix1-observations.jsonl",
+      "pairs": 18,
+      "fullRecordDifferences": 8,
+      "expectedFieldsMatchOnly": 8
+    },
+    {
+      "path": "evidence/raw/final-fix-full-campaign/task3.jsonl",
+      "pairs": 322,
+      "fullRecordDifferences": 0,
+      "expectedFieldsMatchOnly": 0
+    },
+    {
+      "path": "evidence/raw/final-fix-full-campaign/task4.jsonl",
+      "pairs": 290,
+      "fullRecordDifferences": 0,
+      "expectedFieldsMatchOnly": 0
+    },
+    {
+      "path": "evidence/raw/final-fix-full-campaign/task5.jsonl",
+      "pairs": 616,
+      "fullRecordDifferences": 0,
+      "expectedFieldsMatchOnly": 0
+    }
+  ],
+  "noPassInferred": true
+}

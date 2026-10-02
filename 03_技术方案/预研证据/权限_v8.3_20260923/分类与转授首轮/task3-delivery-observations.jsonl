@@ -1,0 +1,12 @@
+{"candidate":"native","name":"delivery role create","expected":200,"actual":200,"at":"2026-09-22T20:51:37.259Z"}
+{"candidate":"native","name":"B warmed protected bytes","expected":{"status":200,"bytes":"synthetic-course-bytes"},"actual":{"status":200,"bytes":"synthetic-course-bytes"},"at":"2026-09-22T20:51:37.286Z"}
+{"candidate":"native","name":"download Redis timeout fails closed","expected":{"status":503,"bytes":null},"actual":{"status":503,"bytes":null},"at":"2026-09-22T20:51:37.595Z"}
+{"candidate":"native","name":"download after Redis recovery","expected":200,"actual":200,"at":"2026-09-22T20:51:38.374Z"}
+{"candidate":"native","name":"A revoke committed","expected":200,"actual":200,"at":"2026-09-22T20:51:38.393Z"}
+{"candidate":"native","name":"B next new download denies old L1/L2","expected":{"status":403,"bytes":null,"pubsub":false,"afterCommit":true},"actual":{"status":403,"bytes":null,"afterCommit":true},"at":"2026-09-22T20:51:38.409Z"}
+{"candidate":"casbin","name":"delivery role create","expected":200,"actual":200,"at":"2026-09-22T20:51:39.021Z"}
+{"candidate":"casbin","name":"B warmed protected bytes","expected":{"status":200,"bytes":"synthetic-course-bytes"},"actual":{"status":200,"bytes":"synthetic-course-bytes"},"at":"2026-09-22T20:51:39.049Z"}
+{"candidate":"casbin","name":"download Redis timeout fails closed","expected":{"status":503,"bytes":null},"actual":{"status":503,"bytes":null},"at":"2026-09-22T20:51:39.360Z"}
+{"candidate":"casbin","name":"download after Redis recovery","expected":200,"actual":200,"at":"2026-09-22T20:51:40.141Z"}
+{"candidate":"casbin","name":"A revoke committed","expected":200,"actual":200,"at":"2026-09-22T20:51:40.163Z"}
+{"candidate":"casbin","name":"B next new download denies old L1/L2","expected":{"status":403,"bytes":null,"pubsub":false,"afterCommit":true},"actual":{"status":403,"bytes":null,"afterCommit":true},"at":"2026-09-22T20:51:40.177Z"}

@@ -1,0 +1,25 @@
+✔ native: waiting context reads committed department facts (41.443667ms)
+✔ native: waiting report reads committed department facts (36.351167ms)
+✔ native: waiting context reads committed company facts (33.169333ms)
+✔ native: waiting report reads committed company facts (32.975625ms)
+✔ native: waiting context reads committed disabled facts (27.169ms)
+✔ native: waiting context reads committed deleted facts (27.224708ms)
+✔ native: grouped export >200 facts emits each literal group exactly once; ordinary export still pages (67.952459ms)
+✔ casbin: waiting context reads committed department facts (39.409875ms)
+✔ casbin: waiting report reads committed department facts (36.61075ms)
+✔ casbin: waiting context reads committed company facts (32.305583ms)
+✔ casbin: waiting report reads committed company facts (33.102292ms)
+✔ casbin: waiting context reads committed disabled facts (26.887666ms)
+✔ casbin: waiting context reads committed deleted facts (27.54ms)
+✔ casbin: grouped export >200 facts emits each literal group exactly once; ordinary export still pages (67.501667ms)
+✔ native: export ignores UI offset and limit and returns the complete filtered result (50.667875ms)
+✔ casbin: export ignores UI offset and limit and returns the complete filtered result (48.150625ms)
+✔ locking authority rejects pool and a bare autocommit client (0.458292ms)
+ℹ tests 17
+ℹ suites 0
+ℹ pass 17
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 800.202333

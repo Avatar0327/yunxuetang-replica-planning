@@ -1,0 +1,26 @@
+[
+  {
+    "path": "evidence/raw/final-fix-red.jsonl",
+    "sha256": "f6365594110b2400d69826f992f5c8aa564f1f3075acc2d1164d5b0bff9b14ed",
+    "rows": 90,
+    "literalMismatches": 18
+  },
+  {
+    "path": "evidence/raw/final-fix-red2.jsonl",
+    "sha256": "767dfcb64163ca8bcac4c6f3ed425466357d81aa6e5481d89a2b2e9970a22d17",
+    "rows": 110,
+    "literalMismatches": 32
+  },
+  {
+    "path": "evidence/raw/final-fix-green.jsonl",
+    "sha256": "6831e4b4cc40fa984104dc0c0dc03f44e04d1aeaed594ef954975001d0262251",
+    "rows": 130,
+    "literalMismatches": 0
+  },
+  {
+    "path": "evidence/raw/final-fix-final-focused.jsonl",
+    "sha256": "43c99dfd4a7c72978b6a07eac4ba43080691a1700d9b68c8a6b1e0e1d74c9986",
+    "rows": 130,
+    "literalMismatches": 0
+  }
+]

@@ -1,0 +1,668 @@
+[
+  {
+    "candidate": 1,
+    "phases": [
+      {
+        "phase": "warm protected controls",
+        "n": 16,
+        "statusCounts": {
+          "200": 16
+        },
+        "timedSamples": 13,
+        "missingTiming": 3,
+        "serverElapsedP50Ms": 17.664084000000003,
+        "serverElapsedP95Ms": 37.62179200000003,
+        "serverElapsedMaxMs": 37.62179200000003,
+        "source": "Literal phase matched unique method/path/status HTTP record within preceding100ms on same host clock; ambiguity aborts",
+        "clock": "host API monotonic, sequential functional regression only",
+        "joinOffsetsMs": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "phase": "Redis timeout warm",
+        "n": 16,
+        "statusCounts": {
+          "503": 16
+        },
+        "timedSamples": 13,
+        "missingTiming": 3,
+        "serverElapsedP50Ms": 311.0023329999999,
+        "serverElapsedP95Ms": 321.5931250000003,
+        "serverElapsedMaxMs": 321.5931250000003,
+        "source": "Literal phase matched unique method/path/status HTTP record within preceding100ms on same host clock; ambiguity aborts",
+        "clock": "host API monotonic, sequential functional regression only",
+        "joinOffsetsMs": [
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          2.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          1.0,
+          1.0,
+          0.0
+        ]
+      },
+      {
+        "phase": "Redis timeout cold restarted process",
+        "n": 16,
+        "statusCounts": {
+          "503": 16
+        },
+        "timedSamples": 13,
+        "missingTiming": 3,
+        "serverElapsedP50Ms": 313.58683400000064,
+        "serverElapsedP95Ms": 328.157041,
+        "serverElapsedMaxMs": 328.157041,
+        "source": "Literal phase matched unique method/path/status HTTP record within preceding100ms on same host clock; ambiguity aborts",
+        "clock": "host API monotonic, sequential functional regression only",
+        "joinOffsetsMs": [
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          3.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          2.0,
+          1.0
+        ]
+      },
+      {
+        "phase": "Redis timeout recovery current authority",
+        "n": 16,
+        "statusCounts": {
+          "200": 16
+        },
+        "timedSamples": 13,
+        "missingTiming": 3,
+        "serverElapsedP50Ms": 21.930167000002257,
+        "serverElapsedP95Ms": 34.87645799999882,
+        "serverElapsedMaxMs": 34.87645799999882,
+        "source": "Literal phase matched unique method/path/status HTTP record within preceding100ms on same host clock; ambiguity aborts",
+        "clock": "host API monotonic, sequential functional regression only",
+        "joinOffsetsMs": [
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0
+        ]
+      },
+      {
+        "phase": "Redis timeout cold process recovery current authority",
+        "n": 16,
+        "statusCounts": {
+          "200": 16
+        },
+        "timedSamples": 13,
+        "missingTiming": 3,
+        "serverElapsedP50Ms": 17.508750000000873,
+        "serverElapsedP95Ms": 26.108125000000655,
+        "serverElapsedMaxMs": 26.108125000000655,
+        "source": "Literal phase matched unique method/path/status HTTP record within preceding100ms on same host clock; ambiguity aborts",
+        "clock": "host API monotonic, sequential functional regression only",
+        "joinOffsetsMs": [
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "phase": "Redis disconnected warm",
+        "n": 16,
+        "statusCounts": {
+          "503": 16
+        },
+        "timedSamples": 13,
+        "missingTiming": 3,
+        "serverElapsedP50Ms": 3.8022080000009737,
+        "serverElapsedP95Ms": 6.13012499999968,
+        "serverElapsedMaxMs": 6.13012499999968,
+        "source": "Literal phase matched unique method/path/status HTTP record within preceding100ms on same host clock; ambiguity aborts",
+        "clock": "host API monotonic, sequential functional regression only",
+        "joinOffsetsMs": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "phase": "Redis disconnected cold restarted process",
+        "n": 16,
+        "statusCounts": {
+          "503": 16
+        },
+        "timedSamples": 13,
+        "missingTiming": 3,
+        "serverElapsedP50Ms": 6.024458000000095,
+        "serverElapsedP95Ms": 26.700499999999977,
+        "serverElapsedMaxMs": 26.700499999999977,
+        "source": "Literal phase matched unique method/path/status HTTP record within preceding100ms on same host clock; ambiguity aborts",
+        "clock": "host API monotonic, sequential functional regression only",
+        "joinOffsetsMs": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          3.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "phase": "Redis reconnected current authority",
+        "n": 16,
+        "statusCounts": {
+          "200": 16
+        },
+        "timedSamples": 13,
+        "missingTiming": 3,
+        "serverElapsedP50Ms": 13.391166000001249,
+        "serverElapsedP95Ms": 19.46104099999866,
+        "serverElapsedMaxMs": 19.46104099999866,
+        "source": "Literal phase matched unique method/path/status HTTP record within preceding100ms on same host clock; ambiguity aborts",
+        "clock": "host API monotonic, sequential functional regression only",
+        "joinOffsetsMs": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "phase": "DB authority unavailable",
+        "n": 16,
+        "statusCounts": {
+          "503": 16
+        },
+        "timedSamples": 13,
+        "missingTiming": 3,
+        "serverElapsedP50Ms": 0.25379200000315905,
+        "serverElapsedP95Ms": 0.8087500000001455,
+        "serverElapsedMaxMs": 0.8087500000001455,
+        "source": "Literal phase matched unique method/path/status HTTP record within preceding100ms on same host clock; ambiguity aborts",
+        "clock": "host API monotonic, sequential functional regression only",
+        "joinOffsetsMs": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "phase": "DB recovered authoritative current state",
+        "n": 16,
+        "statusCounts": {
+          "200": 16
+        },
+        "timedSamples": 13,
+        "missingTiming": 3,
+        "serverElapsedP50Ms": 14.407832999997481,
+        "serverElapsedP95Ms": 24.70562499999869,
+        "serverElapsedMaxMs": 24.70562499999869,
+        "source": "Literal phase matched unique method/path/status HTTP record within preceding100ms on same host clock; ambiguity aborts",
+        "clock": "host API monotonic, sequential functional regression only",
+        "joinOffsetsMs": [
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0
+        ]
+      }
+    ],
+    "expectedDenials": {
+      "n": 97,
+      "timedSamples": 94,
+      "missingTiming": 3,
+      "serverElapsedP50Ms": 9.465458000000012,
+      "serverElapsedP95Ms": 26.796249999999986,
+      "meaning": "Selected sequential denials; varied paths/cache states, not full normal-load latency qualification"
+    }
+  },
+  {
+    "candidate": 2,
+    "phases": [
+      {
+        "phase": "warm protected controls",
+        "n": 16,
+        "statusCounts": {
+          "200": 16
+        },
+        "timedSamples": 13,
+        "missingTiming": 3,
+        "serverElapsedP50Ms": 16.84283300000004,
+        "serverElapsedP95Ms": 33.402333999999996,
+        "serverElapsedMaxMs": 33.402333999999996,
+        "source": "Literal phase matched unique method/path/status HTTP record within preceding100ms on same host clock; ambiguity aborts",
+        "clock": "host API monotonic, sequential functional regression only",
+        "joinOffsetsMs": [
+          1.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ]
+      },
+      {
+        "phase": "Redis timeout warm",
+        "n": 16,
+        "statusCounts": {
+          "503": 16
+        },
+        "timedSamples": 13,
+        "missingTiming": 3,
+        "serverElapsedP50Ms": 308.61958400000003,
+        "serverElapsedP95Ms": 315.9544170000004,
+        "serverElapsedMaxMs": 315.9544170000004,
+        "source": "Literal phase matched unique method/path/status HTTP record within preceding100ms on same host clock; ambiguity aborts",
+        "clock": "host API monotonic, sequential functional regression only",
+        "joinOffsetsMs": [
+          0.0,
+          5.0,
+          23.0,
+          7.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ]
+      },
+      {
+        "phase": "Redis timeout cold restarted process",
+        "n": 16,
+        "statusCounts": {
+          "503": 16
+        },
+        "timedSamples": 13,
+        "missingTiming": 3,
+        "serverElapsedP50Ms": 311.5895409999998,
+        "serverElapsedP95Ms": 323.11912499999994,
+        "serverElapsedMaxMs": 323.11912499999994,
+        "source": "Literal phase matched unique method/path/status HTTP record within preceding100ms on same host clock; ambiguity aborts",
+        "clock": "host API monotonic, sequential functional regression only",
+        "joinOffsetsMs": [
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          1.0,
+          1.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "phase": "Redis timeout recovery current authority",
+        "n": 16,
+        "statusCounts": {
+          "200": 16
+        },
+        "timedSamples": 13,
+        "missingTiming": 3,
+        "serverElapsedP50Ms": 18.329083000000537,
+        "serverElapsedP95Ms": 33.4488339999989,
+        "serverElapsedMaxMs": 33.4488339999989,
+        "source": "Literal phase matched unique method/path/status HTTP record within preceding100ms on same host clock; ambiguity aborts",
+        "clock": "host API monotonic, sequential functional regression only",
+        "joinOffsetsMs": [
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "phase": "Redis timeout cold process recovery current authority",
+        "n": 16,
+        "statusCounts": {
+          "200": 16
+        },
+        "timedSamples": 13,
+        "missingTiming": 3,
+        "serverElapsedP50Ms": 17.883625000000393,
+        "serverElapsedP95Ms": 28.156082999999853,
+        "serverElapsedMaxMs": 28.156082999999853,
+        "source": "Literal phase matched unique method/path/status HTTP record within preceding100ms on same host clock; ambiguity aborts",
+        "clock": "host API monotonic, sequential functional regression only",
+        "joinOffsetsMs": [
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "phase": "Redis disconnected warm",
+        "n": 16,
+        "statusCounts": {
+          "503": 16
+        },
+        "timedSamples": 13,
+        "missingTiming": 3,
+        "serverElapsedP50Ms": 3.1973330000000715,
+        "serverElapsedP95Ms": 5.884874999999738,
+        "serverElapsedMaxMs": 5.884874999999738,
+        "source": "Literal phase matched unique method/path/status HTTP record within preceding100ms on same host clock; ambiguity aborts",
+        "clock": "host API monotonic, sequential functional regression only",
+        "joinOffsetsMs": [
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "phase": "Redis disconnected cold restarted process",
+        "n": 16,
+        "statusCounts": {
+          "503": 16
+        },
+        "timedSamples": 13,
+        "missingTiming": 3,
+        "serverElapsedP50Ms": 5.004916999999978,
+        "serverElapsedP95Ms": 22.034666000000016,
+        "serverElapsedMaxMs": 22.034666000000016,
+        "source": "Literal phase matched unique method/path/status HTTP record within preceding100ms on same host clock; ambiguity aborts",
+        "clock": "host API monotonic, sequential functional regression only",
+        "joinOffsetsMs": [
+          0.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "phase": "Redis reconnected current authority",
+        "n": 16,
+        "statusCounts": {
+          "200": 16
+        },
+        "timedSamples": 13,
+        "missingTiming": 3,
+        "serverElapsedP50Ms": 14.002375000000029,
+        "serverElapsedP95Ms": 19.781792000001587,
+        "serverElapsedMaxMs": 19.781792000001587,
+        "source": "Literal phase matched unique method/path/status HTTP record within preceding100ms on same host clock; ambiguity aborts",
+        "clock": "host API monotonic, sequential functional regression only",
+        "joinOffsetsMs": [
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "phase": "DB authority unavailable",
+        "n": 16,
+        "statusCounts": {
+          "503": 16
+        },
+        "timedSamples": 13,
+        "missingTiming": 3,
+        "serverElapsedP50Ms": 0.22670800000196323,
+        "serverElapsedP95Ms": 1.1240409999991243,
+        "serverElapsedMaxMs": 1.1240409999991243,
+        "source": "Literal phase matched unique method/path/status HTTP record within preceding100ms on same host clock; ambiguity aborts",
+        "clock": "host API monotonic, sequential functional regression only",
+        "joinOffsetsMs": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "phase": "DB recovered authoritative current state",
+        "n": 16,
+        "statusCounts": {
+          "200": 16
+        },
+        "timedSamples": 13,
+        "missingTiming": 3,
+        "serverElapsedP50Ms": 16.784041999999317,
+        "serverElapsedP95Ms": 22.46574999999939,
+        "serverElapsedMaxMs": 22.46574999999939,
+        "source": "Literal phase matched unique method/path/status HTTP record within preceding100ms on same host clock; ambiguity aborts",
+        "clock": "host API monotonic, sequential functional regression only",
+        "joinOffsetsMs": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0
+        ]
+      }
+    ],
+    "expectedDenials": {
+      "n": 97,
+      "timedSamples": 94,
+      "missingTiming": 3,
+      "serverElapsedP50Ms": 8.247375000000034,
+      "serverElapsedP95Ms": 27.114791999999966,
+      "meaning": "Selected sequential denials; varied paths/cache states, not full normal-load latency qualification"
+    }
+  }
+]

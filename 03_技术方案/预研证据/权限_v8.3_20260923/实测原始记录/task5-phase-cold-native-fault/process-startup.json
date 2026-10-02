@@ -1,0 +1,11 @@
+{
+  "configuredCache": "cold",
+  "startAt": "2026-09-22T23:25:54.205Z",
+  "aReadyAt": "2026-09-22T23:25:54.488Z",
+  "bReadyAt": "2026-09-22T23:25:54.774Z",
+  "logs": {
+    "a": "{\"ready\":true,\"port\":\"4311\",\"candidate\":\"native\",\"instance\":28629,\"pubsub\":false}\n",
+    "b": "{\"ready\":true,\"port\":\"4312\",\"candidate\":\"native\",\"instance\":28630,\"pubsub\":false}\n"
+  },
+  "note": "Host process start-to-ready boundaries, separate from request histogram; not a capped container cold-start measurement."
+}

@@ -1,0 +1,334 @@
+{
+  "sourceCommit": "b95e5f4faade6c2728c3e9f620ae27a8eb1b3c77",
+  "testExit": 0,
+  "observations": 456,
+  "allLiteralEqual": true,
+  "phases": [
+    {
+      "phase": "warm protected controls",
+      "count": 16,
+      "statusExpected": 200,
+      "allChecks": true,
+      "firstAt": "2026-09-23T06:58:51.837Z",
+      "lastAt": "2026-09-23T06:58:52.094Z",
+      "rawLines": [
+        193,
+        194,
+        195,
+        196,
+        197,
+        198,
+        199,
+        200,
+        201,
+        202,
+        203,
+        204,
+        205,
+        206,
+        207,
+        208
+      ]
+    },
+    {
+      "phase": "Redis timeout warm",
+      "count": 16,
+      "statusExpected": 503,
+      "allChecks": true,
+      "firstAt": "2026-09-23T06:58:52.403Z",
+      "lastAt": "2026-09-23T06:58:57.154Z",
+      "rawLines": [
+        209,
+        210,
+        211,
+        212,
+        213,
+        214,
+        215,
+        216,
+        217,
+        218,
+        219,
+        220,
+        221,
+        222,
+        223,
+        224
+      ]
+    },
+    {
+      "phase": "Redis timeout cold restarted process",
+      "count": 16,
+      "statusExpected": 503,
+      "allChecks": true,
+      "firstAt": "2026-09-23T06:59:02.949Z",
+      "lastAt": "2026-09-23T06:59:07.723Z",
+      "rawLines": [
+        225,
+        226,
+        227,
+        228,
+        229,
+        230,
+        231,
+        232,
+        233,
+        234,
+        235,
+        236,
+        237,
+        238,
+        239,
+        240
+      ]
+    },
+    {
+      "phase": "Redis timeout recovery current authority",
+      "count": 16,
+      "statusExpected": 200,
+      "allChecks": true,
+      "firstAt": "2026-09-23T06:59:12.639Z",
+      "lastAt": "2026-09-23T06:59:12.953Z",
+      "rawLines": [
+        241,
+        242,
+        243,
+        244,
+        245,
+        246,
+        247,
+        248,
+        249,
+        250,
+        251,
+        252,
+        253,
+        254,
+        255,
+        256
+      ]
+    },
+    {
+      "phase": "Redis timeout cold process recovery current authority",
+      "count": 16,
+      "statusExpected": 200,
+      "allChecks": true,
+      "firstAt": "2026-09-23T06:59:12.976Z",
+      "lastAt": "2026-09-23T06:59:13.233Z",
+      "rawLines": [
+        257,
+        258,
+        259,
+        260,
+        261,
+        262,
+        263,
+        264,
+        265,
+        266,
+        267,
+        268,
+        269,
+        270,
+        271,
+        272
+      ]
+    },
+    {
+      "phase": "Redis disconnected warm",
+      "count": 16,
+      "statusExpected": 503,
+      "allChecks": true,
+      "firstAt": "2026-09-23T06:59:13.406Z",
+      "lastAt": "2026-09-23T06:59:13.493Z",
+      "rawLines": [
+        273,
+        274,
+        275,
+        276,
+        277,
+        278,
+        279,
+        280,
+        281,
+        282,
+        283,
+        284,
+        285,
+        286,
+        287,
+        288
+      ]
+    },
+    {
+      "phase": "Redis disconnected cold restarted process",
+      "count": 16,
+      "statusExpected": 503,
+      "allChecks": true,
+      "firstAt": "2026-09-23T06:59:13.991Z",
+      "lastAt": "2026-09-23T06:59:14.126Z",
+      "rawLines": [
+        289,
+        290,
+        291,
+        292,
+        293,
+        294,
+        295,
+        296,
+        297,
+        298,
+        299,
+        300,
+        301,
+        302,
+        303,
+        304
+      ]
+    },
+    {
+      "phase": "Redis reconnected current authority",
+      "count": 16,
+      "statusExpected": 200,
+      "allChecks": true,
+      "firstAt": "2026-09-23T06:59:14.275Z",
+      "lastAt": "2026-09-23T06:59:14.496Z",
+      "rawLines": [
+        305,
+        306,
+        307,
+        308,
+        309,
+        310,
+        311,
+        312,
+        313,
+        314,
+        315,
+        316,
+        317,
+        318,
+        319,
+        320
+      ]
+    },
+    {
+      "phase": "DB authority unavailable",
+      "count": 16,
+      "statusExpected": 503,
+      "allChecks": true,
+      "firstAt": "2026-09-23T06:59:14.974Z",
+      "lastAt": "2026-09-23T06:59:14.989Z",
+      "rawLines": [
+        321,
+        322,
+        323,
+        324,
+        325,
+        326,
+        327,
+        328,
+        329,
+        330,
+        331,
+        332,
+        333,
+        334,
+        335,
+        336
+      ]
+    },
+    {
+      "phase": "DB recovered authoritative current state",
+      "count": 16,
+      "statusExpected": 200,
+      "allChecks": true,
+      "firstAt": "2026-09-23T06:59:15.356Z",
+      "lastAt": "2026-09-23T06:59:15.599Z",
+      "rawLines": [
+        337,
+        338,
+        339,
+        340,
+        341,
+        342,
+        343,
+        344,
+        345,
+        346,
+        347,
+        348,
+        349,
+        350,
+        351,
+        352
+      ]
+    }
+  ],
+  "timeline": [
+    {
+      "line": 1,
+      "checks": {
+        "different_processes": true,
+        "B_previously_L1": true,
+        "PubSub_absent": true,
+        "revision_plus_one": true,
+        "new_transaction": true,
+        "request_after_ack_host_clock": true,
+        "authority_after_commit_DB_clock": true,
+        "new_revision": true,
+        "denied_no_business": true
+      },
+      "allChecks": true,
+      "A": 51317,
+      "B": 51297,
+      "dbCommit": "2026-09-23T06:59:15.759Z",
+      "xmin": "20340",
+      "ack": "2026-09-23T06:59:15.648Z",
+      "nextRequest": "2026-09-23T06:59:15.650Z",
+      "authorityRead": "2026-09-23T06:59:15.766Z",
+      "beforeRevision": "1790146710626",
+      "afterRevision": "1790146710627"
+    }
+  ],
+  "issues": [],
+  "complete": true,
+  "scope": "Selected Native two-host-process regression, not full 24-group rerun or capped performance gate; exact observations retained.",
+  "rawFiles": [
+    {
+      "path": "workspace/evidence/raw/commit-timeline.jsonl",
+      "bytes": 2062,
+      "sha256": "9ac7c7ea620ecf3e81a53659910f3254ec92ee66a6354d49e3c9e4e8f0d86d35"
+    },
+    {
+      "path": "workspace/evidence/raw/final-fix-http.jsonl",
+      "bytes": 33132,
+      "sha256": "d39b7d1a196f030f93251033d229dcbdfd408a887c066415170cb84d9bee7cbd"
+    },
+    {
+      "path": "workspace/evidence/raw/http-observations.jsonl",
+      "bytes": 540172,
+      "sha256": "507f16487dcb9b469400616fb12b979e9d55ed311c371b444cb46eb6ce83491c"
+    },
+    {
+      "path": "workspace/evidence/raw/observations.jsonl",
+      "bytes": 100370,
+      "sha256": "e3ba15cb17d89706295114348868e7b9e4f9b9ab3b58a161010abe24db42a7b4"
+    },
+    {
+      "path": "workspace/evidence/raw/task5-complex-native.json",
+      "bytes": 342601,
+      "sha256": "cb3e7e662bc260ae6f9b78c03be1ceb315f99b636bb40eaf8e9527b95c08e65e"
+    },
+    {
+      "path": "workspace/evidence/raw/task5-race-timeline.jsonl",
+      "bytes": 548,
+      "sha256": "0f451552e91d6db46a8979228d9425e8f388b53e7e16d2414f4152ca8ab35b1a"
+    },
+    {
+      "path": "workspace/evidence/raw/task5-scans-native.json",
+      "bytes": 2808127,
+      "sha256": "a0e8b65173a5c97d410e822df9c96c017872e28a6906d2d7af6cda36abead4fd"
+    }
+  ]
+}

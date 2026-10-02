@@ -1,0 +1,92 @@
+{
+  "auditReportVersion": 2,
+  "vulnerabilities": {
+    "@nestjs/platform-fastify": {
+      "name": "@nestjs/platform-fastify",
+      "severity": "moderate",
+      "isDirect": true,
+      "via": [
+        "fastify"
+      ],
+      "effects": [],
+      "range": "<=12.0.0-alpha.7",
+      "nodes": [
+        "node_modules/@nestjs/platform-fastify"
+      ],
+      "fixAvailable": {
+        "name": "@nestjs/platform-fastify",
+        "version": "12.0.4",
+        "isSemVerMajor": true
+      }
+    },
+    "fastify": {
+      "name": "fastify",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1158514,
+          "name": "fastify",
+          "dependency": "fastify",
+          "title": "fastify vulnerable to schema validation bypass via root primitive coercion mismatch",
+          "url": "https://github.com/advisories/GHSA-w2qp-rph6-63g4",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-20"
+          ],
+          "cvss": {
+            "score": 5.4,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N"
+          },
+          "range": "<5.12.1"
+        },
+        {
+          "source": 1158519,
+          "name": "fastify",
+          "dependency": "fastify",
+          "title": "fastify vulnerable to X-Forwarded-* spoofing under trustProxy hop-count",
+          "url": "https://github.com/advisories/GHSA-3m5p-2c4r-xxw2",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-348"
+          ],
+          "cvss": {
+            "score": 6.1,
+            "vectorString": "CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:C/C:H/I:N/A:N"
+          },
+          "range": ">=5.8.3 <5.12.1"
+        }
+      ],
+      "effects": [
+        "@nestjs/platform-fastify"
+      ],
+      "range": "<=5.12.0",
+      "nodes": [
+        "node_modules/fastify"
+      ],
+      "fixAvailable": {
+        "name": "@nestjs/platform-fastify",
+        "version": "12.0.4",
+        "isSemVerMajor": true
+      }
+    }
+  },
+  "metadata": {
+    "vulnerabilities": {
+      "info": 0,
+      "low": 0,
+      "moderate": 2,
+      "high": 0,
+      "critical": 0,
+      "total": 2
+    },
+    "dependencies": {
+      "prod": 154,
+      "dev": 34,
+      "optional": 28,
+      "peer": 0,
+      "peerOptional": 0,
+      "total": 188
+    }
+  }
+}

@@ -1,0 +1,12 @@
+### Ran Playwright code
+```js
+await page.getByRole('button', { name: '打开项目' }).click();
+```
+### Page
+- Page URL: http://127.0.0.1:4311/#/projects/P
+- Page Title: 云学堂 · 权限预研
+- Console: 2 errors, 0 warnings
+### Snapshot
+- [Snapshot](.playwright-cli/page-2026-09-23T00-13-03-389Z.yml)
+### Events
+- New console entries: .playwright-cli/console-2026-09-23T00-12-37-301Z.log#L2

@@ -1,0 +1,78 @@
+
+> permission-v83-spike@0.0.1 test:task5
+> tsx --test --test-concurrency=1 test/task5-*.test.ts test/module-boundaries.test.ts
+
+✔ module repositories cannot read or write foreign private tables (5.649625ms)
+✔ SQL routines retain owning-module table boundaries (0.365958ms)
+▶ native: independent benchmark complete result oracle
+  ✔ list-broad (43.261458ms)
+  ✔ list-constrained (87.480458ms)
+  ✔ history-broad (99.994667ms)
+  ✔ history-constrained (476.534083ms)
+✔ native: independent benchmark complete result oracle (1018.141875ms)
+▶ casbin: independent benchmark complete result oracle
+  ✔ list-broad (29.924334ms)
+  ✔ list-constrained (81.252625ms)
+  ✔ history-broad (101.275875ms)
+  ✔ history-constrained (471.126833ms)
+✔ casbin: independent benchmark complete result oracle (974.417208ms)
+▶ native: old-company enrollment conflicts deny without partial enrollment
+  ✔ single conflict rejects entire batch (11.308959ms)
+  ✔ mixed conflict rejects entire batch (9.350083ms)
+  ✔ A B and internal protected reads retain enrollment boundaries after rejection (221.187875ms)
+  ✔ same-company existing enrollment remains idempotent alongside fresh enrollment (29.04375ms)
+✔ native: old-company enrollment conflicts deny without partial enrollment (716.231209ms)
+▶ casbin: old-company enrollment conflicts deny without partial enrollment
+  ✔ single conflict rejects entire batch (11.976625ms)
+  ✔ mixed conflict rejects entire batch (9.389208ms)
+  ✔ A B and internal protected reads retain enrollment boundaries after rejection (230.629042ms)
+  ✔ same-company existing enrollment remains idempotent alongside fresh enrollment (27.637291ms)
+✔ casbin: old-company enrollment conflicts deny without partial enrollment (713.388083ms)
+▶ native: protected domain export HTTP contract
+  ✔ project export obeys exact project and company (62.384542ms)
+  ✔ account protected export (27.976458ms)
+  ✔ legacy account export bounded pages (23.654125ms)
+  ✔ report claim bounded (10268.841375ms)
+✔ native: protected domain export HTTP contract (10747.954375ms)
+▶ casbin: protected domain export HTTP contract
+  ✔ project export obeys exact project and company (55.632167ms)
+  ✔ account protected export (27.142541ms)
+  ✔ legacy account export bounded pages (19.4255ms)
+  ✔ report claim bounded (10385.242208ms)
+✔ casbin: protected domain export HTTP contract (10874.610208ms)
+✔ native: all protected output classes fail closed and commit timeline (13011.393334ms)
+✔ casbin: all protected output classes fail closed and commit timeline (12801.096042ms)
+✔ measurement rejects complete-result corruption including extra fields and group sums (0.373875ms)
+✔ measurement rejects nonfinite/missing timings candidate and cache labels (0.137917ms)
+✔ native: complete appointment HTTP transitions and lawful independent role (826.747833ms)
+✔ casbin: complete appointment HTTP transitions and lawful independent role (846.159333ms)
+✔ native: one membership has simultaneous independent node scopes (738.032833ms)
+✔ casbin: one membership has simultaneous independent node scopes (693.548458ms)
+✔ native: measured page queries and non-ALL large-cap workload (1333.697208ms)
+✔ casbin: measured page queries and non-ALL large-cap workload (1312.14375ms)
+✔ native: ordered batch delegation and protected download race (886.041333ms)
+✔ casbin: ordered batch delegation and protected download race (895.962542ms)
+✔ native: six-scope HTTP algebra, source fields and raw leak scans (1191.128333ms)
+✔ casbin: six-scope HTTP algebra, source fields and raw leak scans (1137.742583ms)
+✔ native: signed segment ticket never replaces current authority (718.853541ms)
+✔ casbin: signed segment ticket never replaces current authority (688.06725ms)
+✔ native: enrollment snapshot after person transfer (507.136542ms)
+✔ casbin: enrollment snapshot after person transfer (527.528792ms)
+▶ native: limited worker, ownership, chunks and source epoch
+  ✔ worker scope and requester-bound execution (141.62675ms)
+  ✔ partial job hidden and source mutation invalidates complete result (61.84075ms)
+  ✔ direct domain calls still authorize (20.258958ms)
+✔ native: limited worker, ownership, chunks and source epoch (808.632791ms)
+▶ casbin: limited worker, ownership, chunks and source epoch
+  ✔ worker scope and requester-bound execution (125.2245ms)
+  ✔ partial job hidden and source mutation invalidates complete result (56.33675ms)
+  ✔ direct domain calls still authorize (17.29925ms)
+✔ casbin: limited worker, ownership, chunks and source epoch (797.582542ms)
+ℹ tests 58
+ℹ suites 0
+ℹ pass 58
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 66511.271458

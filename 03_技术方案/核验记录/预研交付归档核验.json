@@ -1,0 +1,16 @@
+{
+  "at": "2026-09-23T10:15:53.275437+08:00",
+  "source_commit": "d5b0c03a0cdab6791458b112ed50387b93cb5f0a",
+  "copied_files_verified": 1095,
+  "source_archive_files_verified": 166,
+  "file_hash_errors": [],
+  "archive_errors": [],
+  "bundle_exit": 0,
+  "bundle_output": "The bundle contains this ref:\nd5b0c03a0cdab6791458b112ed50387b93cb5f0a refs/heads/spike/permission-v83\nThe bundle records a complete history.\nThe bundle uses this hash algorithm: sha1\n/Users/peng/Library/Mobile Documents/com~apple~CloudDocs/Agent复刻项目/云学堂复刻规划/03_技术方案/预研证据/权限_v8.3_20260923/权限预研提交历史_d5b0c03.bundle is okay\n",
+  "clean_worktree": true,
+  "application_unchanged_since_final_review": true,
+  "manifest_sha256": "a87e062918e90f4486ff81350bb0c2accdbddfd598918303d8d0a1ff48e339e0",
+  "permission_gate": "NO_GO",
+  "verification_does_not_grant_Go": true,
+  "verifier_correction": "Initial name-set comparison used quoted git paths. Rerun uses NUL-delimited UTF-8 names; only initial mismatch was docs/证据复核与复现.md, no artifact changed."
+}

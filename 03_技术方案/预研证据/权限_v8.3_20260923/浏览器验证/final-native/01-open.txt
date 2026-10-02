@@ -1,0 +1,13 @@
+### Browser `yxt-permission-final-native` opened with pid 33884.
+### Ran Playwright code
+```js
+await page.goto('http://127.0.0.1:4312');
+```
+### Page
+- Page URL: http://127.0.0.1:4312/
+- Page Title: 云学堂 · 权限预研
+- Console: 1 errors, 0 warnings
+### Snapshot
+- [Snapshot](.playwright-cli/page-2026-09-23T00-22-29-863Z.yml)
+### Events
+- New console entries: .playwright-cli/console-2026-09-23T00-22-29-724Z.log#L1

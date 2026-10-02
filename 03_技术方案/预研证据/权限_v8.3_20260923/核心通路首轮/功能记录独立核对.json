@@ -1,0 +1,20 @@
+[
+  {
+    "path": "task2-native/functional.jsonl",
+    "observations": 49,
+    "literal_comparison_mismatch_lines": [],
+    "coverage_note": "Observation IDs require semantic cross-check; old AUTH-T14-03 means acting account disable, not target status filtering."
+  },
+  {
+    "path": "task2-casbin/functional.jsonl",
+    "observations": 55,
+    "literal_comparison_mismatch_lines": [],
+    "coverage_note": "Observation IDs require semantic cross-check; old AUTH-T14-03 means acting account disable, not target status filtering."
+  },
+  {
+    "path": "task2-casbin-fixed/functional.jsonl",
+    "observations": 10,
+    "literal_comparison_mismatch_lines": [],
+    "coverage_note": "Observation IDs require semantic cross-check; old AUTH-T14-03 means acting account disable, not target status filtering."
+  }
+]

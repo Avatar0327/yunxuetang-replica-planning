@@ -1,0 +1,7 @@
+{
+  "source_commit": "d62a470",
+  "image_tag": "yxt-permission:core-d62a470",
+  "build_exit_code": 0,
+  "purpose": "Container packaging verification only; not the final reviewed candidate or performance evidence.",
+  "image": "sha256:7fdc07b74d1b8335719c4f339c1f8c400c1ea9db985979efaeb7a6fc7c638327"
+}

@@ -1,0 +1,10 @@
+{"candidate":"native","name":"N1 narrow parent save","expected":200,"actual":200,"at":"2026-09-22T21:34:22.825Z"}
+{"candidate":"native","name":"N1 saved parent cap excludes other uploader","expected":["inherit-cap-938e4876-ee09-4019-b5ea-bb6c5bf30c3bP"],"actual":["inherit-cap-938e4876-ee09-4019-b5ea-bb6c5bf30c3bP"],"at":"2026-09-22T21:34:22.829Z"}
+{"candidate":"native","name":"N1 original parent course browsable","expected":200,"actual":200,"at":"2026-09-22T21:34:22.839Z"}
+{"candidate":"native","name":"N1 child inherit mutation","expected":200,"actual":200,"at":"2026-09-22T21:34:22.849Z"}
+{"candidate":"native","name":"N1 immediate inherited other-uploader course denied","expected":403,"actual":200,"at":"2026-09-22T21:34:22.858Z"}
+{"candidate":"casbin","name":"N1 narrow parent save","expected":200,"actual":200,"at":"2026-09-22T21:34:23.182Z"}
+{"candidate":"casbin","name":"N1 saved parent cap excludes other uploader","expected":["inherit-cap-3756bf15-01e0-4821-92b7-0df311069fe4P"],"actual":["inherit-cap-3756bf15-01e0-4821-92b7-0df311069fe4P"],"at":"2026-09-22T21:34:23.182Z"}
+{"candidate":"casbin","name":"N1 original parent course browsable","expected":200,"actual":200,"at":"2026-09-22T21:34:23.193Z"}
+{"candidate":"casbin","name":"N1 child inherit mutation","expected":200,"actual":200,"at":"2026-09-22T21:34:23.203Z"}
+{"candidate":"casbin","name":"N1 immediate inherited other-uploader course denied","expected":403,"actual":200,"at":"2026-09-22T21:34:23.211Z"}

@@ -1,0 +1,64 @@
+✖ native: all protected output classes fail closed and commit timeline (12871.666459ms)
+✖ casbin: all protected output classes fail closed and commit timeline (12483.880625ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 0
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 25513.081
+
+✖ failing tests:
+
+test at test/task5-faults.test.ts:1:615
+✖ native: all protected output classes fail closed and commit timeline (12871.666459ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+  +   afterCommit: false,
+  -   afterCommit: true,
+      committed: true,
+      delta: 1,
+      differentProcesses: true,
+      newXmin: true,
+      observedRevision: 1790117859399,
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task5-faults.test.ts:38:3)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { delta: 1, committed: true, newXmin: true, afterCommit: false, pubsub: false, differentProcesses: true, status: 403, observedRevision: 1790117859399 },
+    expected: { delta: 1, committed: true, newXmin: true, afterCommit: true, pubsub: false, differentProcesses: true, status: 403, observedRevision: 1790117859399 },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task5-faults.test.ts:1:615
+✖ casbin: all protected output classes fail closed and commit timeline (12483.880625ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+  +   afterCommit: false,
+  -   afterCommit: true,
+      committed: true,
+      delta: 1,
+      differentProcesses: true,
+      newXmin: true,
+      observedRevision: 1790117859404,
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task5-faults.test.ts:38:3)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { delta: 1, committed: true, newXmin: true, afterCommit: false, pubsub: false, differentProcesses: true, status: 403, observedRevision: 1790117859404 },
+    expected: { delta: 1, committed: true, newXmin: true, afterCommit: true, pubsub: false, differentProcesses: true, status: 403, observedRevision: 1790117859404 },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

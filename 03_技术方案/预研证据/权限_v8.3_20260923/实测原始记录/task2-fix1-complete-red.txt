@@ -1,0 +1,327 @@
+✖ native: waiting context reads committed department facts (42.220666ms)
+✖ native: waiting report reads committed department facts (37.647958ms)
+✖ native: waiting context reads committed company facts (33.398709ms)
+✖ native: waiting report reads committed company facts (33.516875ms)
+✔ native: waiting context reads committed disabled facts (27.617917ms)
+✔ native: waiting context reads committed deleted facts (27.568667ms)
+✖ native: grouped export >200 facts emits each literal group exactly once; ordinary export still pages (54.018959ms)
+✖ casbin: waiting context reads committed department facts (40.391ms)
+✖ casbin: waiting report reads committed department facts (35.951417ms)
+✖ casbin: waiting context reads committed company facts (32.940917ms)
+✖ casbin: waiting report reads committed company facts (33.100083ms)
+✔ casbin: waiting context reads committed disabled facts (27.589584ms)
+✔ casbin: waiting context reads committed deleted facts (27.593541ms)
+✖ casbin: grouped export >200 facts emits each literal group exactly once; ordinary export still pages (51.077458ms)
+✖ native: export ignores UI offset and limit and returns the complete filtered result (46.58825ms)
+✖ casbin: export ignores UI offset and limit and returns the complete filtered result (48.96825ms)
+✖ locking authority rejects pool and a bare autocommit client (1.285917ms)
+ℹ tests 17
+ℹ suites 0
+ℹ pass 4
+ℹ fail 13
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 772.622875
+
+✖ failing tests:
+
+test at test/review-regressions.test.ts:1:1249
+✖ native: waiting context reads committed department facts (42.220666ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+      companyId: 'I',
+  +   departmentId: 'D1',
+  -   departmentId: 'D2',
+      ids: [
+        'B',
+        'E',
+        'M',
+        'N'
+  
+      at TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/review-regressions.test.ts:33:61)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { status: 200, departmentId: 'D1', companyId: 'I', revision: undefined, ids: [ 'B', 'E', 'M', 'N' ] },
+    expected: { status: 200, departmentId: 'D2', companyId: 'I', ids: [ 'B', 'E', 'M', 'N' ], revision: undefined },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/review-regressions.test.ts:1:1249
+✖ native: waiting report reads committed department facts (37.647958ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+      companyId: 'I',
+      departmentId: 'D2',
+      ids: [
+  +     'A',
+  +     'C'
+  -     'B',
+  -     'E',
+  -     'M',
+  -     'N'
+      ],
+      revision: undefined,
+      status: 200
+    }
+  
+      at TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/review-regressions.test.ts:33:61)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { status: 200, departmentId: 'D2', companyId: 'I', revision: undefined, ids: [ 'A', 'C' ] },
+    expected: { status: 200, departmentId: 'D2', companyId: 'I', ids: [ 'B', 'E', 'M', 'N' ], revision: undefined },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/review-regressions.test.ts:1:1249
+✖ native: waiting context reads committed company facts (33.398709ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+  +   companyId: 'A',
+  -   companyId: 'B',
+      departmentId: undefined,
+      ids: [
+        'h-X-B'
+      ],
+      revision: undefined,
+  
+      at TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/review-regressions.test.ts:33:61)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { status: 200, departmentId: undefined, companyId: 'A', revision: undefined, ids: [ 'h-X-B' ] },
+    expected: { status: 200, departmentId: undefined, companyId: 'B', ids: [ 'h-X-B' ], revision: undefined },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/review-regressions.test.ts:1:1249
+✖ native: waiting report reads committed company facts (33.516875ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+      companyId: 'B',
+      departmentId: undefined,
+      ids: [
+  +     'h-X-A'
+  -     'h-X-B'
+      ],
+      revision: undefined,
+      status: 200
+    }
+  
+      at TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/review-regressions.test.ts:33:61)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { status: 200, departmentId: undefined, companyId: 'B', revision: undefined, ids: [ 'h-X-A' ] },
+    expected: { status: 200, departmentId: undefined, companyId: 'B', ids: [ 'h-X-B' ], revision: undefined },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/review-regressions.test.ts:1:3453
+✖ native: grouped export >200 facts emits each literal group exactly once; ordinary export still pages (54.018959ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  6 !== 3
+  
+      at TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/review-regressions.test.ts:43:117)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 6,
+    expected: 3,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test/review-regressions.test.ts:1:1249
+✖ casbin: waiting context reads committed department facts (40.391ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+      companyId: 'I',
+  +   departmentId: 'D1',
+  -   departmentId: 'D2',
+      ids: [
+        'B',
+        'E',
+        'M',
+        'N'
+  
+      at TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/review-regressions.test.ts:33:61)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { status: 200, departmentId: 'D1', companyId: 'I', revision: undefined, ids: [ 'B', 'E', 'M', 'N' ] },
+    expected: { status: 200, departmentId: 'D2', companyId: 'I', ids: [ 'B', 'E', 'M', 'N' ], revision: undefined },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/review-regressions.test.ts:1:1249
+✖ casbin: waiting report reads committed department facts (35.951417ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+      companyId: 'I',
+      departmentId: 'D2',
+      ids: [
+  +     'A',
+  +     'C'
+  -     'B',
+  -     'E',
+  -     'M',
+  -     'N'
+      ],
+      revision: undefined,
+      status: 200
+    }
+  
+      at TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/review-regressions.test.ts:33:61)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { status: 200, departmentId: 'D2', companyId: 'I', revision: undefined, ids: [ 'A', 'C' ] },
+    expected: { status: 200, departmentId: 'D2', companyId: 'I', ids: [ 'B', 'E', 'M', 'N' ], revision: undefined },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/review-regressions.test.ts:1:1249
+✖ casbin: waiting context reads committed company facts (32.940917ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+  +   companyId: 'A',
+  -   companyId: 'B',
+      departmentId: undefined,
+      ids: [
+        'h-X-B'
+      ],
+      revision: undefined,
+  
+      at TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/review-regressions.test.ts:33:61)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { status: 200, departmentId: undefined, companyId: 'A', revision: undefined, ids: [ 'h-X-B' ] },
+    expected: { status: 200, departmentId: undefined, companyId: 'B', ids: [ 'h-X-B' ], revision: undefined },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/review-regressions.test.ts:1:1249
+✖ casbin: waiting report reads committed company facts (33.100083ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+      companyId: 'B',
+      departmentId: undefined,
+      ids: [
+  +     'h-X-A'
+  -     'h-X-B'
+      ],
+      revision: undefined,
+      status: 200
+    }
+  
+      at TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/review-regressions.test.ts:33:61)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { status: 200, departmentId: undefined, companyId: 'B', revision: undefined, ids: [ 'h-X-A' ] },
+    expected: { status: 200, departmentId: undefined, companyId: 'B', ids: [ 'h-X-B' ], revision: undefined },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/review-regressions.test.ts:1:3453
+✖ casbin: grouped export >200 facts emits each literal group exactly once; ordinary export still pages (51.077458ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  6 !== 3
+  
+      at TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/review-regressions.test.ts:43:117)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 6,
+    expected: 3,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test/review-regressions.test.ts:1:5628
+✖ native: export ignores UI offset and limit and returns the complete filtered result (46.58825ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  62 !== 206
+  
+      at TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/review-regressions.test.ts:58:10)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 62,
+    expected: 206,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test/review-regressions.test.ts:1:5628
+✖ casbin: export ignores UI offset and limit and returns the complete filtered result (48.96825ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  62 !== 206
+  
+      at TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/review-regressions.test.ts:58:10)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 62,
+    expected: 206,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test/review-regressions.test.ts:1:6883
+✖ locking authority rejects pool and a bare autocommit client (1.285917ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection (Unavailable).
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/review-regressions.test.ts:61:170)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    operator: 'rejects',
+    diff: 'simple'
+  }

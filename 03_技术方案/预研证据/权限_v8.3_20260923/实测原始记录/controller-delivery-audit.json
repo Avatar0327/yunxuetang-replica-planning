@@ -1,0 +1,130 @@
+{
+  "at": "2026-09-23T10:14:24.859815+08:00",
+  "delivery_verified": true,
+  "permission_gate": "NO_GO",
+  "checks": [
+    {
+      "requirement": "65 canonical inputs unchanged; exact authorized rebaseline with rename",
+      "verified": true,
+      "evidence": "03/核验记录/输入文件指纹.json + fresh SHA256"
+    },
+    {
+      "requirement": "D43/D44 synchronized and approvedA preserved",
+      "verified": true,
+      "evidence": "03/11 +03/07; numerical ledger separately checked by verify-documents.py"
+    },
+    {
+      "requirement": "Full frozen 24groups/168points have measured results, no reduced scope",
+      "verified": true,
+      "evidence": "docs/acceptance-manifest.json; evidence/coverage-map.json; controller-semantic-review.json"
+    },
+    {
+      "requirement": "T05 union and role-local override",
+      "verified": true,
+      "evidence": [
+        "AUTH-T03-01",
+        "AUTH-T03-02",
+        "AUTH-T03-03",
+        "AUTH-T04-01",
+        "AUTH-T04-02",
+        "AUTH-T04-03",
+        "AUTH-T04-04",
+        "AUTH-T04-05",
+        "AUTH-T04-06"
+      ]
+    },
+    {
+      "requirement": "T06 backend appointment and surviving role",
+      "verified": true,
+      "evidence": [
+        "AUTH-T06-01",
+        "AUTH-T06-02",
+        "AUTH-T06-03",
+        "AUTH-T06-04",
+        "AUTH-T06-05",
+        "AUTH-T06-06",
+        "AUTH-T06-07",
+        "AUTH-T06-08",
+        "AUTH-T06-09",
+        "AUTH-T06-10",
+        "AUTH-T06-11",
+        "AUTH-T06-12",
+        "AUTH-T06-13"
+      ]
+    },
+    {
+      "requirement": "T07 customerA/customerB/internal and historical isolation",
+      "verified": true,
+      "evidence": [
+        "AUTH-T21-01",
+        "AUTH-T21-02",
+        "AUTH-T21-03",
+        "AUTH-T21-04",
+        "AUTH-T21-05",
+        "AUTH-T21-06",
+        "AUTH-T21-07",
+        "AUTH-T21-08",
+        "AUTH-T21-09",
+        "AUTH-T21-10",
+        "AUTH-T21-11",
+        "AUTH-T22-01",
+        "AUTH-T22-02",
+        "AUTH-T22-03",
+        "AUTH-T22-04",
+        "AUTH-T22-05",
+        "AUTH-T22-06",
+        "AUTH-T23-01",
+        "AUTH-T23-02",
+        "AUTH-T23-03",
+        "AUTH-T23-04",
+        "AUTH-T23-05"
+      ]
+    },
+    {
+      "requirement": "Real browser evidence files and fingerprints",
+      "verified": true,
+      "evidence": "evidence/browser-review.json + original DOM/PNG/trace"
+    },
+    {
+      "requirement": "Two-process revocation next media request with PubSub absent",
+      "verified": true,
+      "evidence": "final-fix-full-campaign/task5-commit-timeline.jsonl; independently audited same-clock causal sequence"
+    },
+    {
+      "requirement": "Redis/DB timeout/disconnect/reconnect no fault allow",
+      "verified": true,
+      "evidence": "evidence/fault-summary.json; frozen source raw functional observations"
+    },
+    {
+      "requirement": "Four measured resource-capped hot/cold 50client600s windows; faults/denials separate",
+      "verified": true,
+      "evidence": "evidence/performance-summary.json, every raw request audited; short fault/denial windows explicitly limited"
+    },
+    {
+      "requirement": "Original gates not relaxed; performance fails produceNoGo",
+      "verified": true,
+      "evidence": "04§9.5 vs12§7 and raw threshold audit"
+    },
+    {
+      "requirement": "Native/Casbin ADR, risk/estimate and human signature not forged",
+      "verified": true,
+      "evidence": "03/12§9/11;03/13;docs/reuse-candidates.md"
+    },
+    {
+      "requirement": "Five permanent gaps /seven recitations /four minimal /two accepted risks /B4sequence",
+      "verified": true,
+      "evidence": "03/12§10"
+    },
+    {
+      "requirement": "No measured application code changes after final review",
+      "verified": true,
+      "evidence": "git diff cb72484 -- src sql web"
+    },
+    {
+      "requirement": "FormalB1 remains unstarted/reuse0/human unsigned",
+      "verified": true,
+      "evidence": "evidence/final-verdict.json; no authorization to bypass failed gates"
+    }
+  ],
+  "limits": "Verifies delivery/evidence integrity and preserves failed gates; does not change any failed performance point or certify production capacity. Human business signature remains pending."
+}

@@ -1,0 +1,138 @@
+
+> permission-v83-spike@0.0.1 test:task3
+> tsx --test --test-concurrency=1 test/task3-*.test.ts test/module-boundaries.test.ts
+
+✔ module repositories cannot read or write foreign private tables (4.412166ms)
+✔ SQL routines retain owning-module table boundaries (0.702042ms)
+▶ native: node-owned SELF anchors and depth
+  ✔ course uses uploader while draft maintenance stays allowed (36.360375ms)
+  ✔ project uses original creator (6.553833ms)
+  ✔ face-to-face uses owner not creator (6.031125ms)
+  ✔ category depth10 succeeds depth11 denies (24.418042ms)
+✔ native: node-owned SELF anchors and depth (378.014958ms)
+▶ casbin: node-owned SELF anchors and depth
+  ✔ course uses uploader while draft maintenance stays allowed (24.468042ms)
+  ✔ project uses original creator (6.854417ms)
+  ✔ face-to-face uses owner not creator (6.328708ms)
+  ✔ category depth10 succeeds depth11 denies (32.926375ms)
+✔ casbin: node-owned SELF anchors and depth (391.648833ms)
+✔ native: category source cap snapshot and freeze (345.386542ms)
+✔ casbin: category source cap snapshot and freeze (324.260666ms)
+✔ native: internal own company is implicit, customer companies require grant (40.752667ms)
+✔ casbin: internal own company is implicit, customer companies require grant (18.979209ms)
+✔ native: saved custom browse stays active and other actions survive (389.184209ms)
+✔ casbin: saved custom browse stays active and other actions survive (366.305375ms)
+▶ native: AUTH-T07/T20/T24 selected-source matrix
+  ✔ AUTH-T07-01 level1 (10.380125ms)
+  ✔ AUTH-T07 create level2 allowed (15.274625ms)
+  ✔ AUTH-T07 create level3 allowed (15.434166ms)
+  ✔ AUTH-T07-05 node ceiling (6.769166ms)
+  ✔ AUTH-T07-05 action ceiling (5.217834ms)
+  ✔ AUTH-T07-06 literal D2 outside D1 (12.256875ms)
+  ✔ AUTH-T07-07 cannot borrow B phone (5.038291ms)
+  ✔ AUTH-T07-02 level1 ordinary edit (5.604166ms)
+  ✔ AUTH-T07-03 samelevel (5.823542ms)
+  ✔ AUTH-T07-04 higher (4.951167ms)
+  ✔ AUTH-T07-08 explicit delegability (42.099791ms)
+  ✔ level3 create still permits level2 but level3 cannot edit equal or higher (72.090083ms)
+  ✔ source shrink suspends and restore requires explicit audit recheck (174.201708ms)
+✔ native: AUTH-T07/T20/T24 selected-source matrix (752.997917ms)
+▶ casbin: AUTH-T07/T20/T24 selected-source matrix
+  ✔ AUTH-T07-01 level1 (7.827958ms)
+  ✔ AUTH-T07 create level2 allowed (13.828417ms)
+  ✔ AUTH-T07 create level3 allowed (14.764416ms)
+  ✔ AUTH-T07-05 node ceiling (6.475208ms)
+  ✔ AUTH-T07-05 action ceiling (4.827042ms)
+  ✔ AUTH-T07-06 literal D2 outside D1 (11.995292ms)
+  ✔ AUTH-T07-07 cannot borrow B phone (4.858709ms)
+  ✔ AUTH-T07-02 level1 ordinary edit (5.449833ms)
+  ✔ AUTH-T07-03 samelevel (5.508042ms)
+  ✔ AUTH-T07-04 higher (5.701792ms)
+  ✔ AUTH-T07-08 explicit delegability (43.052875ms)
+  ✔ level3 create still permits level2 but level3 cannot edit equal or higher (72.170208ms)
+  ✔ source shrink suspends and restore requires explicit audit recheck (171.111958ms)
+✔ casbin: AUTH-T07/T20/T24 selected-source matrix (720.072125ms)
+✔ native: two instances protect each download and Redis timeout closes (1800.379792ms)
+✔ casbin: two instances protect each download and Redis timeout closes (1762.853208ms)
+✔ native: persisted domain create commands (374.842417ms)
+✔ casbin: persisted domain create commands (359.684084ms)
+▶ native: knowledge four actions and locked commands
+  ✔ independent knowledge.course.browse (35.85425ms)
+  ✔ independent knowledge.course.maintain (8.663417ms)
+  ✔ independent knowledge.course.distribute (8.196084ms)
+  ✔ independent knowledge.course.download (7.505959ms)
+  ✔ protected download requires only independent capability and current accessibility (33.639958ms)
+  ✔ creator cannot bypass lock via direct (7.808333ms)
+  ✔ creator cannot bypass lock via import (5.535042ms)
+  ✔ creator cannot bypass lock via custom (11.318209ms)
+  ✔ custom replaces browse alone and parent append preserves existing grants (63.9255ms)
+✔ native: knowledge four actions and locked commands (496.913167ms)
+▶ casbin: knowledge four actions and locked commands
+  ✔ independent knowledge.course.browse (31.161917ms)
+  ✔ independent knowledge.course.maintain (9.869708ms)
+  ✔ independent knowledge.course.distribute (12.294166ms)
+  ✔ independent knowledge.course.download (9.606875ms)
+  ✔ protected download requires only independent capability and current accessibility (41.785417ms)
+  ✔ creator cannot bypass lock via direct (11.401542ms)
+  ✔ creator cannot bypass lock via import (5.925916ms)
+  ✔ creator cannot bypass lock via custom (14.804875ms)
+  ✔ custom replaces browse alone and parent append preserves existing grants (73.512791ms)
+✔ casbin: knowledge four actions and locked commands (642.997292ms)
+▶ native: role fanout, explicit recheck and populated move
+  ✔ role edit propagates every member and preserves local override (43.095166ms)
+  ✔ freeze requires explicit current-source recheck (35.255042ms)
+  ✔ populated move succeeds within depth and freezes before response (19.631459ms)
+✔ native: role fanout, explicit recheck and populated move (589.635042ms)
+▶ casbin: role fanout, explicit recheck and populated move
+  ✔ role edit propagates every member and preserves local override (37.812333ms)
+  ✔ freeze requires explicit current-source recheck (35.337125ms)
+  ✔ populated move succeeds within depth and freezes before response (24.965584ms)
+✔ casbin: role fanout, explicit recheck and populated move (461.833292ms)
+✔ delegation object set excludes facts whose current person is disabled (25.793083ms)
+✔ virtual capability object resolution honors an empty saved cap (3.16225ms)
+✔ native: category and custom recheck audit active/suspended from original source (429.787916ms)
+✔ casbin: category and custom recheck audit active/suspended from original source (411.709458ms)
+✔ native: populated department migration never expands saved delegation implicitly (482.979375ms)
+✔ casbin: populated department migration never expands saved delegation implicitly (451.30825ms)
+▶ native: live domain security boundaries
+  ✔ forced ancestor denies newly supplied child grants (35.209292ms)
+  ✔ category grants require selected source delegability (10.285291ms)
+  ✔ recipient own department cannot expand source actual objects (16.956833ms)
+  ✔ source shrink atomically freezes derived membership (17.194959ms)
+✔ native: live domain security boundaries (384.645042ms)
+▶ casbin: live domain security boundaries
+  ✔ forced ancestor denies newly supplied child grants (25.427666ms)
+  ✔ category grants require selected source delegability (15.293916ms)
+  ✔ recipient own department cannot expand source actual objects (16.531916ms)
+  ✔ source shrink atomically freezes derived membership (16.305084ms)
+✔ casbin: live domain security boundaries (367.882875ms)
+▶ native: Task3 review regressions
+  ✔ R1 original source company revoke stays suspended under broad rechecker (75.771042ms)
+  ✔ R2 recipient D2 relative scope uses recipient for create/edit/add/recheck (93.166042ms)
+  ✔ R3 custom browse compares one selected own course, not unrelated courses (70.440334ms)
+  ✔ R3 category ceiling follows affected inherited and forced course sets (61.402292ms)
+  ✔ R4 inaccessible course is maintainable by source and recipient but not browsable/downloadable (97.5325ms)
+✔ native: Task3 review regressions (698.81625ms)
+▶ casbin: Task3 review regressions
+  ✔ R1 original source company revoke stays suspended under broad rechecker (59.225ms)
+  ✔ R2 recipient D2 relative scope uses recipient for create/edit/add/recheck (92.229333ms)
+  ✔ R3 custom browse compares one selected own course, not unrelated courses (86.287417ms)
+  ✔ R3 category ceiling follows affected inherited and forced course sets (64.161542ms)
+  ✔ R4 inaccessible course is maintainable by source and recipient but not browsable/downloadable (123.84075ms)
+✔ casbin: Task3 review regressions (714.80525ms)
+▶ native: editing content permissions still requires target member company
+  ✔ recheck cross-company membership is denied (9.580125ms)
+  ✔ editing cross-company membership is denied (8.595875ms)
+✔ native: editing content permissions still requires target member company (385.548375ms)
+▶ casbin: editing content permissions still requires target member company
+  ✔ recheck cross-company membership is denied (8.751875ms)
+  ✔ editing cross-company membership is denied (7.797708ms)
+✔ casbin: editing content permissions still requires target member company (356.43225ms)
+ℹ tests 112
+ℹ suites 0
+ℹ pass 112
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 16586.803958

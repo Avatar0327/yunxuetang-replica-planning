@@ -1,0 +1,64 @@
+
+> permission-v83-spike@0.0.1 test:task5
+> tsx --test --test-concurrency=1 test/task5-*.test.ts test/module-boundaries.test.ts
+
+✔ module repositories cannot read or write foreign private tables (5.613ms)
+✔ SQL routines retain owning-module table boundaries (0.343125ms)
+▶ native: independent benchmark complete result oracle
+  ✔ list-broad (42.178459ms)
+  ✔ list-constrained (86.219041ms)
+  ✔ history-broad (100.846166ms)
+  ✔ history-constrained (472.259333ms)
+✔ native: independent benchmark complete result oracle (1018.37875ms)
+▶ casbin: independent benchmark complete result oracle
+  ✔ list-broad (31.519708ms)
+  ✔ list-constrained (81.994792ms)
+  ✔ history-broad (103.234125ms)
+  ✔ history-constrained (477.5625ms)
+✔ casbin: independent benchmark complete result oracle (1007.19875ms)
+▶ native: protected domain export HTTP contract
+  ✔ project export obeys exact project and company (57.316208ms)
+  ✔ account protected export (26.587042ms)
+  ✔ legacy account export bounded pages (25.138792ms)
+  ✔ report claim bounded (5539.332042ms)
+✔ native: protected domain export HTTP contract (6034.642875ms)
+▶ casbin: protected domain export HTTP contract
+  ✔ project export obeys exact project and company (56.031041ms)
+  ✔ account protected export (26.431375ms)
+  ✔ legacy account export bounded pages (18.697ms)
+  ✔ report claim bounded (5593.078541ms)
+✔ casbin: protected domain export HTTP contract (6051.358375ms)
+✔ native: all protected output classes fail closed and commit timeline (12914.381666ms)
+✔ casbin: all protected output classes fail closed and commit timeline (13015.293ms)
+✔ measurement rejects complete-result corruption including extra fields and group sums (0.378458ms)
+✔ measurement rejects nonfinite/missing timings candidate and cache labels (0.136208ms)
+✔ native: complete appointment HTTP transitions and lawful independent role (863.803958ms)
+✔ casbin: complete appointment HTTP transitions and lawful independent role (868.002125ms)
+✔ native: measured page queries and non-ALL large-cap workload (1368.920958ms)
+✔ casbin: measured page queries and non-ALL large-cap workload (1293.474709ms)
+✔ native: ordered batch delegation and protected download race (880.824208ms)
+✔ casbin: ordered batch delegation and protected download race (859.800333ms)
+✔ native: six-scope HTTP algebra, source fields and raw leak scans (1050.17675ms)
+✔ casbin: six-scope HTTP algebra, source fields and raw leak scans (1031.762209ms)
+✔ native: signed segment ticket never replaces current authority (685.720541ms)
+✔ casbin: signed segment ticket never replaces current authority (751.544167ms)
+✔ native: enrollment snapshot after person transfer (511.765542ms)
+✔ casbin: enrollment snapshot after person transfer (491.756791ms)
+▶ native: limited worker, ownership, chunks and source epoch
+  ✔ worker scope and requester-bound execution (135.786375ms)
+  ✔ partial job hidden and source mutation invalidates complete result (65.491208ms)
+  ✔ direct domain calls still authorize (22.110916ms)
+✔ native: limited worker, ownership, chunks and source epoch (833.185667ms)
+▶ casbin: limited worker, ownership, chunks and source epoch
+  ✔ worker scope and requester-bound execution (121.462834ms)
+  ✔ partial job hidden and source mutation invalidates complete result (55.725ms)
+  ✔ direct domain calls still authorize (17.15525ms)
+✔ casbin: limited worker, ownership, chunks and source epoch (771.069625ms)
+ℹ tests 46
+ℹ suites 0
+ℹ pass 46
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 53855.703291

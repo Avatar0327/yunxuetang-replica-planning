@@ -1,0 +1,40 @@
+{
+  "checked_at": "2026-09-23T02:57:03+08:00",
+  "input_count": 65,
+  "count_gate_passed": true,
+  "unchanged_content_count": 62,
+  "unchanged_manual_count": 24,
+  "unexpected_content_differences": [],
+  "authorized_updates": [
+    {
+      "old_path": "00_项目管理/进度台账.md",
+      "new_path": "00_项目管理/进度台账.md",
+      "previous_sha256": "62437ab422e659aa4124acb7d877b8143853441adbc2f9d5f7fd0460bd660308",
+      "sha256": "15a59d51ab163f446fc987217e402da0d1312bb783710ca8c547fe0ab17b359c",
+      "bytes": 26564
+    },
+    {
+      "old_path": "02_规划交付物/交付物7_功能模块开发批次与任务书.md",
+      "new_path": "02_规划交付物/交付物7_功能模块开发批次与任务书.md",
+      "previous_sha256": "3d17d6e511170cb71ca56d845f4d08c077f6c968a81eada92cebe2fa1deee3d6",
+      "sha256": "30b82d37105269c3f481eb9d60be5a81062da4887541fff8c97ed7de64773889",
+      "bytes": 36804
+    },
+    {
+      "old_path": "交接说明_v8.2.md",
+      "new_path": "交接说明_v8.3.md",
+      "previous_sha256": "e05fae7023b7b69128d85be2ebf9931f43fdc74757d23fa0de7d7186d0b384e9",
+      "sha256": "258da035508e0f1243e57f7a9382df9f2a6fd803397a6fc85f1f19e5f91e4d0a",
+      "bytes": 19310
+    }
+  ],
+  "v8_3_content_ready": true,
+  "v8_3_rebaseline_complete": true,
+  "permission_spike_started": true,
+  "source_content_written_by_agent": false,
+  "permission_spike_execution_plan_commit": "2d21695b4293c70a51ad1d7de95b193e41676bcf",
+  "permission_spike_execution_plan_at": "2026-09-23T03:08:33+08:00",
+  "formal_B1_started": false,
+  "permission_spike_go": false,
+  "latest_recheck_at": "2026-09-23T03:57:50+08:00"
+}

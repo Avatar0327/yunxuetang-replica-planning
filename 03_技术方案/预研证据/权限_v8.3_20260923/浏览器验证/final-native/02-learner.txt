@@ -1,0 +1,23 @@
+### Page
+- Page URL: http://127.0.0.1:4312/
+- Page Title: 云学堂 · 权限预研
+- Console: 1 errors, 0 warnings
+### Snapshot
+```yaml
+- generic [ref=e2]:
+  - banner [ref=e3]: 云学堂 权限预研 · 合成数据
+  - main [ref=e4]:
+    - heading "学习中心" [level=1] [ref=e5]
+    - generic [ref=e6]:
+      - generic [ref=e8] [cursor=pointer]:
+        - generic:
+          - combobox [ref=e10]
+          - generic [ref=e11]: 测试身份 L
+      - button "刷新权限" [ref=e16] [cursor=pointer]
+      - button "返回学员端" [ref=e18] [cursor=pointer]
+    - generic [ref=e20]:
+      - generic [ref=e21]: 项目直达
+      - textbox "项目编号" [ref=e24]: P
+      - button "打开项目" [ref=e25] [cursor=pointer]
+    - paragraph [ref=e47]: 当前没有管理任务，你可以继续学习。
+```

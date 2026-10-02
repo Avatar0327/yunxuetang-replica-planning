@@ -1,0 +1,79 @@
+✔ concurrent cold-process Redis checks await the single live connection (12.761625ms)
+✔ native: real SQL source-bound fields/count and company history (49.178542ms)
+✔ casbin: real SQL source-bound fields/count and company history (28.395417ms)
+✔ real database seeded scale and tenant FK (21.920042ms)
+✔ native: six scopes, explicit subtree and per-membership override in real SQL (83.141958ms)
+✔ casbin: six scopes, explicit subtree and per-membership override in real SQL (85.174459ms)
+✖ native: snapshot build crossing revoke rejects stale version (2447.702958ms)
+✔ native: write before revoke commits; revoke before next write denies (75.789792ms)
+✖ casbin: snapshot build crossing revoke rejects stale version (2374.395959ms)
+✔ casbin: write before revoke commits; revoke before next write denies (116.82625ms)
+✔ native: waiting context reads committed department facts (45.738125ms)
+✔ native: waiting report reads committed department facts (39.043667ms)
+✔ native: waiting context reads committed company facts (37.391125ms)
+✔ native: waiting report reads committed company facts (37.705833ms)
+✔ native: waiting context reads committed disabled facts (28.5585ms)
+✔ native: waiting context reads committed deleted facts (26.966125ms)
+✔ native: grouped export >200 facts emits each literal group exactly once; ordinary export still pages (77.043958ms)
+✔ casbin: waiting context reads committed department facts (42.600083ms)
+✔ casbin: waiting report reads committed department facts (39.067875ms)
+✔ casbin: waiting context reads committed company facts (37.013417ms)
+✔ casbin: waiting report reads committed company facts (37.152292ms)
+✔ casbin: waiting context reads committed disabled facts (27.895333ms)
+✔ casbin: waiting context reads committed deleted facts (27.571792ms)
+✔ casbin: grouped export >200 facts emits each literal group exactly once; ordinary export still pages (73.954917ms)
+✔ native: export ignores UI offset and limit and returns the complete filtered result (52.785583ms)
+✔ casbin: export ignores UI offset and limit and returns the complete filtered result (54.896292ms)
+✔ locking authority rejects pool and a bare autocommit client (0.445ms)
+✔ literal team, own department and subtree differ (0.797792ms)
+✔ node/action sources never cross product; own-role override, empty and delete (3.418167ms)
+✔ override cannot invent navigation/actions/raw fields or follow new membership (0.242042ms)
+✔ six scope explicit boundaries and revision-bound organization facts (0.269083ms)
+✔ raw fields are tied to matching source and all hard caps precede union (0.819458ms)
+✔ appointments derive exact backend and project grants; revoke preserves other source (2.730875ms)
+✔ SELF uses only each registered node anchor and wallet exception stays narrow (0.861917ms)
+✔ category locks, independent actions, public and extensible subjects use common grants (0.506125ms)
+✔ selected management membership, resolved set/field caps and levels constrain delegation (0.509791ms)
+✔ ambiguous duplicate source IDs fail closed in both candidates (0.099833ms)
+✔ bulk query plan resolves once, preserves source-field pairs, rejects port binding mismatch (0.566375ms)
+✔ appointment revocation/company/state and public custom replacement negatives (0.51575ms)
+✔ each scope permits and rejects literal resources on each engine (1.173792ms)
+✔ delegation additionally requires role mutation action from selected membership (0.06775ms)
+✔ wallet hard facts: native: known separate old-company account (0.044292ms)
+✔ wallet hard facts: native: missing data company (0.018333ms)
+✔ wallet hard facts: native: empty data company (0.016375ms)
+✔ wallet hard facts: native: blank data company (0.015333ms)
+✔ wallet hard facts: native: missing reference status (0.014875ms)
+✔ wallet hard facts: native: unbound reviewer account (0.017291ms)
+✔ wallet hard facts: casbin: known separate old-company account (0.059875ms)
+✔ wallet hard facts: casbin: missing data company (0.016708ms)
+✔ wallet hard facts: casbin: empty data company (0.018667ms)
+✔ wallet hard facts: casbin: blank data company (0.019542ms)
+✔ wallet hard facts: casbin: missing reference status (0.019541ms)
+✔ wallet hard facts: casbin: unbound reviewer account (0.014083ms)
+ℹ tests 53
+ℹ suites 0
+ℹ pass 51
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6868.678625
+
+✖ failing tests:
+
+test at test/races.test.ts:1:1004
+✖ native: snapshot build crossing revoke rejects stale version (2447.702958ms)
+  Error: expected real DB lock wait did not occur
+      at waiting (/Users/peng/Agent本地开发/云学堂权限预研/test/races.test.ts:13:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/races.test.ts:24:13)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3)
+
+test at test/races.test.ts:1:1004
+✖ casbin: snapshot build crossing revoke rejects stale version (2374.395959ms)
+  Error: expected real DB lock wait did not occur
+      at waiting (/Users/peng/Agent本地开发/云学堂权限预研/test/races.test.ts:13:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/races.test.ts:24:13)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7)

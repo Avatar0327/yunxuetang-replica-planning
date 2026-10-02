@@ -1,0 +1,22 @@
+✔ native: internal own company is implicit, customer companies require grant (46.075ms)
+✔ casbin: internal own company is implicit, customer companies require grant (20.642792ms)
+▶ native: live domain security boundaries
+  ✔ forced ancestor denies newly supplied child grants (34.097292ms)
+  ✔ category grants require selected source delegability (8.35025ms)
+  ✔ recipient own department cannot expand source actual objects (23.70025ms)
+  ✔ source shrink atomically freezes derived membership (22.637334ms)
+✔ native: live domain security boundaries (439.912791ms)
+▶ casbin: live domain security boundaries
+  ✔ forced ancestor denies newly supplied child grants (24.608417ms)
+  ✔ category grants require selected source delegability (10.771208ms)
+  ✔ recipient own department cannot expand source actual objects (24.837958ms)
+  ✔ source shrink atomically freezes derived membership (21.209208ms)
+✔ casbin: live domain security boundaries (395.086667ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 932.770667

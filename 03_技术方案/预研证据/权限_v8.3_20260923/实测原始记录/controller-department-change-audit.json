@@ -1,0 +1,143 @@
+{
+  "records": [
+    {
+      "raw_path": "evidence/raw/task2-fix1-observations.jsonl",
+      "raw_line": 233,
+      "raw_record": {
+        "name": "department",
+        "candidate": "native",
+        "expected": {
+          "status": 200,
+          "departmentId": "D2",
+          "companyId": "I",
+          "ids": [
+            "B",
+            "E",
+            "M",
+            "N"
+          ]
+        },
+        "actual": {
+          "status": 200,
+          "departmentId": "D2",
+          "companyId": "I",
+          "revision": 1790118298882,
+          "ids": [
+            "B",
+            "E",
+            "M",
+            "N"
+          ]
+        },
+        "at": "2026-09-22T23:05:00.794Z"
+      },
+      "comparison_rule": "Only expected current person/scope fields; dynamic revision is retained above and independently asserted equal to current authority by original regression test. No full-record equality claim.",
+      "expected_fields_equal": true
+    },
+    {
+      "raw_path": "evidence/raw/task2-fix1-observations.jsonl",
+      "raw_line": 234,
+      "raw_record": {
+        "name": "department",
+        "candidate": "native",
+        "expected": {
+          "status": 200,
+          "departmentId": "D2",
+          "companyId": "I",
+          "ids": [
+            "B",
+            "E",
+            "M",
+            "N"
+          ]
+        },
+        "actual": {
+          "status": 200,
+          "departmentId": "D2",
+          "companyId": "I",
+          "revision": 1790118298884,
+          "ids": [
+            "B",
+            "E",
+            "M",
+            "N"
+          ]
+        },
+        "at": "2026-09-22T23:05:00.834Z"
+      },
+      "comparison_rule": "Only expected current person/scope fields; dynamic revision is retained above and independently asserted equal to current authority by original regression test. No full-record equality claim.",
+      "expected_fields_equal": true
+    },
+    {
+      "raw_path": "evidence/raw/task2-fix1-observations.jsonl",
+      "raw_line": 241,
+      "raw_record": {
+        "name": "department",
+        "candidate": "casbin",
+        "expected": {
+          "status": 200,
+          "departmentId": "D2",
+          "companyId": "I",
+          "ids": [
+            "B",
+            "E",
+            "M",
+            "N"
+          ]
+        },
+        "actual": {
+          "status": 200,
+          "departmentId": "D2",
+          "companyId": "I",
+          "revision": 1790118298894,
+          "ids": [
+            "B",
+            "E",
+            "M",
+            "N"
+          ]
+        },
+        "at": "2026-09-22T23:05:01.113Z"
+      },
+      "comparison_rule": "Only expected current person/scope fields; dynamic revision is retained above and independently asserted equal to current authority by original regression test. No full-record equality claim.",
+      "expected_fields_equal": true
+    },
+    {
+      "raw_path": "evidence/raw/task2-fix1-observations.jsonl",
+      "raw_line": 242,
+      "raw_record": {
+        "name": "department",
+        "candidate": "casbin",
+        "expected": {
+          "status": 200,
+          "departmentId": "D2",
+          "companyId": "I",
+          "ids": [
+            "B",
+            "E",
+            "M",
+            "N"
+          ]
+        },
+        "actual": {
+          "status": 200,
+          "departmentId": "D2",
+          "companyId": "I",
+          "revision": 1790118298896,
+          "ids": [
+            "B",
+            "E",
+            "M",
+            "N"
+          ]
+        },
+        "at": "2026-09-22T23:05:01.152Z"
+      },
+      "comparison_rule": "Only expected current person/scope fields; dynamic revision is retained above and independently asserted equal to current authority by original regression test. No full-record equality claim.",
+      "expected_fields_equal": true
+    }
+  ],
+  "original_test": "test/review-regressions.test.ts:17",
+  "test_run": "evidence/raw/task5-final-core.txt",
+  "all_expected_fields_equal": true
+}

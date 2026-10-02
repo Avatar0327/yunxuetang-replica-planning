@@ -1,0 +1,11 @@
+[
+  {
+    people: 50000,
+    others: 500,
+    departments: 2000,
+    roles: 20,
+    complex_memberships: 3,
+    facts: 1000000,
+    max_depth: 20
+  }
+]

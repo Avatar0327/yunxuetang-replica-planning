@@ -1,0 +1,13 @@
+### Browser `final-fix-smoke` opened with pid 32362.
+### Ran Playwright code
+```js
+await page.goto('http://127.0.0.1:4311');
+```
+### Page
+- Page URL: http://127.0.0.1:4311/
+- Page Title: 云学堂 · 权限预研
+- Console: 1 errors, 0 warnings
+### Snapshot
+- [Snapshot](.playwright-cli/page-2026-09-23T00-12-37-873Z.yml)
+### Events
+- New console entries: .playwright-cli/console-2026-09-23T00-12-37-301Z.log#L1

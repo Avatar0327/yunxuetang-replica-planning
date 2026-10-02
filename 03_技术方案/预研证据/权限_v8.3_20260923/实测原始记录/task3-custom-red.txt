@@ -1,0 +1,48 @@
+✖ native: saved custom browse stays active and other actions survive (625.300209ms)
+✖ casbin: saved custom browse stays active and other actions survive (341.894209ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 0
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1091.116958
+
+✖ failing tests:
+
+test at test/task3-custom-regression.test.ts:1:225
+✖ native: saved custom browse stays active and other actions survive (625.300209ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  
+  403 !== 200
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-custom-regression.test.ts:12:65)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 403,
+    expected: 200,
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task3-custom-regression.test.ts:1:225
+✖ casbin: saved custom browse stays active and other actions survive (341.894209ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  
+  403 !== 200
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-custom-regression.test.ts:12:65)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 403,
+    expected: 200,
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

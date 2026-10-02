@@ -1,0 +1,106 @@
+▶ native: live domain security boundaries
+  ✔ forced ancestor denies newly supplied child grants (34.30075ms)
+  ✔ category grants require selected source delegability (9.192208ms)
+  ✖ recipient own department cannot expand source actual objects (26.709792ms)
+  ✖ source shrink atomically freezes derived membership (25.763083ms)
+✖ native: live domain security boundaries (425.547875ms)
+▶ casbin: live domain security boundaries
+  ✔ forced ancestor denies newly supplied child grants (25.448ms)
+  ✔ category grants require selected source delegability (10.595167ms)
+  ✖ recipient own department cannot expand source actual objects (28.353958ms)
+  ✖ source shrink atomically freezes derived membership (24.292542ms)
+✖ casbin: live domain security boundaries (381.94825ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 4
+ℹ fail 6
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 897.466541
+
+✖ failing tests:
+
+test at test/task3-protection.test.ts:1:1753
+✖ recipient own department cannot expand source actual objects (26.709792ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  
+  200 !== 403
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-protection.test.ts:22:4)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-protection.test.ts:20:3)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 200,
+    expected: 403,
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task3-protection.test.ts:1:2149
+✖ source shrink atomically freezes derived membership (25.763083ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+  + 'active'
+  - 'recheck_required'
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-protection.test.ts:30:4)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-protection.test.ts:24:3)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'active',
+    expected: 'recheck_required',
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task3-protection.test.ts:1:1753
+✖ recipient own department cannot expand source actual objects (28.353958ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  
+  200 !== 403
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-protection.test.ts:22:4)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-protection.test.ts:20:3)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 200,
+    expected: 403,
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task3-protection.test.ts:1:2149
+✖ source shrink atomically freezes derived membership (24.292542ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+  + 'active'
+  - 'recheck_required'
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-protection.test.ts:30:4)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-protection.test.ts:24:3)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'active',
+    expected: 'recheck_required',
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

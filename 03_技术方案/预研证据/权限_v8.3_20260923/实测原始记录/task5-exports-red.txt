@@ -1,0 +1,154 @@
+▶ native: protected domain export HTTP contract
+  ✖ project export obeys exact project and company (4.216041ms)
+  ✖ account protected export (1.826666ms)
+  ✖ report claim bounded (4460.067542ms)
+✖ native: protected domain export HTTP contract (4826.051625ms)
+▶ casbin: protected domain export HTTP contract
+  ✖ project export obeys exact project and company (1.650833ms)
+  ✖ account protected export (1.013458ms)
+  ✖ report claim bounded (4463.800166ms)
+✖ casbin: protected domain export HTTP contract (4791.517292ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 0
+ℹ fail 8
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 9715.034709
+
+✖ failing tests:
+
+test at test/task5-exports.test.ts:1:359
+✖ project export obeys exact project and company (4.216041ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  
+  404 !== 200
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task5-exports.test.ts:9:69)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task5-exports.test.ts:8:3)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 404,
+    expected: 200,
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task5-exports.test.ts:1:1060
+✖ account protected export (1.826666ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  
+  404 !== 200
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task5-exports.test.ts:15:66)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task5-exports.test.ts:14:3)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 404,
+    expected: 200,
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task5-exports.test.ts:1:1576
+✖ report claim bounded (4460.067542ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+      count: 49998,
+  +   nextChunk: undefined,
+  +   rows: 49998
+  -   nextChunk: 1,
+  -   rows: 200
+    }
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task5-exports.test.ts:22:88)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task5-exports.test.ts:19:3)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { rows: 49998, count: 49998, nextChunk: undefined },
+    expected: { rows: 200, count: 49998, nextChunk: 1 },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task5-exports.test.ts:1:359
+✖ project export obeys exact project and company (1.650833ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  
+  404 !== 200
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task5-exports.test.ts:9:69)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task5-exports.test.ts:8:3)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 404,
+    expected: 200,
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task5-exports.test.ts:1:1060
+✖ account protected export (1.013458ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  
+  404 !== 200
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task5-exports.test.ts:15:66)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task5-exports.test.ts:14:3)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 404,
+    expected: 200,
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task5-exports.test.ts:1:1576
+✖ report claim bounded (4463.800166ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+      count: 49998,
+  +   nextChunk: undefined,
+  +   rows: 49998
+  -   nextChunk: 1,
+  -   rows: 200
+    }
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task5-exports.test.ts:22:88)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task5-exports.test.ts:19:3)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { rows: 49998, count: 49998, nextChunk: undefined },
+    expected: { rows: 200, count: 49998, nextChunk: 1 },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

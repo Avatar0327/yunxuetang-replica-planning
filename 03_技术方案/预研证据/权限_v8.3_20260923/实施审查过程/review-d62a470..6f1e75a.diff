@@ -1,0 +1,287 @@
+# Review package: d62a470..6f1e75a4c4fca597b23cc86e321756f142460680
+
+## Commits
+6f1e75a Fix locked authorization facts and complete filtered export pagination
+
+## Files changed
+ src/authz/revision.ts           |  11 +++-
+ src/infrastructure/db.ts        |   9 ++-
+ src/report/exports.ts           |  12 ++--
+ test/review-regressions.test.ts | 121 ++++++++++++++++++++++++++++++++++++++++
+ 4 files changed, 146 insertions(+), 7 deletions(-)
+
+## Diff
+diff --git a/src/authz/revision.ts b/src/authz/revision.ts
+index d464a7c..d933cd0 100644
+--- a/src/authz/revision.ts
++++ b/src/authz/revision.ts
+@@ -1,39 +1,46 @@
+ import { createHash } from 'node:crypto';
+ import type { Context, Membership, Appointment } from './contracts.js';
+ import { normalizePolicy, buildQueryPolicy, backendCapabilities } from './policy.js';
+ import { nodes, appointmentCapabilities } from './registry.js';
+ import { selectSources, type CandidateName } from './bulk-candidate.js';
+ import { OrganizationPort } from '../organization/public.js';
+ import { SessionCache } from './cache.js';
+-import { pool, query, Denied, Unavailable, type DB, type Identity } from '../infrastructure/db.js';
++import { pool, query, requireTransaction, Denied, Unavailable, type DB, type Identity } from '../infrastructure/db.js';
+ interface Snapshot {
+     schemaVersion: 1;
+     memberships: Membership[];
+     appointments: Appointment[];
+ }
+ export class Authority {
+     constructor(public cache: SessionCache) { }
+     async token(token: string): Promise<Identity> { try {
+         const r = await query(pool, 'select tenant_id as "tenantId",person_id as "personId" from authz.session where token_hash=$1', [createHash('sha256').update(token).digest('hex')]);
+         if (!r.rows[0])
+             throw new Denied();
+         return r.rows[0];
+     }
+     catch (e) {
+         if (e instanceof Denied)
+             throw e;
+         throw new Unavailable();
+     } }
+     async current(identity: Identity, db: DB = pool, lock = false): Promise<Context> {
+         try {
+-            const r = await query(db, `select r.revision,r.schema_version,p.*,coalesce((select array_agg(company_id order by company_id) from authz.company_grant g where g.tenant_id=p.tenant_id and g.person_id=p.id),'{}') companies from authz.revision r join organization.person p on p.tenant_id=r.tenant_id where r.tenant_id=$1 and p.id=$2 ${lock ? 'FOR UPDATE OF r' : ''}`, [identity.tenantId, identity.personId]);
++            if (lock) {
++                requireTransaction(db);
++                // A READ COMMITTED statement that waits for this lock can retain
++                // old joined facts. Acquire only the revision lock here, then read
++                // actor and company facts in the next statement's fresh snapshot.
++                await query(db, 'SELECT r.revision FROM authz.revision r WHERE r.tenant_id=$1 FOR UPDATE OF r', [identity.tenantId]);
++            }
++            const r = await query(db, `select r.revision,r.schema_version,p.*,coalesce((select array_agg(company_id order by company_id) from authz.company_grant g where g.tenant_id=p.tenant_id and g.person_id=p.id),'{}') companies from authz.revision r join organization.person p on p.tenant_id=r.tenant_id where r.tenant_id=$1 and p.id=$2`, [identity.tenantId, identity.personId]);
+             const p = r.rows[0];
+             if (!p || !p.enabled || p.deleted)
+                 throw new Denied();
+             if (p.schema_version !== 1)
+                 throw new Unavailable();
+             return { tenantId: p.tenant_id, personId: p.id, revision: Number(p.revision), enabled: p.enabled, deleted: p.deleted, authenticated: true, internal: p.internal, companyId: p.company_id, companyIds: p.companies, departmentId: p.department_id ?? undefined };
+         }
+         catch (e) {
+             if (e instanceof Denied || e instanceof Unavailable)
+                 throw e;
+diff --git a/src/infrastructure/db.ts b/src/infrastructure/db.ts
+index 4d375ed..0f06515 100644
+--- a/src/infrastructure/db.ts
++++ b/src/infrastructure/db.ts
+@@ -1,31 +1,38 @@
+ import pg from 'pg';
+ import { AsyncLocalStorage } from 'node:async_hooks';
+ export const metrics = new AsyncLocalStorage<{
+     queries: number;
+ }>();
+ export const pool = new pg.Pool({ host: process.env.PGHOST ?? '127.0.0.1', port: Number(process.env.PGPORT ?? 55432), database: process.env.PGDATABASE ?? 'permission_spike', user: process.env.PGUSER ?? 'spike', password: process.env.PGPASSWORD ?? 'spike', max: Number(process.env.PGPOOL ?? 20), connectionTimeoutMillis: 800, statement_timeout: 10000 });
+ pool.on('error', () => { });
+ export type DB = Pick<pg.PoolClient, 'query'>;
++// Only this transaction boundary may grant a live, pinned transaction client.
++const activeTransactions = new WeakSet<DB>();
++export function requireTransaction(db: DB): void {
++    if (!activeTransactions.has(db)) throw new Unavailable();
++}
+ export async function query(db: DB, sql: string, args: unknown[] = []) { const m = metrics.getStore(); if (m)
+     m.queries++; return db.query(sql, args); }
+ export async function transaction<T>(fn: (db: DB) => Promise<T>) { const db = await pool.connect(); try {
+-    await query(db, 'BEGIN');
++    await query(db, 'BEGIN ISOLATION LEVEL READ COMMITTED');
++    activeTransactions.add(db);
+     const result = await fn(db);
+     await query(db, 'COMMIT');
+     return result;
+ }
+ catch (e) {
+     await db.query('ROLLBACK');
+     throw e;
+ }
+ finally {
++    activeTransactions.delete(db);
+     db.release();
+ } }
+ export class Denied extends Error {
+     status = 403;
+     constructor() { super('你暂时不能查看或操作这项内容，请联系管理员确认权限'); }
+ }
+ export class Unavailable extends Error {
+     status = 503;
+     constructor() { super('服务暂不可用，请稍后重试'); }
+ }
+diff --git a/src/report/exports.ts b/src/report/exports.ts
+index f06590a..a1c93e4 100644
+--- a/src/report/exports.ts
++++ b/src/report/exports.ts
+@@ -1,37 +1,41 @@
+ import { randomUUID } from 'node:crypto';
+ import { query, transaction, Denied, type Identity } from '../infrastructure/db.js';
+ import { ReportService, type ListOptions } from './service.js';
+ import type { CandidateName } from '../authz/bulk-candidate.js';
+ export class ExportService {
+     constructor(public report: ReportService) { }
+     async create(identity: Identity, candidate: CandidateName, options: ListOptions) {
++        // Export the complete filtered relation, independently of UI pagination.
++        const { limit: _limit, offset: _offset, ...filters } = options;
+         return transaction(async (db) => {
+-            const result = await this.report.list(identity, candidate, { ...options, export: true, limit: 1 }, db, true);
++            const result = await this.report.list(identity, candidate, { ...filters, export: true, limit: 1, offset: 0 }, db, true);
+             const id = randomUUID();
+-            await query(db, 'INSERT INTO report.export_job(tenant_id,id,person_id,revision,options) VALUES($1,$2,$3,$4,$5)', [identity.tenantId, id, identity.personId, result.evidence.revision, options]);
++            await query(db, 'INSERT INTO report.export_job(tenant_id,id,person_id,revision,options) VALUES($1,$2,$3,$4,$5)', [identity.tenantId, id, identity.personId, result.evidence.revision, filters]);
+             return { id, revision: result.evidence.revision };
+         });
+     }
+     async phase(identity: Identity, candidate: CandidateName, id: string, phase: 'execute' | 'claim') {
+         return transaction(async (db) => {
+             const job = (await query(db, 'SELECT revision,options,payload,state FROM report.export_job WHERE tenant_id=$1 AND id=$2 AND person_id=$3 FOR UPDATE', [identity.tenantId, id, identity.personId])).rows[0];
+             if (!job)
+                 throw new Denied();
+-            const result = await this.report.list(identity, candidate, { ...job.options, export: true, limit: 200 }, db, true);
++            const result = await this.report.list(identity, candidate, { ...job.options, export: true, limit: 200, offset: 0 }, db, true);
+             if (Number(job.revision) !== result.evidence.revision)
+                 throw new Denied();
+             if (phase === 'claim') {
+                 if (job.state !== 'ready')
+                     throw new Denied();
+                 return { rows: job.payload, count: job.payload.length };
+             }
+             const rows = [...result.rows];
+-            for (let offset = 200; offset < result.count; offset += 200) {
++            // Aggregate returns every group once; its count measures facts, not
++            // pageable groups. Only ordinary rows need the 200-row cursor loop.
++            for (let offset = 200; !job.options.aggregate && offset < result.count; offset += 200) {
+                 const page = await this.report.list(identity, candidate, { ...job.options, export: true, limit: 200, offset }, db, true);
+                 rows.push(...page.rows);
+             }
+             await query(db, "UPDATE report.export_job SET payload=$3,state='ready' WHERE tenant_id=$1 AND id=$2", [identity.tenantId, id, JSON.stringify(rows)]);
+             return { id, state: 'ready', count: rows.length };
+         });
+     }
+ }
+diff --git a/test/review-regressions.test.ts b/test/review-regressions.test.ts
+new file mode 100644
+index 0000000..670cc46
+--- /dev/null
++++ b/test/review-regressions.test.ts
+@@ -0,0 +1,121 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import { appendFile } from 'node:fs/promises';
++import { pool, transaction, Denied, Unavailable } from '../src/infrastructure/db.js';
++import { Authority } from '../src/authz/revision.js';
++import { SessionCache } from '../src/authz/cache.js';
++import { ReportService } from '../src/report/service.js';
++import { ExportService } from '../src/report/exports.js';
++async function record(name: string, expected: unknown, actual: unknown, candidate: string) { await appendFile('evidence/raw/task2-fix1-observations.jsonl', JSON.stringify({ name, candidate, expected, actual, at: new Date().toISOString() }) + '\n'); }
++async function blocked() { for (let i = 0; i < 100; i++) {
++    const r = await pool.query("SELECT count(*)::int n FROM pg_stat_activity WHERE wait_event_type='Lock' AND query ILIKE '%FOR UPDATE OF r%'");
++    if (r.rows[0].n)
++        return;
++    await new Promise(r => setTimeout(r, 20));
++} throw Error('no actual revision lock waiter'); }
++for (const candidate of ['native', 'casbin'] as const) {
++    for (const scenario of ['department', 'company', 'disabled', 'deleted'] as const)
++        for (const entry of (['department', 'company'].includes(scenario) ? ['context', 'report'] : ['context']))
++            test(`${candidate}: waiting ${entry} reads committed ${scenario} facts`, async () => {
++                const cache = new SessionCache(), authority = new Authority(cache), report = new ReportService(authority), writer = await pool.connect();
++                const actor = scenario === 'company' ? 'X' : 'M', identity = { tenantId: 'T1', personId: actor };
++                const original = (await pool.query("SELECT department_id,company_id,enabled,deleted FROM organization.person WHERE tenant_id='T1' AND id=$1", [actor])).rows[0];
++                let pending: Promise<any> | undefined;
++                try {
++                    await writer.query('BEGIN');
++                    const assignments = { department: "department_id='D2'", company: "company_id='B'", disabled: 'enabled=false', deleted: 'deleted=true' };
++                    await writer.query(`UPDATE organization.person SET ${assignments[scenario]} WHERE tenant_id='T1' AND id=$1`, [actor]);
++                    pending = transaction(async (db) => {
++                        // Direct current must itself reject disabled/deleted, without borrowing a later recheck.
++                        const options = { fixture: true, history: scenario === 'company', node: 'department-report' };
++                        const first = entry === 'report' ? await report.list(identity, candidate, options, db, true) : undefined;
++                        const context = await authority.current(identity, db, true);
++                        const result = first ?? await report.list(identity, candidate, options, db, true);
++                        return { status: 200, departmentId: context.departmentId, companyId: context.companyId, revision: context.revision, ids: result.rows.map(r => r.id) };
++                    }).catch(e => ({ status: e instanceof Denied ? 403 : e instanceof Unavailable ? 503 : 500 }));
++                    await blocked();
++                    await writer.query('COMMIT');
++                    const actual = await pending;
++                    if (scenario === 'disabled' || scenario === 'deleted') {
++                        await record(scenario, { status: 403 }, actual, candidate);
++                        assert.deepEqual(actual, { status: 403 });
++                    }
++                    else {
++                        const fresh = await authority.current(identity);
++                        const expected = scenario === 'department' ? { status: 200, departmentId: 'D2', companyId: 'I', ids: ['B', 'E', 'M', 'N'] } : { status: 200, departmentId: undefined, companyId: 'B', ids: ['h-X-B'] };
++                        await record(scenario, expected, actual, candidate);
++                        assert.deepEqual({ ...actual, revision: undefined }, { ...expected, revision: undefined });
++                        assert.equal(actual.revision, fresh.revision);
++                    }
++                }
++                finally {
++                    await writer.query('ROLLBACK');
++                    if (pending)
++                        await pending;
++                    writer.release();
++                    await pool.query("UPDATE organization.person SET department_id=$2,company_id=$3,enabled=$4,deleted=$5 WHERE tenant_id='T1' AND id=$1", [actor, original.department_id, original.company_id, original.enabled, original.deleted]);
++                    await cache.close();
++                }
++            });
++    test(`${candidate}: grouped export >200 facts emits each literal group exactly once; ordinary export still pages`, async () => {
++        const cache = new SessionCache(), authority = new Authority(cache), exportsService = new ExportService(new ReportService(authority));
++        const identity = { tenantId: 'T1', personId: 'X' };
++        let jobs: string[] = [];
++        try {
++            await pool.query("INSERT INTO report.learning_fact(tenant_id,id,person_id,data_company_id,historical_department_id,fixture,points) SELECT 'T1','fix1-'||lpad(i::text,3,'0'),'X','A',CASE WHEN i<=201 THEN 'fix-group-A' ELSE 'fix-group-B' END,true,2 FROM generate_series(1,205)i");
++            const grouped = await exportsService.create(identity, candidate, { history: true, fixture: true, aggregate: true });
++            jobs.push(grouped.id);
++            const executed = await exportsService.phase(identity, candidate, grouped.id, 'execute');
++            const claimed = await exportsService.phase(identity, candidate, grouped.id, 'claim');
++            const expected = [{ historical_department_id: 'fix-group-A', count: 201, points: '402' }, { historical_department_id: 'fix-group-B', count: 4, points: '8' }, { historical_department_id: 'old-A', count: 1, points: '10' }];
++            await record('grouped-export', { count: 3, rows: expected }, { count: executed.count, rows: claimed.rows }, candidate);
++            assert.equal(executed.count, 3);
++            assert.deepEqual(claimed, { count: 3, rows: expected });
++            const ordinary = await exportsService.create(identity, candidate, { history: true, fixture: true });
++            jobs.push(ordinary.id);
++            const normal = await exportsService.phase(identity, candidate, ordinary.id, 'execute');
++            const output = await exportsService.phase(identity, candidate, ordinary.id, 'claim');
++            const expectedIds = Array.from({ length: 205 }, (_, i) => 'fix1-' + String(i + 1).padStart(3, '0')).concat('h-X-A');
++            await record('ordinary-export', { count: 206, ids: expectedIds }, { count: normal.count, ids: output.rows.map((r: any) => r.id) }, candidate);
++            assert.equal(normal.count, 206);
++            assert.deepEqual(output.rows.map((r: any) => r.id), expectedIds);
++            assert.equal(output.rows.some((r: any) => r.data_company_id !== 'A'), false);
++        }
++        finally {
++            await pool.query("DELETE FROM report.export_job WHERE tenant_id='T1' AND id=ANY($1::text[])", [jobs]);
++            await pool.query("DELETE FROM report.learning_fact WHERE tenant_id='T1' AND id LIKE 'fix1-%'");
++            await cache.close();
++        }
++    });
++}
++for (const candidate of ['native', 'casbin'] as const)
++    test(`${candidate}: export ignores UI offset and limit and returns the complete filtered result`, async () => {
++        const cache = new SessionCache(), service = new ExportService(new ReportService(new Authority(cache)));
++        const identity = { tenantId: 'T1', personId: 'X' };
++        let id: string | undefined;
++        try {
++            await pool.query("INSERT INTO report.learning_fact(tenant_id,id,person_id,data_company_id,historical_department_id,fixture,points) SELECT 'T1','fix1-'||lpad(i::text,3,'0'),'X','A','fix-group-A',true,2 FROM generate_series(1,205)i");
++            const job = await service.create(identity, candidate, { history: true, fixture: true, offset: 150, limit: 3 });
++            id = job.id;
++            const executed = await service.phase(identity, candidate, id, 'execute'), claimed = await service.phase(identity, candidate, id, 'claim');
++            const expectedIds = Array.from({ length: 205 }, (_, i) => 'fix1-' + String(i + 1).padStart(3, '0')).concat('h-X-A');
++            await record('offset-export', { count: 206, ids: expectedIds }, { count: executed.count, ids: claimed.rows.map((r: any) => r.id) }, candidate);
++            assert.equal(executed.count, 206);
++            assert.deepEqual(claimed.rows.map((r: any) => r.id), expectedIds);
++        }
++        finally {
++            if (id)
++                await pool.query("DELETE FROM report.export_job WHERE tenant_id='T1' AND id=$1", [id]);
++            await pool.query("DELETE FROM report.learning_fact WHERE tenant_id='T1' AND id LIKE 'fix1-%'");
++            await cache.close();
++        }
++    });
++test('locking authority rejects pool and a bare autocommit client', async () => { const cache = new SessionCache(), authority = new Authority(cache), bare = await pool.connect(); try {
++    await assert.rejects(authority.current({ tenantId: 'T1', personId: 'M' }, pool, true), Unavailable);
++    await assert.rejects(authority.current({ tenantId: 'T1', personId: 'M' }, bare, true), Unavailable);
++}
++finally {
++    bare.release();
++    await cache.close();
++} });
++test.after(async () => pool.end());

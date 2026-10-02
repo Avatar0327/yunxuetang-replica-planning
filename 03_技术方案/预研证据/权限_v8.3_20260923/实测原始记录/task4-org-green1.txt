@@ -1,0 +1,18 @@
+▶ native: Task4 organization contract
+  ✔ physical company-qualified department (11.743875ms)
+  ✔ clear nullable current relationships (39.300125ms)
+  ✔ cross-company person department rejected (1.832083ms)
+✔ native: Task4 organization contract (367.205458ms)
+▶ casbin: Task4 organization contract
+  ✔ physical company-qualified department (1.934458ms)
+  ✔ clear nullable current relationships (29.961708ms)
+  ✔ cross-company person department rejected (1.382959ms)
+✔ casbin: Task4 organization contract (324.069917ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 787.235875

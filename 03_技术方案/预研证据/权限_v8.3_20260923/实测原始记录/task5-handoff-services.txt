@@ -1,0 +1,2 @@
+yxt-redis Up 15 minutes
+yxt-pg Up 15 minutes

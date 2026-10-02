@@ -1,0 +1,11 @@
+### Result
+- [Screenshot of viewport](output/playwright/final-casbin/Q-denied.png)
+### Ran Playwright code
+```js
+// Screenshot viewport and save it as output/playwright/final-casbin/Q-denied.png
+await page.screenshot({
+  path: 'output/playwright/final-casbin/Q-denied.png',
+  scale: 'css',
+  type: 'png'
+});
+```

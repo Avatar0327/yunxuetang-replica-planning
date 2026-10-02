@@ -1,0 +1,12 @@
+✔ native: snapshot build crossing revoke rejects stale version (33.274209ms)
+✔ native: write before revoke commits; revoke before next write denies (46.4925ms)
+✔ casbin: snapshot build crossing revoke rejects stale version (28.236959ms)
+✔ casbin: write before revoke commits; revoke before next write denies (77.868875ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 348.843

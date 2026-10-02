@@ -1,0 +1,14 @@
+{"candidate":"native","name":"populated source creation","expected":200,"actual":200,"at":"2026-09-22T20:54:41.127Z"}
+{"candidate":"native","name":"populated derived creation","expected":200,"actual":200,"at":"2026-09-22T20:54:41.153Z"}
+{"candidate":"native","name":"AUTH-T20-01 initial literal cap","expected":["A"],"actual":["A"],"at":"2026-09-22T20:54:41.154Z"}
+{"candidate":"native","name":"AUTH-T20-01 populated B branch move","expected":200,"actual":200,"at":"2026-09-22T20:54:41.168Z"}
+{"candidate":"native","name":"AUTH-T20-01 no unchecked expansion","expected":{"state":"recheck_required","cap":["A"]},"actual":{"state":"recheck_required","cap":["A"]},"at":"2026-09-22T20:54:41.170Z"}
+{"candidate":"native","name":"AUTH-T20-01 frozen parent cannot regrant","expected":"suspended","actual":"suspended","at":"2026-09-22T20:54:41.181Z"}
+{"candidate":"native","name":"AUTH-T20-01 explicit parent and child recheck","expected":{"state":"active","cap":["A","B"]},"actual":{"state":"active","cap":["A","B"]},"at":"2026-09-22T20:54:41.276Z"}
+{"candidate":"casbin","name":"populated source creation","expected":200,"actual":200,"at":"2026-09-22T20:54:41.659Z"}
+{"candidate":"casbin","name":"populated derived creation","expected":200,"actual":200,"at":"2026-09-22T20:54:41.683Z"}
+{"candidate":"casbin","name":"AUTH-T20-01 initial literal cap","expected":["A"],"actual":["A"],"at":"2026-09-22T20:54:41.684Z"}
+{"candidate":"casbin","name":"AUTH-T20-01 populated B branch move","expected":200,"actual":200,"at":"2026-09-22T20:54:41.698Z"}
+{"candidate":"casbin","name":"AUTH-T20-01 no unchecked expansion","expected":{"state":"recheck_required","cap":["A"]},"actual":{"state":"recheck_required","cap":["A"]},"at":"2026-09-22T20:54:41.699Z"}
+{"candidate":"casbin","name":"AUTH-T20-01 frozen parent cannot regrant","expected":"suspended","actual":"suspended","at":"2026-09-22T20:54:41.710Z"}
+{"candidate":"casbin","name":"AUTH-T20-01 explicit parent and child recheck","expected":{"state":"active","cap":["A","B"]},"actual":{"state":"active","cap":["A","B"]},"at":"2026-09-22T20:54:41.805Z"}

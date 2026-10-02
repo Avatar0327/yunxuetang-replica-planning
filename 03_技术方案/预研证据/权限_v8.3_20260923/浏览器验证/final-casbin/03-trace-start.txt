@@ -1,0 +1,5 @@
+### Result
+Trace recording started
+- [Action log](.playwright-cli/traces/trace-1790123712049.trace)
+- [Network log](.playwright-cli/traces/trace-1790123712049.network)
+- [Resources](.playwright-cli/traces/resources)

@@ -1,0 +1,8 @@
+# Task2 review interruption record
+
+The independent reviewer /root/spike_core_review read the core diff and reported two confirmed defects. Its final report generation was interrupted by an automatic cybersecurity-risk flag. No complete spec/quality approval exists. This record preserves its messages; it is not a replacement for a complete independent review.
+
+1. Important — src/authz/revision.ts:29,64,86: the locking join can return a newly locked revision with older joined actor/company facts after waiting under READ COMMITTED. Reviewer observed locked context revision1790107510504/departmentD1 while an immediately fresh context returned the same revision/departmentD2. Actual ReportService locked call returnedA/C while a fresh call atrevision1790107510506 returnedB/E/M/N. Reviewer reports restoring M toD1; revision/audit advanced monotonically. Parent independently inspected the cited query and version-only rechecks; no parent reproduction was run.
+2. Important — src/report/exports.ts:28-31: export paginates using underlying fact count even when the aggregate query returns the complete grouped result on every call. Reviewer observed aggregate offset0 and200 returning the same two groups. Repeated aggregation/output can inflate results and resource use. Parent independently inspected this loop; no large export experiment was run.
+
+Requested follow-up is defensive repair with covering regression evidence, followed by scoped verification and completion of the interrupted core review. Existing unit/functional passes cannot erase these observations. FormalB1 remains blocked by the gate.

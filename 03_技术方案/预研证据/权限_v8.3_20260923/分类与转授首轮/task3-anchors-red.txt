@@ -1,0 +1,78 @@
+▶ native: node-owned SELF anchors and depth
+  ✔ course uses uploader while draft maintenance stays allowed (36.100917ms)
+  ✔ project uses original creator (6.707542ms)
+  ✖ face-to-face uses owner not creator (2.705917ms)
+  ✔ category depth10 succeeds depth11 denies (25.974916ms)
+✖ native: node-owned SELF anchors and depth (405.715ms)
+▶ casbin: node-owned SELF anchors and depth
+  ✔ course uses uploader while draft maintenance stays allowed (24.288833ms)
+  ✔ project uses original creator (7.4095ms)
+  ✖ face-to-face uses owner not creator (1.278875ms)
+  ✔ category depth10 succeeds depth11 denies (30.3385ms)
+✖ casbin: node-owned SELF anchors and depth (380.382958ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 6
+ℹ fail 4
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 881.408875
+
+✖ failing tests:
+
+test at test/task3-anchors.test.ts:1:1922
+✖ face-to-face uses owner not creator (2.705917ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+  +   ids: undefined,
+  +   status: 404
+  -   ids: [
+  -     'anchor-d83556dc-ded7-470e-b848-1a98d81a0474mine'
+  -   ],
+  -   status: 200
+    }
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-anchors.test.ts:21:67)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-anchors.test.ts:20:3)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { status: 404, ids: undefined },
+    expected: { status: 200, ids: [ 'anchor-d83556dc-ded7-470e-b848-1a98d81a0474mine' ] },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task3-anchors.test.ts:1:1922
+✖ face-to-face uses owner not creator (1.278875ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+  +   ids: undefined,
+  +   status: 404
+  -   ids: [
+  -     'anchor-aa3c65e6-fdf4-4ae2-9bc0-d353c777613dmine'
+  -   ],
+  -   status: 200
+    }
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-anchors.test.ts:21:67)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-anchors.test.ts:20:3)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { status: 404, ids: undefined },
+    expected: { status: 200, ids: [ 'anchor-aa3c65e6-fdf4-4ae2-9bc0-d353c777613dmine' ] },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

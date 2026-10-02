@@ -1,0 +1,89 @@
+[
+  {
+    "directory": "evidence/raw/smoke-casbin-cold-list-fixed",
+    "candidate": "casbin",
+    "cache": "cold",
+    "configured_seconds": 3,
+    "concurrency": 4,
+    "reference_window": false,
+    "phase": "success",
+    "sample_count": 1872,
+    "categories": {
+      "success": 1872
+    },
+    "instances": {
+      "B": 867,
+      "A": 1005
+    },
+    "cache_states": {
+      "cold": 1872
+    },
+    "scenario_counts": {
+      "list-constrained": 1872
+    },
+    "actual_wall_ms": 3007.0,
+    "observed_client_count": 4,
+    "request_start_span_ms": 3000.0,
+    "query_counts_by_scenario": {
+      "list-constrained": {
+        "10": 1872
+      }
+    },
+    "statistics": {
+      "list-constrained": {
+        "success": {
+          "count": 1872,
+          "p50": 6.186083999999937,
+          "p95": 7.439915999999812,
+          "p99": 9.083457999999979
+        },
+        "permission": {
+          "count": 1872,
+          "p50": 5.104167999999845,
+          "p95": 6.2340839999997115,
+          "p99": 7.239749999999731
+        },
+        "data": {
+          "count": 1872,
+          "p50": 0.7764160000001539,
+          "p95": 1.3894580000001042,
+          "p99": 1.9639159999996991
+        }
+      },
+      "_all": {
+        "success": {
+          "count": 1872,
+          "p50": 6.186083999999937,
+          "p95": 7.439915999999812,
+          "p99": 9.083457999999979
+        },
+        "permission": {
+          "count": 1872,
+          "p50": 5.104167999999845,
+          "p95": 6.2340839999997115,
+          "p99": 7.239749999999731
+        },
+        "data": {
+          "count": 1872,
+          "p50": 0.7764160000001539,
+          "p95": 1.3894580000001042,
+          "p99": 1.9639159999996991
+        }
+      }
+    },
+    "threshold_observations": {
+      "list-constrained": {
+        "permission_p95_ms": 6.2340839999997115,
+        "permission_limit_ms": 50,
+        "permission_met": true,
+        "success_p95_ms": 7.439915999999812,
+        "success_limit_ms": 500,
+        "success_met": true
+      }
+    },
+    "audit_errors": [],
+    "truth_scenarios": [],
+    "raw_correctness_mismatches": {},
+    "limitation": "Threshold observations alone do not establish full acceptance, result truth, no N+1, resource limits or sufficient workload."
+  }
+]

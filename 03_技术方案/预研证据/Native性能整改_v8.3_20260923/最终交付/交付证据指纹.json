@@ -1,0 +1,53 @@
+{
+  "packaged_at": "2026-09-23T16:17:58.157686+08:00",
+  "source_commit": "817256bf1e1fc722aaa5f0c21878e84fe8df1306",
+  "source_branch": "spike/native-performance-v83",
+  "formal_repository": null,
+  "prototype_repository": "/Users/peng/Agent本地开发/云学堂权限预研",
+  "remote": "",
+  "input_count": 65,
+  "input_unchanged": true,
+  "input_manifest_sha256": "a67ba4236e0899e82d554fce54be319ec411cb5336652f47605f82cf93a5b1bd",
+  "report": {
+    "path": "15_Native权限性能整改报告.md",
+    "sha256": "1c362ada1685ef8bd0aa3036cbb8c3fc524fae210dfbfa5dbea6e6fd00d4f6b6"
+  },
+  "raw_files_verified": 811,
+  "artifacts": [
+    {
+      "path": "Native整改源码_817256b.tar.gz",
+      "bytes": 387926,
+      "sha256": "0ab290c4f84f8175a0656e045f89e38a4e4261c7d098fdecefa8c721b810f1ce"
+    },
+    {
+      "path": "Native整改提交历史_817256b.bundle",
+      "bytes": 527383,
+      "sha256": "56cbffc91182019c001310c2e7cb2bd639f63ac4796e53b3462447456097cd01"
+    },
+    {
+      "path": "Native整改原始证据.tar.gz",
+      "bytes": 363025978,
+      "sha256": "07041fde55e018113a16e59ec2c30c8904f328b8d06389ccba59a055bc4a8264"
+    },
+    {
+      "path": "原始证据文件指纹.json",
+      "bytes": 179425,
+      "sha256": "8b3924ebda6c3f1632bb55d9bccaf3b0dda632eb38018bb0ca693efe40e38058"
+    },
+    {
+      "path": "bundle核验.txt",
+      "bytes": 412,
+      "sha256": "68ce2b2dbf3b08eb4f945ab1c2e8d614fd2204710c4e1e46e8485cabafef595a"
+    }
+  ],
+  "scope": "Integrity verified, not permission Go. Stage1 separately delivered archive remains authoritative and unchanged.",
+  "post_package_verification": {
+    "status": "verified",
+    "checks": 206,
+    "gate": "NO_GO",
+    "authoritative_verification_script": "最终核验脚本_v2.py",
+    "verification_result": "最终核验.json",
+    "supplement_fingerprints": "最终核验补充指纹.json",
+    "note": "Source/tar contents unchanged; v2 fixes Git-quoted Chinese path comparison only. Archived draft retained."
+  }
+}

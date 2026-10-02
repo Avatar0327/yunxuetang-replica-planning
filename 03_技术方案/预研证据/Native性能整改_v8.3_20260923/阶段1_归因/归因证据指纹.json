@@ -1,0 +1,80 @@
+{
+  "at": "2026-09-23T12:49:40.291941+08:00",
+  "phase": "stage1_attribution_only",
+  "measurement_source": "b3ea7781deb481b4f6db9e64189a182d2f879944",
+  "delivery_source": "ec2e61662d7947f33bd67e7db96917f123e6fd9d",
+  "application_unchanged_from_measurement": true,
+  "stage2_started": false,
+  "permission_gate": "NO_GO",
+  "input_baseline": "v8.3",
+  "input_count": 65,
+  "formal_repository": null,
+  "prototype_repository": "/Users/peng/Agent本地开发/云学堂权限预研",
+  "files": [
+    {
+      "path": "14_Native性能归因报告.md",
+      "bytes": 18548,
+      "sha256": "2c7c23220cfe968ec75e2c446efdde21f938577adb74bc9d93f5e6061ed0890d"
+    },
+    {
+      "path": "cold-independent-attribution-audit.json",
+      "bytes": 1753170,
+      "sha256": "8179aaec70df722de0e5a2544866aaf90221ba5b0a3a95507a159f5d8793b67f"
+    },
+    {
+      "path": "cold-server-clock-attribution.json",
+      "bytes": 1830723,
+      "sha256": "6f1fb6954f1e13409a467f33bd2c11581b335bb12e9d5582bba5cd6b85564699"
+    },
+    {
+      "path": "cold-supplement.json",
+      "bytes": 1601867,
+      "sha256": "5790ecf82cea878571777817a3231ab2da598be8199d74b75fab0b9c3183ac49"
+    },
+    {
+      "path": "cold-window-gate.json",
+      "bytes": 3979,
+      "sha256": "2fca94d33cad8ad8a997b2d671331b2ddeb4b6de283015267244571c5fca6329"
+    },
+    {
+      "path": "hot-independent-attribution-audit.json",
+      "bytes": 986985,
+      "sha256": "23e1ea973ebc2cc67e44680c248bff9a14bd687acb7d9607af1c38923b5d2661"
+    },
+    {
+      "path": "hot-server-clock-attribution.json",
+      "bytes": 1320623,
+      "sha256": "f4129733eabebb8649d4069fd3bf58761578052a00b29f40cf9627ad968e634d"
+    },
+    {
+      "path": "hot-supplement.json",
+      "bytes": 922252,
+      "sha256": "9608c14d5b5bc08b735e9f68e65c298ed61f6fc614b8b8dbcf99e33f28840f35"
+    },
+    {
+      "path": "hot-window-gate.json",
+      "bytes": 3981,
+      "sha256": "8edf717b4fd37ba13d763114b534e52c5c1d6a536eb2249bb91e695b5a2412a6"
+    },
+    {
+      "path": "归因历史_ec2e616.bundle",
+      "bytes": 483157,
+      "sha256": "8ca6c59ff79f195cce1ab93b77e90c9f73ad3f1a43b186a37713a4f83f201b4a"
+    },
+    {
+      "path": "归因原始文件指纹.json",
+      "bytes": 25971,
+      "sha256": "3dbd5a544955364f1124551b9363db79b997de43749caa9f59cf5ce2480f1f2d"
+    },
+    {
+      "path": "归因原始证据.tar.gz",
+      "bytes": 25248381,
+      "sha256": "ad5952338b4dbdd23c0e9a601a5c8ad1a59617d6fe077274f8ba1246e151f316"
+    },
+    {
+      "path": "归因源码_ec2e616.tar.gz",
+      "bytes": 355208,
+      "sha256": "4ee3ffc77bb8d0228236efd6567b092c385202ed601565edde7f917cab627904"
+    }
+  ]
+}

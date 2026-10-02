@@ -1,0 +1,108 @@
+
+> permission-v83-spike@0.0.1 test:task4
+> tsx --test --test-concurrency=1 test/task4-*.test.ts test/module-boundaries.test.ts
+
+✔ module repositories cannot read or write foreign private tables (5.43875ms)
+✔ SQL routines retain owning-module table boundaries (0.377084ms)
+✔ native: management account cap includes future same-company entries (540.3985ms)
+✔ casbin: management account cap includes future same-company entries (506.477875ms)
+▶ native: company/currency wallet and true positive offset
+  ✔ own split wallet (33.438584ms)
+  ✔ cross-company denied positive same-company works (34.459083ms)
+  ✔ management source and export stay company-bound (16.324292ms)
+✔ native: company/currency wallet and true positive offset (381.494792ms)
+▶ casbin: company/currency wallet and true positive offset
+  ✔ own split wallet (20.293084ms)
+  ✔ cross-company denied positive same-company works (43.993916ms)
+  ✔ management source and export stay company-bound (16.584458ms)
+✔ casbin: company/currency wallet and true positive offset (395.244708ms)
+▶ native: mixed-company project and explicit grants
+  ✔ ordinary customer shared course (41.707875ms)
+  ✔ search/count company relation (6.147166ms)
+  ✔ personal progress and attachments (81.662125ms)
+  ✔ grant and revoke retain other companies (51.93325ms)
+✔ native: mixed-company project and explicit grants (542.982208ms)
+▶ casbin: mixed-company project and explicit grants
+  ✔ ordinary customer shared course (39.821791ms)
+  ✔ search/count company relation (6.087125ms)
+  ✔ personal progress and attachments (85.13875ms)
+  ✔ grant and revoke retain other companies (63.096875ms)
+✔ casbin: mixed-company project and explicit grants (540.278ms)
+✔ native: current person state and immutable snapshots (554.225292ms)
+✔ casbin: current person state and immutable snapshots (591.549708ms)
+✔ native: team lock order, two instances, Redis failure (2814.90825ms)
+✔ casbin: team lock order, two instances, Redis failure (2829.958167ms)
+▶ native: department move has explicit action and complete affected cap
+  ✔ person action cannot authorize department (43.316542ms)
+  ✔ explicit department action positive (13.894542ms)
+  ✔ parent outside cap (9.774ms)
+  ✔ child D11 outside cap (9.389166ms)
+  ✔ root has no parent object (10.028333ms)
+✔ native: department move has explicit action and complete affected cap (415.447917ms)
+▶ casbin: department move has explicit action and complete affected cap
+  ✔ person action cannot authorize department (21.343708ms)
+  ✔ explicit department action positive (13.886ms)
+  ✔ parent outside cap (9.61625ms)
+  ✔ child D11 outside cap (8.888209ms)
+  ✔ root has no parent object (9.839459ms)
+✔ casbin: department move has explicit action and complete affected cap (403.898542ms)
+✔ native: ordinary person command retains required main department (357.91725ms)
+✔ casbin: ordinary person command retains required main department (352.54125ms)
+✔ native: empty and unsupported scopes and same-name tenant boundary (477.983458ms)
+✔ casbin: empty and unsupported scopes and same-name tenant boundary (437.154334ms)
+✔ native: history cap covers future facts of authorized people (964.373833ms)
+✔ casbin: history cap covers future facts of authorized people (944.152584ms)
+▶ native: Task4 organization contract
+  ✔ physical company-qualified department (10.496792ms)
+  ✔ physical hierarchy and scale (77.512417ms)
+  ✔ nullable manager and abnormal department fixture (33.77975ms)
+  ✔ cross-company person department rejected (1.480125ms)
+✔ native: Task4 organization contract (414.210042ms)
+▶ casbin: Task4 organization contract
+  ✔ physical company-qualified department (2.036875ms)
+  ✔ physical hierarchy and scale (66.972375ms)
+  ✔ nullable manager and abnormal department fixture (42.861042ms)
+  ✔ cross-company person department rejected (1.381917ms)
+✔ casbin: Task4 organization contract (424.370333ms)
+▶ native: person command applies same-action selected object caps
+  ✔ range negative (34.040458ms)
+  ✔ range positive (13.668875ms)
+✔ native: person command applies same-action selected object caps (351.5115ms)
+▶ casbin: person command applies same-action selected object caps
+  ✔ range negative (23.436375ms)
+  ✔ range positive (13.712666ms)
+✔ casbin: person command applies same-action selected object caps (352.793584ms)
+▶ native: R1 membership revoke retains target-person cap
+  ✔ denies C (1.775375ms)
+  ✔ no target/dependent writes (1.902209ms)
+  ✔ permits B (12.528542ms)
+✔ native: R1 membership revoke retains target-person cap (379.682916ms)
+▶ native: R2 attachment uses project-specific download action
+  ✔ view remains progress only (29.247167ms)
+  ✔ other project download cannot join broader view (7.115917ms)
+  ✔ matching download permits bytes (14.473667ms)
+  ✔ download-only revoke applies next new request (39.241417ms)
+✔ native: R2 attachment uses project-specific download action (721.348084ms)
+▶ casbin: R1 membership revoke retains target-person cap
+  ✔ denies C (0.341ms)
+  ✔ no target/dependent writes (1.26875ms)
+  ✔ permits B (12.44425ms)
+✔ casbin: R1 membership revoke retains target-person cap (375.882042ms)
+▶ casbin: R2 attachment uses project-specific download action
+  ✔ view remains progress only (30.047208ms)
+  ✔ other project download cannot join broader view (7.481167ms)
+  ✔ matching download permits bytes (14.980959ms)
+  ✔ download-only revoke applies next new request (47.543459ms)
+✔ casbin: R2 attachment uses project-specific download action (724.339791ms)
+✔ native: company grant selected-source object cap (352.4585ms)
+✔ casbin: company grant selected-source object cap (311.144208ms)
+✔ native: direct-team enrollment paths (612.241333ms)
+✔ casbin: direct-team enrollment paths (624.141709ms)
+ℹ tests 82
+ℹ suites 0
+ℹ pass 82
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 21083.518542

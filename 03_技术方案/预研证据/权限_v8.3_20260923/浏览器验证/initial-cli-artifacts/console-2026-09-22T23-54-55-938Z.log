@@ -1,0 +1,12 @@
+[     191ms] SyntaxError: https://vuejs.org/error-reference/#compiler-30
+    at s3 (http://127.0.0.1:4312/assets/vue.js:6:59035)
+    at http://127.0.0.1:4312/assets/vue.js:7:7547
+    at http://127.0.0.1:4312/assets/vue.js:7:7570
+    at Array.<anonymous> (http://127.0.0.1:4312/assets/vue.js:7:3383)
+    at oY (http://127.0.0.1:4312/assets/vue.js:7:2685)
+    at oY (http://127.0.0.1:4312/assets/vue.js:7:3097)
+    at oY (http://127.0.0.1:4312/assets/vue.js:7:3097)
+    at oY (http://127.0.0.1:4312/assets/vue.js:7:2889)
+    at oY (http://127.0.0.1:4312/assets/vue.js:7:3097)
+    at oY (http://127.0.0.1:4312/assets/vue.js:7:3097)
+[     195ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:4312/favicon.ico:0

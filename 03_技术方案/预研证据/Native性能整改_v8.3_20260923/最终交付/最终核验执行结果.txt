@@ -1,0 +1,1 @@
+{"delivery_verified": true, "checks": 206, "source": "817256bf1e1fc722aaa5f0c21878e84fe8df1306", "permission_gate": "NO_GO"}

@@ -1,0 +1,11 @@
+{
+  "mapping": "evidence/coverage-map.json",
+  "required": 168,
+  "rows": 168,
+  "statuses": {
+    "incomplete": 168
+  },
+  "literal_comparisons_checked": 792,
+  "errors": [],
+  "limitation": "Mechanical citation audit only; semantic coverage and Go require independent review."
+}

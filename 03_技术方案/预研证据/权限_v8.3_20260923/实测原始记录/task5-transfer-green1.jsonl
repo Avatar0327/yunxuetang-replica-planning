@@ -1,0 +1,12 @@
+{"candidate":"native","name":"old enrollment keeps captured name","expected":{"person_id":"X","company_id":"A","display_name":"X"},"actual":{"person_id":"X","company_id":"A","display_name":"X"},"at":"2026-09-22T22:53:41.040Z"}
+{"candidate":"native","name":"enrollment search cannot reveal transferred current name","expected":[],"actual":[],"at":"2026-09-22T22:53:41.047Z"}
+{"candidate":"native","name":"new company cannot acquire old enrollment","expected":["Y"],"actual":["Y"],"at":"2026-09-22T22:53:41.057Z"}
+{"candidate":"native","name":"new company old progress denies","expected":403,"actual":403,"at":"2026-09-22T22:53:41.063Z"}
+{"candidate":"native","name":"new company old attachment denies","expected":403,"actual":403,"at":"2026-09-22T22:53:41.072Z"}
+{"candidate":"native","name":"export captured enrollment name","expected":"X","actual":"X","at":"2026-09-22T22:53:41.114Z"}
+{"candidate":"casbin","name":"old enrollment keeps captured name","expected":{"person_id":"X","company_id":"A","display_name":"X"},"actual":{"person_id":"X","company_id":"A","display_name":"X"},"at":"2026-09-22T22:53:41.515Z"}
+{"candidate":"casbin","name":"enrollment search cannot reveal transferred current name","expected":[],"actual":[],"at":"2026-09-22T22:53:41.521Z"}
+{"candidate":"casbin","name":"new company cannot acquire old enrollment","expected":["Y"],"actual":["Y"],"at":"2026-09-22T22:53:41.530Z"}
+{"candidate":"casbin","name":"new company old progress denies","expected":403,"actual":403,"at":"2026-09-22T22:53:41.536Z"}
+{"candidate":"casbin","name":"new company old attachment denies","expected":403,"actual":403,"at":"2026-09-22T22:53:41.545Z"}
+{"candidate":"casbin","name":"export captured enrollment name","expected":"X","actual":"X","at":"2026-09-22T22:53:41.589Z"}

@@ -1,0 +1,34 @@
+
+> permission-v83-spike@0.0.1 seed
+> tsx scripts/seed.ts
+
+/Users/peng/Agent本地开发/云学堂权限预研/node_modules/pg/lib/client.js:545
+          Error.captureStackTrace(err)
+                ^
+
+error: syntax error at or near "freeze"
+    at /Users/peng/Agent本地开发/云学堂权限预研/node_modules/pg/lib/client.js:545:17
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async <anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/scripts/seed.ts:10:9)
+    at async transaction (/Users/peng/Agent本地开发/云学堂权限预研/src/infrastructure/db.ts:19:20)
+    at async <anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/scripts/seed.ts:8:5) {
+  length: 97,
+  severity: 'ERROR',
+  code: '42601',
+  detail: undefined,
+  hint: undefined,
+  position: '9227',
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'scan.l',
+  line: '1244',
+  routine: 'scanner_yyerror'
+}
+
+Node.js v24.21.0

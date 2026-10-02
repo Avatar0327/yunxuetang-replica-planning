@@ -1,0 +1,9 @@
+/Users/peng/Agent本地开发/云学堂权限预研/scripts/evidence.ts:7
+    throw Error(`${id}: expected ${JSON.stringify(expected)}, actual ${JSON.stringify(actual)}`); }
+          ^
+
+Error: page-size-query-count-20: expected 8, actual 14
+    at check (/Users/peng/Agent本地开发/云学堂权限预研/scripts/evidence.ts:7:11)
+    at async <anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/scripts/run-functional.ts:25:13)
+
+Node.js v24.21.0

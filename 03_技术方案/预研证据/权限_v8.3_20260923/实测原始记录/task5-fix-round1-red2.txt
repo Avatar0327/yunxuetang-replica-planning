@@ -1,0 +1,272 @@
+▶ native: old-company enrollment conflicts deny without partial enrollment
+  ✖ single conflict rejects entire batch (15.457042ms)
+  ✖ mixed conflict rejects entire batch (16.772208ms)
+  ✖ A B and internal protected reads retain enrollment boundaries after rejection (89.1155ms)
+  ✔ same-company existing enrollment remains idempotent alongside fresh enrollment (24.790167ms)
+✖ native: old-company enrollment conflicts deny without partial enrollment (584.2915ms)
+▶ casbin: old-company enrollment conflicts deny without partial enrollment
+  ✖ single conflict rejects entire batch (14.093792ms)
+  ✖ mixed conflict rejects entire batch (16.380625ms)
+  ✖ A B and internal protected reads retain enrollment boundaries after rejection (88.792042ms)
+  ✔ same-company existing enrollment remains idempotent alongside fresh enrollment (25.5975ms)
+✖ casbin: old-company enrollment conflicts deny without partial enrollment (576.929917ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 2
+ℹ fail 8
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1259.369209
+
+✖ failing tests:
+
+test at test/task5-enrollment-conflict.test.ts:1:3100
+✖ single conflict rejects entire batch (15.457042ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  ... Skipped lines
+  
+    {
+      body: {
+  +     changed: true,
+  +     count: 1
+  -     message: '你暂时不能查看或操作这项内容，请联系管理员确认权限'
+      },
+      rows: [
+        {
+          attachment: 'attachment-A',
+          company_id: 'I',
+  ...
+      ],
+  +   status: 200,
+  -   status: 403,
+      unchangedStamp: true
+    }
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task5-enrollment-conflict.test.ts:40:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task5-enrollment-conflict.test.ts:37:4)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { status: 200, body: { changed: true, count: 1 }, rows: [ [Object], [Object], [Object] ], unchangedStamp: true },
+    expected: { status: 403, body: { message: '你暂时不能查看或操作这项内容，请联系管理员确认权限' }, rows: [ [Object], [Object], [Object] ], unchangedStamp: true },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task5-enrollment-conflict.test.ts:1:3100
+✖ mixed conflict rejects entire batch (16.772208ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  ... Skipped lines
+  
+    {
+      body: {
+  +     changed: true,
+  +     count: 3
+  -     message: '你暂时不能查看或操作这项内容，请联系管理员确认权限'
+      },
+      rows: [
+        {
+          attachment: 'attachment-A',
+          company_id: 'I',
+  ...
+        {
+  +       attachment: 'synthetic-person-attachment',
+  +       company_id: 'B',
+  +       person_id: 'W',
+  +       progress: 0,
+  +       snapshot_display_name: 'W'
+  +     },
+  +     {
+          attachment: 'attachment-X',
+          company_id: 'A',
+          person_id: 'X',
+          progress: 25,
+          snapshot_display_name: 'X'
+  ...
+      ],
+  +   status: 200,
+  +   unchangedStamp: false
+  -   status: 403,
+  -   unchangedStamp: true
+    }
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task5-enrollment-conflict.test.ts:40:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task5-enrollment-conflict.test.ts:37:4)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { status: 200, body: { changed: true, count: 3 }, rows: [ [Object], [Object], [Object], [Object] ], unchangedStamp: false },
+    expected: { status: 403, body: { message: '你暂时不能查看或操作这项内容，请联系管理员确认权限' }, rows: [ [Object], [Object], [Object] ], unchangedStamp: true },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task5-enrollment-conflict.test.ts:1:3755
+✖ A B and internal protected reads retain enrollment boundaries after rejection (89.1155ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+  +   count: 2,
+  -   count: 1,
+      rows: [
+        {
+          company_id: 'B',
+  +       display_name: 'W',
+  +       person_id: 'W'
+  +     },
+  +     {
+  +       company_id: 'B',
+          display_name: 'Y',
+          person_id: 'Y'
+        }
+      ],
+      status: 200
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task5-enrollment-conflict.test.ts:52:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task5-enrollment-conflict.test.ts:45:3)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { status: 200, rows: [ [Object], [Object] ], count: 2 },
+    expected: { status: 200, rows: [ [Object] ], count: 1 },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task5-enrollment-conflict.test.ts:1:3100
+✖ single conflict rejects entire batch (14.093792ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  ... Skipped lines
+  
+    {
+      body: {
+  +     changed: true,
+  +     count: 1
+  -     message: '你暂时不能查看或操作这项内容，请联系管理员确认权限'
+      },
+      rows: [
+        {
+          attachment: 'attachment-A',
+          company_id: 'I',
+  ...
+      ],
+  +   status: 200,
+  -   status: 403,
+      unchangedStamp: true
+    }
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task5-enrollment-conflict.test.ts:40:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task5-enrollment-conflict.test.ts:37:4)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { status: 200, body: { changed: true, count: 1 }, rows: [ [Object], [Object], [Object] ], unchangedStamp: true },
+    expected: { status: 403, body: { message: '你暂时不能查看或操作这项内容，请联系管理员确认权限' }, rows: [ [Object], [Object], [Object] ], unchangedStamp: true },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task5-enrollment-conflict.test.ts:1:3100
+✖ mixed conflict rejects entire batch (16.380625ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  ... Skipped lines
+  
+    {
+      body: {
+  +     changed: true,
+  +     count: 3
+  -     message: '你暂时不能查看或操作这项内容，请联系管理员确认权限'
+      },
+      rows: [
+        {
+          attachment: 'attachment-A',
+          company_id: 'I',
+  ...
+        {
+  +       attachment: 'synthetic-person-attachment',
+  +       company_id: 'B',
+  +       person_id: 'W',
+  +       progress: 0,
+  +       snapshot_display_name: 'W'
+  +     },
+  +     {
+          attachment: 'attachment-X',
+          company_id: 'A',
+          person_id: 'X',
+          progress: 25,
+          snapshot_display_name: 'X'
+  ...
+      ],
+  +   status: 200,
+  +   unchangedStamp: false
+  -   status: 403,
+  -   unchangedStamp: true
+    }
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task5-enrollment-conflict.test.ts:40:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task5-enrollment-conflict.test.ts:37:4)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { status: 200, body: { changed: true, count: 3 }, rows: [ [Object], [Object], [Object], [Object] ], unchangedStamp: false },
+    expected: { status: 403, body: { message: '你暂时不能查看或操作这项内容，请联系管理员确认权限' }, rows: [ [Object], [Object], [Object] ], unchangedStamp: true },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task5-enrollment-conflict.test.ts:1:3755
+✖ A B and internal protected reads retain enrollment boundaries after rejection (88.792042ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+  +   count: 2,
+  -   count: 1,
+      rows: [
+        {
+          company_id: 'B',
+  +       display_name: 'W',
+  +       person_id: 'W'
+  +     },
+  +     {
+  +       company_id: 'B',
+          display_name: 'Y',
+          person_id: 'Y'
+        }
+      ],
+      status: 200
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task5-enrollment-conflict.test.ts:52:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task5-enrollment-conflict.test.ts:45:3)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { status: 200, rows: [ [Object], [Object] ], count: 2 },
+    expected: { status: 200, rows: [ [Object] ], count: 1 },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

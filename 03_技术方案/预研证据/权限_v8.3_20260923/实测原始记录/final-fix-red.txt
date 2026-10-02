@@ -1,0 +1,565 @@
+▶ native: I1 appointment natural keys never collide
+  ✖ intended second relation active=false (10.637458ms)
+  ✖ intended second relation active=true (10.300542ms)
+  ✖ intended second relation active=true (10.086125ms)
+  ✖ intended second relation active=false (9.431291ms)
+  ✔ unrelated appointment, backend and revoke boundaries (45.13975ms)
+✖ native: I1 appointment natural keys never collide (638.862917ms)
+▶ native: I2 mixed-case membership is independent of collation
+  ✖ -project add (11.018208ms)
+  ✖ -project remove (15.268458ms)
+  ✖ -team add (13.763458ms)
+  ✖ -team remove (17.258667ms)
+  ✔ -project mixed invalid atomic add (20.117125ms)
+  ✔ -project mixed invalid atomic remove (25.062708ms)
+  ✔ -team mixed invalid atomic add (30.0255ms)
+  ✔ -team mixed invalid atomic remove (29.488583ms)
+  ✖ department subtree and target parent mixed case (8.291042ms)
+  ✔ department unauthorized child atomic (8.426ms)
+✖ native: I2 mixed-case membership is independent of collation (528.676291ms)
+✖ native: I3 category target equivalence and fail closed (314.862625ms)
+▶ casbin: I1 appointment natural keys never collide
+  ✖ intended second relation active=false (8.694167ms)
+  ✖ intended second relation active=true (9.530791ms)
+  ✖ intended second relation active=true (9.386375ms)
+  ✖ intended second relation active=false (8.699458ms)
+  ✔ unrelated appointment, backend and revoke boundaries (51.769042ms)
+✖ casbin: I1 appointment natural keys never collide (447.225041ms)
+▶ casbin: I2 mixed-case membership is independent of collation
+  ✖ -project add (12.255208ms)
+  ✖ -project remove (14.746792ms)
+  ✖ -team add (14.223917ms)
+  ✖ -team remove (17.855375ms)
+  ✔ -project mixed invalid atomic add (20.490333ms)
+  ✔ -project mixed invalid atomic remove (25.905375ms)
+  ✔ -team mixed invalid atomic add (27.743625ms)
+  ✔ -team mixed invalid atomic remove (31.275584ms)
+  ✖ department subtree and target parent mixed case (11.333542ms)
+  ✔ department unauthorized child atomic (8.991375ms)
+✖ casbin: I2 mixed-case membership is independent of collation (518.62425ms)
+✖ casbin: I3 category target equivalence and fail closed (298.613959ms)
+✔ I3 damaged existing ancestry is still an unexpected error (0.444375ms)
+ℹ tests 37
+ℹ suites 0
+ℹ pass 13
+ℹ fail 24
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3055.938583
+
+✖ failing tests:
+
+test at test/final-fix-regressions.test.ts:1:2962
+✖ intended second relation active=false (10.637458ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+      {
+  +     active: false,
+  -     active: true,
+        person_id: 'final-native-A-B',
+        project_id: 'final-native-C'
+      },
+  -   {
+  -     active: false,
+  -     person_id: 'final-native-A',
+  -     project_id: 'B-final-native-C'
+  -   }
+    ]
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:41:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:38:48)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ { person_id: 'final-native-A-B', project_id: 'final-native-C', active: false } ],
+    expected: [ { person_id: 'final-native-A-B', project_id: 'final-native-C', active: true }, { person_id: 'final-native-A', project_id: 'B-final-native-C', active: false } ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/final-fix-regressions.test.ts:1:2962
+✖ intended second relation active=true (10.300542ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+      {
+        active: true,
+        person_id: 'final-native-A-B',
+        project_id: 'final-native-C'
+      },
+  -   {
+  -     active: true,
+  -     person_id: 'final-native-A',
+  -     project_id: 'B-final-native-C'
+  -   }
+    ]
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:41:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:38:48)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ { person_id: 'final-native-A-B', project_id: 'final-native-C', active: true } ],
+    expected: [ { person_id: 'final-native-A-B', project_id: 'final-native-C', active: true }, { person_id: 'final-native-A', project_id: 'B-final-native-C', active: true } ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/final-fix-regressions.test.ts:1:2962
+✖ intended second relation active=true (10.086125ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+      {
+        active: true,
+        person_id: 'final-native-A-B',
+        project_id: 'final-native-C'
+      },
+  -   {
+  -     active: true,
+  -     person_id: 'final-native-A',
+  -     project_id: 'B-final-native-C'
+  -   }
+    ]
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:41:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:38:48)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ { person_id: 'final-native-A-B', project_id: 'final-native-C', active: true } ],
+    expected: [ { person_id: 'final-native-A-B', project_id: 'final-native-C', active: true }, { person_id: 'final-native-A', project_id: 'B-final-native-C', active: true } ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/final-fix-regressions.test.ts:1:2962
+✖ intended second relation active=false (9.431291ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+      {
+  +     active: false,
+  -     active: true,
+        person_id: 'final-native-A-B',
+        project_id: 'final-native-C'
+      },
+  -   {
+  -     active: false,
+  -     person_id: 'final-native-A',
+  -     project_id: 'B-final-native-C'
+  -   }
+    ]
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:41:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:38:48)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ { person_id: 'final-native-A-B', project_id: 'final-native-C', active: false } ],
+    expected: [ { person_id: 'final-native-A-B', project_id: 'final-native-C', active: true }, { person_id: 'final-native-A', project_id: 'B-final-native-C', active: false } ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/final-fix-regressions.test.ts:1:6409
+✖ -project add (11.018208ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  
+  403 !== 200
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:75:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:71:105)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 403,
+    expected: 200,
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/final-fix-regressions.test.ts:1:6409
+✖ -project remove (15.268458ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  
+  403 !== 200
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:75:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:71:105)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 403,
+    expected: 200,
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/final-fix-regressions.test.ts:1:6409
+✖ -team add (13.763458ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  
+  403 !== 200
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:75:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:71:105)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 403,
+    expected: 200,
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/final-fix-regressions.test.ts:1:6409
+✖ -team remove (17.258667ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  
+  403 !== 200
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:75:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:71:105)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 403,
+    expected: 200,
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/final-fix-regressions.test.ts:1:8119
+✖ department subtree and target parent mixed case (8.291042ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  
+  403 !== 200
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:90:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:89:4)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 403,
+    expected: 200,
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/final-fix-regressions.test.ts:1:10154
+✖ native: I3 category target equivalence and fail closed (314.862625ms)
+  error: insert or update on table "category" violates foreign key constraint "category_tenant_id_creator_id_fkey"
+      at /Users/peng/Agent本地开发/云学堂权限预研/node_modules/pg-pool/index.js:45:11
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:113:4)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    length: 302,
+    severity: 'ERROR',
+    code: '23503',
+    detail: 'Key (tenant_id, creator_id)=(T2, Z) is not present in table "person".',
+    hint: undefined,
+    position: undefined,
+    internalPosition: undefined,
+    internalQuery: undefined,
+    where: undefined,
+    schema: 'knowledge',
+    table: 'category',
+    column: undefined,
+    dataType: undefined,
+    constraint: 'category_tenant_id_creator_id_fkey',
+    file: 'ri_triggers.c',
+    line: '2599',
+    routine: 'ri_ReportViolation'
+  }
+
+test at test/final-fix-regressions.test.ts:1:2962
+✖ intended second relation active=false (8.694167ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+      {
+  +     active: false,
+  -     active: true,
+        person_id: 'final-casbin-A-B',
+        project_id: 'final-casbin-C'
+      },
+  -   {
+  -     active: false,
+  -     person_id: 'final-casbin-A',
+  -     project_id: 'B-final-casbin-C'
+  -   }
+    ]
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:41:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:38:48)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ { person_id: 'final-casbin-A-B', project_id: 'final-casbin-C', active: false } ],
+    expected: [ { person_id: 'final-casbin-A-B', project_id: 'final-casbin-C', active: true }, { person_id: 'final-casbin-A', project_id: 'B-final-casbin-C', active: false } ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/final-fix-regressions.test.ts:1:2962
+✖ intended second relation active=true (9.530791ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+      {
+        active: true,
+        person_id: 'final-casbin-A-B',
+        project_id: 'final-casbin-C'
+      },
+  -   {
+  -     active: true,
+  -     person_id: 'final-casbin-A',
+  -     project_id: 'B-final-casbin-C'
+  -   }
+    ]
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:41:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:38:48)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ { person_id: 'final-casbin-A-B', project_id: 'final-casbin-C', active: true } ],
+    expected: [ { person_id: 'final-casbin-A-B', project_id: 'final-casbin-C', active: true }, { person_id: 'final-casbin-A', project_id: 'B-final-casbin-C', active: true } ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/final-fix-regressions.test.ts:1:2962
+✖ intended second relation active=true (9.386375ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+      {
+        active: true,
+        person_id: 'final-casbin-A-B',
+        project_id: 'final-casbin-C'
+      },
+  -   {
+  -     active: true,
+  -     person_id: 'final-casbin-A',
+  -     project_id: 'B-final-casbin-C'
+  -   }
+    ]
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:41:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:38:48)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ { person_id: 'final-casbin-A-B', project_id: 'final-casbin-C', active: true } ],
+    expected: [ { person_id: 'final-casbin-A-B', project_id: 'final-casbin-C', active: true }, { person_id: 'final-casbin-A', project_id: 'B-final-casbin-C', active: true } ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/final-fix-regressions.test.ts:1:2962
+✖ intended second relation active=false (8.699458ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+      {
+  +     active: false,
+  -     active: true,
+        person_id: 'final-casbin-A-B',
+        project_id: 'final-casbin-C'
+      },
+  -   {
+  -     active: false,
+  -     person_id: 'final-casbin-A',
+  -     project_id: 'B-final-casbin-C'
+  -   }
+    ]
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:41:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:38:48)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ { person_id: 'final-casbin-A-B', project_id: 'final-casbin-C', active: false } ],
+    expected: [ { person_id: 'final-casbin-A-B', project_id: 'final-casbin-C', active: true }, { person_id: 'final-casbin-A', project_id: 'B-final-casbin-C', active: false } ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/final-fix-regressions.test.ts:1:6409
+✖ -project add (12.255208ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  
+  403 !== 200
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:75:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:71:105)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 403,
+    expected: 200,
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/final-fix-regressions.test.ts:1:6409
+✖ -project remove (14.746792ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  
+  403 !== 200
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:75:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:71:105)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 403,
+    expected: 200,
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/final-fix-regressions.test.ts:1:6409
+✖ -team add (14.223917ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  
+  403 !== 200
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:75:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:71:105)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 403,
+    expected: 200,
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/final-fix-regressions.test.ts:1:6409
+✖ -team remove (17.855375ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  
+  403 !== 200
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:75:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:71:105)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 403,
+    expected: 200,
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/final-fix-regressions.test.ts:1:8119
+✖ department subtree and target parent mixed case (11.333542ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  
+  403 !== 200
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:90:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:89:4)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 403,
+    expected: 200,
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/final-fix-regressions.test.ts:1:10154
+✖ casbin: I3 category target equivalence and fail closed (298.613959ms)
+  error: insert or update on table "category" violates foreign key constraint "category_tenant_id_creator_id_fkey"
+      at /Users/peng/Agent本地开发/云学堂权限预研/node_modules/pg-pool/index.js:45:11
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/final-fix-regressions.test.ts:113:4)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    length: 302,
+    severity: 'ERROR',
+    code: '23503',
+    detail: 'Key (tenant_id, creator_id)=(T2, Z) is not present in table "person".',
+    hint: undefined,
+    position: undefined,
+    internalPosition: undefined,
+    internalQuery: undefined,
+    where: undefined,
+    schema: 'knowledge',
+    table: 'category',
+    column: undefined,
+    dataType: undefined,
+    constraint: 'category_tenant_id_creator_id_fkey',
+    file: 'ri_triggers.c',
+    line: '2599',
+    routine: 'ri_ReportViolation'
+  }

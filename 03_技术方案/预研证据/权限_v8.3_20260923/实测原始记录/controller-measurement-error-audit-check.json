@@ -1,0 +1,68 @@
+{
+  "purpose": "Synthetic controller-auditor check; not runtime permission evidence",
+  "passed": true,
+  "result": {
+    "directory": "/var/folders/b7/7yvdkqm17mx1fv2j9ggrr5sr0000gn/T/yxt-measurement-audit-43b3gsmt",
+    "candidate": "native",
+    "cache": "hot",
+    "configured_seconds": 3,
+    "concurrency": 1,
+    "reference_window": false,
+    "phase": "success",
+    "sample_count": 1,
+    "categories": {
+      "measurement_error": 1
+    },
+    "instances": {
+      "A": 1
+    },
+    "cache_states": {
+      "L1": 1
+    },
+    "scenario_counts": {
+      "list-broad": 1
+    },
+    "actual_wall_ms": 3000.0,
+    "observed_client_count": 1,
+    "request_start_span_ms": 0.0,
+    "query_counts_by_scenario": {
+      "list-broad": {
+        "None": 1
+      }
+    },
+    "statistics": {
+      "list-broad": {
+        "measurement_error": {
+          "count": 1,
+          "p50": 1,
+          "p95": 1,
+          "p99": 1
+        }
+      },
+      "_all": {
+        "measurement_error": {
+          "count": 1,
+          "p50": 1,
+          "p95": 1,
+          "p99": 1
+        }
+      }
+    },
+    "threshold_observations": {
+      "list-broad": {
+        "permission_p95_ms": null,
+        "permission_limit_ms": 50,
+        "permission_met": false,
+        "success_p95_ms": null,
+        "success_limit_ms": 500,
+        "success_met": false
+      }
+    },
+    "audit_errors": [
+      "line 1: runner reported invalid measurement"
+    ],
+    "truth_scenarios": [],
+    "raw_correctness_mismatches": {},
+    "limitation": "Threshold observations alone do not establish full acceptance, result truth, no N+1, resource limits or sufficient workload."
+  }
+}

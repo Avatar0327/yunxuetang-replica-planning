@@ -1,0 +1,10 @@
+{
+  "kind": "auditor_format_verification_not_permission_or_performance_measurement",
+  "cases": 3,
+  "node_equals_python": true,
+  "digests": [
+    "442f8d44e8e5d2edb68e035b640ba7b1ef7f28b6c906ce945a5797d9577e60b4",
+    "87dbb2eab4ae5fbc76ea38d3bd76cd06e5256020baac032d53d5807e92c38d97",
+    "62eb66a49c75c802b9941f87b9bfb5c5b4df75ddb08e5cdabbb0c78e84921521"
+  ]
+}

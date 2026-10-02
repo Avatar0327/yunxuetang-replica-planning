@@ -1,0 +1,14 @@
+
+> permission-v83-spike@0.0.1 test:http
+> tsx --test test/http.test.ts
+
+✔ real HTTP appointments derive backend then revoke last; direct object denied (67.589083ms)
+✔ real HTTP frozen export denied after source revoke and auth headers cannot spoof identity (87.501208ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 238.897917

@@ -1,0 +1,18 @@
+{"candidate":"native","name":"N1 narrow parent save","expected":200,"actual":200,"at":"2026-09-22T21:36:02.230Z"}
+{"candidate":"native","name":"N1 saved parent cap excludes other uploader","expected":["inherit-cap-977a6a6f-d0d6-41fa-9160-7656aed80e36P"],"actual":["inherit-cap-977a6a6f-d0d6-41fa-9160-7656aed80e36P"],"at":"2026-09-22T21:36:02.232Z"}
+{"candidate":"native","name":"N1 original parent course browsable","expected":200,"actual":200,"at":"2026-09-22T21:36:02.242Z"}
+{"candidate":"native","name":"N1 child inherit mutation","expected":200,"actual":200,"at":"2026-09-22T21:36:02.253Z"}
+{"candidate":"native","name":"N1 immediate inherited other-uploader course denied","expected":403,"actual":403,"at":"2026-09-22T21:36:02.260Z"}
+{"candidate":"native","name":"N1 ancestor atomically frozen with unchanged cap","expected":{"state":"recheck_required","ids":["inherit-cap-977a6a6f-d0d6-41fa-9160-7656aed80e36P"]},"actual":{"state":"recheck_required","ids":["inherit-cap-977a6a6f-d0d6-41fa-9160-7656aed80e36P"]},"at":"2026-09-22T21:36:02.261Z"}
+{"candidate":"native","name":"N1 original SELF source cannot recheck expanded ancestor","expected":{"status":200,"state":"suspended"},"actual":{"status":200,"state":"suspended"},"at":"2026-09-22T21:36:02.279Z"}
+{"candidate":"native","name":"N1 original source broadened then explicit recheck active","expected":{"status":200,"state":"active"},"actual":{"status":200,"state":"active"},"at":"2026-09-22T21:36:02.297Z"}
+{"candidate":"native","name":"N1 child allowed only after original source explicit recheck","expected":200,"actual":200,"at":"2026-09-22T21:36:02.305Z"}
+{"candidate":"casbin","name":"N1 narrow parent save","expected":200,"actual":200,"at":"2026-09-22T21:36:02.630Z"}
+{"candidate":"casbin","name":"N1 saved parent cap excludes other uploader","expected":["inherit-cap-28f9279c-8606-4b04-ab58-b27e491e089eP"],"actual":["inherit-cap-28f9279c-8606-4b04-ab58-b27e491e089eP"],"at":"2026-09-22T21:36:02.631Z"}
+{"candidate":"casbin","name":"N1 original parent course browsable","expected":200,"actual":200,"at":"2026-09-22T21:36:02.641Z"}
+{"candidate":"casbin","name":"N1 child inherit mutation","expected":200,"actual":200,"at":"2026-09-22T21:36:02.652Z"}
+{"candidate":"casbin","name":"N1 immediate inherited other-uploader course denied","expected":403,"actual":403,"at":"2026-09-22T21:36:02.659Z"}
+{"candidate":"casbin","name":"N1 ancestor atomically frozen with unchanged cap","expected":{"state":"recheck_required","ids":["inherit-cap-28f9279c-8606-4b04-ab58-b27e491e089eP"]},"actual":{"state":"recheck_required","ids":["inherit-cap-28f9279c-8606-4b04-ab58-b27e491e089eP"]},"at":"2026-09-22T21:36:02.659Z"}
+{"candidate":"casbin","name":"N1 original SELF source cannot recheck expanded ancestor","expected":{"status":200,"state":"suspended"},"actual":{"status":200,"state":"suspended"},"at":"2026-09-22T21:36:02.679Z"}
+{"candidate":"casbin","name":"N1 original source broadened then explicit recheck active","expected":{"status":200,"state":"active"},"actual":{"status":200,"state":"active"},"at":"2026-09-22T21:36:02.703Z"}
+{"candidate":"casbin","name":"N1 child allowed only after original source explicit recheck","expected":200,"actual":200,"at":"2026-09-22T21:36:02.712Z"}

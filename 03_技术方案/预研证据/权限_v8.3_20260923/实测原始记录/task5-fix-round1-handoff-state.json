@@ -1,0 +1,52 @@
+{
+  "redis": "PONG",
+  "persons": [
+    {
+      "id": "X",
+      "company_id": "A",
+      "department_id": null,
+      "display_name": "X"
+    },
+    {
+      "id": "Y",
+      "company_id": "B",
+      "department_id": null,
+      "display_name": "Y"
+    }
+  ],
+  "roster": [
+    {
+      "person_id": "A",
+      "company_id": "I",
+      "snapshot_display_name": "A",
+      "progress": 50,
+      "attachment": "attachment-A"
+    },
+    {
+      "person_id": "X",
+      "company_id": "A",
+      "snapshot_display_name": "X",
+      "progress": 25,
+      "attachment": "attachment-X"
+    },
+    {
+      "person_id": "Y",
+      "company_id": "B",
+      "snapshot_display_name": "Y",
+      "progress": 75,
+      "attachment": "attachment-Y"
+    }
+  ],
+  "appointments": 0,
+  "exportJobs": 0,
+  "personCounts": [
+    {
+      "tenant_id": "T1",
+      "n": 50000
+    },
+    {
+      "tenant_id": "T2",
+      "n": 500
+    }
+  ]
+}

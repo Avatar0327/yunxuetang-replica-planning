@@ -1,0 +1,34 @@
+✔ module repositories cannot read or write foreign private tables (5.9645ms)
+✖ SQL routines retain owning-module table boundaries (1.055292ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 1
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 89.807458
+
+✖ failing tests:
+
+test at test/module-boundaries.test.ts:1:1087
+✖ SQL routines retain owning-module table boundaries (1.055292ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+  + [
+  +   'authz.freeze_dependents: UPDATE knowledge.category',
+  +   'authz.freeze_dependents: UPDATE knowledge.course'
+  + ]
+  - []
+  
+      at TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/module-boundaries.test.ts:27:9)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ 'authz.freeze_dependents: UPDATE knowledge.category', 'authz.freeze_dependents: UPDATE knowledge.course' ],
+    expected: [],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

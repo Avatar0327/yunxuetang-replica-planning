@@ -1,0 +1,257 @@
+{
+  "startAt": "2026-09-22T23:17:14.761Z",
+  "endAt": "2026-09-22T23:17:16.765Z",
+  "durationMs": 2001.8256250000002,
+  "configuredSeconds": 2,
+  "concurrency": 4,
+  "total": 2879,
+  "candidate": "casbin",
+  "cache": "hot",
+  "scenario": "mixed",
+  "phase": "denial",
+  "urls": [
+    "http://127.0.0.1:4311",
+    "http://127.0.0.1:4312"
+  ],
+  "pageSize": 50,
+  "queryCounts": {
+    "7": 2879
+  },
+  "instances": {
+    "27763": 1440,
+    "27764": 1439
+  },
+  "cacheHits": {
+    "none": 2879
+  },
+  "clientCounts": {
+    "0": 721,
+    "1": 719,
+    "2": 720,
+    "3": 719
+  },
+  "rotation": "Global requestIndex modulo four scenarios; each four-request cycle alternates instance. Single-scenario mode alternates each request.",
+  "referenceWindow": false,
+  "samplingRatio": 1,
+  "truthFile": "scenario-truth.json",
+  "success": {
+    "count": 0,
+    "p50": null,
+    "p95": null,
+    "p99": null
+  },
+  "denial": {
+    "count": 2879,
+    "p50": 2.6440419999998994,
+    "p95": 3.252707999999984,
+    "p99": 4.133374999999887
+  },
+  "failure": {
+    "count": 0,
+    "p50": null,
+    "p95": null,
+    "p99": null
+  },
+  "authorization_error": {
+    "count": 0,
+    "p50": null,
+    "p95": null,
+    "p99": null
+  },
+  "measurement_error": {
+    "count": 0,
+    "p50": null,
+    "p95": null,
+    "p99": null
+  },
+  "permission": {
+    "count": 0,
+    "p50": null,
+    "p95": null,
+    "p99": null
+  },
+  "data": {
+    "count": 0,
+    "p50": null,
+    "p95": null,
+    "p99": null
+  },
+  "perScenario": {
+    "list-broad": {
+      "success": {
+        "count": 0,
+        "p50": null,
+        "p95": null,
+        "p99": null
+      },
+      "denial": {
+        "count": 720,
+        "p50": 2.6432499999999663,
+        "p95": 3.245290999999952,
+        "p99": 4.153374999999983
+      },
+      "failure": {
+        "count": 0,
+        "p50": null,
+        "p95": null,
+        "p99": null
+      },
+      "authorization_error": {
+        "count": 0,
+        "p50": null,
+        "p95": null,
+        "p99": null
+      },
+      "measurement_error": {
+        "count": 0,
+        "p50": null,
+        "p95": null,
+        "p99": null
+      },
+      "permission": {
+        "count": 0,
+        "p50": null,
+        "p95": null,
+        "p99": null
+      },
+      "data": {
+        "count": 0,
+        "p50": null,
+        "p95": null,
+        "p99": null
+      }
+    },
+    "list-constrained": {
+      "success": {
+        "count": 0,
+        "p50": null,
+        "p95": null,
+        "p99": null
+      },
+      "denial": {
+        "count": 720,
+        "p50": 2.6354999999998654,
+        "p95": 3.255958999999848,
+        "p99": 4.1082909999999515
+      },
+      "failure": {
+        "count": 0,
+        "p50": null,
+        "p95": null,
+        "p99": null
+      },
+      "authorization_error": {
+        "count": 0,
+        "p50": null,
+        "p95": null,
+        "p99": null
+      },
+      "measurement_error": {
+        "count": 0,
+        "p50": null,
+        "p95": null,
+        "p99": null
+      },
+      "permission": {
+        "count": 0,
+        "p50": null,
+        "p95": null,
+        "p99": null
+      },
+      "data": {
+        "count": 0,
+        "p50": null,
+        "p95": null,
+        "p99": null
+      }
+    },
+    "history-broad": {
+      "success": {
+        "count": 0,
+        "p50": null,
+        "p95": null,
+        "p99": null
+      },
+      "denial": {
+        "count": 720,
+        "p50": 2.655666999999994,
+        "p95": 3.242791000000011,
+        "p99": 4.06737499999997
+      },
+      "failure": {
+        "count": 0,
+        "p50": null,
+        "p95": null,
+        "p99": null
+      },
+      "authorization_error": {
+        "count": 0,
+        "p50": null,
+        "p95": null,
+        "p99": null
+      },
+      "measurement_error": {
+        "count": 0,
+        "p50": null,
+        "p95": null,
+        "p99": null
+      },
+      "permission": {
+        "count": 0,
+        "p50": null,
+        "p95": null,
+        "p99": null
+      },
+      "data": {
+        "count": 0,
+        "p50": null,
+        "p95": null,
+        "p99": null
+      }
+    },
+    "history-constrained": {
+      "success": {
+        "count": 0,
+        "p50": null,
+        "p95": null,
+        "p99": null
+      },
+      "denial": {
+        "count": 719,
+        "p50": 2.6410000000000764,
+        "p95": 3.272999999999911,
+        "p99": 4.073416000000009
+      },
+      "failure": {
+        "count": 0,
+        "p50": null,
+        "p95": null,
+        "p99": null
+      },
+      "authorization_error": {
+        "count": 0,
+        "p50": null,
+        "p95": null,
+        "p99": null
+      },
+      "measurement_error": {
+        "count": 0,
+        "p50": null,
+        "p95": null,
+        "p99": null
+      },
+      "permission": {
+        "count": 0,
+        "p50": null,
+        "p95": null,
+        "p99": null
+      },
+      "data": {
+        "count": 0,
+        "p50": null,
+        "p95": null,
+        "p99": null
+      }
+    }
+  }
+}

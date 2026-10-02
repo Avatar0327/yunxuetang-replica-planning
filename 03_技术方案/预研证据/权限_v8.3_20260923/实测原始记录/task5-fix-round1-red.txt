@@ -1,0 +1,154 @@
+▶ native: old-company enrollment conflicts deny without partial enrollment
+  ✖ single conflict rejects entire batch (16.118291ms)
+  ✔ mixed conflict rejects entire batch (10.167667ms)
+  ✔ A B and internal protected reads retain enrollment boundaries after rejection (228.678375ms)
+  ✖ same-company existing enrollment remains idempotent alongside fresh enrollment (7.487667ms)
+✖ native: old-company enrollment conflicts deny without partial enrollment (696.420084ms)
+▶ casbin: old-company enrollment conflicts deny without partial enrollment
+  ✖ single conflict rejects entire batch (13.737709ms)
+  ✔ mixed conflict rejects entire batch (9.643167ms)
+  ✔ A B and internal protected reads retain enrollment boundaries after rejection (224.55175ms)
+  ✖ same-company existing enrollment remains idempotent alongside fresh enrollment (7.51025ms)
+✖ casbin: old-company enrollment conflicts deny without partial enrollment (668.225375ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 4
+ℹ fail 6
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1461.154375
+
+✖ failing tests:
+
+test at test/task5-enrollment-conflict.test.ts:1:2754
+✖ single conflict rejects entire batch (16.118291ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  ... Skipped lines
+  
+    {
+      body: {
+  +     changed: true,
+  +     count: 1
+  -     message: '你暂时不能查看或操作这项内容，请联系管理员确认权限'
+      },
+      rows: [
+        {
+          attachment: 'attachment-A',
+          company_id: 'I',
+  ...
+      ],
+  +   status: 200,
+  -   status: 403,
+      unchangedStamp: true
+    }
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task5-enrollment-conflict.test.ts:38:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task5-enrollment-conflict.test.ts:35:4)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { status: 200, body: { changed: true, count: 1 }, rows: [ [Object], [Object], [Object] ], unchangedStamp: true },
+    expected: { status: 403, body: { message: '你暂时不能查看或操作这项内容，请联系管理员确认权限' }, rows: [ [Object], [Object], [Object] ], unchangedStamp: true },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task5-enrollment-conflict.test.ts:1:5355
+✖ same-company existing enrollment remains idempotent alongside fresh enrollment (7.487667ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+      body: {
+  +     message: '你暂时不能查看或操作这项内容，请联系管理员确认权限'
+  -     changed: true,
+  -     count: 2
+      },
+  +   status: 403
+  -   status: 200
+    }
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task5-enrollment-conflict.test.ts:68:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task5-enrollment-conflict.test.ts:65:3)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { status: 403, body: { message: '你暂时不能查看或操作这项内容，请联系管理员确认权限' } },
+    expected: { status: 200, body: { changed: true, count: 2 } },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task5-enrollment-conflict.test.ts:1:2754
+✖ single conflict rejects entire batch (13.737709ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  ... Skipped lines
+  
+    {
+      body: {
+  +     changed: true,
+  +     count: 1
+  -     message: '你暂时不能查看或操作这项内容，请联系管理员确认权限'
+      },
+      rows: [
+        {
+          attachment: 'attachment-A',
+          company_id: 'I',
+  ...
+      ],
+  +   status: 200,
+  -   status: 403,
+      unchangedStamp: true
+    }
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task5-enrollment-conflict.test.ts:38:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task5-enrollment-conflict.test.ts:35:4)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { status: 200, body: { changed: true, count: 1 }, rows: [ [Object], [Object], [Object] ], unchangedStamp: true },
+    expected: { status: 403, body: { message: '你暂时不能查看或操作这项内容，请联系管理员确认权限' }, rows: [ [Object], [Object], [Object] ], unchangedStamp: true },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task5-enrollment-conflict.test.ts:1:5355
+✖ same-company existing enrollment remains idempotent alongside fresh enrollment (7.51025ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+      body: {
+  +     message: '你暂时不能查看或操作这项内容，请联系管理员确认权限'
+  -     changed: true,
+  -     count: 2
+      },
+  +   status: 403
+  -   status: 200
+    }
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task5-enrollment-conflict.test.ts:68:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task5-enrollment-conflict.test.ts:65:3)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { status: 403, body: { message: '你暂时不能查看或操作这项内容，请联系管理员确认权限' } },
+    expected: { status: 200, body: { changed: true, count: 2 } },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

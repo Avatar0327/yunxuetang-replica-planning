@@ -1,0 +1,17 @@
+
+> permission-v83-spike@0.0.1 test:integration
+> tsx --test test/integration.test.ts
+
+✔ native: real SQL source-bound fields/count and company history (45.74425ms)
+✔ casbin: real SQL source-bound fields/count and company history (21.7745ms)
+✔ real database seeded scale and tenant FK (23.20975ms)
+✔ native: six scopes, explicit subtree and per-membership override in real SQL (64.699542ms)
+✔ casbin: six scopes, explicit subtree and per-membership override in real SQL (80.826084ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 526.206625

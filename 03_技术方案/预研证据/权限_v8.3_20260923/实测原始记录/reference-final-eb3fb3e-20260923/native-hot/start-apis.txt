@@ -1,0 +1,57 @@
+#0 building with "colima-yxt-permission" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 286B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/node@sha256:0e0ff40c39bc087845bfb27465a0df4ea419520094bc35842ff83dd8cbe6f9b6
+#2 DONE 62.2s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 137B done
+#3 DONE 0.0s
+
+#4 [internal] load build context
+#4 DONE 0.0s
+
+#5 [1/6] FROM docker.io/library/node@sha256:0e0ff40c39bc087845bfb27465a0df4ea419520094bc35842ff83dd8cbe6f9b6
+#5 resolve docker.io/library/node@sha256:0e0ff40c39bc087845bfb27465a0df4ea419520094bc35842ff83dd8cbe6f9b6
+#5 resolve docker.io/library/node@sha256:0e0ff40c39bc087845bfb27465a0df4ea419520094bc35842ff83dd8cbe6f9b6 60.0s done
+#5 DONE 60.0s
+
+#4 [internal] load build context
+#4 transferring context: 115.79kB done
+#4 DONE 0.0s
+
+#6 [2/6] WORKDIR /spike
+#6 CACHED
+
+#7 [3/6] COPY package.json package-lock.json ./
+#7 CACHED
+
+#8 [4/6] RUN npm ci --no-audit --no-fund
+#8 CACHED
+
+#9 [5/6] COPY . .
+#9 DONE 0.0s
+
+#10 [6/6] RUN npm run build
+#10 0.109 
+#10 0.109 > permission-v83-spike@0.0.1 build
+#10 0.109 > tsc
+#10 0.109 
+#10 DONE 1.2s
+
+#11 exporting to image
+#11 exporting layers 0.1s done
+#11 exporting manifest sha256:8aed635bac39f58e0bc034d3106cd112935568b55f755273c5314672f4df879f done
+#11 exporting config sha256:21a044444a120573a0021cb53f5d052d21bfab71856ebaf98e8257a224cf4769 done
+#11 exporting attestation manifest sha256:8df39a15b666f6068e506e227652405da17649400d4c94982c1193009d687ddc done
+#11 exporting manifest list sha256:ebfc9f8a451e6bec63145e70cd7645a40b9f43577af9cea20a85e1563583c990 done
+#11 naming to docker.io/library/yxt-permission:spike-eb3fb3eae833 done
+#11 unpacking to docker.io/library/yxt-permission:spike-eb3fb3eae833 0.0s done
+#11 DONE 0.1s
+d2b3395d7a51207ad0fcf24f281d21ac8cdd9eb2bb5b6b10dccc665b23318a87
+4836e353d75bf5b0978330cd7b606d742686a8506bce3f7a39f8b4b201f0a3ba
+/yxt-api-a CPU=2000000000 memory=4294967296 image=sha256:ebfc9f8a451e6bec63145e70cd7645a40b9f43577af9cea20a85e1563583c990
+/yxt-api-b CPU=2000000000 memory=4294967296 image=sha256:ebfc9f8a451e6bec63145e70cd7645a40b9f43577af9cea20a85e1563583c990

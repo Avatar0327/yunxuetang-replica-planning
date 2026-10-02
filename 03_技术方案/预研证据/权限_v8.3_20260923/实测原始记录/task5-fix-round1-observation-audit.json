@@ -1,0 +1,22 @@
+{
+  "green": {
+    "path": "evidence/raw/task5-fix-round1-green.jsonl",
+    "observations": 68,
+    "byCandidate": {
+      "native": 34,
+      "casbin": 34
+    },
+    "mismatches": 0,
+    "sha256": "70eff0002bb2e4cca921779098fecaa25cc426a3c6886ca23d31870c657dd0c9"
+  },
+  "regressions": {
+    "path": "evidence/raw/task5-fix-round1-regressions.jsonl",
+    "observations": 164,
+    "byCandidate": {
+      "native": 82,
+      "casbin": 82
+    },
+    "mismatches": 0,
+    "sha256": "a6641526aeebc021cebcee5e8afea5417af9be7d9c83d62a4259cafc43a6d883"
+  }
+}

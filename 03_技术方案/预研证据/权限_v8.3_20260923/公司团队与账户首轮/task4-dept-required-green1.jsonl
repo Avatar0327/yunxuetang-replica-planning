@@ -1,0 +1,2 @@
+{"candidate":"native","name":"normal command rejects missing required main department","expected":403,"actual":403,"at":"2026-09-22T22:05:28.657Z"}
+{"candidate":"casbin","name":"normal command rejects missing required main department","expected":403,"actual":403,"at":"2026-09-22T22:05:28.991Z"}

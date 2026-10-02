@@ -1,0 +1,234 @@
+[
+    {
+        "Id": "3cb6f4e5c942541d57c2c6bdb84ff444db69490d24d4bf13c6e6ac4dbe268b9d",
+        "Created": "2026-09-22T23:54:17.274180034Z",
+        "Path": "docker-entrypoint.sh",
+        "Args": [
+            "npm",
+            "run",
+            "start"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 10889,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-09-22T23:54:17.290200459Z",
+            "FinishedAt": "0001-01-01T00:00:00Z"
+        },
+        "Image": "sha256:cfc8cb400600e67646a358eb9fc3e30fbad57e1fe306fe9d79dcca46cb0c6d95",
+        "ResolvConfPath": "/var/lib/docker/containers/3cb6f4e5c942541d57c2c6bdb84ff444db69490d24d4bf13c6e6ac4dbe268b9d/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/3cb6f4e5c942541d57c2c6bdb84ff444db69490d24d4bf13c6e6ac4dbe268b9d/hostname",
+        "HostsPath": "/var/lib/docker/containers/3cb6f4e5c942541d57c2c6bdb84ff444db69490d24d4bf13c6e6ac4dbe268b9d/hosts",
+        "LogPath": "/var/lib/docker/containers/3cb6f4e5c942541d57c2c6bdb84ff444db69490d24d4bf13c6e6ac4dbe268b9d/3cb6f4e5c942541d57c2c6bdb84ff444db69490d24d4bf13c6e6ac4dbe268b9d-json.log",
+        "Name": "/yxt-api-b",
+        "RestartCount": 0,
+        "Driver": "overlayfs",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "docker-default",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": null,
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "yxt-permission",
+            "PortBindings": {
+                "4312/tcp": [
+                    {
+                        "HostIp": "127.0.0.1",
+                        "HostPort": "4312"
+                    }
+                ]
+            },
+            "RestartPolicy": {
+                "Name": "no",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "private",
+            "Dns": null,
+            "DnsOptions": [],
+            "DnsSearch": [],
+            "ExtraHosts": null,
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 4294967296,
+            "NanoCpus": 2000000000,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": [],
+            "BlkioDeviceReadBps": [],
+            "BlkioDeviceWriteBps": [],
+            "BlkioDeviceReadIOps": [],
+            "BlkioDeviceWriteIOps": [],
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": [],
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 4294967296,
+            "MemorySwappiness": null,
+            "OomKillDisable": null,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/acpi",
+                "/proc/asound",
+                "/proc/interrupts",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/sys/devices/virtual/powercap",
+                "/sys/firmware"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "Storage": {
+            "RootFS": {
+                "Snapshot": {
+                    "Name": "overlayfs"
+                }
+            }
+        },
+        "Mounts": [],
+        "Config": {
+            "Hostname": "3cb6f4e5c942",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "ExposedPorts": {
+                "4312/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "CACHE_MODE=hot",
+                "PGPORT=5432",
+                "PGPASSWORD=spike",
+                "REDIS_PORT=6379",
+                "PORT=4312",
+                "PGHOST=yxt-pg",
+                "PGDATABASE=permission_spike",
+                "PGUSER=spike",
+                "REDIS_HOST=yxt-redis",
+                "INSTANCE_ID=B",
+                "CANDIDATE=native",
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "NODE_VERSION=24.21.0",
+                "YARN_VERSION=1.22.22",
+                "NODE_ENV=production"
+            ],
+            "Cmd": [
+                "npm",
+                "run",
+                "start"
+            ],
+            "Image": "yxt-permission:spike-e8c5bf937bb3",
+            "Volumes": null,
+            "WorkingDir": "/spike",
+            "Entrypoint": [
+                "docker-entrypoint.sh"
+            ],
+            "Labels": {
+                "org.opencontainers.image.revision": "e8c5bf937bb34ab8ee344a985488f68670ebed63"
+            }
+        },
+        "NetworkSettings": {
+            "SandboxID": "fe033f976393a0978adc36cde8ea45479426149b0a0a55a611dc079cbc2a31d4",
+            "SandboxKey": "/var/run/docker/netns/fe033f976393",
+            "Ports": {
+                "4312/tcp": [
+                    {
+                        "HostIp": "127.0.0.1",
+                        "HostPort": "4312"
+                    }
+                ]
+            },
+            "Networks": {
+                "yxt-permission": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": null,
+                    "DriverOpts": null,
+                    "GwPriority": 0,
+                    "NetworkID": "1ba12b71901bf5c6c877dec5a32d24dd31d5af1a5e7fe41419ee599bfeca6219",
+                    "EndpointID": "bf31d665428b2b5da5627cfa7d2c25ea9a3c247237f9e50289c9802e8b3eea20",
+                    "Gateway": "172.18.0.1",
+                    "IPAddress": "172.18.0.5",
+                    "MacAddress": "92:5b:e7:99:8f:bf",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DNSNames": [
+                        "yxt-api-b",
+                        "3cb6f4e5c942"
+                    ]
+                }
+            }
+        },
+        "ImageManifestDescriptor": {
+            "mediaType": "application/vnd.oci.image.manifest.v1+json",
+            "digest": "sha256:135ff3c45287d7e1ceee016d3dc75ff1ac47c7919825d5270708dfc039fd16be",
+            "size": 2196,
+            "platform": {
+                "architecture": "arm64",
+                "os": "linux"
+            }
+        }
+    }
+]

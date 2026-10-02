@@ -1,0 +1,75 @@
+{
+  "sourceCommit": "cb72484ed8e7547146920fd4312dd24f8c9e2402",
+  "at": "2026-09-23T00:21:06.242Z",
+  "postgres": {
+    "healthy": 1
+  },
+  "redis": "PONG",
+  "people": [
+    {
+      "tenant_id": "T1",
+      "n": 50000
+    },
+    {
+      "tenant_id": "T2",
+      "n": 500
+    }
+  ],
+  "departments": {
+    "n": 2000
+  },
+  "appointments": {
+    "n": 0
+  },
+  "exports": {
+    "report": 0,
+    "training": 0,
+    "account": 0
+  },
+  "originalPeople": [
+    {
+      "id": "L",
+      "company_id": "I",
+      "department_id": null,
+      "display_name": "L"
+    },
+    {
+      "id": "X",
+      "company_id": "A",
+      "department_id": null,
+      "display_name": "X"
+    },
+    {
+      "id": "Y",
+      "company_id": "B",
+      "department_id": null,
+      "display_name": "Y"
+    }
+  ],
+  "roster": [
+    {
+      "person_id": "A",
+      "company_id": "I",
+      "snapshot_display_name": "A",
+      "progress": 50,
+      "attachment": "attachment-A"
+    },
+    {
+      "person_id": "X",
+      "company_id": "A",
+      "snapshot_display_name": "X",
+      "progress": 25,
+      "attachment": "attachment-X"
+    },
+    {
+      "person_id": "Y",
+      "company_id": "B",
+      "snapshot_display_name": "Y",
+      "progress": 75,
+      "attachment": "attachment-Y"
+    }
+  ],
+  "remainingFinalFixtures": {
+    "n": 0
+  }
+}

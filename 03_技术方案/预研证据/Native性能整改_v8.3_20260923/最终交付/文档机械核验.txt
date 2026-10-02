@@ -1,0 +1,10 @@
+{
+  "canonical_input_count": 65,
+  "requirements_exact": true,
+  "scenario_exact": true,
+  "missing_local_links": [],
+  "json_errors": [],
+  "table_shape_errors": [],
+  "estimate_row_and_batch_checks_passed": true,
+  "mechanical_document_checks_passed": true
+}

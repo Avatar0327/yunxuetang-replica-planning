@@ -1,0 +1,197 @@
+[
+  {
+    "name": "core-seed",
+    "command": [
+      "npm",
+      "run",
+      "seed"
+    ],
+    "cwd": "/Users/peng/Agent本地开发/云学堂权限预研/output/final-fix-campaign",
+    "environment": {
+      "FINAL_FIX_SOURCE": "cb72484ed8e7547146920fd4312dd24f8c9e2402"
+    },
+    "exit": 0,
+    "seconds": 10.710917949676514
+  },
+  {
+    "name": "core",
+    "command": [
+      "node",
+      "--import",
+      "tsx",
+      "--test",
+      "--test-concurrency=1",
+      "test/semantic.test.ts",
+      "test/cache.test.ts",
+      "test/integration.test.ts",
+      "test/races.test.ts",
+      "test/review-regressions.test.ts",
+      "test/module-boundaries.test.ts"
+    ],
+    "cwd": "/Users/peng/Agent本地开发/云学堂权限预研/output/final-fix-campaign",
+    "environment": {
+      "FINAL_FIX_SOURCE": "cb72484ed8e7547146920fd4312dd24f8c9e2402",
+      "SEMANTIC_EVIDENCE": "evidence/raw/core-semantic.jsonl",
+      "RACE_EVIDENCE": "evidence/raw/core-races.jsonl"
+    },
+    "exit": 0,
+    "seconds": 2.3708279132843018
+  },
+  {
+    "name": "http-native-seed",
+    "command": [
+      "npm",
+      "run",
+      "seed"
+    ],
+    "cwd": "/Users/peng/Agent本地开发/云学堂权限预研/output/final-fix-campaign",
+    "environment": {
+      "FINAL_FIX_SOURCE": "cb72484ed8e7547146920fd4312dd24f8c9e2402"
+    },
+    "exit": 0,
+    "seconds": 10.543049097061157
+  },
+  {
+    "name": "http-native",
+    "command": [
+      "node",
+      "--import",
+      "tsx",
+      "--test",
+      "test/http.test.ts"
+    ],
+    "cwd": "/Users/peng/Agent本地开发/云学堂权限预研/output/final-fix-campaign",
+    "environment": {
+      "FINAL_FIX_SOURCE": "cb72484ed8e7547146920fd4312dd24f8c9e2402",
+      "CANDIDATE": "native",
+      "HTTP_OBSERVATIONS": "evidence/raw/http-native.jsonl"
+    },
+    "exit": 0,
+    "seconds": 0.25308704376220703
+  },
+  {
+    "name": "http-casbin-seed",
+    "command": [
+      "npm",
+      "run",
+      "seed"
+    ],
+    "cwd": "/Users/peng/Agent本地开发/云学堂权限预研/output/final-fix-campaign",
+    "environment": {
+      "FINAL_FIX_SOURCE": "cb72484ed8e7547146920fd4312dd24f8c9e2402"
+    },
+    "exit": 0,
+    "seconds": 10.719930171966553
+  },
+  {
+    "name": "http-casbin",
+    "command": [
+      "node",
+      "--import",
+      "tsx",
+      "--test",
+      "test/http.test.ts"
+    ],
+    "cwd": "/Users/peng/Agent本地开发/云学堂权限预研/output/final-fix-campaign",
+    "environment": {
+      "FINAL_FIX_SOURCE": "cb72484ed8e7547146920fd4312dd24f8c9e2402",
+      "CANDIDATE": "casbin",
+      "HTTP_OBSERVATIONS": "evidence/raw/http-casbin.jsonl"
+    },
+    "exit": 0,
+    "seconds": 0.2537050247192383
+  },
+  {
+    "name": "task3-seed",
+    "command": [
+      "npm",
+      "run",
+      "seed"
+    ],
+    "cwd": "/Users/peng/Agent本地开发/云学堂权限预研/output/final-fix-campaign",
+    "environment": {
+      "FINAL_FIX_SOURCE": "cb72484ed8e7547146920fd4312dd24f8c9e2402"
+    },
+    "exit": 0,
+    "seconds": 10.702860116958618
+  },
+  {
+    "name": "task3",
+    "command": [
+      "npm",
+      "run",
+      "test:task3"
+    ],
+    "cwd": "/Users/peng/Agent本地开发/云学堂权限预研/output/final-fix-campaign",
+    "environment": {
+      "FINAL_FIX_SOURCE": "cb72484ed8e7547146920fd4312dd24f8c9e2402",
+      "TASK3_OBSERVATIONS": "evidence/raw/task3.jsonl",
+      "HTTP_OBSERVATIONS": "evidence/raw/task3-http.jsonl",
+      "TASK5_TIMELINE": "evidence/raw/task5-commit-timeline.jsonl"
+    },
+    "exit": 0,
+    "seconds": 20.78361701965332
+  },
+  {
+    "name": "task4-seed",
+    "command": [
+      "npm",
+      "run",
+      "seed"
+    ],
+    "cwd": "/Users/peng/Agent本地开发/云学堂权限预研/output/final-fix-campaign",
+    "environment": {
+      "FINAL_FIX_SOURCE": "cb72484ed8e7547146920fd4312dd24f8c9e2402"
+    },
+    "exit": 0,
+    "seconds": 10.739624977111816
+  },
+  {
+    "name": "task4",
+    "command": [
+      "npm",
+      "run",
+      "test:task4"
+    ],
+    "cwd": "/Users/peng/Agent本地开发/云学堂权限预研/output/final-fix-campaign",
+    "environment": {
+      "FINAL_FIX_SOURCE": "cb72484ed8e7547146920fd4312dd24f8c9e2402",
+      "TASK3_OBSERVATIONS": "evidence/raw/task4.jsonl",
+      "HTTP_OBSERVATIONS": "evidence/raw/task4-http.jsonl",
+      "TASK5_TIMELINE": "evidence/raw/task5-commit-timeline.jsonl"
+    },
+    "exit": 0,
+    "seconds": 20.956048011779785
+  },
+  {
+    "name": "task5-seed",
+    "command": [
+      "npm",
+      "run",
+      "seed"
+    ],
+    "cwd": "/Users/peng/Agent本地开发/云学堂权限预研/output/final-fix-campaign",
+    "environment": {
+      "FINAL_FIX_SOURCE": "cb72484ed8e7547146920fd4312dd24f8c9e2402"
+    },
+    "exit": 0,
+    "seconds": 10.626774072647095
+  },
+  {
+    "name": "task5",
+    "command": [
+      "npm",
+      "run",
+      "test:task5"
+    ],
+    "cwd": "/Users/peng/Agent本地开发/云学堂权限预研/output/final-fix-campaign",
+    "environment": {
+      "FINAL_FIX_SOURCE": "cb72484ed8e7547146920fd4312dd24f8c9e2402",
+      "TASK3_OBSERVATIONS": "evidence/raw/task5.jsonl",
+      "HTTP_OBSERVATIONS": "evidence/raw/task5-http.jsonl",
+      "TASK5_TIMELINE": "evidence/raw/task5-commit-timeline.jsonl"
+    },
+    "exit": 0,
+    "seconds": 66.65102195739746
+  }
+]

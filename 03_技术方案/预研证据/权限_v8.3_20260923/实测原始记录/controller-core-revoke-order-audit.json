@@ -1,0 +1,29 @@
+[
+  {
+    "candidate_campaign": "native",
+    "A_revoke_response_complete": "2026-09-22T19:47:35.997Z",
+    "B_new_request_start": "2026-09-22T19:47:35.997Z",
+    "ordering_pass": true,
+    "A_status": 200,
+    "B_status": 403,
+    "timestamp_boundary": "client receives response after transaction COMMIT; commit acknowledgment upper bound, not exact database commit timestamp"
+  },
+  {
+    "candidate_campaign": "casbin",
+    "A_revoke_response_complete": "2026-09-22T19:51:19.041Z",
+    "B_new_request_start": "2026-09-22T19:51:19.041Z",
+    "ordering_pass": true,
+    "A_status": 200,
+    "B_status": 403,
+    "timestamp_boundary": "client receives response after transaction COMMIT; commit acknowledgment upper bound, not exact database commit timestamp"
+  },
+  {
+    "candidate_campaign": "casbin-fixed",
+    "A_revoke_response_complete": "2026-09-22T20:04:08.170Z",
+    "B_new_request_start": "2026-09-22T20:04:08.171Z",
+    "ordering_pass": true,
+    "A_status": 200,
+    "B_status": 403,
+    "timestamp_boundary": "client receives response after transaction COMMIT; commit acknowledgment upper bound, not exact database commit timestamp"
+  }
+]

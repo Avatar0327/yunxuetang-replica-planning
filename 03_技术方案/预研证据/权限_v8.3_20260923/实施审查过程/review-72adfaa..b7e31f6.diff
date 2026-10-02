@@ -1,0 +1,126 @@
+# Review package: 72adfaa..b7e31f6
+
+## Commits
+b7e31f6 fix(authz): require complete own-wallet hard facts
+
+## Files changed
+ docs/kernel-contract.md |  2 +-
+ src/authz/policy.ts     |  4 +++-
+ test/semantic.test.ts   | 22 +++++++++++++++++++++-
+ 3 files changed, 25 insertions(+), 3 deletions(-)
+
+## Diff
+diff --git a/docs/kernel-contract.md b/docs/kernel-contract.md
+index 8c8686b..c3b1845 100644
+--- a/docs/kernel-contract.md
++++ b/docs/kernel-contract.md
+@@ -70,21 +70,21 @@ const plan = await buildQueryPolicy({
+   action: 'report.personal-learning.view', organization: organizationPublic,
+ });
+ // Revalidate tenant revision before using plan; discard/rebuild or deny on change.
+ return reportRepository.listAndCount(compileReportPlan(plan), pagination);
+ ```
+ 
+ `OrganizationPublic.resolveScopeMembers(specs: readonly ScopeSpec[], authzRevision: number): Promise<ResolvedScope[]>` is called **once per build**, in input order; results retain exactly their original spec. Empty source list does not call the port. `buildQueryPolicy` validates every selected source binding and every returned spec (including node/action/actor/revision/company cap) and rejects mismatch. QueryPolicy carries tenant/actor/revision/node/action/resourceType/companyIds/companyMode/requirePublished plus `sources: {sourceId, rawFields, resolved}[]`. ResolvedScope has all/personIds and optional anchor/anchorIds/objectIds. ObjectIds is an additional intersection even when all is true.
+ 
+ The repository compiler maps these controlled fields to module-owned columns. For each source, compile its own object/ownership/person predicate; OR source predicates for visible rows, and independently OR only raw-capable source predicates for each raw field's CASE projection. Retain sourceIds internally for audit. Apply tenant, resource state, company and publication constraints **before** sorting/pagination/count/aggregate. Share one authorized relation between list/count/detail/export; no per-row engine enforce or organization queries. `scopeMatches` and candidate classes are reference object checks and microtiming candidates, not the production list algorithm. A bulk caller must never flatten rawFields across all sources before row matching.
+ 
+-CompanyMode current companyId applies to personnel/current objects; dataCompanyId binds historical facts; history grouping may use historicalDepartmentId only after authorization. content means content-level permission and does not share the creator's personnel data. ownWallet is exclusively the registered own-account read path: additionally constrain personId = actor, separate each dataCompanyId account, forbid cross-company offsets/references, and never use this mode for management/history reports. Whole-project commands pass the authoritative complete affectedCompanyIds to hardAllowed and must reject unless **every** affected company is covered; do not pass only visible participants.
++CompanyMode current companyId applies to personnel/current objects; dataCompanyId binds historical facts; history grouping may use historicalDepartmentId only after authorization. content means content-level permission and does not share the creator's personnel data. ownWallet is exclusively the registered own-account read path: additionally constrain personId = actor, require a nonempty authoritative dataCompanyId and crossCompanyReference explicitly false, separate each dataCompanyId account, forbid cross-company offsets/references, and never use this mode for management/history reports. Whole-project commands pass the authoritative complete affectedCompanyIds to hardAllowed and must reject unless **every** affected company is covered; do not pass only visible participants.
+ 
+ ## Delegation and dynamic sources
+ 
+ `assertCanDelegate` takes one selected managementRoleMembershipId, verifies its active provenance/status and level, and normalizes only that membership. It does not borrow other memberships' ranges or raw fields. The same selected membership must also grant role-management / authz.role.create or authz.role.update (registered all scope), according to operation; a business delegable flag alone is insufficient. Creation accepts only levels 2/3; editing rejects level1 and equal/higher target levels. Creation still requires all selected-context delegation caps. Appointments are not input and cannot delegate. Proposed objects are compared to resolved capability sets, not scope enum ranks; per-object raw-field coverage must be a subset too. Empty proposed sets cannot mint unavailable raw fields.
+ 
+ `assertGrantSubset` exposes the same selected-membership action/set/field check for category/override mutations without role-specific levels/actions. Its input is DelegateInput without operation/targetLevel; the caller must separately enforce its own mutation action and lock rules.
+ 
+ The trusted resolveObjects port returns ObjectSet with tenantId/actorId/revision/nodeId/action/objectIds and must enumerate or otherwise accurately resolve **all** corresponding permitted business objects with company/state caps. Binding is checked; the kernel cannot verify a dishonest port's data. This includes non-person anchors such as course uploader; do not substitute a person-ID resolver for a course object resolver. On persistence save source membership, resolved cap snapshot, revision, and dependencies. Source/organization changes must freeze dependents as recheck_required in the same authority transaction; recheck may mark active or suspended. Inactive/recheck_required/suspended memberships deny now. Graph propagation, cycle rejection, transaction locks and restore are Task2 persistence work, not proven by these pure tests.
+ 
+ ## Evidence and limitations
+diff --git a/src/authz/policy.ts b/src/authz/policy.ts
+index b566fad..cad3dfc 100644
+--- a/src/authz/policy.ts
++++ b/src/authz/policy.ts
+@@ -72,21 +72,23 @@ export function normalizePolicy(input: NormalizeInput): EffectiveGrant[] {
+ }
+ export function hardAllowed(context: Context, node: NodeDefinition | undefined, resource: Resource, affectedCompanyIds?: readonly string[], action?: string): boolean {
+     if (!validContext(context) || !node || resource.tenantId !== context.tenantId || resource.type !== node.resourceType || !resource.exists || !resource.enabled || resource.deleted || resource.businessAllowed === false)
+         return false;
+     if (action && (!node.actions.includes(action) || (node.publishedActions?.includes(action) && resource.published !== true)))
+         return false;
+     const cap = companyCap(context);
+     if (affectedCompanyIds && !affectedCompanyIds.every(id => cap.includes(id)))
+         return false;
+     if (node.companyMode === 'ownWallet')
+-        return resource.personId === context.personId && !resource.crossCompanyReference;
++        return resource.personId === context.personId
++            && typeof resource.dataCompanyId === 'string' && resource.dataCompanyId.trim().length > 0
++            && resource.crossCompanyReference === false;
+     if (node.companyMode === 'content')
+         return true;
+     const company = resource[node.companyMode];
+     return company !== undefined && cap.includes(company);
+ }
+ export function backendCapabilities(grants: readonly EffectiveGrant[], nodes: readonly NodeDefinition[]): {
+     backend: boolean;
+     nodes: string[];
+ } {
+     const ids = [...new Set(grants.filter(g => nodes.some(n => n.id === g.nodeId && n.backend)).map(g => g.nodeId))].sort();
+diff --git a/test/semantic.test.ts b/test/semantic.test.ts
+index 5cbef93..de00996 100644
+--- a/test/semantic.test.ts
++++ b/test/semantic.test.ts
+@@ -139,21 +139,21 @@ test('SELF uses only each registered node anchor and wallet exception stays narr
+         const m = membership('self', { kind: 'self' }, action, node), r = { ...project('x'), type, [anchor]: 'M', dataCompanyId: 'CA' };
+         await expectSources([m], r, [`role:self:${node}:${action}`], action, node);
+         await expectSources([m], { ...r, [anchor]: 'N', ...(anchor === 'createdBy' ? {} : { createdBy: 'M' }) }, [], action, node);
+     }
+     const customer = { ...ctx, personId: 'A', internal: false, companyId: 'CB', companyIds: ['CB'] };
+     const m = membership('history', { kind: 'self' });
+     m.personId = 'A';
+     await expectSources([m], { ...learning('A', 'CB'), dataCompanyId: 'CA' }, [], view, 'personal-learning', customer);
+     const wallet = membership('wallet', { kind: 'self' }, 'account.own.view', 'wallet-own');
+     wallet.personId = 'A';
+-    await expectSources([wallet], { ...learning('A', 'CB'), type: 'account', dataCompanyId: 'CA' }, ['role:wallet:wallet-own:account.own.view'], 'account.own.view', 'wallet-own', customer);
++    await expectSources([wallet], { ...learning('A', 'CB'), type: 'account', dataCompanyId: 'CA', crossCompanyReference: false }, ['role:wallet:wallet-own:account.own.view'], 'account.own.view', 'wallet-own', customer);
+     await expectSources([wallet], { ...learning('B'), type: 'account' }, [], 'account.own.view', 'wallet-own', customer);
+     await expectSources([wallet], { ...learning('A'), type: 'account', crossCompanyReference: true }, [], 'account.own.view', 'wallet-own', customer);
+     // Historical department D2 does not remove current D1 person A; current D2 B cannot borrow historical D1.
+     await expectSources([membership('current', { kind: 'ownDept' })], { ...learning('A'), historicalDepartmentId: 'D2' }, ['role:current:personal-learning:' + view]);
+     await expectSources([membership('current', { kind: 'ownDept' })], { ...learning('B'), historicalDepartmentId: 'D1' }, []);
+ });
+ test('category locks, independent actions, public and extensible subjects use common grants', async () => {
+     const catalog = { id: 'cat', tenantId: 'T1', creatorId: 'M', lockedBy: 'parent', grants: [{ id: 'public', action: 'knowledge.course.browse', subject: { type: 'public', id: 'T1' } }] };
+     assert.throws(() => normalizeCatalog({ context: ctx, nodes, nodeId: 'course', catalog, courseId: 'C', customBrowse: [], subjectResolvers: {} }), /locked/);
+     const unlocked = { ...catalog, lockedBy: undefined, grants: [...catalog.grants, { id: 'maint', action: 'knowledge.course.maintain', subject: { type: 'user', id: 'M' } }] };
+@@ -256,10 +256,30 @@ test('each scope permits and rejects literal resources on each engine', async ()
+     await expectSources([managed], learning('C'), []);
+     delete managed.jurisdiction;
+     await expectSources([managed], learning('E'), []);
+     const missing = membership('scope', { kind: 'ownDeptSubtree' });
+     await expectSources([missing], learning('A'), [], view, 'personal-learning', { ...ctx, departmentId: undefined });
+ });
+ test('delegation additionally requires role mutation action from selected membership', async () => {
+  const a=membership('A',{kind:'ownDept'},edit);a.policies[0]!.delegableActions=[edit];
+  await assert.rejects(()=>assertCanDelegate({context:ctx,nodes,memberships:[a],managementRoleMembershipId:'A',operation:'create',targetLevel:3,proposed:[],resolveObjects:async s=>({...s,objectIds:[]})}),/role mutation action/);
+ });
++
++for (const engine of engines) {
++    const customer = { ...ctx, internal: false, companyId: 'CB', companyIds: ['CB'] };
++    const wallet = membership('wallet', { kind: 'self' }, 'account.own.view', 'wallet-own');
++    const known: Resource = { id: 'known-old-company-account', tenantId: 'T1', type: 'account', personId: 'M', exists: true, enabled: true, deleted: false, dataCompanyId: 'CA', crossCompanyReference: false };
++    const cases: { name: string; resource: Resource; expected: string[] }[] = [
++        { name: 'known separate old-company account', resource: known, expected: ['role:wallet:wallet-own:account.own.view'] },
++        { name: 'missing data company', resource: { ...known, id: 'missing-company', dataCompanyId: undefined }, expected: [] },
++        { name: 'empty data company', resource: { ...known, id: 'empty-company', dataCompanyId: '' }, expected: [] },
++        { name: 'blank data company', resource: { ...known, id: 'blank-company', dataCompanyId: ' ' }, expected: [] },
++        { name: 'missing reference status', resource: { ...known, id: 'missing-reference', crossCompanyReference: undefined }, expected: [] },
++        { name: 'unbound reviewer account', resource: { id: 'unbound-account', tenantId: 'T1', type: 'account', personId: 'M', exists: true, enabled: true, deleted: false }, expected: [] },
++    ];
++    for (const c of cases) test(`wallet hard facts: ${engine.name}: ${c.name}`, async () => {
++        const result = await engine.match({ context: customer, nodes, nodeId: 'wallet-own', action: 'account.own.view', resource: c.resource, grants: plan([wallet], customer), organization: org });
++        assert.deepEqual(result.sourceIds, c.expected, `${engine.name}/${c.resource.id}`);
++        assert.equal(result.allowed, c.expected.length > 0);
++        assert.deepEqual(result.rawFields, []);
++    });
++}

@@ -1,0 +1,266 @@
+[
+  {
+    "name": "list-broad",
+    "url": "http://127.0.0.1:4311",
+    "status": 200,
+    "actualCandidate": "casbin",
+    "actualCount": 49998,
+    "rowCount": 50,
+    "resultDigest": "bef4e136f796a7645a8fca60595b16150f5aa84abededefce1e92821367339bf",
+    "classification": "success",
+    "evidence": {
+      "candidate": "casbin",
+      "revision": 1790125367008,
+      "sourceIds": [
+        "role:m-broad:personal-learning:report.personal-learning.view",
+        "role:m-dept:personal-learning:report.personal-learning.view"
+      ],
+      "permissionMs": 26.60169300000007,
+      "dataMs": 47.37442500000043,
+      "cache": "cold"
+    },
+    "meta": {
+      "candidate": "casbin",
+      "instance": "A",
+      "pid": 19,
+      "pubsub": false,
+      "requestAt": "2026-09-23T01:02:50.163Z",
+      "responseAt": "2026-09-23T01:02:50.237Z",
+      "elapsedMs": 74.30262600000015,
+      "authorityObservedAt": "2026-09-23T01:02:50.189Z",
+      "observedRevision": 1790125367008,
+      "queryCount": 16
+    }
+  },
+  {
+    "name": "list-constrained",
+    "url": "http://127.0.0.1:4311",
+    "status": 200,
+    "actualCandidate": "casbin",
+    "actualCount": 22875,
+    "rowCount": 50,
+    "resultDigest": "cfc6060e63811df647b68785e484cd0b83ad0efc38e17686ea546ed698af691b",
+    "classification": "success",
+    "evidence": {
+      "candidate": "casbin",
+      "revision": 1790125367008,
+      "sourceIds": [
+        "role:bm-managed:personal-learning:report.personal-learning.view",
+        "role:bm-extra:personal-learning:report.personal-learning.view",
+        "role:bm-raw:personal-learning:report.personal-learning.view"
+      ],
+      "permissionMs": 80.18330600000036,
+      "dataMs": 55.1457190000001,
+      "cache": "cold"
+    },
+    "meta": {
+      "candidate": "casbin",
+      "instance": "A",
+      "pid": 19,
+      "pubsub": false,
+      "requestAt": "2026-09-23T01:02:50.248Z",
+      "responseAt": "2026-09-23T01:02:50.383Z",
+      "elapsedMs": 135.38219600000002,
+      "authorityObservedAt": "2026-09-23T01:02:50.327Z",
+      "observedRevision": 1790125367008,
+      "queryCount": 16
+    }
+  },
+  {
+    "name": "history-broad",
+    "url": "http://127.0.0.1:4311",
+    "status": 200,
+    "actualCandidate": "casbin",
+    "actualCount": 1000002,
+    "rowCount": 42,
+    "resultDigest": "a9a0f1f8fbf7aa8ab8e14d47986d0611e075afaa661df67c60274f42c1fb7d6e",
+    "classification": "success",
+    "evidence": {
+      "candidate": "casbin",
+      "revision": 1790125367008,
+      "sourceIds": [
+        "role:m-broad:history:report.history.view"
+      ],
+      "permissionMs": 3.787938000000395,
+      "dataMs": 107.30547100000013,
+      "cache": "L1"
+    },
+    "meta": {
+      "candidate": "casbin",
+      "instance": "A",
+      "pid": 19,
+      "pubsub": false,
+      "requestAt": "2026-09-23T01:02:50.385Z",
+      "responseAt": "2026-09-23T01:02:50.497Z",
+      "elapsedMs": 111.19684599999982,
+      "authorityObservedAt": "2026-09-23T01:02:50.389Z",
+      "observedRevision": 1790125367008,
+      "queryCount": 11
+    }
+  },
+  {
+    "name": "history-constrained",
+    "url": "http://127.0.0.1:4311",
+    "status": 200,
+    "actualCandidate": "casbin",
+    "actualCount": 457673,
+    "rowCount": 40,
+    "resultDigest": "d0d4fb08bd8e3451365315d7ee46bc6d4652d16e89645f73d1a84c25ef7a679c",
+    "classification": "success",
+    "evidence": {
+      "candidate": "casbin",
+      "revision": 1790125367008,
+      "sourceIds": [
+        "role:bm-managed:history:report.history.view",
+        "role:bm-extra:history:report.history.view"
+      ],
+      "permissionMs": 28.161098999999922,
+      "dataMs": 538.152255,
+      "cache": "L1"
+    },
+    "meta": {
+      "candidate": "casbin",
+      "instance": "A",
+      "pid": 19,
+      "pubsub": false,
+      "requestAt": "2026-09-23T01:02:50.498Z",
+      "responseAt": "2026-09-23T01:02:51.064Z",
+      "elapsedMs": 566.357125,
+      "authorityObservedAt": "2026-09-23T01:02:50.523Z",
+      "observedRevision": 1790125367008,
+      "queryCount": 13
+    }
+  },
+  {
+    "name": "list-broad",
+    "url": "http://127.0.0.1:4312",
+    "status": 200,
+    "actualCandidate": "casbin",
+    "actualCount": 49998,
+    "rowCount": 50,
+    "resultDigest": "bef4e136f796a7645a8fca60595b16150f5aa84abededefce1e92821367339bf",
+    "classification": "success",
+    "evidence": {
+      "candidate": "casbin",
+      "revision": 1790125367008,
+      "sourceIds": [
+        "role:m-broad:personal-learning:report.personal-learning.view",
+        "role:m-dept:personal-learning:report.personal-learning.view"
+      ],
+      "permissionMs": 10.150035000000116,
+      "dataMs": 6.8084060000001045,
+      "cache": "L2"
+    },
+    "meta": {
+      "candidate": "casbin",
+      "instance": "B",
+      "pid": 19,
+      "pubsub": false,
+      "requestAt": "2026-09-23T01:02:51.067Z",
+      "responseAt": "2026-09-23T01:02:51.085Z",
+      "elapsedMs": 17.33681999999999,
+      "authorityObservedAt": "2026-09-23T01:02:51.077Z",
+      "observedRevision": 1790125367008,
+      "queryCount": 14
+    }
+  },
+  {
+    "name": "list-constrained",
+    "url": "http://127.0.0.1:4312",
+    "status": 200,
+    "actualCandidate": "casbin",
+    "actualCount": 22875,
+    "rowCount": 50,
+    "resultDigest": "cfc6060e63811df647b68785e484cd0b83ad0efc38e17686ea546ed698af691b",
+    "classification": "success",
+    "evidence": {
+      "candidate": "casbin",
+      "revision": 1790125367008,
+      "sourceIds": [
+        "role:bm-managed:personal-learning:report.personal-learning.view",
+        "role:bm-extra:personal-learning:report.personal-learning.view",
+        "role:bm-raw:personal-learning:report.personal-learning.view"
+      ],
+      "permissionMs": 36.536736000000474,
+      "dataMs": 47.05424300000004,
+      "cache": "L2"
+    },
+    "meta": {
+      "candidate": "casbin",
+      "instance": "B",
+      "pid": 19,
+      "pubsub": false,
+      "requestAt": "2026-09-23T01:02:51.087Z",
+      "responseAt": "2026-09-23T01:02:51.171Z",
+      "elapsedMs": 83.64061900000024,
+      "authorityObservedAt": "2026-09-23T01:02:51.123Z",
+      "observedRevision": 1790125367008,
+      "queryCount": 14
+    }
+  },
+  {
+    "name": "history-broad",
+    "url": "http://127.0.0.1:4312",
+    "status": 200,
+    "actualCandidate": "casbin",
+    "actualCount": 1000002,
+    "rowCount": 42,
+    "resultDigest": "a9a0f1f8fbf7aa8ab8e14d47986d0611e075afaa661df67c60274f42c1fb7d6e",
+    "classification": "success",
+    "evidence": {
+      "candidate": "casbin",
+      "revision": 1790125367008,
+      "sourceIds": [
+        "role:m-broad:history:report.history.view"
+      ],
+      "permissionMs": 2.3851119999994808,
+      "dataMs": 96.1155590000003,
+      "cache": "L1"
+    },
+    "meta": {
+      "candidate": "casbin",
+      "instance": "B",
+      "pid": 19,
+      "pubsub": false,
+      "requestAt": "2026-09-23T01:02:51.173Z",
+      "responseAt": "2026-09-23T01:02:51.271Z",
+      "elapsedMs": 98.58589200000006,
+      "authorityObservedAt": "2026-09-23T01:02:51.175Z",
+      "observedRevision": 1790125367008,
+      "queryCount": 11
+    }
+  },
+  {
+    "name": "history-constrained",
+    "url": "http://127.0.0.1:4312",
+    "status": 200,
+    "actualCandidate": "casbin",
+    "actualCount": 457673,
+    "rowCount": 40,
+    "resultDigest": "d0d4fb08bd8e3451365315d7ee46bc6d4652d16e89645f73d1a84c25ef7a679c",
+    "classification": "success",
+    "evidence": {
+      "candidate": "casbin",
+      "revision": 1790125367008,
+      "sourceIds": [
+        "role:bm-managed:history:report.history.view",
+        "role:bm-extra:history:report.history.view"
+      ],
+      "permissionMs": 22.993810999999823,
+      "dataMs": 503.7299859999998,
+      "cache": "L1"
+    },
+    "meta": {
+      "candidate": "casbin",
+      "instance": "B",
+      "pid": 19,
+      "pubsub": false,
+      "requestAt": "2026-09-23T01:02:51.273Z",
+      "responseAt": "2026-09-23T01:02:51.799Z",
+      "elapsedMs": 526.7712649999999,
+      "authorityObservedAt": "2026-09-23T01:02:51.293Z",
+      "observedRevision": 1790125367008,
+      "queryCount": 13
+    }
+  }
+]

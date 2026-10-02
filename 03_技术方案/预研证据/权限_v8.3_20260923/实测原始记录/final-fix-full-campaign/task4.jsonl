@@ -1,0 +1,290 @@
+{"candidate":"native","name":"account role before any L entry","expected":200,"actual":200,"at":"2026-09-23T00:17:33.210Z"}
+{"candidate":"native","name":"future same-company account entry only","expected":["t4-account-cap-native-same"],"actual":["t4-account-cap-native-same"],"at":"2026-09-23T00:17:33.220Z"}
+{"candidate":"native","name":"account export uses stable person company cap","expected":["t4-account-cap-native-same"],"actual":["t4-account-cap-native-same"],"at":"2026-09-23T00:17:33.227Z"}
+{"candidate":"casbin","name":"account role before any L entry","expected":200,"actual":200,"at":"2026-09-23T00:17:33.711Z"}
+{"candidate":"casbin","name":"future same-company account entry only","expected":["t4-account-cap-casbin-same"],"actual":["t4-account-cap-casbin-same"],"at":"2026-09-23T00:17:33.721Z"}
+{"candidate":"casbin","name":"account export uses stable person company cap","expected":["t4-account-cap-casbin-same"],"actual":["t4-account-cap-casbin-same"],"at":"2026-09-23T00:17:33.727Z"}
+{"candidate":"native","name":"own wallet separates A and B","expected":{"status":200,"rows":[{"company_id":"A","currency":"credit","balance":0,"debt":30},{"company_id":"B","currency":"credit","balance":20,"debt":10},{"company_id":"B","currency":"point","balance":8,"debt":0}]},"actual":{"status":200,"rows":[{"company_id":"A","currency":"credit","balance":0,"debt":30},{"company_id":"B","currency":"credit","balance":20,"debt":10},{"company_id":"B","currency":"point","balance":8,"debt":0}]},"at":"2026-09-23T00:17:34.153Z"}
+{"candidate":"native","name":"B reward cannot offset A debt","expected":403,"actual":403,"at":"2026-09-23T00:17:34.166Z"}
+{"candidate":"native","name":"same company different currency denied","expected":403,"actual":403,"at":"2026-09-23T00:17:34.174Z"}
+{"candidate":"native","name":"same-company same-currency real offset","expected":{"status":200,"offset":10},"actual":{"status":200,"offset":10},"at":"2026-09-23T00:17:34.184Z"}
+{"candidate":"native","name":"offset persisted separated balances","expected":[{"company_id":"A","currency":"credit","balance":0,"debt":30},{"company_id":"B","currency":"credit","balance":10,"debt":0},{"company_id":"B","currency":"point","balance":8,"debt":0}],"actual":[{"company_id":"A","currency":"credit","balance":0,"debt":30},{"company_id":"B","currency":"credit","balance":10,"debt":0},{"company_id":"B","currency":"point","balance":8,"debt":0}],"at":"2026-09-23T00:17:34.189Z"}
+{"candidate":"native","name":"own wallet cannot unlock cross-company source","expected":403,"actual":403,"at":"2026-09-23T00:17:34.195Z"}
+{"candidate":"native","name":"legitimate own-company source","expected":200,"actual":200,"at":"2026-09-23T00:17:34.200Z"}
+{"candidate":"native","name":"account management export only A","expected":{"status":200,"ids":["debt-X-A"]},"actual":{"status":200,"ids":["debt-X-A"]},"at":"2026-09-23T00:17:34.206Z"}
+{"candidate":"casbin","name":"own wallet separates A and B","expected":{"status":200,"rows":[{"company_id":"A","currency":"credit","balance":0,"debt":30},{"company_id":"B","currency":"credit","balance":20,"debt":10},{"company_id":"B","currency":"point","balance":8,"debt":0}]},"actual":{"status":200,"rows":[{"company_id":"A","currency":"credit","balance":0,"debt":30},{"company_id":"B","currency":"credit","balance":20,"debt":10},{"company_id":"B","currency":"point","balance":8,"debt":0}]},"at":"2026-09-23T00:17:34.525Z"}
+{"candidate":"casbin","name":"B reward cannot offset A debt","expected":403,"actual":403,"at":"2026-09-23T00:17:34.542Z"}
+{"candidate":"casbin","name":"same company different currency denied","expected":403,"actual":403,"at":"2026-09-23T00:17:34.553Z"}
+{"candidate":"casbin","name":"same-company same-currency real offset","expected":{"status":200,"offset":10},"actual":{"status":200,"offset":10},"at":"2026-09-23T00:17:34.564Z"}
+{"candidate":"casbin","name":"offset persisted separated balances","expected":[{"company_id":"A","currency":"credit","balance":0,"debt":30},{"company_id":"B","currency":"credit","balance":10,"debt":0},{"company_id":"B","currency":"point","balance":8,"debt":0}],"actual":[{"company_id":"A","currency":"credit","balance":0,"debt":30},{"company_id":"B","currency":"credit","balance":10,"debt":0},{"company_id":"B","currency":"point","balance":8,"debt":0}],"at":"2026-09-23T00:17:34.570Z"}
+{"candidate":"casbin","name":"own wallet cannot unlock cross-company source","expected":403,"actual":403,"at":"2026-09-23T00:17:34.575Z"}
+{"candidate":"casbin","name":"legitimate own-company source","expected":200,"actual":200,"at":"2026-09-23T00:17:34.581Z"}
+{"candidate":"casbin","name":"account management export only A","expected":{"status":200,"ids":["debt-X-A"]},"actual":{"status":200,"ids":["debt-X-A"]},"at":"2026-09-23T00:17:34.587Z"}
+{"candidate":"native","name":"shared content remains accessible X","expected":200,"actual":200,"at":"2026-09-23T00:17:35.051Z"}
+{"candidate":"native","name":"shared content remains accessible Y","expected":200,"actual":200,"at":"2026-09-23T00:17:35.060Z"}
+{"candidate":"native","name":"shared content remains accessible person-00001","expected":200,"actual":200,"at":"2026-09-23T00:17:35.068Z"}
+{"candidate":"native","name":"ordinary customer has no project roster","expected":403,"actual":403,"at":"2026-09-23T00:17:35.072Z"}
+{"candidate":"native","name":"ordinary customer no management shell","expected":{"backend":false,"nodes":[]},"actual":{"backend":false,"nodes":[]},"at":"2026-09-23T00:17:35.075Z"}
+{"candidate":"native","name":"cannot grant cross-company range to external","expected":403,"actual":403,"at":"2026-09-23T00:17:35.080Z"}
+{"candidate":"native","name":"A manager search does not return A or hidden B","expected":{"count":0,"rows":[]},"actual":{"count":0,"rows":[]},"at":"2026-09-23T00:17:35.086Z"}
+{"candidate":"native","name":"valid company-qualified appointed roster X","expected":{"ids":["X"],"count":1},"actual":{"ids":["X"],"count":1},"at":"2026-09-23T00:17:35.095Z"}
+{"candidate":"native","name":"own-company protected attachment X","expected":{"status":200,"bytes":"attachment-X"},"actual":{"status":200,"bytes":"attachment-X"},"at":"2026-09-23T00:17:35.107Z"}
+{"candidate":"native","name":"valid company-qualified appointed roster Y","expected":{"ids":["Y"],"count":1},"actual":{"ids":["Y"],"count":1},"at":"2026-09-23T00:17:35.115Z"}
+{"candidate":"native","name":"own-company protected attachment Y","expected":{"status":200,"bytes":"attachment-Y"},"actual":{"status":200,"bytes":"attachment-Y"},"at":"2026-09-23T00:17:35.126Z"}
+{"candidate":"native","name":"B manager own-company progress","expected":{"status":200,"personId":"Y","progress":75},"actual":{"status":200,"personId":"Y","progress":75},"at":"2026-09-23T00:17:35.134Z"}
+{"candidate":"native","name":"A manager own-company progress","expected":{"status":200,"personId":"X","progress":25},"actual":{"status":200,"personId":"X","progress":25},"at":"2026-09-23T00:17:35.142Z"}
+{"candidate":"native","name":"X manager hidden progress","expected":403,"actual":403,"at":"2026-09-23T00:17:35.147Z"}
+{"candidate":"native","name":"X manager hidden attachment","expected":403,"actual":403,"at":"2026-09-23T00:17:35.155Z"}
+{"candidate":"native","name":"Y manager hidden progress","expected":403,"actual":403,"at":"2026-09-23T00:17:35.160Z"}
+{"candidate":"native","name":"Y manager hidden attachment","expected":403,"actual":403,"at":"2026-09-23T00:17:35.169Z"}
+{"candidate":"native","name":"explicit grant customer A","expected":200,"actual":200,"at":"2026-09-23T00:17:35.175Z"}
+{"candidate":"native","name":"explicit grant customer B","expected":200,"actual":200,"at":"2026-09-23T00:17:35.180Z"}
+{"candidate":"native","name":"internal owns plus explicit A B","expected":["A","X","Y"],"actual":["A","X","Y"],"at":"2026-09-23T00:17:35.192Z"}
+{"candidate":"native","name":"revoke A","expected":200,"actual":200,"at":"2026-09-23T00:17:35.197Z"}
+{"candidate":"native","name":"next request retains I B only","expected":["A","Y"],"actual":["A","Y"],"at":"2026-09-23T00:17:35.206Z"}
+{"candidate":"native","name":"whole project cannot hide affected A","expected":403,"actual":403,"at":"2026-09-23T00:17:35.213Z"}
+{"candidate":"native","name":"all affected companies positive","expected":200,"actual":200,"at":"2026-09-23T00:17:35.225Z"}
+{"candidate":"casbin","name":"shared content remains accessible X","expected":200,"actual":200,"at":"2026-09-23T00:17:35.585Z"}
+{"candidate":"casbin","name":"shared content remains accessible Y","expected":200,"actual":200,"at":"2026-09-23T00:17:35.593Z"}
+{"candidate":"casbin","name":"shared content remains accessible person-00001","expected":200,"actual":200,"at":"2026-09-23T00:17:35.601Z"}
+{"candidate":"casbin","name":"ordinary customer has no project roster","expected":403,"actual":403,"at":"2026-09-23T00:17:35.605Z"}
+{"candidate":"casbin","name":"ordinary customer no management shell","expected":{"backend":false,"nodes":[]},"actual":{"backend":false,"nodes":[]},"at":"2026-09-23T00:17:35.608Z"}
+{"candidate":"casbin","name":"cannot grant cross-company range to external","expected":403,"actual":403,"at":"2026-09-23T00:17:35.615Z"}
+{"candidate":"casbin","name":"A manager search does not return A or hidden B","expected":{"count":0,"rows":[]},"actual":{"count":0,"rows":[]},"at":"2026-09-23T00:17:35.621Z"}
+{"candidate":"casbin","name":"valid company-qualified appointed roster X","expected":{"ids":["X"],"count":1},"actual":{"ids":["X"],"count":1},"at":"2026-09-23T00:17:35.630Z"}
+{"candidate":"casbin","name":"own-company protected attachment X","expected":{"status":200,"bytes":"attachment-X"},"actual":{"status":200,"bytes":"attachment-X"},"at":"2026-09-23T00:17:35.642Z"}
+{"candidate":"casbin","name":"valid company-qualified appointed roster Y","expected":{"ids":["Y"],"count":1},"actual":{"ids":["Y"],"count":1},"at":"2026-09-23T00:17:35.651Z"}
+{"candidate":"casbin","name":"own-company protected attachment Y","expected":{"status":200,"bytes":"attachment-Y"},"actual":{"status":200,"bytes":"attachment-Y"},"at":"2026-09-23T00:17:35.662Z"}
+{"candidate":"casbin","name":"B manager own-company progress","expected":{"status":200,"personId":"Y","progress":75},"actual":{"status":200,"personId":"Y","progress":75},"at":"2026-09-23T00:17:35.670Z"}
+{"candidate":"casbin","name":"A manager own-company progress","expected":{"status":200,"personId":"X","progress":25},"actual":{"status":200,"personId":"X","progress":25},"at":"2026-09-23T00:17:35.678Z"}
+{"candidate":"casbin","name":"X manager hidden progress","expected":403,"actual":403,"at":"2026-09-23T00:17:35.683Z"}
+{"candidate":"casbin","name":"X manager hidden attachment","expected":403,"actual":403,"at":"2026-09-23T00:17:35.693Z"}
+{"candidate":"casbin","name":"Y manager hidden progress","expected":403,"actual":403,"at":"2026-09-23T00:17:35.698Z"}
+{"candidate":"casbin","name":"Y manager hidden attachment","expected":403,"actual":403,"at":"2026-09-23T00:17:35.707Z"}
+{"candidate":"casbin","name":"explicit grant customer A","expected":200,"actual":200,"at":"2026-09-23T00:17:35.716Z"}
+{"candidate":"casbin","name":"explicit grant customer B","expected":200,"actual":200,"at":"2026-09-23T00:17:35.724Z"}
+{"candidate":"casbin","name":"internal owns plus explicit A B","expected":["A","X","Y"],"actual":["A","X","Y"],"at":"2026-09-23T00:17:35.734Z"}
+{"candidate":"casbin","name":"revoke A","expected":200,"actual":200,"at":"2026-09-23T00:17:35.741Z"}
+{"candidate":"casbin","name":"next request retains I B only","expected":["A","Y"],"actual":["A","Y"],"at":"2026-09-23T00:17:35.750Z"}
+{"candidate":"casbin","name":"whole project cannot hide affected A","expected":403,"actual":403,"at":"2026-09-23T00:17:35.757Z"}
+{"candidate":"casbin","name":"all affected companies positive","expected":200,"actual":200,"at":"2026-09-23T00:17:35.772Z"}
+{"candidate":"native","name":"current mutation {\"enabled\":false}","expected":200,"actual":200,"at":"2026-09-23T00:17:36.211Z"}
+{"candidate":"native","name":"current state selects historical row {\"enabled\":false}","expected":[403,200,403],"actual":[403,200,403],"at":"2026-09-23T00:17:36.232Z"}
+{"candidate":"native","name":"history snapshots unchanged {\"enabled\":false}","expected":{"data_company_id":"I","historical_department_id":"old-B-dept","historical_job_id":"old-B-job","historical_status":"enabled"},"actual":{"data_company_id":"I","historical_department_id":"old-B-dept","historical_job_id":"old-B-job","historical_status":"enabled"},"at":"2026-09-23T00:17:36.238Z"}
+{"candidate":"native","name":"current mutation {\"enabled\":true,\"deleted\":true}","expected":200,"actual":200,"at":"2026-09-23T00:17:36.249Z"}
+{"candidate":"native","name":"current state selects historical row {\"enabled\":true,\"deleted\":true}","expected":[403,403,200],"actual":[403,403,200],"at":"2026-09-23T00:17:36.267Z"}
+{"candidate":"native","name":"history snapshots unchanged {\"enabled\":true,\"deleted\":true}","expected":{"data_company_id":"I","historical_department_id":"old-B-dept","historical_job_id":"old-B-job","historical_status":"enabled"},"actual":{"data_company_id":"I","historical_department_id":"old-B-dept","historical_job_id":"old-B-job","historical_status":"enabled"},"at":"2026-09-23T00:17:36.272Z"}
+{"candidate":"native","name":"current mutation {\"enabled\":true,\"deleted\":false}","expected":200,"actual":200,"at":"2026-09-23T00:17:36.282Z"}
+{"candidate":"native","name":"current state selects historical row {\"enabled\":true,\"deleted\":false}","expected":[200,403,403],"actual":[200,403,403],"at":"2026-09-23T00:17:36.303Z"}
+{"candidate":"native","name":"history snapshots unchanged {\"enabled\":true,\"deleted\":false}","expected":{"data_company_id":"I","historical_department_id":"old-B-dept","historical_job_id":"old-B-job","historical_status":"enabled"},"actual":{"data_company_id":"I","historical_department_id":"old-B-dept","historical_job_id":"old-B-job","historical_status":"enabled"},"at":"2026-09-23T00:17:36.308Z"}
+{"candidate":"native","name":"clear current manager and change job","expected":200,"actual":200,"at":"2026-09-23T00:17:36.318Z"}
+{"candidate":"native","name":"all current projections delivered atomically","expected":{"department_id":null,"manager_id":null,"job_id":"current-new-job"},"actual":{"department_id":null,"manager_id":null,"job_id":"current-new-job"},"at":"2026-09-23T00:17:36.322Z"}
+{"candidate":"native","name":"move and clear never rewrite historical fields","expected":{"data_company_id":"I","historical_department_id":"old-B-dept","historical_job_id":"old-B-job","historical_status":"enabled"},"actual":{"data_company_id":"I","historical_department_id":"old-B-dept","historical_job_id":"old-B-job","historical_status":"enabled"},"at":"2026-09-23T00:17:36.328Z"}
+{"candidate":"native","name":"physical snapshot immutable","expected":true,"actual":true,"at":"2026-09-23T00:17:36.329Z"}
+{"candidate":"native","name":"transfer explicit both-company company/dept","expected":200,"actual":200,"at":"2026-09-23T00:17:36.339Z"}
+{"candidate":"native","name":"new company SELF cannot read old company history","expected":["h-X-B"],"actual":["h-X-B"],"at":"2026-09-23T00:17:36.345Z"}
+{"candidate":"native","name":"transfer history data company retained","expected":["A","B"],"actual":["A","B"],"at":"2026-09-23T00:17:36.346Z"}
+{"candidate":"native","name":"invalid relationship {\"departmentId\":\"wide-1\"}","expected":403,"actual":403,"at":"2026-09-23T00:17:36.353Z"}
+{"candidate":"native","name":"invalid relationship {\"managerId\":\"B\"}","expected":403,"actual":403,"at":"2026-09-23T00:17:36.358Z"}
+{"candidate":"native","name":"invalid relationship {\"managerId\":\"other-1\"}","expected":403,"actual":403,"at":"2026-09-23T00:17:36.366Z"}
+{"candidate":"native","name":"same-row raw fields A","expected":["phone-A","email-A","card-A"],"actual":["phone-A","email-A","card-A"],"at":"2026-09-23T00:17:36.383Z"}
+{"candidate":"native","name":"same-row raw fields B","expected":[null,null,null],"actual":[null,null,null],"at":"2026-09-23T00:17:36.390Z"}
+{"candidate":"native","name":"safe raw error B","expected":false,"actual":false,"at":"2026-09-23T00:17:36.396Z"}
+{"candidate":"native","name":"safe raw error unknown","expected":false,"actual":false,"at":"2026-09-23T00:17:36.403Z"}
+{"candidate":"native","name":"safe raw error other-1","expected":false,"actual":false,"at":"2026-09-23T00:17:36.409Z"}
+{"candidate":"native","name":"denial random and foreign indistinguishable","expected":[{"status":403,"message":"你暂时不能查看或操作这项内容，请联系管理员确认权限","rows":null},{"status":403,"message":"你暂时不能查看或操作这项内容，请联系管理员确认权限","rows":null},{"status":403,"message":"你暂时不能查看或操作这项内容，请联系管理员确认权限","rows":null}],"actual":[{"status":403,"message":"你暂时不能查看或操作这项内容，请联系管理员确认权限","rows":null},{"status":403,"message":"你暂时不能查看或操作这项内容，请联系管理员确认权限","rows":null},{"status":403,"message":"你暂时不能查看或操作这项内容，请联系管理员确认权限","rows":null}],"at":"2026-09-23T00:17:36.409Z"}
+{"candidate":"casbin","name":"current mutation {\"enabled\":false}","expected":200,"actual":200,"at":"2026-09-23T00:17:36.757Z"}
+{"candidate":"casbin","name":"current state selects historical row {\"enabled\":false}","expected":[403,200,403],"actual":[403,200,403],"at":"2026-09-23T00:17:36.781Z"}
+{"candidate":"casbin","name":"history snapshots unchanged {\"enabled\":false}","expected":{"data_company_id":"I","historical_department_id":"old-B-dept","historical_job_id":"old-B-job","historical_status":"enabled"},"actual":{"data_company_id":"I","historical_department_id":"old-B-dept","historical_job_id":"old-B-job","historical_status":"enabled"},"at":"2026-09-23T00:17:36.787Z"}
+{"candidate":"casbin","name":"current mutation {\"enabled\":true,\"deleted\":true}","expected":200,"actual":200,"at":"2026-09-23T00:17:36.800Z"}
+{"candidate":"casbin","name":"current state selects historical row {\"enabled\":true,\"deleted\":true}","expected":[403,403,200],"actual":[403,403,200],"at":"2026-09-23T00:17:36.819Z"}
+{"candidate":"casbin","name":"history snapshots unchanged {\"enabled\":true,\"deleted\":true}","expected":{"data_company_id":"I","historical_department_id":"old-B-dept","historical_job_id":"old-B-job","historical_status":"enabled"},"actual":{"data_company_id":"I","historical_department_id":"old-B-dept","historical_job_id":"old-B-job","historical_status":"enabled"},"at":"2026-09-23T00:17:36.824Z"}
+{"candidate":"casbin","name":"current mutation {\"enabled\":true,\"deleted\":false}","expected":200,"actual":200,"at":"2026-09-23T00:17:36.836Z"}
+{"candidate":"casbin","name":"current state selects historical row {\"enabled\":true,\"deleted\":false}","expected":[200,403,403],"actual":[200,403,403],"at":"2026-09-23T00:17:36.854Z"}
+{"candidate":"casbin","name":"history snapshots unchanged {\"enabled\":true,\"deleted\":false}","expected":{"data_company_id":"I","historical_department_id":"old-B-dept","historical_job_id":"old-B-job","historical_status":"enabled"},"actual":{"data_company_id":"I","historical_department_id":"old-B-dept","historical_job_id":"old-B-job","historical_status":"enabled"},"at":"2026-09-23T00:17:36.860Z"}
+{"candidate":"casbin","name":"clear current manager and change job","expected":200,"actual":200,"at":"2026-09-23T00:17:36.873Z"}
+{"candidate":"casbin","name":"all current projections delivered atomically","expected":{"department_id":null,"manager_id":null,"job_id":"current-new-job"},"actual":{"department_id":null,"manager_id":null,"job_id":"current-new-job"},"at":"2026-09-23T00:17:36.876Z"}
+{"candidate":"casbin","name":"move and clear never rewrite historical fields","expected":{"data_company_id":"I","historical_department_id":"old-B-dept","historical_job_id":"old-B-job","historical_status":"enabled"},"actual":{"data_company_id":"I","historical_department_id":"old-B-dept","historical_job_id":"old-B-job","historical_status":"enabled"},"at":"2026-09-23T00:17:36.883Z"}
+{"candidate":"casbin","name":"physical snapshot immutable","expected":true,"actual":true,"at":"2026-09-23T00:17:36.884Z"}
+{"candidate":"casbin","name":"transfer explicit both-company company/dept","expected":200,"actual":200,"at":"2026-09-23T00:17:36.896Z"}
+{"candidate":"casbin","name":"new company SELF cannot read old company history","expected":["h-X-B"],"actual":["h-X-B"],"at":"2026-09-23T00:17:36.902Z"}
+{"candidate":"casbin","name":"transfer history data company retained","expected":["A","B"],"actual":["A","B"],"at":"2026-09-23T00:17:36.903Z"}
+{"candidate":"casbin","name":"invalid relationship {\"departmentId\":\"wide-1\"}","expected":403,"actual":403,"at":"2026-09-23T00:17:36.913Z"}
+{"candidate":"casbin","name":"invalid relationship {\"managerId\":\"B\"}","expected":403,"actual":403,"at":"2026-09-23T00:17:36.921Z"}
+{"candidate":"casbin","name":"invalid relationship {\"managerId\":\"other-1\"}","expected":403,"actual":403,"at":"2026-09-23T00:17:36.932Z"}
+{"candidate":"casbin","name":"same-row raw fields A","expected":["phone-A","email-A","card-A"],"actual":["phone-A","email-A","card-A"],"at":"2026-09-23T00:17:36.950Z"}
+{"candidate":"casbin","name":"same-row raw fields B","expected":[null,null,null],"actual":[null,null,null],"at":"2026-09-23T00:17:36.957Z"}
+{"candidate":"casbin","name":"safe raw error B","expected":false,"actual":false,"at":"2026-09-23T00:17:36.964Z"}
+{"candidate":"casbin","name":"safe raw error unknown","expected":false,"actual":false,"at":"2026-09-23T00:17:36.971Z"}
+{"candidate":"casbin","name":"safe raw error other-1","expected":false,"actual":false,"at":"2026-09-23T00:17:36.978Z"}
+{"candidate":"casbin","name":"denial random and foreign indistinguishable","expected":[{"status":403,"message":"你暂时不能查看或操作这项内容，请联系管理员确认权限","rows":null},{"status":403,"message":"你暂时不能查看或操作这项内容，请联系管理员确认权限","rows":null},{"status":403,"message":"你暂时不能查看或操作这项内容，请联系管理员确认权限","rows":null}],"actual":[{"status":403,"message":"你暂时不能查看或操作这项内容，请联系管理员确认权限","rows":null},{"status":403,"message":"你暂时不能查看或操作这项内容，请联系管理员确认权限","rows":null},{"status":403,"message":"你暂时不能查看或操作这项内容，请联系管理员确认权限","rows":null}],"at":"2026-09-23T00:17:36.978Z"}
+{"candidate":"native","name":"revoke committed before waiting batch denies","expected":403,"actual":403,"at":"2026-09-23T00:17:37.804Z"}
+{"candidate":"native","name":"waiting denied batch writes zero","expected":0,"actual":0,"at":"2026-09-23T00:17:37.805Z"}
+{"candidate":"native","name":"batch saves before later revoke","expected":200,"actual":200,"at":"2026-09-23T00:17:37.835Z"}
+{"candidate":"native","name":"next new remove sees committed revoke","expected":403,"actual":403,"at":"2026-09-23T00:17:37.857Z"}
+{"candidate":"native","name":"committed authorized batch retained","expected":["A","B"],"actual":["A","B"],"at":"2026-09-23T00:17:37.858Z"}
+{"candidate":"native","name":"two instances next request company revoke no pubsub","expected":{"ids":["A","Y"],"pubsub":false,"afterCommit":true},"actual":{"ids":["A","Y"],"pubsub":false,"afterCommit":true},"at":"2026-09-23T00:17:37.893Z"}
+{"candidate":"native","name":"warm own-account Redis failure has no balances","expected":{"status":503,"rows":null},"actual":{"status":503,"rows":null},"at":"2026-09-23T00:17:38.207Z"}
+{"candidate":"native","name":"recovered account uses current authority","expected":200,"actual":200,"at":"2026-09-23T00:17:38.923Z"}
+{"candidate":"native","name":"cold attachment Redis failure has no bytes","expected":{"status":503,"bytes":null},"actual":{"status":503,"bytes":null},"at":"2026-09-23T00:17:39.232Z"}
+{"candidate":"casbin","name":"revoke committed before waiting batch denies","expected":403,"actual":403,"at":"2026-09-23T00:17:40.608Z"}
+{"candidate":"casbin","name":"waiting denied batch writes zero","expected":0,"actual":0,"at":"2026-09-23T00:17:40.609Z"}
+{"candidate":"casbin","name":"batch saves before later revoke","expected":200,"actual":200,"at":"2026-09-23T00:17:40.642Z"}
+{"candidate":"casbin","name":"next new remove sees committed revoke","expected":403,"actual":403,"at":"2026-09-23T00:17:40.672Z"}
+{"candidate":"casbin","name":"committed authorized batch retained","expected":["A","B"],"actual":["A","B"],"at":"2026-09-23T00:17:40.673Z"}
+{"candidate":"casbin","name":"two instances next request company revoke no pubsub","expected":{"ids":["A","Y"],"pubsub":false,"afterCommit":true},"actual":{"ids":["A","Y"],"pubsub":false,"afterCommit":true},"at":"2026-09-23T00:17:40.718Z"}
+{"candidate":"casbin","name":"warm own-account Redis failure has no balances","expected":{"status":503,"rows":null},"actual":{"status":503,"rows":null},"at":"2026-09-23T00:17:41.032Z"}
+{"candidate":"casbin","name":"recovered account uses current authority","expected":200,"actual":200,"at":"2026-09-23T00:17:41.752Z"}
+{"candidate":"casbin","name":"cold attachment Redis failure has no bytes","expected":{"status":503,"bytes":null},"actual":{"status":503,"bytes":null},"at":"2026-09-23T00:17:42.061Z"}
+{"candidate":"native","name":"person-only move denied","expected":403,"actual":403,"at":"2026-09-23T00:17:43.227Z"}
+{"candidate":"native","name":"department source covers D11 and parent D1","expected":200,"actual":200,"at":"2026-09-23T00:17:43.242Z"}
+{"candidate":"native","name":"department parent outside cap","expected":403,"actual":403,"at":"2026-09-23T00:17:43.253Z"}
+{"candidate":"native","name":"department child D11 outside cap","expected":403,"actual":403,"at":"2026-09-23T00:17:43.263Z"}
+{"candidate":"native","name":"department root has no parent object","expected":200,"actual":200,"at":"2026-09-23T00:17:43.273Z"}
+{"candidate":"casbin","name":"person-only move denied","expected":403,"actual":403,"at":"2026-09-23T00:17:43.586Z"}
+{"candidate":"casbin","name":"department source covers D11 and parent D1","expected":200,"actual":200,"at":"2026-09-23T00:17:43.601Z"}
+{"candidate":"casbin","name":"department parent outside cap","expected":403,"actual":403,"at":"2026-09-23T00:17:43.611Z"}
+{"candidate":"casbin","name":"department child D11 outside cap","expected":403,"actual":403,"at":"2026-09-23T00:17:43.624Z"}
+{"candidate":"casbin","name":"department root has no parent object","expected":200,"actual":200,"at":"2026-09-23T00:17:43.635Z"}
+{"candidate":"native","name":"normal command rejects missing required main department","expected":403,"actual":403,"at":"2026-09-23T00:17:44.080Z"}
+{"candidate":"casbin","name":"normal command rejects missing required main department","expected":403,"actual":403,"at":"2026-09-23T00:17:44.433Z"}
+{"candidate":"native","name":"empty scope missing-department","expected":{"status":200,"count":0,"rows":[]},"actual":{"status":200,"count":0,"rows":[]},"at":"2026-09-23T00:17:44.877Z"}
+{"candidate":"native","name":"empty scope missing-subtree","expected":{"status":200,"count":0,"rows":[]},"actual":{"status":200,"count":0,"rows":[]},"at":"2026-09-23T00:17:44.890Z"}
+{"candidate":"native","name":"empty scope empty-departments","expected":{"status":200,"count":0,"rows":[]},"actual":{"status":200,"count":0,"rows":[]},"at":"2026-09-23T00:17:44.900Z"}
+{"candidate":"native","name":"empty scope unknown-department","expected":{"status":200,"count":0,"rows":[]},"actual":{"status":200,"count":0,"rows":[]},"at":"2026-09-23T00:17:44.910Z"}
+{"candidate":"native","name":"empty scope missing-jurisdiction","expected":{"status":200,"count":0,"rows":[]},"actual":{"status":200,"count":0,"rows":[]},"at":"2026-09-23T00:17:44.923Z"}
+{"candidate":"native","name":"unregistered course department scope fails closed","expected":403,"actual":403,"at":"2026-09-23T00:17:44.931Z"}
+{"candidate":"native","name":"same-name other tenant absent from list/count","expected":{"ids":["person-00001"],"count":1},"actual":{"ids":["person-00001"],"count":1},"at":"2026-09-23T00:17:44.967Z"}
+{"candidate":"native","name":"nonmatching source field never borrowed phone","expected":null,"actual":null,"at":"2026-09-23T00:17:44.967Z"}
+{"candidate":"native","name":"nonmatching source field never borrowed email","expected":null,"actual":null,"at":"2026-09-23T00:17:44.967Z"}
+{"candidate":"native","name":"nonmatching source field never borrowed id_card","expected":null,"actual":null,"at":"2026-09-23T00:17:44.967Z"}
+{"candidate":"casbin","name":"empty scope missing-department","expected":{"status":200,"count":0,"rows":[]},"actual":{"status":200,"count":0,"rows":[]},"at":"2026-09-23T00:17:45.287Z"}
+{"candidate":"casbin","name":"empty scope missing-subtree","expected":{"status":200,"count":0,"rows":[]},"actual":{"status":200,"count":0,"rows":[]},"at":"2026-09-23T00:17:45.299Z"}
+{"candidate":"casbin","name":"empty scope empty-departments","expected":{"status":200,"count":0,"rows":[]},"actual":{"status":200,"count":0,"rows":[]},"at":"2026-09-23T00:17:45.309Z"}
+{"candidate":"casbin","name":"empty scope unknown-department","expected":{"status":200,"count":0,"rows":[]},"actual":{"status":200,"count":0,"rows":[]},"at":"2026-09-23T00:17:45.321Z"}
+{"candidate":"casbin","name":"empty scope missing-jurisdiction","expected":{"status":200,"count":0,"rows":[]},"actual":{"status":200,"count":0,"rows":[]},"at":"2026-09-23T00:17:45.331Z"}
+{"candidate":"casbin","name":"unregistered course department scope fails closed","expected":403,"actual":403,"at":"2026-09-23T00:17:45.339Z"}
+{"candidate":"casbin","name":"same-name other tenant absent from list/count","expected":{"ids":["person-00001"],"count":1},"actual":{"ids":["person-00001"],"count":1},"at":"2026-09-23T00:17:45.373Z"}
+{"candidate":"casbin","name":"nonmatching source field never borrowed phone","expected":null,"actual":null,"at":"2026-09-23T00:17:45.373Z"}
+{"candidate":"casbin","name":"nonmatching source field never borrowed email","expected":null,"actual":null,"at":"2026-09-23T00:17:45.374Z"}
+{"candidate":"casbin","name":"nonmatching source field never borrowed id_card","expected":null,"actual":null,"at":"2026-09-23T00:17:45.374Z"}
+{"candidate":"native","name":"history role for person without facts","expected":200,"actual":200,"at":"2026-09-23T00:17:45.961Z"}
+{"candidate":"native","name":"new same-company fact appears, other company denied","expected":["t4-history-native-same"],"actual":["t4-history-native-same"],"at":"2026-09-23T00:17:45.971Z"}
+{"candidate":"native","name":"history cap dimension and literal no-fact person/company","expected":{"dimension":"person-company-v1","ids":["[\"L\",\"I\"]"]},"actual":{"dimension":"person-company-v1","ids":["[\"L\",\"I\"]"]},"at":"2026-09-23T00:17:45.972Z"}
+{"candidate":"native","name":"history new fact detail","expected":200,"actual":200,"at":"2026-09-23T00:17:45.978Z"}
+{"candidate":"native","name":"history aggregate new fact","expected":[{"historical_department_id":"new-history","count":1,"points":"1"}],"actual":[{"historical_department_id":"new-history","count":1,"points":"1"}],"at":"2026-09-23T00:17:45.982Z"}
+{"candidate":"native","name":"history export shares person/company cap","expected":["t4-history-native-same"],"actual":["t4-history-native-same"],"at":"2026-09-23T00:17:46.007Z"}
+{"candidate":"native","name":"legacy or unknown fact-id cap fails closed undefined","expected":403,"actual":403,"at":"2026-09-23T00:17:46.013Z"}
+{"candidate":"native","name":"legacy or unknown fact-id cap fails closed unknown-dimension","expected":403,"actual":403,"at":"2026-09-23T00:17:46.018Z"}
+{"candidate":"native","name":"disabled history actor denied","expected":403,"actual":403,"at":"2026-09-23T00:17:46.029Z"}
+{"candidate":"native","name":"restoration retains source-change freeze","expected":403,"actual":403,"at":"2026-09-23T00:17:46.041Z"}
+{"candidate":"native","name":"explicit recheck after restore","expected":"active","actual":"active","at":"2026-09-23T00:17:46.188Z"}
+{"candidate":"native","name":"original-source history revoke freezes derived","expected":403,"actual":403,"at":"2026-09-23T00:17:46.193Z"}
+{"candidate":"native","name":"original-source missing history remains suspended","expected":"suspended","actual":"suspended","at":"2026-09-23T00:17:46.202Z"}
+{"candidate":"native","name":"restored source explicit recheck active","expected":"active","actual":"active","at":"2026-09-23T00:17:46.366Z"}
+{"candidate":"casbin","name":"history role for person without facts","expected":200,"actual":200,"at":"2026-09-23T00:17:46.876Z"}
+{"candidate":"casbin","name":"new same-company fact appears, other company denied","expected":["t4-history-casbin-same"],"actual":["t4-history-casbin-same"],"at":"2026-09-23T00:17:46.886Z"}
+{"candidate":"casbin","name":"history cap dimension and literal no-fact person/company","expected":{"dimension":"person-company-v1","ids":["[\"L\",\"I\"]"]},"actual":{"dimension":"person-company-v1","ids":["[\"L\",\"I\"]"]},"at":"2026-09-23T00:17:46.886Z"}
+{"candidate":"casbin","name":"history new fact detail","expected":200,"actual":200,"at":"2026-09-23T00:17:46.892Z"}
+{"candidate":"casbin","name":"history aggregate new fact","expected":[{"historical_department_id":"new-history","count":1,"points":"1"}],"actual":[{"historical_department_id":"new-history","count":1,"points":"1"}],"at":"2026-09-23T00:17:46.896Z"}
+{"candidate":"casbin","name":"history export shares person/company cap","expected":["t4-history-casbin-same"],"actual":["t4-history-casbin-same"],"at":"2026-09-23T00:17:46.921Z"}
+{"candidate":"casbin","name":"legacy or unknown fact-id cap fails closed undefined","expected":403,"actual":403,"at":"2026-09-23T00:17:46.926Z"}
+{"candidate":"casbin","name":"legacy or unknown fact-id cap fails closed unknown-dimension","expected":403,"actual":403,"at":"2026-09-23T00:17:46.930Z"}
+{"candidate":"casbin","name":"disabled history actor denied","expected":403,"actual":403,"at":"2026-09-23T00:17:46.953Z"}
+{"candidate":"casbin","name":"restoration retains source-change freeze","expected":403,"actual":403,"at":"2026-09-23T00:17:46.967Z"}
+{"candidate":"casbin","name":"explicit recheck after restore","expected":"active","actual":"active","at":"2026-09-23T00:17:47.116Z"}
+{"candidate":"casbin","name":"original-source history revoke freezes derived","expected":403,"actual":403,"at":"2026-09-23T00:17:47.122Z"}
+{"candidate":"casbin","name":"original-source missing history remains suspended","expected":"suspended","actual":"suspended","at":"2026-09-23T00:17:47.131Z"}
+{"candidate":"casbin","name":"restored source explicit recheck active","expected":"active","actual":"active","at":"2026-09-23T00:17:47.287Z"}
+{"candidate":"native","name":"Task4 department company required","expected":1,"actual":1,"at":"2026-09-23T00:17:47.730Z"}
+{"candidate":"native","name":"Task4 null company","expected":true,"actual":true,"at":"2026-09-23T00:17:47.733Z"}
+{"candidate":"native","name":"Task4 cross-company parent","expected":true,"actual":true,"at":"2026-09-23T00:17:47.735Z"}
+{"candidate":"native","name":"Task4 invalid parent","expected":true,"actual":true,"at":"2026-09-23T00:17:47.736Z"}
+{"candidate":"native","name":"Task4 depth 21","expected":true,"actual":true,"at":"2026-09-23T00:17:47.738Z"}
+{"candidate":"native","name":"Task4 cycle","expected":true,"actual":true,"at":"2026-09-23T00:17:47.739Z"}
+{"candidate":"native","name":"Task4 exact valid scale","expected":{"people":50000,"others":500,"departments":2000,"facts":1000000,"invalid":0},"actual":{"people":50000,"others":500,"departments":2000,"facts":1000000,"invalid":0},"at":"2026-09-23T00:17:47.767Z"}
+{"candidate":"native","name":"Task4 company department distribution","expected":[{"company_id":"A","n":659},{"company_id":"B","n":659},{"company_id":"I","n":682}],"actual":[{"company_id":"A","n":659},{"company_id":"B","n":659},{"company_id":"I","n":682}],"at":"2026-09-23T00:17:47.768Z"}
+{"candidate":"native","name":"Task4 same-name tenant interference 500","expected":500,"actual":500,"at":"2026-09-23T00:17:47.772Z"}
+{"candidate":"native","name":"Task4 cross-company department command","expected":403,"actual":403,"at":"2026-09-23T00:17:47.807Z"}
+{"candidate":"native","name":"Task4 normal command clears nullable manager","expected":200,"actual":200,"at":"2026-09-23T00:17:47.819Z"}
+{"candidate":"native","name":"Task4 normal command rejects null department","expected":403,"actual":403,"at":"2026-09-23T00:17:47.828Z"}
+{"candidate":"native","name":"Task4 synthetic abnormal missing department","expected":{"department_id":null,"manager_id":null},"actual":{"department_id":null,"manager_id":null},"at":"2026-09-23T00:17:47.832Z"}
+{"candidate":"native","name":"Task4 cross-company person rejected","expected":true,"actual":true,"at":"2026-09-23T00:17:47.844Z"}
+{"candidate":"casbin","name":"Task4 department company required","expected":1,"actual":1,"at":"2026-09-23T00:17:48.134Z"}
+{"candidate":"casbin","name":"Task4 null company","expected":true,"actual":true,"at":"2026-09-23T00:17:48.136Z"}
+{"candidate":"casbin","name":"Task4 cross-company parent","expected":true,"actual":true,"at":"2026-09-23T00:17:48.137Z"}
+{"candidate":"casbin","name":"Task4 invalid parent","expected":true,"actual":true,"at":"2026-09-23T00:17:48.138Z"}
+{"candidate":"casbin","name":"Task4 depth 21","expected":true,"actual":true,"at":"2026-09-23T00:17:48.140Z"}
+{"candidate":"casbin","name":"Task4 cycle","expected":true,"actual":true,"at":"2026-09-23T00:17:48.141Z"}
+{"candidate":"casbin","name":"Task4 exact valid scale","expected":{"people":50000,"others":500,"departments":2000,"facts":1000000,"invalid":0},"actual":{"people":50000,"others":500,"departments":2000,"facts":1000000,"invalid":0},"at":"2026-09-23T00:17:48.167Z"}
+{"candidate":"casbin","name":"Task4 company department distribution","expected":[{"company_id":"A","n":659},{"company_id":"B","n":659},{"company_id":"I","n":682}],"actual":[{"company_id":"A","n":659},{"company_id":"B","n":659},{"company_id":"I","n":682}],"at":"2026-09-23T00:17:48.168Z"}
+{"candidate":"casbin","name":"Task4 same-name tenant interference 500","expected":500,"actual":500,"at":"2026-09-23T00:17:48.172Z"}
+{"candidate":"casbin","name":"Task4 cross-company department command","expected":403,"actual":403,"at":"2026-09-23T00:17:48.203Z"}
+{"candidate":"casbin","name":"Task4 normal command clears nullable manager","expected":200,"actual":200,"at":"2026-09-23T00:17:48.218Z"}
+{"candidate":"casbin","name":"Task4 normal command rejects null department","expected":403,"actual":403,"at":"2026-09-23T00:17:48.229Z"}
+{"candidate":"casbin","name":"Task4 synthetic abnormal missing department","expected":{"department_id":null,"manager_id":null},"actual":{"department_id":null,"manager_id":null},"at":"2026-09-23T00:17:48.232Z"}
+{"candidate":"casbin","name":"Task4 cross-company person rejected","expected":true,"actual":true,"at":"2026-09-23T00:17:48.246Z"}
+{"candidate":"native","name":"person command cannot borrow broad report role for C","expected":403,"actual":403,"at":"2026-09-23T00:17:48.672Z"}
+{"candidate":"native","name":"person command permits same-source capped B","expected":200,"actual":200,"at":"2026-09-23T00:17:48.688Z"}
+{"candidate":"casbin","name":"person command cannot borrow broad report role for C","expected":403,"actual":403,"at":"2026-09-23T00:17:49.005Z"}
+{"candidate":"casbin","name":"person command permits same-source capped B","expected":200,"actual":200,"at":"2026-09-23T00:17:49.020Z"}
+{"candidate":"native","name":"R1 B-only revoke cannot borrow broad report scope for C","expected":403,"actual":403,"at":"2026-09-23T00:17:49.450Z"}
+{"candidate":"native","name":"R1 denied target and dependent byte-equivalent state","expected":[{"data":{"id":"t4-r1-native-C","level":3,"active":true,"roleId":"role-12","personId":"C","policies":[],"tenantId":"T1","provenance":"system_origin"},"source_id":null},{"data":{"id":"t4-r1-native-C-child","level":3,"active":true,"roleId":"role-12","personId":"E","policies":[],"tenantId":"T1","provenance":"active"},"source_id":"t4-r1-native-C"}],"actual":[{"data":{"id":"t4-r1-native-C","level":3,"active":true,"roleId":"role-12","personId":"C","policies":[],"tenantId":"T1","provenance":"system_origin"},"source_id":null},{"data":{"id":"t4-r1-native-C-child","level":3,"active":true,"roleId":"role-12","personId":"E","policies":[],"tenantId":"T1","provenance":"active"},"source_id":"t4-r1-native-C"}],"at":"2026-09-23T00:17:49.451Z"}
+{"candidate":"native","name":"R1 denied target and dependent literal lifecycle","expected":[{"id":"t4-r1-native-C","active":"true","provenance":"system_origin"},{"id":"t4-r1-native-C-child","active":"true","provenance":"active"}],"actual":[{"id":"t4-r1-native-C","active":"true","provenance":"system_origin"},{"id":"t4-r1-native-C-child","active":"true","provenance":"active"}],"at":"2026-09-23T00:17:49.452Z"}
+{"candidate":"native","name":"R1 B-only revoke permits B","expected":200,"actual":200,"at":"2026-09-23T00:17:49.464Z"}
+{"candidate":"native","name":"R1 allowed target revoked and dependent frozen","expected":[{"id":"t4-r1-native-B","active":"false","provenance":"system_origin"},{"id":"t4-r1-native-B-child","active":"true","provenance":"recheck_required"}],"actual":[{"id":"t4-r1-native-B","active":"false","provenance":"system_origin"},{"id":"t4-r1-native-B-child","active":"true","provenance":"recheck_required"}],"at":"2026-09-23T00:17:49.464Z"}
+{"candidate":"native","name":"R2 view-only progress preserved","expected":{"status":200,"progress":50},"actual":{"status":200,"progress":50},"at":"2026-09-23T00:17:50.088Z"}
+{"candidate":"native","name":"R2 view-only attachment denies without bytes","expected":{"status":403,"bytes":null},"actual":{"status":403,"bytes":null},"at":"2026-09-23T00:17:50.092Z"}
+{"candidate":"native","name":"R2 download Q cannot borrow view P","expected":{"status":403,"bytes":null},"actual":{"status":403,"bytes":null},"at":"2026-09-23T00:17:50.101Z"}
+{"candidate":"native","name":"R2 matching P download returns protected bytes","expected":{"status":200,"bytes":"attachment-A"},"actual":{"status":200,"bytes":"attachment-A"},"at":"2026-09-23T00:17:50.116Z"}
+{"candidate":"native","name":"R2 download membership revoke committed","expected":200,"actual":200,"at":"2026-09-23T00:17:50.141Z"}
+{"candidate":"native","name":"R2 next B attachment denies revoked download","expected":{"status":403,"bytes":null,"afterCommit":true,"pubsub":false},"actual":{"status":403,"bytes":null,"afterCommit":true,"pubsub":false},"at":"2026-09-23T00:17:50.147Z"}
+{"candidate":"native","name":"R2 download revoke retains independent view progress","expected":{"status":200,"progress":50},"actual":{"status":200,"progress":50},"at":"2026-09-23T00:17:50.155Z"}
+{"candidate":"casbin","name":"R1 B-only revoke cannot borrow broad report scope for C","expected":403,"actual":403,"at":"2026-09-23T00:17:50.499Z"}
+{"candidate":"casbin","name":"R1 denied target and dependent byte-equivalent state","expected":[{"data":{"id":"t4-r1-casbin-C","level":3,"active":true,"roleId":"role-12","personId":"C","policies":[],"tenantId":"T1","provenance":"system_origin"},"source_id":null},{"data":{"id":"t4-r1-casbin-C-child","level":3,"active":true,"roleId":"role-12","personId":"E","policies":[],"tenantId":"T1","provenance":"active"},"source_id":"t4-r1-casbin-C"}],"actual":[{"data":{"id":"t4-r1-casbin-C","level":3,"active":true,"roleId":"role-12","personId":"C","policies":[],"tenantId":"T1","provenance":"system_origin"},"source_id":null},{"data":{"id":"t4-r1-casbin-C-child","level":3,"active":true,"roleId":"role-12","personId":"E","policies":[],"tenantId":"T1","provenance":"active"},"source_id":"t4-r1-casbin-C"}],"at":"2026-09-23T00:17:50.500Z"}
+{"candidate":"casbin","name":"R1 denied target and dependent literal lifecycle","expected":[{"id":"t4-r1-casbin-C","active":"true","provenance":"system_origin"},{"id":"t4-r1-casbin-C-child","active":"true","provenance":"active"}],"actual":[{"id":"t4-r1-casbin-C","active":"true","provenance":"system_origin"},{"id":"t4-r1-casbin-C-child","active":"true","provenance":"active"}],"at":"2026-09-23T00:17:50.501Z"}
+{"candidate":"casbin","name":"R1 B-only revoke permits B","expected":200,"actual":200,"at":"2026-09-23T00:17:50.513Z"}
+{"candidate":"casbin","name":"R1 allowed target revoked and dependent frozen","expected":[{"id":"t4-r1-casbin-B","active":"false","provenance":"system_origin"},{"id":"t4-r1-casbin-B-child","active":"true","provenance":"recheck_required"}],"actual":[{"id":"t4-r1-casbin-B","active":"false","provenance":"system_origin"},{"id":"t4-r1-casbin-B-child","active":"true","provenance":"recheck_required"}],"at":"2026-09-23T00:17:50.513Z"}
+{"candidate":"casbin","name":"R2 view-only progress preserved","expected":{"status":200,"progress":50},"actual":{"status":200,"progress":50},"at":"2026-09-23T00:17:51.134Z"}
+{"candidate":"casbin","name":"R2 view-only attachment denies without bytes","expected":{"status":403,"bytes":null},"actual":{"status":403,"bytes":null},"at":"2026-09-23T00:17:51.139Z"}
+{"candidate":"casbin","name":"R2 download Q cannot borrow view P","expected":{"status":403,"bytes":null},"actual":{"status":403,"bytes":null},"at":"2026-09-23T00:17:51.148Z"}
+{"candidate":"casbin","name":"R2 matching P download returns protected bytes","expected":{"status":200,"bytes":"attachment-A"},"actual":{"status":200,"bytes":"attachment-A"},"at":"2026-09-23T00:17:51.164Z"}
+{"candidate":"casbin","name":"R2 download membership revoke committed","expected":200,"actual":200,"at":"2026-09-23T00:17:51.198Z"}
+{"candidate":"casbin","name":"R2 next B attachment denies revoked download","expected":{"status":403,"bytes":null,"afterCommit":true,"pubsub":false},"actual":{"status":403,"bytes":null,"afterCommit":true,"pubsub":false},"at":"2026-09-23T00:17:51.204Z"}
+{"candidate":"casbin","name":"R2 download revoke retains independent view progress","expected":{"status":200,"progress":50},"actual":{"status":200,"progress":50},"at":"2026-09-23T00:17:51.215Z"}
+{"candidate":"native","name":"company mutation cannot borrow admin range beyond selected L cap","expected":403,"actual":403,"at":"2026-09-23T00:17:51.642Z"}
+{"candidate":"casbin","name":"company mutation cannot borrow admin range beyond selected L cap","expected":403,"actual":403,"at":"2026-09-23T00:17:51.977Z"}
+{"candidate":"native","name":"team includes direct A and cross-department B","expected":200,"actual":200,"at":"2026-09-23T00:17:52.447Z"}
+{"candidate":"native","name":"team persisted literal A B","expected":["A","B"],"actual":["A","B"],"at":"2026-09-23T00:17:52.449Z"}
+{"candidate":"native","name":"team denies C","expected":403,"actual":403,"at":"2026-09-23T00:17:52.463Z"}
+{"candidate":"native","name":"team denies D","expected":403,"actual":403,"at":"2026-09-23T00:17:52.475Z"}
+{"candidate":"native","name":"team denies E","expected":403,"actual":403,"at":"2026-09-23T00:17:52.487Z"}
+{"candidate":"native","name":"team denies missing","expected":403,"actual":403,"at":"2026-09-23T00:17:52.498Z"}
+{"candidate":"native","name":"team denies other-1","expected":403,"actual":403,"at":"2026-09-23T00:17:52.509Z"}
+{"candidate":"native","name":"team denies disabled","expected":403,"actual":403,"at":"2026-09-23T00:17:52.523Z"}
+{"candidate":"native","name":"team denies deleted","expected":403,"actual":403,"at":"2026-09-23T00:17:52.535Z"}
+{"candidate":"native","name":"cleared manager removes direct-team authority","expected":403,"actual":403,"at":"2026-09-23T00:17:52.558Z"}
+{"candidate":"native","name":"disabled target removes team authority","expected":403,"actual":403,"at":"2026-09-23T00:17:52.589Z"}
+{"candidate":"native","name":"direct subordinate still intersected with company cap","expected":403,"actual":403,"at":"2026-09-23T00:17:52.620Z"}
+{"candidate":"native","name":"team mixed batch all-or-nothing","expected":403,"actual":403,"at":"2026-09-23T00:17:52.641Z"}
+{"candidate":"native","name":"batch retained A B","expected":["A","B"],"actual":["A","B"],"at":"2026-09-23T00:17:52.642Z"}
+{"candidate":"native","name":"switch off denies team","expected":403,"actual":403,"at":"2026-09-23T00:17:52.656Z"}
+{"candidate":"native","name":"appointment remains independent from switch","expected":200,"actual":200,"at":"2026-09-23T00:17:52.674Z"}
+{"candidate":"native","name":"team removal A B","expected":200,"actual":200,"at":"2026-09-23T00:17:52.701Z"}
+{"candidate":"casbin","name":"team includes direct A and cross-department B","expected":200,"actual":200,"at":"2026-09-23T00:17:53.046Z"}
+{"candidate":"casbin","name":"team persisted literal A B","expected":["A","B"],"actual":["A","B"],"at":"2026-09-23T00:17:53.047Z"}
+{"candidate":"casbin","name":"team denies C","expected":403,"actual":403,"at":"2026-09-23T00:17:53.066Z"}
+{"candidate":"casbin","name":"team denies D","expected":403,"actual":403,"at":"2026-09-23T00:17:53.078Z"}
+{"candidate":"casbin","name":"team denies E","expected":403,"actual":403,"at":"2026-09-23T00:17:53.090Z"}
+{"candidate":"casbin","name":"team denies missing","expected":403,"actual":403,"at":"2026-09-23T00:17:53.101Z"}
+{"candidate":"casbin","name":"team denies other-1","expected":403,"actual":403,"at":"2026-09-23T00:17:53.113Z"}
+{"candidate":"casbin","name":"team denies disabled","expected":403,"actual":403,"at":"2026-09-23T00:17:53.125Z"}
+{"candidate":"casbin","name":"team denies deleted","expected":403,"actual":403,"at":"2026-09-23T00:17:53.136Z"}
+{"candidate":"casbin","name":"cleared manager removes direct-team authority","expected":403,"actual":403,"at":"2026-09-23T00:17:53.162Z"}
+{"candidate":"casbin","name":"disabled target removes team authority","expected":403,"actual":403,"at":"2026-09-23T00:17:53.199Z"}
+{"candidate":"casbin","name":"direct subordinate still intersected with company cap","expected":403,"actual":403,"at":"2026-09-23T00:17:53.235Z"}
+{"candidate":"casbin","name":"team mixed batch all-or-nothing","expected":403,"actual":403,"at":"2026-09-23T00:17:53.258Z"}
+{"candidate":"casbin","name":"batch retained A B","expected":["A","B"],"actual":["A","B"],"at":"2026-09-23T00:17:53.259Z"}
+{"candidate":"casbin","name":"switch off denies team","expected":403,"actual":403,"at":"2026-09-23T00:17:53.278Z"}
+{"candidate":"casbin","name":"appointment remains independent from switch","expected":200,"actual":200,"at":"2026-09-23T00:17:53.298Z"}
+{"candidate":"casbin","name":"team removal A B","expected":200,"actual":200,"at":"2026-09-23T00:17:53.330Z"}

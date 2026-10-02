@@ -1,0 +1,56 @@
+✔ native: two instances protect each download and Redis timeout closes (1787.809334ms)
+✔ casbin: two instances protect each download and Redis timeout closes (1815.670417ms)
+▶ native: mixed-company project and explicit grants
+  ✔ ordinary customer shared course (42.398416ms)
+  ✔ search/count company relation (16.055958ms)
+  ✔ personal progress and attachments (80.912083ms)
+  ✔ grant and revoke retain other companies (50.663166ms)
+✔ native: mixed-company project and explicit grants (551.316291ms)
+▶ casbin: mixed-company project and explicit grants
+  ✔ ordinary customer shared course (42.645584ms)
+  ✔ search/count company relation (17.830792ms)
+  ✔ personal progress and attachments (82.685708ms)
+  ✔ grant and revoke retain other companies (62.813333ms)
+✔ casbin: mixed-company project and explicit grants (551.431542ms)
+✔ native: team lock order, two instances, Redis failure (2820.105667ms)
+✔ casbin: team lock order, two instances, Redis failure (2805.141084ms)
+▶ native: person command applies same-action selected object caps
+  ✔ range negative (33.486167ms)
+  ✔ range positive (13.851291ms)
+✔ native: person command applies same-action selected object caps (353.456375ms)
+▶ casbin: person command applies same-action selected object caps
+  ✔ range negative (23.018ms)
+  ✔ range positive (13.833875ms)
+✔ casbin: person command applies same-action selected object caps (329.703959ms)
+▶ native: R1 membership revoke retains target-person cap
+  ✔ denies C (1.650041ms)
+  ✔ no target/dependent writes (2.739209ms)
+  ✔ permits B (11.928542ms)
+✔ native: R1 membership revoke retains target-person cap (358.6325ms)
+▶ native: R2 attachment uses project-specific download action
+  ✔ view remains progress only (27.742375ms)
+  ✔ other project download cannot join broader view (7.237083ms)
+  ✔ matching download permits bytes (13.872875ms)
+  ✔ download-only revoke applies next new request (37.971083ms)
+✔ native: R2 attachment uses project-specific download action (670.139541ms)
+▶ casbin: R1 membership revoke retains target-person cap
+  ✔ denies C (0.327417ms)
+  ✔ no target/dependent writes (1.309334ms)
+  ✔ permits B (11.659042ms)
+✔ casbin: R1 membership revoke retains target-person cap (333.557ms)
+▶ casbin: R2 attachment uses project-specific download action
+  ✔ view remains progress only (29.567667ms)
+  ✔ other project download cannot join broader view (7.579917ms)
+  ✔ matching download permits bytes (14.453083ms)
+  ✔ download-only revoke applies next new request (48.290375ms)
+✔ casbin: R2 attachment uses project-specific download action (686.276208ms)
+✔ native: company grant selected-source object cap (331.762042ms)
+✔ casbin: company grant selected-source object cap (313.224ms)
+ℹ tests 40
+ℹ suites 0
+ℹ pass 40
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 14366.529208

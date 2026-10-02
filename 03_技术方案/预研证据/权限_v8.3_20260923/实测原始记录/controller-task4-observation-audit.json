@@ -1,0 +1,13 @@
+{
+  "audited_at": "2026-09-23T06:24:36.560975+08:00",
+  "source": "task4-final2-observations.jsonl",
+  "source_commit": "9252b46af14039207b894b8bd5ac021ec64f057e",
+  "records": 266,
+  "by_candidate": {
+    "native": 133,
+    "casbin": 133
+  },
+  "literal_mismatches": [],
+  "sha256": "2dfd986d3f819f070772f218d85a4b29ee812490c25df19a244feeb3ad85d3fa",
+  "meaning": "Independent literal comparison only; not semantic coverage or overall gate approval."
+}

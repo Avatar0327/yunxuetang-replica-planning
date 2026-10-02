@@ -1,0 +1,38 @@
+{
+  "scope": "read-only diagnosis of pre-existing behavior; R1 fix does not change sorting",
+  "source": "src/training/enrollment-service.ts:19,21,26,28,30,31",
+  "originalRequest": {
+    "method": "POST",
+    "path": "/projects/P/enrollments",
+    "actor": "Y",
+    "body": {
+      "operation": "add",
+      "personIds": [
+        "Y",
+        "person-00002"
+      ]
+    }
+  },
+  "javascriptOrder": [
+    "Y",
+    "person-00002"
+  ],
+  "postgresAuthorizedRows": [
+    {
+      "id": "person-00002",
+      "company_id": "B",
+      "enabled": true,
+      "deleted": false
+    },
+    {
+      "id": "Y",
+      "company_id": "B",
+      "enabled": true,
+      "deleted": false
+    }
+  ],
+  "originalObservedStatus": 403,
+  "originalExpectedStatus": 200,
+  "originalEvidence": "evidence/raw/task5-fix-round1-red.jsonl",
+  "observations": "R1 same-company add response 0, both native and casbin"
+}

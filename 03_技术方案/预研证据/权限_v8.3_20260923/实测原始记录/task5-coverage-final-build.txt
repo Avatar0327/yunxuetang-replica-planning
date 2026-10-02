@@ -1,0 +1,13 @@
+{
+  "items": 168,
+  "noEvidence": [
+    "AUTH-T06-13",
+    "AUTH-T10-05",
+    "AUTH-T18-09",
+    "AUTH-T18-10",
+    "AUTH-T18-11",
+    "AUTH-T18-12",
+    "AUTH-T18-19",
+    "AUTH-T18-20"
+  ]
+}

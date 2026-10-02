@@ -1,0 +1,10 @@
+✔ native: populated department migration never expands saved delegation implicitly (550.426459ms)
+✔ casbin: populated department migration never expands saved delegation implicitly (527.318375ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1173.309709

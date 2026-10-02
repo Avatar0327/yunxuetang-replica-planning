@@ -1,0 +1,30 @@
+▶ native: department move has explicit action and complete affected cap
+  ✔ person action cannot authorize department (32.658208ms)
+  ✔ explicit department action positive (15.9525ms)
+  ✔ parent outside cap (10.4265ms)
+  ✔ child D11 outside cap (9.29075ms)
+  ✔ root has no parent object (11.776ms)
+✔ native: department move has explicit action and complete affected cap (412.884458ms)
+▶ casbin: department move has explicit action and complete affected cap
+  ✔ person action cannot authorize department (33.901459ms)
+  ✔ explicit department action positive (24.267917ms)
+  ✔ parent outside cap (17.6375ms)
+  ✔ child D11 outside cap (15.975791ms)
+  ✔ root has no parent object (18.460667ms)
+✔ casbin: department move has explicit action and complete affected cap (405.938791ms)
+▶ native: person command applies same-action selected object caps
+  ✔ range negative (33.991417ms)
+  ✔ range positive (17.124584ms)
+✔ native: person command applies same-action selected object caps (354.5555ms)
+▶ casbin: person command applies same-action selected object caps
+  ✔ range negative (35.975875ms)
+  ✔ range positive (23.928833ms)
+✔ casbin: person command applies same-action selected object caps (378.675042ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 18
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1723.606666

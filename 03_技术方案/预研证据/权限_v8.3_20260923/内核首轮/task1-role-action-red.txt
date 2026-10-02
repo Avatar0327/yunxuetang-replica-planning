@@ -1,0 +1,46 @@
+2026-09-22T19:21:29.143317+00:00
+$ npm run test:semantic
+
+> permission-v83-spike@0.0.1 test:semantic
+> tsx --test test/semantic.test.ts
+
+✔ literal team, own department and subtree differ (0.870375ms)
+✔ node/action sources never cross product; own-role override, empty and delete (3.884042ms)
+✔ override cannot invent navigation/actions/raw fields or follow new membership (0.496292ms)
+✔ six scope explicit boundaries and revision-bound organization facts (0.402125ms)
+✔ raw fields are tied to matching source and all hard caps precede union (0.697459ms)
+✔ appointments derive exact backend and project grants; revoke preserves other source (3.156041ms)
+✔ SELF uses only each registered node anchor and wallet exception stays narrow (1.6995ms)
+✔ category locks, independent actions, public and extensible subjects use common grants (0.593375ms)
+✔ selected management membership, resolved set/field caps and levels constrain delegation (0.439667ms)
+✔ ambiguous duplicate source IDs fail closed in both candidates (0.106583ms)
+✔ bulk query plan resolves once, preserves source-field pairs, rejects port binding mismatch (0.72275ms)
+✔ appointment revocation/company/state and public custom replacement negatives (0.680667ms)
+✔ each scope permits and rejects literal resources on each engine (1.195292ms)
+✖ delegation additionally requires role mutation action from selected membership (1.909125ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 13
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 189.607417
+
+✖ failing tests:
+
+test at test/semantic.test.ts:1:18008
+✖ delegation additionally requires role mutation action from selected membership (1.909125ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/semantic.test.ts:263:2)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /role mutation action/,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+exit=1

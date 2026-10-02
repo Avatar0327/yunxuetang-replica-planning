@@ -1,0 +1,13 @@
+{
+  "checkedAt": "2026-09-23T05:26:16.022363+08:00",
+  "source": "evidence/raw/task3-fix1-final-observations.jsonl",
+  "sourceSHA256": "de4c077594240616589771b5b6270568b567e84dc8a39f0b4c8764b268e6123c",
+  "observations": 252,
+  "candidates": {
+    "native": 125,
+    "casbin": 125,
+    "shared-resolver": 2
+  },
+  "literal_mismatch_lines": [],
+  "meaning": "Literal raw audit only; independent review still pending, not fullGo."
+}

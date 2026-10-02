@@ -1,0 +1,16 @@
+{"candidate":"native","name":"R1 initial customer assignment","expected":200,"actual":200,"at":"2026-09-22T21:14:25.015Z"}
+{"candidate":"native","name":"R1 original source remains active","expected":"system_origin","actual":"system_origin","at":"2026-09-22T21:14:25.020Z"}
+{"candidate":"native","name":"R1 revoke A then Z recheck suspended","expected":{"status":200,"state":"suspended"},"actual":{"status":200,"state":"active"},"at":"2026-09-22T21:14:25.039Z"}
+{"candidate":"native","name":"R2 D1 grantor D2 cap to D2 ownDept create","expected":200,"actual":403,"at":"2026-09-22T21:14:25.059Z"}
+{"candidate":"native","name":"R3 selected SELF custom own course","expected":200,"actual":403,"at":"2026-09-22T21:14:25.081Z"}
+{"candidate":"native","name":"R4 source maintains inaccessible","expected":200,"actual":200,"at":"2026-09-22T21:14:25.092Z"}
+{"candidate":"native","name":"R4 inaccessible delegation create","expected":200,"actual":200,"at":"2026-09-22T21:14:25.115Z"}
+{"candidate":"native","name":"R4 recipient maintains inaccessible","expected":200,"actual":403,"at":"2026-09-22T21:14:25.123Z"}
+{"candidate":"casbin","name":"R1 initial customer assignment","expected":200,"actual":200,"at":"2026-09-22T21:14:25.469Z"}
+{"candidate":"casbin","name":"R1 original source remains active","expected":"system_origin","actual":"system_origin","at":"2026-09-22T21:14:25.471Z"}
+{"candidate":"casbin","name":"R1 revoke A then Z recheck suspended","expected":{"status":200,"state":"suspended"},"actual":{"status":200,"state":"active"},"at":"2026-09-22T21:14:25.489Z"}
+{"candidate":"casbin","name":"R2 D1 grantor D2 cap to D2 ownDept create","expected":200,"actual":403,"at":"2026-09-22T21:14:25.506Z"}
+{"candidate":"casbin","name":"R3 selected SELF custom own course","expected":200,"actual":403,"at":"2026-09-22T21:14:25.534Z"}
+{"candidate":"casbin","name":"R4 source maintains inaccessible","expected":200,"actual":200,"at":"2026-09-22T21:14:25.551Z"}
+{"candidate":"casbin","name":"R4 inaccessible delegation create","expected":200,"actual":200,"at":"2026-09-22T21:14:25.575Z"}
+{"candidate":"casbin","name":"R4 recipient maintains inaccessible","expected":200,"actual":403,"at":"2026-09-22T21:14:25.583Z"}

@@ -1,0 +1,11 @@
+{
+  "source": "evidence/raw/task5-final4-task5.jsonl",
+  "sha256": "a14fd15f076d1d31ab027ebd10b6ffd17c5480a9b7bceec9cada9da3ce641a98",
+  "comparisons": 534,
+  "by_candidate": {
+    "native": 267,
+    "casbin": 267
+  },
+  "mismatches": [],
+  "scope": "Independent final4 observation equality only; not semantic168 coverage or overallGo."
+}

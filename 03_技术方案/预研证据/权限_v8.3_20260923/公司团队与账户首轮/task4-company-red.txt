@@ -1,0 +1,178 @@
+▶ native: mixed-company project and explicit grants
+  ✖ search/count company relation (33.630292ms)
+  ✖ personal progress and attachments (1.994625ms)
+  ✖ grant and revoke retain other companies (4.747875ms)
+✖ native: mixed-company project and explicit grants (346.964ms)
+▶ casbin: mixed-company project and explicit grants
+  ✖ search/count company relation (22.205ms)
+  ✖ personal progress and attachments (1.274542ms)
+  ✖ grant and revoke retain other companies (2.442833ms)
+✖ casbin: mixed-company project and explicit grants (321.013042ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 0
+ℹ fail 8
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 765.657958
+
+✖ failing tests:
+
+test at test/task4-company.test.ts:1:626
+✖ search/count company relation (33.630292ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+  +   count: 1,
+  +   rows: [
+  +     {
+  +       company_id: 'A',
+  +       person_id: 'X'
+  +     }
+  +   ]
+  -   count: 0,
+  -   rows: []
+    }
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task4-company.test.ts:8:135)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task4-company.test.ts:8:3)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { count: 1, rows: [ [Object] ] },
+    expected: { count: 0, rows: [] },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task4-company.test.ts:1:887
+✖ personal progress and attachments (1.994625ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+  +   personId: undefined,
+  +   progress: undefined,
+  +   status: 404
+  -   personId: 'X',
+  -   progress: 25,
+  -   status: 200
+    }
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task4-company.test.ts:9:141)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task4-company.test.ts:9:3)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { status: 404, personId: undefined, progress: undefined },
+    expected: { status: 200, personId: 'X', progress: 25 },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task4-company.test.ts:1:1437
+✖ grant and revoke retain other companies (4.747875ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  
+  404 !== 200
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task4-company.test.ts:12:4)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task4-company.test.ts:10:3)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 404,
+    expected: 200,
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task4-company.test.ts:1:626
+✖ search/count company relation (22.205ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+  +   count: 1,
+  +   rows: [
+  +     {
+  +       company_id: 'A',
+  +       person_id: 'X'
+  +     }
+  +   ]
+  -   count: 0,
+  -   rows: []
+    }
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task4-company.test.ts:8:135)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task4-company.test.ts:8:3)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { count: 1, rows: [ [Object] ] },
+    expected: { count: 0, rows: [] },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task4-company.test.ts:1:887
+✖ personal progress and attachments (1.274542ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+  +   personId: undefined,
+  +   progress: undefined,
+  +   status: 404
+  -   personId: 'X',
+  -   progress: 25,
+  -   status: 200
+    }
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task4-company.test.ts:9:141)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task4-company.test.ts:9:3)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { status: 404, personId: undefined, progress: undefined },
+    expected: { status: 200, personId: 'X', progress: 25 },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task4-company.test.ts:1:1437
+✖ grant and revoke retain other companies (2.442833ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  
+  404 !== 200
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task4-company.test.ts:12:4)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task4-company.test.ts:10:3)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 404,
+    expected: 200,
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

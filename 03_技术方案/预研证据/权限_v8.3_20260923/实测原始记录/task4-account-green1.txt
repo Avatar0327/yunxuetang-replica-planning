@@ -1,0 +1,18 @@
+▶ native: company/currency wallet and true positive offset
+  ✔ own split wallet (36.106375ms)
+  ✔ cross-company denied positive same-company works (26.855416ms)
+  ✔ management source and export stay company-bound (13.11025ms)
+✔ native: company/currency wallet and true positive offset (394.89925ms)
+▶ casbin: company/currency wallet and true positive offset
+  ✔ own split wallet (20.071666ms)
+  ✔ cross-company denied positive same-company works (32.220209ms)
+  ✔ management source and export stay company-bound (11.171583ms)
+✔ casbin: company/currency wallet and true positive offset (374.03625ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 857.830875

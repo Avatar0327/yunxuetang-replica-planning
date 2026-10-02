@@ -1,0 +1,68 @@
+{"candidate":"native","name":"ordered batch delegation revoke wins and zero write","expected":{"status":403,"roles":0,"members":0},"actual":{"status":403,"roles":0,"members":0},"at":"2026-09-22T23:01:11.749Z"}
+{"candidate":"native","name":"batch delegation before later revoke commits both members","expected":{"status":200,"members":2},"actual":{"status":200,"members":2},"at":"2026-09-22T23:01:11.923Z"}
+{"candidate":"native","name":"download chunk waits behind revoke and denies","expected":{"status":403,"rows":null,"observedRevision":1790117859423},"actual":{"status":403,"rows":null,"observedRevision":1790117859423},"at":"2026-09-22T23:01:11.987Z"}
+{"candidate":"native","name":"old job ticket cannot bypass new request","expected":403,"actual":403,"at":"2026-09-22T23:01:11.991Z"}
+{"candidate":"casbin","name":"ordered batch delegation revoke wins and zero write","expected":{"status":403,"roles":0,"members":0},"actual":{"status":403,"roles":0,"members":0},"at":"2026-09-22T23:01:12.634Z"}
+{"candidate":"casbin","name":"batch delegation before later revoke commits both members","expected":{"status":200,"members":2},"actual":{"status":200,"members":2},"at":"2026-09-22T23:01:12.803Z"}
+{"candidate":"casbin","name":"download chunk waits behind revoke and denies","expected":{"status":403,"rows":null,"observedRevision":1790117859437},"actual":{"status":403,"rows":null,"observedRevision":1790117859437},"at":"2026-09-22T23:01:12.865Z"}
+{"candidate":"casbin","name":"old job ticket cannot bypass new request","expected":403,"actual":403,"at":"2026-09-22T23:01:12.869Z"}
+{"candidate":"native","name":"HTTP six scope all","expected":{"status":200,"ids":["A","B","C","D","E","M","N"],"count":7},"actual":{"status":200,"ids":["A","B","C","D","E","M","N"],"count":7},"at":"2026-09-22T23:01:13.660Z"}
+{"candidate":"native","name":"HTTP six scope all","expected":{"status":200,"ids":["A","B","C","D","E","M","N"],"count":7},"actual":{"status":200,"ids":["A","B","C","D","E","M","N"],"count":7},"at":"2026-09-22T23:01:13.686Z"}
+{"candidate":"native","name":"HTTP six scope ownDept","expected":{"status":200,"ids":["A","C","M"],"count":3},"actual":{"status":200,"ids":["A","C","M"],"count":3},"at":"2026-09-22T23:01:13.698Z"}
+{"candidate":"native","name":"HTTP six scope ownDept","expected":{"status":200,"ids":["A","C","M"],"count":3},"actual":{"status":200,"ids":["A","C","M"],"count":3},"at":"2026-09-22T23:01:13.707Z"}
+{"candidate":"native","name":"HTTP six scope ownDeptSubtree","expected":{"status":200,"ids":["A","C","D","M"],"count":4},"actual":{"status":200,"ids":["A","C","D","M"],"count":4},"at":"2026-09-22T23:01:13.718Z"}
+{"candidate":"native","name":"HTTP six scope ownDeptSubtree","expected":{"status":200,"ids":["A","C","D","M"],"count":4},"actual":{"status":200,"ids":["A","C","D","M"],"count":4},"at":"2026-09-22T23:01:13.727Z"}
+{"candidate":"native","name":"HTTP six scope departments","expected":{"status":200,"ids":["B","E","N"],"count":3},"actual":{"status":200,"ids":["B","E","N"],"count":3},"at":"2026-09-22T23:01:13.736Z"}
+{"candidate":"native","name":"HTTP six scope departments","expected":{"status":200,"ids":["B","E","N"],"count":3},"actual":{"status":200,"ids":["B","E","N"],"count":3},"at":"2026-09-22T23:01:13.744Z"}
+{"candidate":"native","name":"HTTP six scope managed","expected":{"status":200,"ids":["B","E","N"],"count":3},"actual":{"status":200,"ids":["B","E","N"],"count":3},"at":"2026-09-22T23:01:13.755Z"}
+{"candidate":"native","name":"HTTP six scope managed","expected":{"status":200,"ids":["B","E","N"],"count":3},"actual":{"status":200,"ids":["B","E","N"],"count":3},"at":"2026-09-22T23:01:13.764Z"}
+{"candidate":"native","name":"HTTP six scope self","expected":{"status":200,"ids":[],"count":0},"actual":{"status":200,"ids":[],"count":0},"at":"2026-09-22T23:01:13.772Z"}
+{"candidate":"native","name":"HTTP six scope self","expected":{"status":200,"ids":[],"count":0},"actual":{"status":200,"ids":[],"count":0},"at":"2026-09-22T23:01:13.777Z"}
+{"candidate":"native","name":"HTTP six scope specified subtree","expected":{"status":200,"ids":["A","C","D","M"],"count":4},"actual":{"status":200,"ids":["A","C","D","M"],"count":4},"at":"2026-09-22T23:01:13.787Z"}
+{"candidate":"native","name":"HTTP six scope specified subtree","expected":{"status":200,"ids":["A","C","D","M"],"count":4},"actual":{"status":200,"ids":["A","C","D","M"],"count":4},"at":"2026-09-22T23:01:13.797Z"}
+{"candidate":"native","name":"HTTP six scope specified no subtree","expected":{"status":200,"ids":["A","C","M"],"count":3},"actual":{"status":200,"ids":["A","C","M"],"count":3},"at":"2026-09-22T23:01:13.806Z"}
+{"candidate":"native","name":"HTTP six scope specified no subtree","expected":{"status":200,"ids":["A","C","M"],"count":3},"actual":{"status":200,"ids":["A","C","M"],"count":3},"at":"2026-09-22T23:01:13.813Z"}
+{"candidate":"native","name":"HTTP six scope empty departments","expected":{"status":200,"ids":[],"count":0},"actual":{"status":200,"ids":[],"count":0},"at":"2026-09-22T23:01:13.822Z"}
+{"candidate":"native","name":"HTTP six scope empty departments","expected":{"status":200,"ids":[],"count":0},"actual":{"status":200,"ids":[],"count":0},"at":"2026-09-22T23:01:13.832Z"}
+{"candidate":"native","name":"HTTP SELF real own object","expected":["L"],"actual":["L"],"at":"2026-09-22T23:01:13.840Z"}
+{"candidate":"native","name":"HTTP role-local override does not narrow second-role union","expected":[["A","phone-A"],["B",null],["C","phone-C"],["D",null],["E",null],["M","phone-M"],["N",null]],"actual":[["A","phone-A"],["B",null],["C","phone-C"],["D",null],["E",null],["M","phone-M"],["N",null]],"at":"2026-09-22T23:01:13.853Z"}
+{"candidate":"native","name":"HTTP same-action export cannot borrow view-all","expected":["A","C","M"],"actual":["A","C","M"],"at":"2026-09-22T23:01:13.886Z"}
+{"candidate":"native","name":"HTTP shrink before pagination count","expected":{"ids":["C"],"count":3},"actual":{"ids":["C"],"count":3},"at":"2026-09-22T23:01:13.894Z"}
+{"candidate":"native","name":"raw field sentinel scan list","expected":[],"actual":[],"at":"2026-09-22T23:01:13.966Z"}
+{"candidate":"native","name":"raw field sentinel scan detail","expected":[],"actual":[],"at":"2026-09-22T23:01:13.966Z"}
+{"candidate":"native","name":"raw field sentinel scan search","expected":[],"actual":[],"at":"2026-09-22T23:01:13.966Z"}
+{"candidate":"native","name":"raw field sentinel scan denial","expected":[],"actual":[],"at":"2026-09-22T23:01:13.966Z"}
+{"candidate":"native","name":"raw field sentinel scan export","expected":[],"actual":[],"at":"2026-09-22T23:01:13.967Z"}
+{"candidate":"native","name":"raw field sentinel scan storedChunks","expected":[],"actual":[],"at":"2026-09-22T23:01:13.967Z"}
+{"candidate":"native","name":"raw Redis snapshot sentinel scan","expected":[],"actual":[],"at":"2026-09-22T23:01:13.977Z"}
+{"candidate":"native","name":"raw application stdout stderr scan","expected":[],"actual":[],"at":"2026-09-22T23:01:13.977Z"}
+{"candidate":"casbin","name":"HTTP six scope all","expected":{"status":200,"ids":["A","B","C","D","E","M","N"],"count":7},"actual":{"status":200,"ids":["A","B","C","D","E","M","N"],"count":7},"at":"2026-09-22T23:01:14.604Z"}
+{"candidate":"casbin","name":"HTTP six scope all","expected":{"status":200,"ids":["A","B","C","D","E","M","N"],"count":7},"actual":{"status":200,"ids":["A","B","C","D","E","M","N"],"count":7},"at":"2026-09-22T23:01:14.627Z"}
+{"candidate":"casbin","name":"HTTP six scope ownDept","expected":{"status":200,"ids":["A","C","M"],"count":3},"actual":{"status":200,"ids":["A","C","M"],"count":3},"at":"2026-09-22T23:01:14.638Z"}
+{"candidate":"casbin","name":"HTTP six scope ownDept","expected":{"status":200,"ids":["A","C","M"],"count":3},"actual":{"status":200,"ids":["A","C","M"],"count":3},"at":"2026-09-22T23:01:14.648Z"}
+{"candidate":"casbin","name":"HTTP six scope ownDeptSubtree","expected":{"status":200,"ids":["A","C","D","M"],"count":4},"actual":{"status":200,"ids":["A","C","D","M"],"count":4},"at":"2026-09-22T23:01:14.658Z"}
+{"candidate":"casbin","name":"HTTP six scope ownDeptSubtree","expected":{"status":200,"ids":["A","C","D","M"],"count":4},"actual":{"status":200,"ids":["A","C","D","M"],"count":4},"at":"2026-09-22T23:01:14.667Z"}
+{"candidate":"casbin","name":"HTTP six scope departments","expected":{"status":200,"ids":["B","E","N"],"count":3},"actual":{"status":200,"ids":["B","E","N"],"count":3},"at":"2026-09-22T23:01:14.680Z"}
+{"candidate":"casbin","name":"HTTP six scope departments","expected":{"status":200,"ids":["B","E","N"],"count":3},"actual":{"status":200,"ids":["B","E","N"],"count":3},"at":"2026-09-22T23:01:14.689Z"}
+{"candidate":"casbin","name":"HTTP six scope managed","expected":{"status":200,"ids":["B","E","N"],"count":3},"actual":{"status":200,"ids":["B","E","N"],"count":3},"at":"2026-09-22T23:01:14.698Z"}
+{"candidate":"casbin","name":"HTTP six scope managed","expected":{"status":200,"ids":["B","E","N"],"count":3},"actual":{"status":200,"ids":["B","E","N"],"count":3},"at":"2026-09-22T23:01:14.706Z"}
+{"candidate":"casbin","name":"HTTP six scope self","expected":{"status":200,"ids":[],"count":0},"actual":{"status":200,"ids":[],"count":0},"at":"2026-09-22T23:01:14.714Z"}
+{"candidate":"casbin","name":"HTTP six scope self","expected":{"status":200,"ids":[],"count":0},"actual":{"status":200,"ids":[],"count":0},"at":"2026-09-22T23:01:14.720Z"}
+{"candidate":"casbin","name":"HTTP six scope specified subtree","expected":{"status":200,"ids":["A","C","D","M"],"count":4},"actual":{"status":200,"ids":["A","C","D","M"],"count":4},"at":"2026-09-22T23:01:14.730Z"}
+{"candidate":"casbin","name":"HTTP six scope specified subtree","expected":{"status":200,"ids":["A","C","D","M"],"count":4},"actual":{"status":200,"ids":["A","C","D","M"],"count":4},"at":"2026-09-22T23:01:14.740Z"}
+{"candidate":"casbin","name":"HTTP six scope specified no subtree","expected":{"status":200,"ids":["A","C","M"],"count":3},"actual":{"status":200,"ids":["A","C","M"],"count":3},"at":"2026-09-22T23:01:14.750Z"}
+{"candidate":"casbin","name":"HTTP six scope specified no subtree","expected":{"status":200,"ids":["A","C","M"],"count":3},"actual":{"status":200,"ids":["A","C","M"],"count":3},"at":"2026-09-22T23:01:14.758Z"}
+{"candidate":"casbin","name":"HTTP six scope empty departments","expected":{"status":200,"ids":[],"count":0},"actual":{"status":200,"ids":[],"count":0},"at":"2026-09-22T23:01:14.767Z"}
+{"candidate":"casbin","name":"HTTP six scope empty departments","expected":{"status":200,"ids":[],"count":0},"actual":{"status":200,"ids":[],"count":0},"at":"2026-09-22T23:01:14.775Z"}
+{"candidate":"casbin","name":"HTTP SELF real own object","expected":["L"],"actual":["L"],"at":"2026-09-22T23:01:14.782Z"}
+{"candidate":"casbin","name":"HTTP role-local override does not narrow second-role union","expected":[["A","phone-A"],["B",null],["C","phone-C"],["D",null],["E",null],["M","phone-M"],["N",null]],"actual":[["A","phone-A"],["B",null],["C","phone-C"],["D",null],["E",null],["M","phone-M"],["N",null]],"at":"2026-09-22T23:01:14.795Z"}
+{"candidate":"casbin","name":"HTTP same-action export cannot borrow view-all","expected":["A","C","M"],"actual":["A","C","M"],"at":"2026-09-22T23:01:14.829Z"}
+{"candidate":"casbin","name":"HTTP shrink before pagination count","expected":{"ids":["C"],"count":3},"actual":{"ids":["C"],"count":3},"at":"2026-09-22T23:01:14.837Z"}
+{"candidate":"casbin","name":"raw field sentinel scan list","expected":[],"actual":[],"at":"2026-09-22T23:01:14.912Z"}
+{"candidate":"casbin","name":"raw field sentinel scan detail","expected":[],"actual":[],"at":"2026-09-22T23:01:14.912Z"}
+{"candidate":"casbin","name":"raw field sentinel scan search","expected":[],"actual":[],"at":"2026-09-22T23:01:14.912Z"}
+{"candidate":"casbin","name":"raw field sentinel scan denial","expected":[],"actual":[],"at":"2026-09-22T23:01:14.912Z"}
+{"candidate":"casbin","name":"raw field sentinel scan export","expected":[],"actual":[],"at":"2026-09-22T23:01:14.912Z"}
+{"candidate":"casbin","name":"raw field sentinel scan storedChunks","expected":[],"actual":[],"at":"2026-09-22T23:01:14.912Z"}
+{"candidate":"casbin","name":"raw Redis snapshot sentinel scan","expected":[],"actual":[],"at":"2026-09-22T23:01:14.926Z"}
+{"candidate":"casbin","name":"raw application stdout stderr scan","expected":[],"actual":[],"at":"2026-09-22T23:01:14.926Z"}

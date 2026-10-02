@@ -1,0 +1,18 @@
+▶ native: limited worker, ownership, chunks and source epoch
+  ✔ worker scope and requester-bound execution (142.346375ms)
+  ✔ partial job hidden and source mutation invalidates complete result (67.744584ms)
+  ✔ direct domain calls still authorize (20.456625ms)
+✔ native: limited worker, ownership, chunks and source epoch (818.762583ms)
+▶ casbin: limited worker, ownership, chunks and source epoch
+  ✔ worker scope and requester-bound execution (124.815084ms)
+  ✔ partial job hidden and source mutation invalidates complete result (55.02225ms)
+  ✔ direct domain calls still authorize (17.157708ms)
+✔ casbin: limited worker, ownership, chunks and source epoch (798.147084ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1801.35675

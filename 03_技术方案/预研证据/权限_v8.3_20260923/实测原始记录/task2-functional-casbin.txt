@@ -1,0 +1,5 @@
+
+> permission-v83-spike@0.0.1 functional
+> tsx scripts/run-functional.ts
+
+{"focusedChecks":"passed","fullAcceptance":"incomplete","evidenceDir":"evidence/raw/task2-casbin"}

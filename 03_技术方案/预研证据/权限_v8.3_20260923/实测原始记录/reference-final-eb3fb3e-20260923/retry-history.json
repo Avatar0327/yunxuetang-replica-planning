@@ -1,0 +1,16 @@
+{
+  "at": "2026-09-23T09:59:00.961798+08:00",
+  "failed_attempt": "casbin-cold-initial-seed-failure",
+  "retry": "casbin-cold",
+  "reason": "Initial seed SQL canceled by shared client statement_timeout=10000 during FK validation; no active concurrent application sessions at diagnosis. Root cause of timing variation unproven. Retry exact same seed and timeout once; no application/resource/threshold change.",
+  "source": "eb3fb3eae8332eea6acfc31da0696119225933f1",
+  "second_attempt": {
+    "path": "casbin-cold-second-seed-failure",
+    "outcome": "same 57014 statement timeout during SQL seed; no API started"
+  },
+  "third_attempt": {
+    "path": "casbin-cold",
+    "adjustment": "Only host provisioning pool statement_timeout 10000→60000. Original seed SQL/data untouched. Docker API pool statement_timeout remains10000; all resource and performance limits unchanged.",
+    "at": "2026-09-23T10:01:02.357480+08:00"
+  }
+}

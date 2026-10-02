@@ -1,0 +1,138 @@
+
+> permission-v83-spike@0.0.1 test:task5
+> tsx --test --test-concurrency=1 test/task5-*.test.ts test/module-boundaries.test.ts
+
+✔ module repositories cannot read or write foreign private tables (5.545166ms)
+✔ SQL routines retain owning-module table boundaries (0.356875ms)
+▶ native: independent benchmark complete result oracle
+  ✔ list-broad (42.648791ms)
+  ✔ list-constrained (89.534208ms)
+  ✔ history-broad (100.3885ms)
+  ✔ history-constrained (479.204208ms)
+✔ native: independent benchmark complete result oracle (1005.353916ms)
+▶ casbin: independent benchmark complete result oracle
+  ✔ list-broad (29.794584ms)
+  ✔ list-constrained (83.764583ms)
+  ✔ history-broad (104.458083ms)
+  ✔ history-constrained (473.647125ms)
+✔ casbin: independent benchmark complete result oracle (982.034167ms)
+▶ native: protected domain export HTTP contract
+  ✔ project export obeys exact project and company (56.298541ms)
+  ✔ account protected export (25.849583ms)
+  ✔ legacy account export bounded pages (24.6025ms)
+  ✔ report claim bounded (5577.912959ms)
+✔ native: protected domain export HTTP contract (6039.085042ms)
+▶ casbin: protected domain export HTTP contract
+  ✔ project export obeys exact project and company (55.649708ms)
+  ✔ account protected export (26.697958ms)
+  ✔ legacy account export bounded pages (17.970292ms)
+  ✔ report claim bounded (5618.790917ms)
+✔ casbin: protected domain export HTTP contract (6090.702125ms)
+✔ native: all protected output classes fail closed and commit timeline (13215.649833ms)
+✔ casbin: all protected output classes fail closed and commit timeline (12790.542625ms)
+✔ measurement rejects complete-result corruption including extra fields and group sums (0.372333ms)
+✔ measurement rejects nonfinite/missing timings candidate and cache labels (0.133083ms)
+✖ native: measured page queries and non-ALL large-cap workload (1314.497125ms)
+✖ casbin: measured page queries and non-ALL large-cap workload (1262.732375ms)
+✔ native: ordered batch delegation and protected download race (923.893042ms)
+✔ casbin: ordered batch delegation and protected download race (875.686416ms)
+✔ native: six-scope HTTP algebra, source fields and raw leak scans (1172.856584ms)
+✔ casbin: six-scope HTTP algebra, source fields and raw leak scans (1097.507333ms)
+✔ native: enrollment snapshot after person transfer (488.836708ms)
+✔ casbin: enrollment snapshot after person transfer (490.268625ms)
+▶ native: limited worker, ownership, chunks and source epoch
+  ✔ worker scope and requester-bound execution (138.133459ms)
+  ✔ partial job hidden and source mutation invalidates complete result (65.316708ms)
+  ✔ direct domain calls still authorize (20.331208ms)
+✔ native: limited worker, ownership, chunks and source epoch (809.264625ms)
+▶ casbin: limited worker, ownership, chunks and source epoch
+  ✔ worker scope and requester-bound execution (125.289583ms)
+  ✔ partial job hidden and source mutation invalidates complete result (55.392334ms)
+  ✔ direct domain calls still authorize (17.066541ms)
+✔ casbin: limited worker, ownership, chunks and source epoch (773.175834ms)
+ℹ tests 42
+ℹ suites 0
+ℹ pass 40
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 50692.724
+
+✖ failing tests:
+
+test at test/task5-nplus1.test.ts:1:298
+✖ native: measured page queries and non-ALL large-cap workload (1314.497125ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+      allFlags: [
+        false,
+        false
+      ],
+      companyIds: [
+  +     'A',
+        'I',
+  -     'A'
+      ],
+      pairCaps: [
+        30750,
+        20000
+      ],
+      resolvedCounts: [
+  +     23064,
+  -     23062,
+        15000
+      ]
+    }
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task5-nplus1.test.ts:17:3)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { resolvedCounts: [ 23064, 15000 ], allFlags: [ false, false ], pairCaps: [ 30750, 20000 ], companyIds: [ 'A', 'I' ] },
+    expected: { resolvedCounts: [ 23062, 15000 ], allFlags: [ false, false ], pairCaps: [ 30750, 20000 ], companyIds: [ 'I', 'A' ] },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task5-nplus1.test.ts:1:298
+✖ casbin: measured page queries and non-ALL large-cap workload (1262.732375ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+      allFlags: [
+        false,
+        false
+      ],
+      companyIds: [
+  +     'A',
+        'I',
+  -     'A'
+      ],
+      pairCaps: [
+        30750,
+        20000
+      ],
+      resolvedCounts: [
+  +     23064,
+  -     23062,
+        15000
+      ]
+    }
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task5-nplus1.test.ts:17:3)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { resolvedCounts: [ 23064, 15000 ], allFlags: [ false, false ], pairCaps: [ 30750, 20000 ], companyIds: [ 'A', 'I' ] },
+    expected: { resolvedCounts: [ 23062, 15000 ], allFlags: [ false, false ], pairCaps: [ 30750, 20000 ], companyIds: [ 'I', 'A' ] },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

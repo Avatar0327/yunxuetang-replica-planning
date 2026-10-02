@@ -1,0 +1,61 @@
+{
+  "commit": "cb72484ed8e7547146920fd4312dd24f8c9e2402",
+  "files": [
+    {
+      "path": "sql/schema.sql",
+      "sha256": "91f46fb504fde4f49e896d592f254f22e74be73dfd91b4c8ddcbc566d6ca67b0"
+    },
+    {
+      "path": "src/infrastructure/sets.ts",
+      "sha256": "5be7e803e9490e94e0724af924d3c8fa331097e9bc0caed45e0cbfbcdf70eea2"
+    },
+    {
+      "path": "src/knowledge/service.ts",
+      "sha256": "beeda14851d6bf0c06395846460922181df4277508b556e081b5cb7e6b2b81c0"
+    },
+    {
+      "path": "src/organization/service.ts",
+      "sha256": "a7ee3b5e7d1b1023851e7779c01586c693484896de0563df1ab699ce7e2c9b7c"
+    },
+    {
+      "path": "src/training/enrollment-service.ts",
+      "sha256": "4fcf43adfb9130a620728b3a8b9e7638e9b85858a779592549e9ef32b293b28c"
+    },
+    {
+      "path": "src/training/service.ts",
+      "sha256": "158a473050969ca062734d3c3cba4adb11a1b370923ca7f8212b2de91805a183"
+    },
+    {
+      "path": "test/final-fix-regressions.test.ts",
+      "sha256": "1fc8206dcfa214b88a3aecf04e312216d95a272eb0d8e1896777cb3dceb31e3a"
+    },
+    {
+      "path": "test/http.test.ts",
+      "sha256": "7f1f6434c51eb5869964effb3138a90005f224567e1995a1ab4b5dad5b033dbd"
+    },
+    {
+      "path": "test/task3-helper.ts",
+      "sha256": "6d3270ca5b647edb4cdb66bc3f1bec8c9870bda60a071fc0b0eeeacb05e6b5de"
+    },
+    {
+      "path": "test/task4-delivery.test.ts",
+      "sha256": "12c3ab57432b8ab0215f47fb3360fafe9a750830fc538b6134e29965281b5cd8"
+    },
+    {
+      "path": "test/task5-exports.test.ts",
+      "sha256": "8686fa29d4ff1815ec7979f0e84ee926c987d9b986b8b0d7c7d855d57d7af58b"
+    },
+    {
+      "path": "test/task5-faults.test.ts",
+      "sha256": "bc7ed8448366b60dffd71f478259e6ff1256478349fbfc031e49358fe4c51e58"
+    },
+    {
+      "path": "test/task5-ticket.test.ts",
+      "sha256": "ace050d6e593b4ef2874669ff371b29c78daad1ae050c9e75ab8bb6900138396"
+    },
+    {
+      "path": "web/index.html",
+      "sha256": "2ddad44807861e99eda6c2057c943ae7c53ac492fdfdd3af175edf76e00e877f"
+    }
+  ]
+}

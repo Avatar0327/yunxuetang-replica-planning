@@ -1,0 +1,46 @@
+✖ module repositories cannot read or write foreign private tables (5.938375ms)
+▶ native: node-owned SELF anchors and depth
+  ✔ course uses uploader while draft maintenance stays allowed (34.888ms)
+  ✔ project uses original creator (6.669833ms)
+  ✔ face-to-face uses owner not creator (7.252125ms)
+  ✔ category depth10 succeeds depth11 denies (24.030667ms)
+✔ native: node-owned SELF anchors and depth (403.519334ms)
+▶ casbin: node-owned SELF anchors and depth
+  ✔ course uses uploader while draft maintenance stays allowed (24.947917ms)
+  ✔ project uses original creator (8.839375ms)
+  ✔ face-to-face uses owner not creator (6.381333ms)
+  ✔ category depth10 succeeds depth11 denies (25.927958ms)
+✔ casbin: node-owned SELF anchors and depth (361.704916ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 10
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 854.944791
+
+✖ failing tests:
+
+test at test/module-boundaries.test.ts:1:115
+✖ module repositories cannot read or write foreign private tables (5.938375ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+  + [
+  +   "knowledge/service.ts: private import from '../authz/delegation.js'",
+  +   "knowledge/service.ts: private import from '../authz/registry.js'",
+  +   "knowledge/service.ts: private import from '../authz/objects.js'"
+  + ]
+  - []
+  
+      at TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/module-boundaries.test.ts:20:10)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ "knowledge/service.ts: private import from '../authz/delegation.js'", "knowledge/service.ts: private import from '../authz/registry.js'", "knowledge/service.ts: private import from '../authz/objects.js'" ],
+    expected: [],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

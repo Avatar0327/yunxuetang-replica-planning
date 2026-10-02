@@ -1,0 +1,514 @@
+[
+  {
+    "directory": "evidence/raw/task5-phase-native-denial",
+    "candidate": "native",
+    "cache": "hot",
+    "configured_seconds": 2,
+    "concurrency": 4,
+    "reference_window": false,
+    "phase": "denial",
+    "sample_count": 2882,
+    "categories": {
+      "denial": 2882
+    },
+    "instances": {
+      "27737": 1442,
+      "27738": 1440
+    },
+    "cache_states": {
+      "null": 2882
+    },
+    "scenario_counts": {
+      "history-constrained": 720,
+      "history-broad": 720,
+      "list-constrained": 721,
+      "list-broad": 721
+    },
+    "actual_wall_ms": 2005.9999999999998,
+    "observed_client_count": 4,
+    "request_start_span_ms": 2001.9999999999998,
+    "query_counts_by_scenario": {
+      "history-constrained": {
+        "7": 720
+      },
+      "history-broad": {
+        "7": 720
+      },
+      "list-constrained": {
+        "7": 721
+      },
+      "list-broad": {
+        "7": 721
+      }
+    },
+    "statistics": {
+      "history-constrained": {
+        "denial": {
+          "count": 720,
+          "p50": 2.6252499999999372,
+          "p95": 3.2477499999999964,
+          "p99": 4.053791999999987
+        }
+      },
+      "_all": {
+        "denial": {
+          "count": 2882,
+          "p50": 2.6419590000000426,
+          "p95": 3.3232920000000377,
+          "p99": 4.10287500000004
+        }
+      },
+      "history-broad": {
+        "denial": {
+          "count": 720,
+          "p50": 2.6452090000000226,
+          "p95": 3.2700420000000463,
+          "p99": 4.059082999999987
+        }
+      },
+      "list-constrained": {
+        "denial": {
+          "count": 721,
+          "p50": 2.6543329999999514,
+          "p95": 3.27370899999994,
+          "p99": 4.0579589999999826
+        }
+      },
+      "list-broad": {
+        "denial": {
+          "count": 721,
+          "p50": 2.6445829999998978,
+          "p95": 3.37175000000002,
+          "p99": 4.117042000000083
+        }
+      }
+    },
+    "threshold_observations": {
+      "history-constrained": {
+        "permission_p95_ms": null,
+        "permission_limit_ms": 50,
+        "permission_met": false,
+        "success_p95_ms": null,
+        "success_limit_ms": 2000,
+        "success_met": false
+      },
+      "history-broad": {
+        "permission_p95_ms": null,
+        "permission_limit_ms": 50,
+        "permission_met": false,
+        "success_p95_ms": null,
+        "success_limit_ms": 2000,
+        "success_met": false
+      },
+      "list-constrained": {
+        "permission_p95_ms": null,
+        "permission_limit_ms": 50,
+        "permission_met": false,
+        "success_p95_ms": null,
+        "success_limit_ms": 500,
+        "success_met": false
+      },
+      "list-broad": {
+        "permission_p95_ms": null,
+        "permission_limit_ms": 50,
+        "permission_met": false,
+        "success_p95_ms": null,
+        "success_limit_ms": 500,
+        "success_met": false
+      }
+    },
+    "audit_errors": [],
+    "truth_scenarios": [
+      "list-broad",
+      "list-constrained",
+      "history-broad",
+      "history-constrained"
+    ],
+    "raw_correctness_mismatches": {},
+    "limitation": "Threshold observations alone do not establish full acceptance, result truth, no N+1, resource limits or sufficient workload."
+  },
+  {
+    "directory": "evidence/raw/task5-phase-native-fault",
+    "candidate": "native",
+    "cache": "hot",
+    "configured_seconds": 2,
+    "concurrency": 4,
+    "reference_window": false,
+    "phase": "fault",
+    "sample_count": 28,
+    "categories": {
+      "failure": 28
+    },
+    "instances": {
+      "27747": 16,
+      "27748": 12
+    },
+    "cache_states": {
+      "null": 28
+    },
+    "scenario_counts": {
+      "list-broad": 7,
+      "list-constrained": 7,
+      "history-broad": 7,
+      "history-constrained": 7
+    },
+    "actual_wall_ms": 2220.0,
+    "observed_client_count": 4,
+    "request_start_span_ms": 1909.0,
+    "query_counts_by_scenario": {
+      "list-broad": {
+        "4": 7
+      },
+      "list-constrained": {
+        "4": 7
+      },
+      "history-broad": {
+        "4": 7
+      },
+      "history-constrained": {
+        "4": 7
+      }
+    },
+    "statistics": {
+      "list-broad": {
+        "failure": {
+          "count": 7,
+          "p50": 311.76691700000003,
+          "p95": 332.379291,
+          "p99": 332.379291
+        }
+      },
+      "_all": {
+        "failure": {
+          "count": 28,
+          "p50": 310.96124999999995,
+          "p95": 329.27766700000006,
+          "p99": 332.379291
+        }
+      },
+      "list-constrained": {
+        "failure": {
+          "count": 7,
+          "p50": 310.9052919999999,
+          "p95": 328.74816699999997,
+          "p99": 328.74816699999997
+        }
+      },
+      "history-broad": {
+        "failure": {
+          "count": 7,
+          "p50": 311.0008339999997,
+          "p95": 329.27766700000006,
+          "p99": 329.27766700000006
+        }
+      },
+      "history-constrained": {
+        "failure": {
+          "count": 7,
+          "p50": 310.96124999999995,
+          "p95": 329.17004199999997,
+          "p99": 329.17004199999997
+        }
+      }
+    },
+    "threshold_observations": {
+      "list-broad": {
+        "permission_p95_ms": null,
+        "permission_limit_ms": 50,
+        "permission_met": false,
+        "success_p95_ms": null,
+        "success_limit_ms": 500,
+        "success_met": false
+      },
+      "list-constrained": {
+        "permission_p95_ms": null,
+        "permission_limit_ms": 50,
+        "permission_met": false,
+        "success_p95_ms": null,
+        "success_limit_ms": 500,
+        "success_met": false
+      },
+      "history-broad": {
+        "permission_p95_ms": null,
+        "permission_limit_ms": 50,
+        "permission_met": false,
+        "success_p95_ms": null,
+        "success_limit_ms": 2000,
+        "success_met": false
+      },
+      "history-constrained": {
+        "permission_p95_ms": null,
+        "permission_limit_ms": 50,
+        "permission_met": false,
+        "success_p95_ms": null,
+        "success_limit_ms": 2000,
+        "success_met": false
+      }
+    },
+    "audit_errors": [],
+    "truth_scenarios": [
+      "list-broad",
+      "list-constrained",
+      "history-broad",
+      "history-constrained"
+    ],
+    "raw_correctness_mismatches": {},
+    "limitation": "Threshold observations alone do not establish full acceptance, result truth, no N+1, resource limits or sufficient workload."
+  },
+  {
+    "directory": "evidence/raw/task5-phase-casbin-denial",
+    "candidate": "casbin",
+    "cache": "hot",
+    "configured_seconds": 2,
+    "concurrency": 4,
+    "reference_window": false,
+    "phase": "denial",
+    "sample_count": 2879,
+    "categories": {
+      "denial": 2879
+    },
+    "instances": {
+      "27763": 1440,
+      "27764": 1439
+    },
+    "cache_states": {
+      "null": 2879
+    },
+    "scenario_counts": {
+      "history-constrained": 719,
+      "history-broad": 720,
+      "list-broad": 720,
+      "list-constrained": 720
+    },
+    "actual_wall_ms": 2004.0,
+    "observed_client_count": 4,
+    "request_start_span_ms": 1999.0,
+    "query_counts_by_scenario": {
+      "history-constrained": {
+        "7": 719
+      },
+      "history-broad": {
+        "7": 720
+      },
+      "list-broad": {
+        "7": 720
+      },
+      "list-constrained": {
+        "7": 720
+      }
+    },
+    "statistics": {
+      "history-constrained": {
+        "denial": {
+          "count": 719,
+          "p50": 2.6410000000000764,
+          "p95": 3.272999999999911,
+          "p99": 4.073416000000009
+        }
+      },
+      "_all": {
+        "denial": {
+          "count": 2879,
+          "p50": 2.6440419999998994,
+          "p95": 3.252707999999984,
+          "p99": 4.133374999999887
+        }
+      },
+      "history-broad": {
+        "denial": {
+          "count": 720,
+          "p50": 2.655666999999994,
+          "p95": 3.242791000000011,
+          "p99": 4.06737499999997
+        }
+      },
+      "list-broad": {
+        "denial": {
+          "count": 720,
+          "p50": 2.6432499999999663,
+          "p95": 3.245290999999952,
+          "p99": 4.153374999999983
+        }
+      },
+      "list-constrained": {
+        "denial": {
+          "count": 720,
+          "p50": 2.6354999999998654,
+          "p95": 3.255958999999848,
+          "p99": 4.1082909999999515
+        }
+      }
+    },
+    "threshold_observations": {
+      "history-constrained": {
+        "permission_p95_ms": null,
+        "permission_limit_ms": 50,
+        "permission_met": false,
+        "success_p95_ms": null,
+        "success_limit_ms": 2000,
+        "success_met": false
+      },
+      "history-broad": {
+        "permission_p95_ms": null,
+        "permission_limit_ms": 50,
+        "permission_met": false,
+        "success_p95_ms": null,
+        "success_limit_ms": 2000,
+        "success_met": false
+      },
+      "list-broad": {
+        "permission_p95_ms": null,
+        "permission_limit_ms": 50,
+        "permission_met": false,
+        "success_p95_ms": null,
+        "success_limit_ms": 500,
+        "success_met": false
+      },
+      "list-constrained": {
+        "permission_p95_ms": null,
+        "permission_limit_ms": 50,
+        "permission_met": false,
+        "success_p95_ms": null,
+        "success_limit_ms": 500,
+        "success_met": false
+      }
+    },
+    "audit_errors": [],
+    "truth_scenarios": [
+      "list-broad",
+      "list-constrained",
+      "history-broad",
+      "history-constrained"
+    ],
+    "raw_correctness_mismatches": {},
+    "limitation": "Threshold observations alone do not establish full acceptance, result truth, no N+1, resource limits or sufficient workload."
+  },
+  {
+    "directory": "evidence/raw/task5-phase-casbin-fault",
+    "candidate": "casbin",
+    "cache": "hot",
+    "configured_seconds": 2,
+    "concurrency": 4,
+    "reference_window": false,
+    "phase": "fault",
+    "sample_count": 28,
+    "categories": {
+      "failure": 28
+    },
+    "instances": {
+      "27766": 16,
+      "27767": 12
+    },
+    "cache_states": {
+      "null": 28
+    },
+    "scenario_counts": {
+      "list-broad": 7,
+      "list-constrained": 7,
+      "history-constrained": 7,
+      "history-broad": 7
+    },
+    "actual_wall_ms": 2218.0,
+    "observed_client_count": 4,
+    "request_start_span_ms": 1908.0,
+    "query_counts_by_scenario": {
+      "list-broad": {
+        "4": 7
+      },
+      "list-constrained": {
+        "4": 7
+      },
+      "history-constrained": {
+        "4": 7
+      },
+      "history-broad": {
+        "4": 7
+      }
+    },
+    "statistics": {
+      "list-broad": {
+        "failure": {
+          "count": 7,
+          "p50": 311.28274999999996,
+          "p95": 332.78745799999996,
+          "p99": 332.78745799999996
+        }
+      },
+      "_all": {
+        "failure": {
+          "count": 28,
+          "p50": 310.27324999999996,
+          "p95": 330.133958,
+          "p99": 332.78745799999996
+        }
+      },
+      "list-constrained": {
+        "failure": {
+          "count": 7,
+          "p50": 310.30941700000017,
+          "p95": 329.8615,
+          "p99": 329.8615
+        }
+      },
+      "history-constrained": {
+        "failure": {
+          "count": 7,
+          "p50": 309.9039590000001,
+          "p95": 328.990541,
+          "p99": 328.990541
+        }
+      },
+      "history-broad": {
+        "failure": {
+          "count": 7,
+          "p50": 310.889584,
+          "p95": 329.7102920000001,
+          "p99": 329.7102920000001
+        }
+      }
+    },
+    "threshold_observations": {
+      "list-broad": {
+        "permission_p95_ms": null,
+        "permission_limit_ms": 50,
+        "permission_met": false,
+        "success_p95_ms": null,
+        "success_limit_ms": 500,
+        "success_met": false
+      },
+      "list-constrained": {
+        "permission_p95_ms": null,
+        "permission_limit_ms": 50,
+        "permission_met": false,
+        "success_p95_ms": null,
+        "success_limit_ms": 500,
+        "success_met": false
+      },
+      "history-constrained": {
+        "permission_p95_ms": null,
+        "permission_limit_ms": 50,
+        "permission_met": false,
+        "success_p95_ms": null,
+        "success_limit_ms": 2000,
+        "success_met": false
+      },
+      "history-broad": {
+        "permission_p95_ms": null,
+        "permission_limit_ms": 50,
+        "permission_met": false,
+        "success_p95_ms": null,
+        "success_limit_ms": 2000,
+        "success_met": false
+      }
+    },
+    "audit_errors": [],
+    "truth_scenarios": [
+      "list-broad",
+      "list-constrained",
+      "history-broad",
+      "history-constrained"
+    ],
+    "raw_correctness_mismatches": {},
+    "limitation": "Threshold observations alone do not establish full acceptance, result truth, no N+1, resource limits or sufficient workload."
+  }
+]

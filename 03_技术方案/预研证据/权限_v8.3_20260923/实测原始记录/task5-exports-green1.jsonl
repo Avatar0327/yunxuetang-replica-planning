@@ -1,0 +1,18 @@
+{"candidate":"native","name":"project export create HTTP","expected":200,"actual":200,"at":"2026-09-22T22:47:22.577Z"}
+{"candidate":"native","name":"project export execute HTTP","expected":200,"actual":200,"at":"2026-09-22T22:47:22.595Z"}
+{"candidate":"native","name":"project export company A only","expected":[{"person_id":"X","company_id":"A","display_name":"X"}],"actual":[{"person_id":"X","company_id":"A","display_name":"X"}],"at":"2026-09-22T22:47:22.611Z"}
+{"candidate":"native","name":"project Q export denies exact appointment","expected":403,"actual":403,"at":"2026-09-22T22:47:22.619Z"}
+{"candidate":"native","name":"account export create HTTP","expected":200,"actual":200,"at":"2026-09-22T22:47:22.630Z"}
+{"candidate":"native","name":"account export execute HTTP","expected":200,"actual":200,"at":"2026-09-22T22:47:22.639Z"}
+{"candidate":"native","name":"account export company A only","expected":["debt-X-A"],"actual":["debt-X-A"],"at":"2026-09-22T22:47:22.647Z"}
+{"candidate":"native","name":"report export create","expected":200,"actual":200,"at":"2026-09-22T22:47:22.667Z"}
+{"candidate":"native","name":"report claim bounded 200 with exact total","expected":{"rows":200,"count":49998,"nextChunk":1},"actual":{"rows":200,"count":49998,"nextChunk":1},"at":"2026-09-22T22:47:28.189Z"}
+{"candidate":"casbin","name":"project export create HTTP","expected":200,"actual":200,"at":"2026-09-22T22:47:28.534Z"}
+{"candidate":"casbin","name":"project export execute HTTP","expected":200,"actual":200,"at":"2026-09-22T22:47:28.551Z"}
+{"candidate":"casbin","name":"project export company A only","expected":[{"person_id":"X","company_id":"A","display_name":"X"}],"actual":[{"person_id":"X","company_id":"A","display_name":"X"}],"at":"2026-09-22T22:47:28.568Z"}
+{"candidate":"casbin","name":"project Q export denies exact appointment","expected":403,"actual":403,"at":"2026-09-22T22:47:28.577Z"}
+{"candidate":"casbin","name":"account export create HTTP","expected":200,"actual":200,"at":"2026-09-22T22:47:28.586Z"}
+{"candidate":"casbin","name":"account export execute HTTP","expected":200,"actual":200,"at":"2026-09-22T22:47:28.595Z"}
+{"candidate":"casbin","name":"account export company A only","expected":["debt-X-A"],"actual":["debt-X-A"],"at":"2026-09-22T22:47:28.603Z"}
+{"candidate":"casbin","name":"report export create","expected":200,"actual":200,"at":"2026-09-22T22:47:28.622Z"}
+{"candidate":"casbin","name":"report claim bounded 200 with exact total","expected":{"rows":200,"count":49998,"nextChunk":1},"actual":{"rows":200,"count":49998,"nextChunk":1},"at":"2026-09-22T22:47:34.223Z"}

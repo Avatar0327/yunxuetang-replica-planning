@@ -1,0 +1,24 @@
+{
+  "noEvidence": [
+    "AUTH-T06-13",
+    "AUTH-T10-05",
+    "AUTH-T18-09",
+    "AUTH-T18-10",
+    "AUTH-T18-11",
+    "AUTH-T18-12",
+    "AUTH-T18-19",
+    "AUTH-T18-20"
+  ],
+  "controller": [
+    "AUTH-T06-13",
+    "AUTH-T10-05",
+    "AUTH-T18-09",
+    "AUTH-T18-10",
+    "AUTH-T18-11",
+    "AUTH-T18-12",
+    "AUTH-T18-13",
+    "AUTH-T18-19",
+    "AUTH-T18-20"
+  ],
+  "note": "A citation is not semantic coverage. Review individual requirements/actual results."
+}

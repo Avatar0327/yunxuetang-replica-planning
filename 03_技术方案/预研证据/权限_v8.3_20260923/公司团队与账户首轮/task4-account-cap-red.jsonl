@@ -1,0 +1,4 @@
+{"candidate":"native","name":"account role before any L entry","expected":200,"actual":200,"at":"2026-09-22T22:08:42.854Z"}
+{"candidate":"native","name":"future same-company account entry only","expected":["t4-account-cap-native-same"],"actual":[],"at":"2026-09-22T22:08:42.867Z"}
+{"candidate":"casbin","name":"account role before any L entry","expected":200,"actual":200,"at":"2026-09-22T22:08:43.196Z"}
+{"candidate":"casbin","name":"future same-company account entry only","expected":["t4-account-cap-casbin-same"],"actual":[],"at":"2026-09-22T22:08:43.206Z"}

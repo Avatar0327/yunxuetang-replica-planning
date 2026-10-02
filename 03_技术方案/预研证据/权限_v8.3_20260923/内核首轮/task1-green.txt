@@ -1,0 +1,30 @@
+2026-09-22T19:22:44.763238+00:00
+$ npm run test:semantic
+
+> permission-v83-spike@0.0.1 test:semantic
+> tsx --test test/semantic.test.ts
+
+✔ literal team, own department and subtree differ (0.869875ms)
+✔ node/action sources never cross product; own-role override, empty and delete (4.791792ms)
+✔ override cannot invent navigation/actions/raw fields or follow new membership (0.3985ms)
+✔ six scope explicit boundaries and revision-bound organization facts (0.300667ms)
+✔ raw fields are tied to matching source and all hard caps precede union (0.983458ms)
+✔ appointments derive exact backend and project grants; revoke preserves other source (2.6225ms)
+✔ SELF uses only each registered node anchor and wallet exception stays narrow (2.833834ms)
+✔ category locks, independent actions, public and extensible subjects use common grants (0.593625ms)
+✔ selected management membership, resolved set/field caps and levels constrain delegation (0.531208ms)
+✔ ambiguous duplicate source IDs fail closed in both candidates (0.168833ms)
+✔ bulk query plan resolves once, preserves source-field pairs, rejects port binding mismatch (0.715958ms)
+✔ appointment revocation/company/state and public custom replacement negatives (0.755875ms)
+✔ each scope permits and rejects literal resources on each engine (2.115208ms)
+✔ delegation additionally requires role mutation action from selected membership (0.083958ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 14
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 139.340209
+
+exit=0

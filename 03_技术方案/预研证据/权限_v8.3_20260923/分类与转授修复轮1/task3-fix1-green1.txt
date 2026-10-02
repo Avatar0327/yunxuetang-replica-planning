@@ -1,0 +1,20 @@
+▶ native: Task3 review regressions
+  ✔ R1 original source company revoke stays suspended under broad rechecker (75.078917ms)
+  ✔ R2 recipient D2 relative scope uses recipient for create/edit/add/recheck (88.928459ms)
+  ✔ R3 custom browse compares one selected own course, not unrelated courses (64.784541ms)
+  ✔ R4 inaccessible course is maintainable by source and recipient but not browsable/downloadable (92.985458ms)
+✔ native: Task3 review regressions (861.390417ms)
+▶ casbin: Task3 review regressions
+  ✔ R1 original source company revoke stays suspended under broad rechecker (57.226584ms)
+  ✔ R2 recipient D2 relative scope uses recipient for create/edit/add/recheck (89.753458ms)
+  ✔ R3 custom browse compares one selected own course, not unrelated courses (76.366625ms)
+  ✔ R4 inaccessible course is maintainable by source and recipient but not browsable/downloadable (109.669875ms)
+✔ casbin: Task3 review regressions (624.5745ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1574.913167

@@ -1,0 +1,6 @@
+{"candidate":"native","name":"A manager search does not return A or hidden B","expected":{"count":0,"rows":[]},"actual":{"count":1,"rows":[{"person_id":"X","company_id":"A"}]},"at":"2026-09-22T21:53:22.481Z"}
+{"candidate":"native","name":"A manager own-company progress","expected":{"status":200,"personId":"X","progress":25},"actual":{"status":404},"at":"2026-09-22T21:53:22.485Z"}
+{"candidate":"native","name":"explicit grant customer A","expected":200,"actual":404,"at":"2026-09-22T21:53:22.490Z"}
+{"candidate":"casbin","name":"A manager search does not return A or hidden B","expected":{"count":0,"rows":[]},"actual":{"count":1,"rows":[{"person_id":"X","company_id":"A"}]},"at":"2026-09-22T21:53:22.809Z"}
+{"candidate":"casbin","name":"A manager own-company progress","expected":{"status":200,"personId":"X","progress":25},"actual":{"status":404},"at":"2026-09-22T21:53:22.811Z"}
+{"candidate":"casbin","name":"explicit grant customer A","expected":200,"actual":404,"at":"2026-09-22T21:53:22.813Z"}

@@ -1,0 +1,5 @@
+
+> permission-v83-spike@0.0.1 explain
+> tsx scripts/explain.ts
+
+EXPLAIN ANALYZE BUFFERS saved to evidence/raw/explain

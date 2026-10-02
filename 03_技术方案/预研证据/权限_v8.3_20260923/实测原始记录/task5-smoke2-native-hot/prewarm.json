@@ -1,0 +1,266 @@
+[
+  {
+    "name": "list-broad",
+    "url": "http://127.0.0.1:4311",
+    "status": 200,
+    "actualCandidate": "native",
+    "actualCount": 49998,
+    "rowCount": 50,
+    "resultDigest": "bef4e136f796a7645a8fca60595b16150f5aa84abededefce1e92821367339bf",
+    "classification": "success",
+    "evidence": {
+      "candidate": "native",
+      "revision": 1790118945773,
+      "sourceIds": [
+        "role:m-broad:personal-learning:report.personal-learning.view",
+        "role:m-dept:personal-learning:report.personal-learning.view"
+      ],
+      "permissionMs": 18.643499999999904,
+      "dataMs": 5.991540999999984,
+      "cache": "L2"
+    },
+    "meta": {
+      "candidate": "native",
+      "instance": "27698",
+      "pid": 27698,
+      "pubsub": false,
+      "requestAt": "2026-09-22T23:16:41.314Z",
+      "responseAt": "2026-09-22T23:16:41.339Z",
+      "elapsedMs": 24.81829099999993,
+      "authorityObservedAt": "2026-09-22T23:16:41.411Z",
+      "observedRevision": 1790118945773,
+      "queryCount": 14
+    }
+  },
+  {
+    "name": "list-constrained",
+    "url": "http://127.0.0.1:4311",
+    "status": 200,
+    "actualCandidate": "native",
+    "actualCount": 22875,
+    "rowCount": 50,
+    "resultDigest": "cfc6060e63811df647b68785e484cd0b83ad0efc38e17686ea546ed698af691b",
+    "classification": "success",
+    "evidence": {
+      "candidate": "native",
+      "revision": 1790118945773,
+      "sourceIds": [
+        "role:bm-managed:personal-learning:report.personal-learning.view",
+        "role:bm-extra:personal-learning:report.personal-learning.view",
+        "role:bm-raw:personal-learning:report.personal-learning.view"
+      ],
+      "permissionMs": 43.95737500000007,
+      "dataMs": 41.26558299999999,
+      "cache": "cold"
+    },
+    "meta": {
+      "candidate": "native",
+      "instance": "27698",
+      "pid": 27698,
+      "pubsub": false,
+      "requestAt": "2026-09-22T23:16:41.343Z",
+      "responseAt": "2026-09-22T23:16:41.429Z",
+      "elapsedMs": 85.25708299999997,
+      "authorityObservedAt": "2026-09-22T23:16:41.466Z",
+      "observedRevision": 1790118945773,
+      "queryCount": 16
+    }
+  },
+  {
+    "name": "history-broad",
+    "url": "http://127.0.0.1:4311",
+    "status": 200,
+    "actualCandidate": "native",
+    "actualCount": 1000002,
+    "rowCount": 42,
+    "resultDigest": "a9a0f1f8fbf7aa8ab8e14d47986d0611e075afaa661df67c60274f42c1fb7d6e",
+    "classification": "success",
+    "evidence": {
+      "candidate": "native",
+      "revision": 1790118945773,
+      "sourceIds": [
+        "role:m-broad:history:report.history.view"
+      ],
+      "permissionMs": 4.798458000000096,
+      "dataMs": 101.67949999999996,
+      "cache": "L1"
+    },
+    "meta": {
+      "candidate": "native",
+      "instance": "27698",
+      "pid": 27698,
+      "pubsub": false,
+      "requestAt": "2026-09-22T23:16:41.430Z",
+      "responseAt": "2026-09-22T23:16:41.537Z",
+      "elapsedMs": 106.52441599999997,
+      "authorityObservedAt": "2026-09-22T23:16:41.514Z",
+      "observedRevision": 1790118945773,
+      "queryCount": 11
+    }
+  },
+  {
+    "name": "history-constrained",
+    "url": "http://127.0.0.1:4311",
+    "status": 200,
+    "actualCandidate": "native",
+    "actualCount": 457673,
+    "rowCount": 40,
+    "resultDigest": "d0d4fb08bd8e3451365315d7ee46bc6d4652d16e89645f73d1a84c25ef7a679c",
+    "classification": "success",
+    "evidence": {
+      "candidate": "native",
+      "revision": 1790118945773,
+      "sourceIds": [
+        "role:bm-managed:history:report.history.view",
+        "role:bm-extra:history:report.history.view"
+      ],
+      "permissionMs": 25.310834000000114,
+      "dataMs": 444.01874999999995,
+      "cache": "L1"
+    },
+    "meta": {
+      "candidate": "native",
+      "instance": "27698",
+      "pid": 27698,
+      "pubsub": false,
+      "requestAt": "2026-09-22T23:16:41.537Z",
+      "responseAt": "2026-09-22T23:16:42.007Z",
+      "elapsedMs": 469.3681670000001,
+      "authorityObservedAt": "2026-09-22T23:16:41.643Z",
+      "observedRevision": 1790118945773,
+      "queryCount": 13
+    }
+  },
+  {
+    "name": "list-broad",
+    "url": "http://127.0.0.1:4312",
+    "status": 200,
+    "actualCandidate": "native",
+    "actualCount": 49998,
+    "rowCount": 50,
+    "resultDigest": "bef4e136f796a7645a8fca60595b16150f5aa84abededefce1e92821367339bf",
+    "classification": "success",
+    "evidence": {
+      "candidate": "native",
+      "revision": 1790118945773,
+      "sourceIds": [
+        "role:m-broad:personal-learning:report.personal-learning.view",
+        "role:m-dept:personal-learning:report.personal-learning.view"
+      ],
+      "permissionMs": 17.918042000000014,
+      "dataMs": 5.805666999999858,
+      "cache": "L2"
+    },
+    "meta": {
+      "candidate": "native",
+      "instance": "27699",
+      "pid": 27699,
+      "pubsub": false,
+      "requestAt": "2026-09-22T23:16:42.009Z",
+      "responseAt": "2026-09-22T23:16:42.033Z",
+      "elapsedMs": 23.911292000000003,
+      "authorityObservedAt": "2026-09-22T23:16:42.117Z",
+      "observedRevision": 1790118945773,
+      "queryCount": 14
+    }
+  },
+  {
+    "name": "list-constrained",
+    "url": "http://127.0.0.1:4312",
+    "status": 200,
+    "actualCandidate": "native",
+    "actualCount": 22875,
+    "rowCount": 50,
+    "resultDigest": "cfc6060e63811df647b68785e484cd0b83ad0efc38e17686ea546ed698af691b",
+    "classification": "success",
+    "evidence": {
+      "candidate": "native",
+      "revision": 1790118945773,
+      "sourceIds": [
+        "role:bm-managed:personal-learning:report.personal-learning.view",
+        "role:bm-extra:personal-learning:report.personal-learning.view",
+        "role:bm-raw:personal-learning:report.personal-learning.view"
+      ],
+      "permissionMs": 40.8353340000001,
+      "dataMs": 39.934999999999945,
+      "cache": "L2"
+    },
+    "meta": {
+      "candidate": "native",
+      "instance": "27699",
+      "pid": 27699,
+      "pubsub": false,
+      "requestAt": "2026-09-22T23:16:42.035Z",
+      "responseAt": "2026-09-22T23:16:42.116Z",
+      "elapsedMs": 80.80275000000006,
+      "authorityObservedAt": "2026-09-22T23:16:42.163Z",
+      "observedRevision": 1790118945773,
+      "queryCount": 14
+    }
+  },
+  {
+    "name": "history-broad",
+    "url": "http://127.0.0.1:4312",
+    "status": 200,
+    "actualCandidate": "native",
+    "actualCount": 1000002,
+    "rowCount": 42,
+    "resultDigest": "a9a0f1f8fbf7aa8ab8e14d47986d0611e075afaa661df67c60274f42c1fb7d6e",
+    "classification": "success",
+    "evidence": {
+      "candidate": "native",
+      "revision": 1790118945773,
+      "sourceIds": [
+        "role:m-broad:history:report.history.view"
+      ],
+      "permissionMs": 4.6891659999998865,
+      "dataMs": 90.96687500000007,
+      "cache": "L1"
+    },
+    "meta": {
+      "candidate": "native",
+      "instance": "27699",
+      "pid": 27699,
+      "pubsub": false,
+      "requestAt": "2026-09-22T23:16:42.117Z",
+      "responseAt": "2026-09-22T23:16:42.212Z",
+      "elapsedMs": 95.6980410000001,
+      "authorityObservedAt": "2026-09-22T23:16:42.213Z",
+      "observedRevision": 1790118945773,
+      "queryCount": 11
+    }
+  },
+  {
+    "name": "history-constrained",
+    "url": "http://127.0.0.1:4312",
+    "status": 200,
+    "actualCandidate": "native",
+    "actualCount": 457673,
+    "rowCount": 40,
+    "resultDigest": "d0d4fb08bd8e3451365315d7ee46bc6d4652d16e89645f73d1a84c25ef7a679c",
+    "classification": "success",
+    "evidence": {
+      "candidate": "native",
+      "revision": 1790118945773,
+      "sourceIds": [
+        "role:bm-managed:history:report.history.view",
+        "role:bm-extra:history:report.history.view"
+      ],
+      "permissionMs": 25.471333999999842,
+      "dataMs": 447.9158339999999,
+      "cache": "L1"
+    },
+    "meta": {
+      "candidate": "native",
+      "instance": "27699",
+      "pid": 27699,
+      "pubsub": false,
+      "requestAt": "2026-09-22T23:16:42.213Z",
+      "responseAt": "2026-09-22T23:16:42.686Z",
+      "elapsedMs": 473.4167910000001,
+      "authorityObservedAt": "2026-09-22T23:16:42.329Z",
+      "observedRevision": 1790118945773,
+      "queryCount": 13
+    }
+  }
+]

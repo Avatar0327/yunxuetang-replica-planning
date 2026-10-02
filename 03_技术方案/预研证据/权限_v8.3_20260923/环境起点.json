@@ -1,0 +1,71 @@
+{
+  "captured_at": "2026-09-23T03:17:22+08:00",
+  "host": {
+    "os": "26.5.1",
+    "cpu": "Apple M5 Pro",
+    "logical_cpus": 18,
+    "memory_bytes": 51539607552
+  },
+  "vm": {
+    "profile": "yxt-permission",
+    "vcpus": 10,
+    "memory_gib": 24,
+    "disk_gib": 35,
+    "hypervisor": "VZ",
+    "engine": "29.5.2"
+  },
+  "containers": [
+    {
+      "name": "yxt-pg",
+      "image": "postgres@sha256:639ab7ceb90e13123085b741fb31ef493fba25463002f6da665352e7b534b652",
+      "image_id": "sha256:639ab7ceb90e13123085b741fb31ef493fba25463002f6da665352e7b534b652",
+      "nano_cpus": 4000000000,
+      "memory_bytes": 8589934592,
+      "memory_swap_bytes": 8589934592,
+      "port_bindings": {
+        "5432/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "55432"
+          }
+        ]
+      },
+      "started_at": "2026-09-22T19:16:45.626623565Z",
+      "running": true
+    },
+    {
+      "name": "yxt-redis",
+      "image": "redis@sha256:c6eabf748fc7a61dbb5a705c78bcf3d6377b1127a97d0ce965c11c44ba46896f",
+      "image_id": "sha256:c6eabf748fc7a61dbb5a705c78bcf3d6377b1127a97d0ce965c11c44ba46896f",
+      "nano_cpus": 1000000000,
+      "memory_bytes": 1073741824,
+      "memory_swap_bytes": 1073741824,
+      "port_bindings": {
+        "6379/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "56379"
+          }
+        ]
+      },
+      "started_at": "2026-09-22T19:16:45.768966632Z",
+      "running": true
+    }
+  ],
+  "phase": "infrastructure_ready_apis_not_started",
+  "benchmark_is_production_capacity_proof": false,
+  "verified_versions": {
+    "postgres": "17.11",
+    "redis": "7.4.11",
+    "node_host": "24.21.0",
+    "node_container": "24.21.0",
+    "docker_cli": "29.8.1",
+    "docker_engine": "29.5.2",
+    "docker_buildx": "0.37.1"
+  },
+  "reference_images": {
+    "postgres": "postgres@sha256:639ab7ceb90e13123085b741fb31ef493fba25463002f6da665352e7b534b652",
+    "redis": "redis@sha256:c6eabf748fc7a61dbb5a705c78bcf3d6377b1127a97d0ce965c11c44ba46896f",
+    "node": "node@sha256:0e0ff40c39bc087845bfb27465a0df4ea419520094bc35842ff83dd8cbe6f9b6"
+  }
+}

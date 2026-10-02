@@ -1,0 +1,26 @@
+✔ module repositories cannot read or write foreign private tables (4.453458ms)
+✔ native: waiting context reads committed department facts (48.753833ms)
+✔ native: waiting report reads committed department facts (39.790792ms)
+✔ native: waiting context reads committed company facts (36.860375ms)
+✔ native: waiting report reads committed company facts (37.068291ms)
+✔ native: waiting context reads committed disabled facts (27.864ms)
+✔ native: waiting context reads committed deleted facts (27.859625ms)
+✔ native: grouped export >200 facts emits each literal group exactly once; ordinary export still pages (83.382792ms)
+✔ casbin: waiting context reads committed department facts (40.767625ms)
+✔ casbin: waiting report reads committed department facts (40.274334ms)
+✔ casbin: waiting context reads committed company facts (36.926041ms)
+✔ casbin: waiting report reads committed company facts (37.068834ms)
+✔ casbin: waiting context reads committed disabled facts (27.339959ms)
+✔ casbin: waiting context reads committed deleted facts (27.654792ms)
+✔ casbin: grouped export >200 facts emits each literal group exactly once; ordinary export still pages (80.092375ms)
+✔ native: export ignores UI offset and limit and returns the complete filtered result (57.492084ms)
+✔ casbin: export ignores UI offset and limit and returns the complete filtered result (56.198ms)
+✔ locking authority rejects pool and a bare autocommit client (0.48475ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 18
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 892.278959

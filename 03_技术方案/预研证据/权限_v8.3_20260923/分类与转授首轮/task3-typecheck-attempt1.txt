@@ -1,0 +1,5 @@
+
+> permission-v83-spike@0.0.1 typecheck
+> tsc --noEmit
+
+src/authz/revision.ts(120,246): error TS7006: Parameter 'g' implicitly has an 'any' type.

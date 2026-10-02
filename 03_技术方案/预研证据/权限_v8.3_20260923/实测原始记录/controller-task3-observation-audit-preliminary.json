@@ -1,0 +1,13 @@
+{
+  "checkedAt": "2026-09-23T04:53:10.273895+08:00",
+  "source": "evidence/raw/task3-final-observations.jsonl",
+  "sourceSHA256": "851225676131313a89ea8e6a063eb815975276940f8b61e4e24f7b383bb0edba",
+  "observations": 146,
+  "candidates": {
+    "native": 72,
+    "casbin": 72,
+    "shared-resolver": 2
+  },
+  "literal_mismatches": [],
+  "scope": "Preliminary raw observation arithmetic audit. Does not establish coverage or task review approval."
+}

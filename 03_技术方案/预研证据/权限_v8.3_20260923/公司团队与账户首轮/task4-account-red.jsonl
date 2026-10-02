@@ -1,0 +1,6 @@
+{"candidate":"native","name":"own wallet separates A and B","expected":{"status":200,"rows":[{"company_id":"A","currency":"credit","balance":0,"debt":30},{"company_id":"B","currency":"credit","balance":20,"debt":10},{"company_id":"B","currency":"point","balance":8,"debt":0}]},"actual":{"status":404},"at":"2026-09-22T21:55:12.043Z"}
+{"candidate":"native","name":"B reward cannot offset A debt","expected":403,"actual":404,"at":"2026-09-22T21:55:12.048Z"}
+{"candidate":"native","name":"own wallet cannot unlock cross-company source","expected":403,"actual":404,"at":"2026-09-22T21:55:12.050Z"}
+{"candidate":"casbin","name":"own wallet separates A and B","expected":{"status":200,"rows":[{"company_id":"A","currency":"credit","balance":0,"debt":30},{"company_id":"B","currency":"credit","balance":20,"debt":10},{"company_id":"B","currency":"point","balance":8,"debt":0}]},"actual":{"status":404},"at":"2026-09-22T21:55:12.355Z"}
+{"candidate":"casbin","name":"B reward cannot offset A debt","expected":403,"actual":404,"at":"2026-09-22T21:55:12.357Z"}
+{"candidate":"casbin","name":"own wallet cannot unlock cross-company source","expected":403,"actual":404,"at":"2026-09-22T21:55:12.358Z"}

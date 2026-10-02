@@ -1,0 +1,10 @@
+2026-09-22T19:20:51.632477+00:00
+$ npm ls --depth=0
+permission-v83-spike@0.0.1 /Users/peng/Agent本地开发/云学堂权限预研
+├── @types/node@24.10.1
+├── casbin@5.38.0
+├── tsx@4.20.6
+└── typescript@5.9.3
+
+
+exit=0

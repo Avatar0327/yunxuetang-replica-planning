@@ -1,0 +1,30 @@
+▶ native: knowledge four actions and locked commands
+  ✔ independent knowledge.course.browse (35.083542ms)
+  ✔ independent knowledge.course.maintain (9.184583ms)
+  ✔ independent knowledge.course.distribute (8.220167ms)
+  ✔ independent knowledge.course.download (7.210292ms)
+  ✔ protected download requires only independent capability and current accessibility (32.783084ms)
+  ✔ creator cannot bypass lock via direct (7.770417ms)
+  ✔ creator cannot bypass lock via import (5.49925ms)
+  ✔ creator cannot bypass lock via custom (11.269833ms)
+  ✔ custom replaces browse alone and parent append preserves existing grants (55.921791ms)
+✔ native: knowledge four actions and locked commands (529.017125ms)
+▶ casbin: knowledge four actions and locked commands
+  ✔ independent knowledge.course.browse (23.517875ms)
+  ✔ independent knowledge.course.maintain (7.9265ms)
+  ✔ independent knowledge.course.distribute (7.849416ms)
+  ✔ independent knowledge.course.download (7.46125ms)
+  ✔ protected download requires only independent capability and current accessibility (35.108541ms)
+  ✔ creator cannot bypass lock via direct (7.754334ms)
+  ✔ creator cannot bypass lock via import (7.178208ms)
+  ✔ creator cannot bypass lock via custom (13.168417ms)
+  ✔ custom replaces browse alone and parent append preserves existing grants (55.21025ms)
+✔ casbin: knowledge four actions and locked commands (487.533125ms)
+ℹ tests 20
+ℹ suites 0
+ℹ pass 20
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1103.559625

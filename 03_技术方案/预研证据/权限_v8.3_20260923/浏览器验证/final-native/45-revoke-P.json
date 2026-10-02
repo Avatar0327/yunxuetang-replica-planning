@@ -1,0 +1,32 @@
+{
+  "startedAt": "2026-09-23T00:32:47.624775+00:00",
+  "mode": "appointment",
+  "synthetic": true,
+  "request": {
+    "method": "POST",
+    "url": "http://127.0.0.1:4311/appointments",
+    "body": {
+      "personId": "L",
+      "projectId": "P",
+      "active": false
+    }
+  },
+  "status": 200,
+  "response": {
+    "id": "e3beae61-a5c7-4348-b891-0ccd116c542e",
+    "active": false,
+    "meta": {
+      "candidate": "native",
+      "instance": "A",
+      "pid": 33826,
+      "pubsub": false,
+      "requestAt": "2026-09-23T00:32:47.629Z",
+      "responseAt": "2026-09-23T00:32:47.643Z",
+      "elapsedMs": 13.851499999989755,
+      "authorityObservedAt": "2026-09-23T00:32:47.725Z",
+      "observedRevision": 1790122802611,
+      "queryCount": 18
+    }
+  },
+  "finishedAt": "2026-09-23T00:32:47.644050+00:00"
+}

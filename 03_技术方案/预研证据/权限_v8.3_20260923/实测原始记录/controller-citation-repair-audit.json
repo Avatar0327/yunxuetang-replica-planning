@@ -1,0 +1,11 @@
+{
+  "mapping": "/Users/peng/Agent本地开发/云学堂权限预研/evidence/coverage-map.json",
+  "required": 168,
+  "rows": 168,
+  "statuses": {
+    "incomplete": 168
+  },
+  "literal_comparisons_checked": 804,
+  "errors": [],
+  "limitation": "Mechanical citation audit only; semantic coverage and Go require independent review."
+}

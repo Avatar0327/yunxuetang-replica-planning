@@ -1,0 +1,35 @@
+{
+  "kind": "synthetic_auditor_regression_not_permission_or_performance_measurement",
+  "results": [
+    {
+      "case": "valid",
+      "audit_error_count": 0,
+      "correctness_mismatches": {}
+    },
+    {
+      "case": "extra_hidden_field",
+      "audit_error_count": 1,
+      "correctness_mismatches": {
+        "list-constrained": 1
+      }
+    },
+    {
+      "case": "wrong_server_candidate",
+      "audit_error_count": 1,
+      "correctness_mismatches": {}
+    },
+    {
+      "case": "missing_timing",
+      "audit_error_count": 1,
+      "correctness_mismatches": {}
+    },
+    {
+      "case": "corrupt_expected_digest",
+      "audit_error_count": 2,
+      "correctness_mismatches": {
+        "list-constrained": 1
+      }
+    }
+  ],
+  "passed": 5
+}

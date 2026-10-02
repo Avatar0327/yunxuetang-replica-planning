@@ -1,0 +1,11 @@
+{
+  "path": "evidence/raw/task3-fix2-final-observations.jsonl",
+  "sha256": "2a8aff2ef84a38c2ab23897fdb93e4f06fa97448d4c62769a1ee6d626d5032f0",
+  "observations": 322,
+  "candidates": {
+    "native": 160,
+    "casbin": 160,
+    "shared-resolver": 2
+  },
+  "literalMismatches": 0
+}

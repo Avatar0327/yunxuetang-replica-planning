@@ -1,0 +1,50 @@
+2026-09-22T19:15:59.513098+00:00
+$ npm run test:semantic
+
+> permission-v83-spike@0.0.1 test:semantic
+> tsx --test test/semantic.test.ts
+
+✔ literal team, own department and subtree differ (1.120958ms)
+✔ node/action sources never cross product; own-role override, empty and delete (3.634291ms)
+✔ override cannot invent navigation/actions/raw fields or follow new membership (0.862917ms)
+✔ six scope explicit boundaries and revision-bound organization facts (0.330709ms)
+✔ raw fields are tied to matching source and all hard caps precede union (0.470208ms)
+✔ appointments derive exact backend and project grants; revoke preserves other source (3.05975ms)
+✔ SELF uses only each registered node anchor and wallet exception stays narrow (0.981875ms)
+✔ category locks, independent actions, public and extensible subjects use common grants (0.639333ms)
+✔ selected management membership, resolved set/field caps and levels constrain delegation (0.652333ms)
+✖ ambiguous duplicate source IDs fail closed in both candidates (1.865292ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 9
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 199.357208
+
+✖ failing tests:
+
+test at test/semantic.test.ts:1:13292
+✖ ambiguous duplicate source IDs fail closed in both candidates (1.865292ms)
+  AssertionError [ERR_ASSERTION]: native: L-B/report.personal-learning.view
+  + actual - expected
+  
+  + [
+  +   'role:collision:personal-learning:report.personal-learning.view'
+  + ]
+  - []
+  
+      at expectSources (/Users/peng/Agent本地开发/云学堂权限预研/test/semantic.test.ts:23:10)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/semantic.test.ts:159:2)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: [ 'role:collision:personal-learning:report.personal-learning.view' ],
+    expected: [],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+exit=1

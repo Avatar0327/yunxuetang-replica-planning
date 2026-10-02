@@ -1,0 +1,2 @@
+Browser 'yxt-permission-browser' closed
+

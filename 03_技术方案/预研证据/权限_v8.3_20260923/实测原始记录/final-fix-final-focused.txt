@@ -1,0 +1,67 @@
+▶ native: I1 appointment natural keys never collide
+  ✔ intended second relation active=false (10.540458ms)
+  ✔ intended second relation active=true (10.445041ms)
+  ✔ intended second relation active=true (10.122958ms)
+  ✔ intended second relation active=false (9.760834ms)
+  ✔ unrelated appointment, backend and revoke boundaries (45.827166ms)
+✔ native: I1 appointment natural keys never collide (466.647334ms)
+▶ native: I2 mixed-case membership is independent of collation
+  ✔ -project add (16.812916ms)
+  ✔ -project remove (16.291833ms)
+  ✔ -team add (19.15875ms)
+  ✔ -team remove (19.1485ms)
+  ✔ -project mixed invalid atomic add (20.347833ms)
+  ✔ -project mixed invalid atomic remove (25.589041ms)
+  ✔ -team mixed invalid atomic add (26.886917ms)
+  ✔ -team mixed invalid atomic remove (37.853ms)
+  ✔ department subtree and target parent mixed case (11.106416ms)
+  ✔ department unauthorized child atomic (9.61175ms)
+✔ native: I2 mixed-case membership is independent of collation (548.140833ms)
+▶ native: I3 category target equivalence and fail closed
+  ✔ configure equal safe denial (32.362041ms)
+  ✔ append-preview equal safe denial (16.933125ms)
+  ✔ append equal safe denial (17.878167ms)
+  ✔ import equal safe denial (16.51475ms)
+  ✔ recheck equal safe denial (16.578166ms)
+  ✔ authorized create missing parent is safe denial (7.68175ms)
+  ✔ authorized positive and import rollback (19.626541ms)
+  ✔ real Redis fault remains unavailable (1091.862041ms)
+✔ native: I3 category target equivalence and fail closed (1539.785291ms)
+▶ casbin: I1 appointment natural keys never collide
+  ✔ intended second relation active=false (8.876208ms)
+  ✔ intended second relation active=true (10.102167ms)
+  ✔ intended second relation active=true (9.77ms)
+  ✔ intended second relation active=false (9.820125ms)
+  ✔ unrelated appointment, backend and revoke boundaries (53.042125ms)
+✔ casbin: I1 appointment natural keys never collide (454.868041ms)
+▶ casbin: I2 mixed-case membership is independent of collation
+  ✔ -project add (19.860833ms)
+  ✔ -project remove (17.19125ms)
+  ✔ -team add (19.692333ms)
+  ✔ -team remove (20.299459ms)
+  ✔ -project mixed invalid atomic add (20.440042ms)
+  ✔ -project mixed invalid atomic remove (23.952ms)
+  ✔ -team mixed invalid atomic add (26.25075ms)
+  ✔ -team mixed invalid atomic remove (31.765791ms)
+  ✔ department subtree and target parent mixed case (13.836542ms)
+  ✔ department unauthorized child atomic (9.373334ms)
+✔ casbin: I2 mixed-case membership is independent of collation (530.231ms)
+▶ casbin: I3 category target equivalence and fail closed
+  ✔ configure equal safe denial (33.507875ms)
+  ✔ append-preview equal safe denial (17.372ms)
+  ✔ append equal safe denial (16.603125ms)
+  ✔ import equal safe denial (16.253167ms)
+  ✔ recheck equal safe denial (16.148833ms)
+  ✔ authorized create missing parent is safe denial (16.351666ms)
+  ✔ authorized positive and import rollback (20.302458ms)
+  ✔ real Redis fault remains unavailable (1084.436833ms)
+✔ casbin: I3 category target equivalence and fail closed (1523.414541ms)
+✔ I3 damaged existing ancestry is still an unexpected error (0.59375ms)
+ℹ tests 53
+ℹ suites 0
+ℹ pass 53
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5231.898042

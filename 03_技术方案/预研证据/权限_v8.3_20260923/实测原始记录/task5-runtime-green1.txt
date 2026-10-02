@@ -1,0 +1,12 @@
+✔ native: ordered batch delegation and protected download race (910.097417ms)
+✔ casbin: ordered batch delegation and protected download race (874.248708ms)
+✔ native: six-scope HTTP algebra, source fields and raw leak scans (959.491291ms)
+✔ casbin: six-scope HTTP algebra, source fields and raw leak scans (947.259084ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3936.683334

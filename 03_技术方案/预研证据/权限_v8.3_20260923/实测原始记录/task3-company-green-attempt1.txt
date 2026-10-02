@@ -1,0 +1,34 @@
+✖ native: internal own company is implicit, customer companies require grant (42.213791ms)
+✖ casbin: internal own company is implicit, customer companies require grant (20.030375ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 0
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 234.55775
+
+✖ failing tests:
+
+test at test/task3-company-cap.test.ts:1:311
+✖ native: internal own company is implicit, customer companies require grant (42.213791ms)
+  Error: 你暂时不能查看或操作这项内容，请联系管理员确认权限
+      at ReportService.list (/Users/peng/Agent本地开发/云学堂权限预研/src/report/service.ts:57:19)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-company-cap.test.ts:17:18)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    status: 403
+  }
+
+test at test/task3-company-cap.test.ts:1:311
+✖ casbin: internal own company is implicit, customer companies require grant (20.030375ms)
+  Error: 你暂时不能查看或操作这项内容，请联系管理员确认权限
+      at ReportService.list (/Users/peng/Agent本地开发/云学堂权限预研/src/report/service.ts:57:19)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-company-cap.test.ts:17:18)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    status: 403
+  }

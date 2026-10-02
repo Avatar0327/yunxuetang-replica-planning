@@ -1,0 +1,832 @@
+{
+  "at": "2026-09-23T16:19:27.416966+08:00",
+  "delivery_verified": true,
+  "permission_gate": "NO_GO",
+  "checks": [
+    {
+      "name": "65 v8.3 inputs unchanged",
+      "pass": true
+    },
+    {
+      "name": "report digest",
+      "pass": true
+    },
+    {
+      "name": "outer digest Native整改源码_817256b.tar.gz",
+      "pass": true
+    },
+    {
+      "name": "outer digest Native整改提交历史_817256b.bundle",
+      "pass": true
+    },
+    {
+      "name": "outer digest Native整改原始证据.tar.gz",
+      "pass": true
+    },
+    {
+      "name": "outer digest 原始证据文件指纹.json",
+      "pass": true
+    },
+    {
+      "name": "outer digest bundle核验.txt",
+      "pass": true
+    },
+    {
+      "name": "member hashes read back by packager",
+      "pass": true
+    },
+    {
+      "name": "frozen delivered source",
+      "pass": true
+    },
+    {
+      "name": "clean source",
+      "pass": true
+    },
+    {
+      "name": "application unchanged since final qualified candidate",
+      "pass": true
+    },
+    {
+      "name": "source archive exact tracked file set",
+      "pass": true
+    },
+    {
+      "name": "source exact .dockerignore",
+      "pass": true
+    },
+    {
+      "name": "source exact .gitignore",
+      "pass": true
+    },
+    {
+      "name": "source exact .superpowers/sdd/2026-09-23-permission-spike/final-fix-report.md",
+      "pass": true
+    },
+    {
+      "name": "source exact .superpowers/sdd/2026-09-23-permission-spike/task-3-report.md",
+      "pass": true
+    },
+    {
+      "name": "source exact .superpowers/sdd/2026-09-23-permission-spike/task-4-report.md",
+      "pass": true
+    },
+    {
+      "name": "source exact .superpowers/sdd/2026-09-23-permission-spike/task-5-fix-round1-report.md",
+      "pass": true
+    },
+    {
+      "name": "source exact .superpowers/sdd/2026-09-23-permission-spike/task-5-report.md",
+      "pass": true
+    },
+    {
+      "name": "source exact Dockerfile",
+      "pass": true
+    },
+    {
+      "name": "source exact README.md",
+      "pass": true
+    },
+    {
+      "name": "source exact docs/acceptance-manifest.json",
+      "pass": true
+    },
+    {
+      "name": "source exact docs/controller-acceptance-audit-notes.md",
+      "pass": true
+    },
+    {
+      "name": "source exact docs/coverage-map-contract.md",
+      "pass": true
+    },
+    {
+      "name": "source exact docs/decision-evidence.md",
+      "pass": true
+    },
+    {
+      "name": "source exact docs/environment-log.md",
+      "pass": true
+    },
+    {
+      "name": "source exact docs/final-report-contract.md",
+      "pass": true
+    },
+    {
+      "name": "source exact docs/final-review-brief.md",
+      "pass": true
+    },
+    {
+      "name": "source exact docs/kernel-contract.md",
+      "pass": true
+    },
+    {
+      "name": "source exact docs/native-stage1-attribution.md",
+      "pass": true
+    },
+    {
+      "name": "source exact docs/performance-protocol.md",
+      "pass": true
+    },
+    {
+      "name": "source exact docs/post-spike-estimate-notes.md",
+      "pass": true
+    },
+    {
+      "name": "source exact docs/reestimate-method.md",
+      "pass": true
+    },
+    {
+      "name": "source exact docs/reuse-candidates.md",
+      "pass": true
+    },
+    {
+      "name": "source exact docs/superpowers/plans/2026-09-23-native-candidate1.md",
+      "pass": true
+    },
+    {
+      "name": "source exact docs/superpowers/plans/2026-09-23-native-candidate2.md",
+      "pass": true
+    },
+    {
+      "name": "source exact docs/superpowers/plans/2026-09-23-native-performance-remediation.md",
+      "pass": true
+    },
+    {
+      "name": "source exact docs/superpowers/plans/2026-09-23-permission-spike.md",
+      "pass": true
+    },
+    {
+      "name": "source exact docs/superpowers/specs/2026-09-23-native-performance-remediation.md",
+      "pass": true
+    },
+    {
+      "name": "source exact docs/task2-follow-up.md",
+      "pass": true
+    },
+    {
+      "name": "source exact docs/task3-coverage.json",
+      "pass": true
+    },
+    {
+      "name": "source exact docs/task3-ports.md",
+      "pass": true
+    },
+    {
+      "name": "source exact docs/task4-coverage.json",
+      "pass": true
+    },
+    {
+      "name": "source exact docs/task4-ports.md",
+      "pass": true
+    },
+    {
+      "name": "source exact docs/task4-seed-contract.md",
+      "pass": true
+    },
+    {
+      "name": "source exact docs/task5-benchmark-fixture.md",
+      "pass": true
+    },
+    {
+      "name": "source exact docs/task5-ports.md",
+      "pass": true
+    },
+    {
+      "name": "source exact docs/证据复核与复现.md",
+      "pass": true
+    },
+    {
+      "name": "source exact evidence/browser-review.json",
+      "pass": true
+    },
+    {
+      "name": "source exact evidence/controller-semantic-review.json",
+      "pass": true
+    },
+    {
+      "name": "source exact evidence/coverage-map.json",
+      "pass": true
+    },
+    {
+      "name": "source exact evidence/coverage-matrix.md",
+      "pass": true
+    },
+    {
+      "name": "source exact evidence/fault-summary.json",
+      "pass": true
+    },
+    {
+      "name": "source exact evidence/fault-timeline.md",
+      "pass": true
+    },
+    {
+      "name": "source exact evidence/final-verdict.json",
+      "pass": true
+    },
+    {
+      "name": "source exact evidence/performance-statistics.md",
+      "pass": true
+    },
+    {
+      "name": "source exact evidence/performance-summary.json",
+      "pass": true
+    },
+    {
+      "name": "source exact package-lock.json",
+      "pass": true
+    },
+    {
+      "name": "source exact package.json",
+      "pass": true
+    },
+    {
+      "name": "source exact scripts/benchmark-fixture.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact scripts/benchmark-observation.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact scripts/benchmark-telemetry.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact scripts/benchmark-truth.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact scripts/benchmark.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact scripts/build-task5-coverage.py",
+      "pass": true
+    },
+    {
+      "name": "source exact scripts/evidence.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact scripts/explain.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact scripts/native-cost-drivers.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact scripts/native-fact-access.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact scripts/run-faults.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact scripts/run-functional.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact scripts/seed.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact scripts/task5-phase-smoke.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact scripts/task5-smoke.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact sql/schema.sql",
+      "pass": true
+    },
+    {
+      "name": "source exact sql/seed.sql",
+      "pass": true
+    },
+    {
+      "name": "source exact src/account/exports.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact src/account/public.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact src/account/service.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact src/authz/bulk-candidate.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact src/authz/cache.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact src/authz/candidates.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact src/authz/company-service.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact src/authz/compiler.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact src/authz/contracts.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact src/authz/delegation-caps.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact src/authz/delegation.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact src/authz/export-worker.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact src/authz/media-ticket.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact src/authz/objects.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact src/authz/policy.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact src/authz/public.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact src/authz/registry.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact src/authz/revision.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact src/authz/role-service.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact src/authz/scope.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact src/bootstrap.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact src/contracts/ports.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact src/infrastructure/db.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact src/infrastructure/protected-exports.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact src/infrastructure/sets.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact src/infrastructure/telemetry.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact src/knowledge/public.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact src/knowledge/service.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact src/organization/public.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact src/organization/service.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact src/report/exports.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact src/report/public.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact src/report/service.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact src/training/enrollment-service.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact src/training/exports.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact src/training/public.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact src/training/service.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact test/benchmark-telemetry.test.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact test/cache.test.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact test/final-fix-regressions.test.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact test/fixtures.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact test/http.test.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact test/integration.test.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact test/kernel-benchmark.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact test/module-boundaries.test.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact test/native-cost-drivers.test.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact test/native-fact-access.test.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact test/native-history-relation.test.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact test/native-transport-audit.test.py",
+      "pass": true
+    },
+    {
+      "name": "source exact test/races.test.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact test/review-regressions.test.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact test/semantic.test.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact test/task3-anchors.test.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact test/task3-category-provenance.test.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact test/task3-company-cap.test.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact test/task3-custom-regression.test.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact test/task3-delegation-matrix.test.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact test/task3-delivery.test.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact test/task3-entry.test.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact test/task3-helper.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact test/task3-inheritance-caps.test.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact test/task3-knowledge.test.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact test/task3-lifecycle.test.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact test/task3-object-set.test.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact test/task3-policy-recheck.test.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact test/task3-populated-delegation.test.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact test/task3-protection.test.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact test/task3-review-regressions.test.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact test/task3-role-company.test.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact test/task4-account-caps.test.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact test/task4-account.test.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact test/task4-company.test.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact test/task4-current-history.test.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact test/task4-delivery.test.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact test/task4-department-cap.test.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact test/task4-department-null.test.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact test/task4-empty-scope.test.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact test/task4-helper.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact test/task4-history-caps.test.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact test/task4-organization.test.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact test/task4-person-cap.test.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact test/task4-review-regressions.test.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact test/task4-source-boundary.test.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact test/task4-team.test.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact test/task5-benchmark.test.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact test/task5-enrollment-conflict.test.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact test/task5-exports.test.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact test/task5-faults.test.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact test/task5-measurement.test.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact test/task5-navigation.test.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact test/task5-node-independence.test.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact test/task5-nplus1.test.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact test/task5-races.test.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact test/task5-runtime.test.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact test/task5-ticket.test.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact test/task5-transfer.test.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact test/task5-worker.test.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact test/telemetry-http.test.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact test/telemetry.test.ts",
+      "pass": true
+    },
+    {
+      "name": "source exact tools/audit-benchmark.py",
+      "pass": true
+    },
+    {
+      "name": "source exact tools/audit-coverage.py",
+      "pass": true
+    },
+    {
+      "name": "source exact tools/audit-final-timeline.py",
+      "pass": true
+    },
+    {
+      "name": "source exact tools/audit-native-attribution.py",
+      "pass": true
+    },
+    {
+      "name": "source exact tools/capture-clock-bracket.py",
+      "pass": true
+    },
+    {
+      "name": "source exact tools/capture-runtime.sh",
+      "pass": true
+    },
+    {
+      "name": "source exact tools/enable-commit-timestamps.sh",
+      "pass": true
+    },
+    {
+      "name": "source exact tools/index-observations.py",
+      "pass": true
+    },
+    {
+      "name": "source exact tools/native-attribution-detail.py",
+      "pass": true
+    },
+    {
+      "name": "source exact tools/native-attribution.py",
+      "pass": true
+    },
+    {
+      "name": "source exact tools/native-window-gate.py",
+      "pass": true
+    },
+    {
+      "name": "source exact tools/package-evidence.py",
+      "pass": true
+    },
+    {
+      "name": "source exact tools/reference-window-gate.py",
+      "pass": true
+    },
+    {
+      "name": "source exact tools/render-coverage.py",
+      "pass": true
+    },
+    {
+      "name": "source exact tools/render-fault-summary.py",
+      "pass": true
+    },
+    {
+      "name": "source exact tools/run-native-regressions.sh",
+      "pass": true
+    },
+    {
+      "name": "source exact tools/run-native-window.sh",
+      "pass": true
+    },
+    {
+      "name": "source exact tools/run-reference-windows.sh",
+      "pass": true
+    },
+    {
+      "name": "source exact tools/start-apis.sh",
+      "pass": true
+    },
+    {
+      "name": "source exact tools/start-infrastructure.sh",
+      "pass": true
+    },
+    {
+      "name": "source exact tools/summarize-native-regressions.py",
+      "pass": true
+    },
+    {
+      "name": "source exact tools/summarize-performance.py",
+      "pass": true
+    },
+    {
+      "name": "source exact tools/verify-delivery.py",
+      "pass": true
+    },
+    {
+      "name": "source exact tools/verify-documents.py",
+      "pass": true
+    },
+    {
+      "name": "source exact tsconfig.json",
+      "pass": true
+    },
+    {
+      "name": "source exact web/index.html",
+      "pass": true
+    },
+    {
+      "name": "6 complete windows all NoGo",
+      "pass": true
+    },
+    {
+      "name": "candidate regression 1",
+      "pass": true
+    },
+    {
+      "name": "candidate regression 2",
+      "pass": true
+    },
+    {
+      "name": "cost640/32/16 audited",
+      "pass": true
+    },
+    {
+      "name": "discipline retained",
+      "pass": true
+    }
+  ],
+  "scope": "Fresh artifact integrity, exact source readback, inputs and measured gate records; no new runtime test or Go inference."
+}

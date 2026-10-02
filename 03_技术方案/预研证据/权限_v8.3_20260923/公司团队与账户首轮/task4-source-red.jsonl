@@ -1,0 +1,2 @@
+{"candidate":"native","name":"company mutation cannot borrow admin range beyond selected L cap","expected":403,"actual":200,"at":"2026-09-22T21:58:15.777Z"}
+{"candidate":"casbin","name":"company mutation cannot borrow admin range beyond selected L cap","expected":403,"actual":200,"at":"2026-09-22T21:58:16.092Z"}

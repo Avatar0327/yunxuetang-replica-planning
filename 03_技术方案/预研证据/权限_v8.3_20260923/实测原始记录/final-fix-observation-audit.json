@@ -1,0 +1,207 @@
+[
+  {
+    "path": "evidence/raw/final-fix-full-campaign/core-races.jsonl",
+    "sha256": "37688e77424eb41731c5e9455cdf9988de7fa1cbc8ebb4b38db7494c1bcbce27",
+    "rows": 4,
+    "literalComparisons": 0,
+    "literalMismatches": 0,
+    "candidates": {
+      "native": 2,
+      "casbin": 2
+    }
+  },
+  {
+    "path": "evidence/raw/final-fix-full-campaign/core-semantic.jsonl",
+    "sha256": "406f33b224a0af1fe02f7d9d87ba927abeee5b356df084cd092ca64db8d87b56",
+    "rows": 118,
+    "literalComparisons": 0,
+    "literalMismatches": 0,
+    "candidates": {
+      "native": 59,
+      "casbin": 59
+    },
+    "sourceAndRawFieldMismatches": 0
+  },
+  {
+    "path": "evidence/raw/final-fix-full-campaign/http-casbin.jsonl",
+    "sha256": "2238cf8db4036db8f72d68813fa763327689860ba382290d3f60a9a5a587b068",
+    "rows": 14,
+    "literalComparisons": 0,
+    "literalMismatches": 0,
+    "candidates": {
+      "casbin": 14
+    }
+  },
+  {
+    "path": "evidence/raw/final-fix-full-campaign/http-native.jsonl",
+    "sha256": "ede4cf04c1ab7e4dd2244df01ae996e3a2bfa595343fb069007602e221346a6e",
+    "rows": 14,
+    "literalComparisons": 0,
+    "literalMismatches": 0,
+    "candidates": {
+      "native": 14
+    }
+  },
+  {
+    "path": "evidence/raw/final-fix-full-campaign/task2-fix1-observations.jsonl",
+    "sha256": "bfb159391c8315a438c0a6439542fe3237b3261947cd10e72766524e792eac4a",
+    "rows": 18,
+    "literalComparisons": 18,
+    "literalMismatches": 8,
+    "candidates": {
+      "native": 9,
+      "casbin": 9
+    },
+    "metadataOnlyDifferences": [
+      {
+        "candidate": "native",
+        "name": "department",
+        "revision": 1790122584620,
+        "expectedFieldsMatch": true
+      },
+      {
+        "candidate": "native",
+        "name": "department",
+        "revision": 1790122584622,
+        "expectedFieldsMatch": true
+      },
+      {
+        "candidate": "native",
+        "name": "company",
+        "revision": 1790122584624,
+        "expectedFieldsMatch": true
+      },
+      {
+        "candidate": "native",
+        "name": "company",
+        "revision": 1790122584626,
+        "expectedFieldsMatch": true
+      },
+      {
+        "candidate": "casbin",
+        "name": "department",
+        "revision": 1790122584632,
+        "expectedFieldsMatch": true
+      },
+      {
+        "candidate": "casbin",
+        "name": "department",
+        "revision": 1790122584634,
+        "expectedFieldsMatch": true
+      },
+      {
+        "candidate": "casbin",
+        "name": "company",
+        "revision": 1790122584636,
+        "expectedFieldsMatch": true
+      },
+      {
+        "candidate": "casbin",
+        "name": "company",
+        "revision": 1790122584638,
+        "expectedFieldsMatch": true
+      }
+    ],
+    "note": "Eight whole-record literal differences are extra dynamic revision fields. Expected business fields match; existing test separately asserts revision equals fresh authority. These are not full-record equality passes."
+  },
+  {
+    "path": "evidence/raw/final-fix-full-campaign/task2-scope-observations.jsonl",
+    "sha256": "8b797c9d966e561d7fcaf209f317df94fc99593cd152ddeb33aacb27bb841eb6",
+    "rows": 16,
+    "literalComparisons": 16,
+    "literalMismatches": 0,
+    "candidates": {
+      "native": 8,
+      "casbin": 8
+    }
+  },
+  {
+    "path": "evidence/raw/final-fix-full-campaign/task3-http.jsonl",
+    "sha256": "3f1c978f27421de44066b2eb53aa53bb0757b4cbd63eae856434fba9d02870be",
+    "rows": 288,
+    "literalComparisons": 0,
+    "literalMismatches": 0,
+    "candidates": {
+      "native": 144,
+      "casbin": 144
+    }
+  },
+  {
+    "path": "evidence/raw/final-fix-full-campaign/task3.jsonl",
+    "sha256": "3833f398142602780bacd88fac0c854377b4e02a4bde8a28db3f55b3c360e386",
+    "rows": 322,
+    "literalComparisons": 322,
+    "literalMismatches": 0,
+    "candidates": {
+      "native": 160,
+      "casbin": 160,
+      "shared-resolver": 2
+    }
+  },
+  {
+    "path": "evidence/raw/final-fix-full-campaign/task4-http.jsonl",
+    "sha256": "38d3a713927ef66a1b3d103116a16d3549127cb7e0d980ea16e1ccee3a66a788",
+    "rows": 310,
+    "literalComparisons": 0,
+    "literalMismatches": 0,
+    "candidates": {
+      "native": 155,
+      "casbin": 155
+    }
+  },
+  {
+    "path": "evidence/raw/final-fix-full-campaign/task4.jsonl",
+    "sha256": "f23c053b7623f71363049638edab96efd23ea503eb9fccb57f7a7021096b74b4",
+    "rows": 290,
+    "literalComparisons": 290,
+    "literalMismatches": 0,
+    "candidates": {
+      "native": 145,
+      "casbin": 145
+    }
+  },
+  {
+    "path": "evidence/raw/final-fix-full-campaign/task5-commit-timeline.jsonl",
+    "sha256": "122356c46a457bd5c99b5c7624e1a6b1e0fc776429335412b2dac9e9620e9f4b",
+    "rows": 2,
+    "literalComparisons": 0,
+    "literalMismatches": 0,
+    "candidates": {
+      "native": 1,
+      "casbin": 1
+    }
+  },
+  {
+    "path": "evidence/raw/final-fix-full-campaign/task5-http.jsonl",
+    "sha256": "d4eecb81c6b411cf29051a42428ceb332f55b3dffcca658ab4d333a3062484f6",
+    "rows": 690,
+    "literalComparisons": 0,
+    "literalMismatches": 0,
+    "candidates": {
+      "native": 345,
+      "casbin": 345
+    }
+  },
+  {
+    "path": "evidence/raw/final-fix-full-campaign/task5-race-timeline.jsonl",
+    "sha256": "a446c4d6ed1adac445d691877b9db98f9c27027a6ba8caa376449b0b6d9e36bf",
+    "rows": 2,
+    "literalComparisons": 0,
+    "literalMismatches": 0,
+    "candidates": {
+      "native": 1,
+      "casbin": 1
+    }
+  },
+  {
+    "path": "evidence/raw/final-fix-full-campaign/task5.jsonl",
+    "sha256": "13dd90d3876c964d9d1edb42dfdad8b4bb45c7dd3c1d34bef2b3f82e7b7b4c1c",
+    "rows": 616,
+    "literalComparisons": 616,
+    "literalMismatches": 0,
+    "candidates": {
+      "native": 308,
+      "casbin": 308
+    }
+  }
+]

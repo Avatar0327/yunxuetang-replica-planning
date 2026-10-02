@@ -1,0 +1,20 @@
+▶ native: old-company enrollment conflicts deny without partial enrollment
+  ✔ single conflict rejects entire batch (12.36975ms)
+  ✔ mixed conflict rejects entire batch (9.353125ms)
+  ✔ A B and internal protected reads retain enrollment boundaries after rejection (215.986792ms)
+  ✔ same-company existing enrollment remains idempotent alongside fresh enrollment (22.092791ms)
+✔ native: old-company enrollment conflicts deny without partial enrollment (702.990666ms)
+▶ casbin: old-company enrollment conflicts deny without partial enrollment
+  ✔ single conflict rejects entire batch (10.562291ms)
+  ✔ mixed conflict rejects entire batch (8.787417ms)
+  ✔ A B and internal protected reads retain enrollment boundaries after rejection (221.957791ms)
+  ✔ same-company existing enrollment remains idempotent alongside fresh enrollment (22.420917ms)
+✔ casbin: old-company enrollment conflicts deny without partial enrollment (677.70925ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1469.338958

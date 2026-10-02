@@ -1,0 +1,66 @@
+[
+  {
+    "directory": "evidence/raw/smoke-native-list",
+    "candidate": "native",
+    "cache": "hot",
+    "configured_seconds": 3,
+    "concurrency": 4,
+    "reference_window": false,
+    "phase": "success",
+    "sample_count": 1454,
+    "categories": {
+      "success": 1454
+    },
+    "instances": {
+      "A": 644,
+      "B": 810
+    },
+    "cache_states": {
+      "cold": 4,
+      "L1": 1450
+    },
+    "statistics": {
+      "list-broad": {
+        "success": {
+          "count": 1454,
+          "p50": 8.05158300000005,
+          "p95": 9.293458999999984,
+          "p99": 10.536166000000037
+        },
+        "permission": {
+          "count": 1454,
+          "p50": 2.825750000018161,
+          "p95": 3.6158329999889247,
+          "p99": 4.3125
+        },
+        "data": {
+          "count": 1454,
+          "p50": 4.574875000020256,
+          "p95": 5.161875000019791,
+          "p99": 5.590457999991486
+        }
+      },
+      "_all": {
+        "success": {
+          "count": 1454,
+          "p50": 8.05158300000005,
+          "p95": 9.293458999999984,
+          "p99": 10.536166000000037
+        },
+        "permission": {
+          "count": 1454,
+          "p50": 2.825750000018161,
+          "p95": 3.6158329999889247,
+          "p99": 4.3125
+        },
+        "data": {
+          "count": 1454,
+          "p50": 4.574875000020256,
+          "p95": 5.161875000019791,
+          "p99": 5.590457999991486
+        }
+      }
+    },
+    "audit_errors": []
+  }
+]

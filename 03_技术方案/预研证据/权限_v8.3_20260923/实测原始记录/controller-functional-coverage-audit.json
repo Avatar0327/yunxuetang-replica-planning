@@ -1,0 +1,12 @@
+{
+  "mapping": "output/functional-coverage-map.json",
+  "required": 168,
+  "rows": 168,
+  "statuses": {
+    "pass": 161,
+    "incomplete": 7
+  },
+  "literal_comparisons_checked": 1362,
+  "errors": [],
+  "limitation": "Mechanical citation audit only; semantic coverage and Go require independent review."
+}

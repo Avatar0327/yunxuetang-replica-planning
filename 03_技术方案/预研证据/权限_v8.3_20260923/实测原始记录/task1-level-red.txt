@@ -1,0 +1,39 @@
+2026-09-22T19:20:31.416707+00:00
+$ npm run test:semantic
+
+> permission-v83-spike@0.0.1 test:semantic
+> tsx --test test/semantic.test.ts
+
+✔ literal team, own department and subtree differ (1.022ms)
+✔ node/action sources never cross product; own-role override, empty and delete (3.772333ms)
+✔ override cannot invent navigation/actions/raw fields or follow new membership (0.296792ms)
+✔ six scope explicit boundaries and revision-bound organization facts (0.331375ms)
+✔ raw fields are tied to matching source and all hard caps precede union (0.551959ms)
+✔ appointments derive exact backend and project grants; revoke preserves other source (3.002792ms)
+✔ SELF uses only each registered node anchor and wallet exception stays narrow (1.600375ms)
+✔ category locks, independent actions, public and extensible subjects use common grants (0.545208ms)
+✖ selected management membership, resolved set/field caps and levels constrain delegation (0.411958ms)
+✔ ambiguous duplicate source IDs fail closed in both candidates (0.099ms)
+✔ bulk query plan resolves once, preserves source-field pairs, rejects port binding mismatch (0.670792ms)
+✔ appointment revocation/company/state and public custom replacement negatives (0.716167ms)
+✔ each scope permits and rejects literal resources on each engine (1.177375ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 12
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 193.506625
+
+✖ failing tests:
+
+test at test/semantic.test.ts:1:11879
+✖ selected management membership, resolved set/field caps and levels constrain delegation (0.411958ms)
+  Error: role level forbidden
+      at assertCanDelegate (/Users/peng/Agent本地开发/云学堂权限预研/src/authz/delegation.ts:22:15)
+      at TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/semantic.test.ts:191:11)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7)
+
+exit=1

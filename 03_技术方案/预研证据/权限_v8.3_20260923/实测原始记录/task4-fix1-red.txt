@@ -1,0 +1,310 @@
+▶ native: R1 membership revoke retains target-person cap
+  ✖ denies C (2.585209ms)
+  ✖ no target/dependent writes (1.812084ms)
+  ✔ permits B (13.672833ms)
+✖ native: R1 membership revoke retains target-person cap (601.371084ms)
+▶ native: R2 attachment uses project-specific download action
+  ✖ view remains progress only (32.686334ms)
+  ✖ other project download cannot join broader view (10.60125ms)
+  ✔ matching download permits bytes (10.115125ms)
+  ✖ download-only revoke applies next new request (34.71225ms)
+✖ native: R2 attachment uses project-specific download action (693.343958ms)
+▶ casbin: R1 membership revoke retains target-person cap
+  ✖ denies C (0.358791ms)
+  ✖ no target/dependent writes (0.856917ms)
+  ✔ permits B (12.26075ms)
+✖ casbin: R1 membership revoke retains target-person cap (333.209333ms)
+▶ casbin: R2 attachment uses project-specific download action
+  ✖ view remains progress only (34.578125ms)
+  ✖ other project download cannot join broader view (10.589ms)
+  ✔ matching download permits bytes (10.0645ms)
+  ✖ download-only revoke applies next new request (42.335167ms)
+✖ casbin: R2 attachment uses project-specific download action (673.238125ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 4
+ℹ fail 14
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2418.309667
+
+✖ failing tests:
+
+test at test/task4-review-regressions.test.ts:1:1999
+✖ denies C (2.585209ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  
+  200 !== 403
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task4-review-regressions.test.ts:32:13)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 200,
+    expected: 403,
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task4-review-regressions.test.ts:1:2128
+✖ no target/dependent writes (1.812084ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  ... Skipped lines
+  
+    [
+      {
+        data: {
+  +       active: false,
+  -       active: true,
+          id: 't4-r1-native-C',
+          level: 3,
+          personId: 'C',
+          policies: [],
+          provenance: 'system_origin',
+  ...
+          policies: [],
+  +       provenance: 'recheck_required',
+  -       provenance: 'active',
+          roleId: 'role-12',
+          tenantId: 'T1'
+        },
+        source_id: 't4-r1-native-C'
+      }
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task4-review-regressions.test.ts:35:17)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task4-review-regressions.test.ts:33:13)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ { data: [Object], source_id: null }, { data: [Object], source_id: 't4-r1-native-C' } ],
+    expected: [ { data: [Object], source_id: null }, { data: [Object], source_id: 't4-r1-native-C' } ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task4-review-regressions.test.ts:1:3914
+✖ view remains progress only (32.686334ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+  +   bytes: 'attachment-A',
+  +   status: 200
+  -   bytes: null,
+  -   status: 403
+    }
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task4-review-regressions.test.ts:67:17)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task4-review-regressions.test.ts:63:13)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { status: 200, bytes: 'attachment-A' },
+    expected: { status: 403, bytes: null },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task4-review-regressions.test.ts:1:4408
+✖ other project download cannot join broader view (10.60125ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+  +   bytes: 'attachment-A',
+  +   status: 200
+  -   bytes: null,
+  -   status: 403
+    }
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task4-review-regressions.test.ts:72:17)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task4-review-regressions.test.ts:70:13)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { status: 200, bytes: 'attachment-A' },
+    expected: { status: 403, bytes: null },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task4-review-regressions.test.ts:1:5071
+✖ download-only revoke applies next new request (34.71225ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+      afterCommit: true,
+  +   bytes: 'attachment-A',
+  -   bytes: null,
+      pubsub: false,
+  +   status: 200
+  -   status: 403
+    }
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task4-review-regressions.test.ts:84:17)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task4-review-regressions.test.ts:80:13)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { status: 200, bytes: 'attachment-A', afterCommit: true, pubsub: false },
+    expected: { status: 403, bytes: null, afterCommit: true, pubsub: false },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task4-review-regressions.test.ts:1:1999
+✖ denies C (0.358791ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  
+  200 !== 403
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task4-review-regressions.test.ts:32:13)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 200,
+    expected: 403,
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task4-review-regressions.test.ts:1:2128
+✖ no target/dependent writes (0.856917ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  ... Skipped lines
+  
+    [
+      {
+        data: {
+  +       active: false,
+  -       active: true,
+          id: 't4-r1-casbin-C',
+          level: 3,
+          personId: 'C',
+          policies: [],
+          provenance: 'system_origin',
+  ...
+          policies: [],
+  +       provenance: 'recheck_required',
+  -       provenance: 'active',
+          roleId: 'role-12',
+          tenantId: 'T1'
+        },
+        source_id: 't4-r1-casbin-C'
+      }
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task4-review-regressions.test.ts:35:17)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task4-review-regressions.test.ts:33:13)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ { data: [Object], source_id: null }, { data: [Object], source_id: 't4-r1-casbin-C' } ],
+    expected: [ { data: [Object], source_id: null }, { data: [Object], source_id: 't4-r1-casbin-C' } ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task4-review-regressions.test.ts:1:3914
+✖ view remains progress only (34.578125ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+  +   bytes: 'attachment-A',
+  +   status: 200
+  -   bytes: null,
+  -   status: 403
+    }
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task4-review-regressions.test.ts:67:17)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task4-review-regressions.test.ts:63:13)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { status: 200, bytes: 'attachment-A' },
+    expected: { status: 403, bytes: null },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task4-review-regressions.test.ts:1:4408
+✖ other project download cannot join broader view (10.589ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+  +   bytes: 'attachment-A',
+  +   status: 200
+  -   bytes: null,
+  -   status: 403
+    }
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task4-review-regressions.test.ts:72:17)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task4-review-regressions.test.ts:70:13)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { status: 200, bytes: 'attachment-A' },
+    expected: { status: 403, bytes: null },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task4-review-regressions.test.ts:1:5071
+✖ download-only revoke applies next new request (42.335167ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+      afterCommit: true,
+  +   bytes: 'attachment-A',
+  -   bytes: null,
+      pubsub: false,
+  +   status: 200
+  -   status: 403
+    }
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task4-review-regressions.test.ts:84:17)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task4-review-regressions.test.ts:80:13)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { status: 200, bytes: 'attachment-A', afterCommit: true, pubsub: false },
+    expected: { status: 403, bytes: null, afterCommit: true, pubsub: false },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

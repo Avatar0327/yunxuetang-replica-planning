@@ -1,0 +1,60 @@
+✖ native: enrollment snapshot after person transfer (404.917375ms)
+✖ casbin: enrollment snapshot after person transfer (419.269666ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 0
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 921.513333
+
+✖ failing tests:
+
+test at test/task5-transfer.test.ts:1:301
+✖ native: enrollment snapshot after person transfer (404.917375ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+      company_id: 'A',
+  +   display_name: 'new-B-X',
+  -   display_name: 'X',
+      person_id: 'X'
+    }
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task5-transfer.test.ts:13:71)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { person_id: 'X', company_id: 'A', display_name: 'new-B-X' },
+    expected: { person_id: 'X', company_id: 'A', display_name: 'X' },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task5-transfer.test.ts:1:301
+✖ casbin: enrollment snapshot after person transfer (419.269666ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+      company_id: 'A',
+  +   display_name: 'new-B-X',
+  -   display_name: 'X',
+      person_id: 'X'
+    }
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task5-transfer.test.ts:13:71)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { person_id: 'X', company_id: 'A', display_name: 'new-B-X' },
+    expected: { person_id: 'X', company_id: 'A', display_name: 'X' },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

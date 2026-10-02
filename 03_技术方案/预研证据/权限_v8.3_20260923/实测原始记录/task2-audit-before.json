@@ -1,0 +1,446 @@
+{
+  "auditReportVersion": 2,
+  "vulnerabilities": {
+    "@fastify/middie": {
+      "name": "@fastify/middie",
+      "severity": "critical",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1112322,
+          "name": "@fastify/middie",
+          "dependency": "@fastify/middie",
+          "title": "Fastify Middie Middleware Path Bypass",
+          "url": "https://github.com/advisories/GHSA-cxrg-g7r8-w69p",
+          "severity": "high",
+          "cwe": [
+            "CWE-177"
+          ],
+          "cvss": {
+            "score": 8.4,
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:C/C:H/I:H/A:L"
+          },
+          "range": "<=9.0.3"
+        },
+        {
+          "source": 1114184,
+          "name": "@fastify/middie",
+          "dependency": "@fastify/middie",
+          "title": "@fastify/middie has Improper Path Normalization when Using Path-Scoped Middleware",
+          "url": "https://github.com/advisories/GHSA-8p85-9qpw-fwgw",
+          "severity": "high",
+          "cwe": [
+            "CWE-20"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": "<9.2.0"
+        },
+        {
+          "source": 1116760,
+          "name": "@fastify/middie",
+          "dependency": "@fastify/middie",
+          "title": "@fastify/middie vulnerable to middleware authentication bypass in child plugin scopes",
+          "url": "https://github.com/advisories/GHSA-72c6-fx6q-fr5w",
+          "severity": "critical",
+          "cwe": [
+            "CWE-436"
+          ],
+          "cvss": {
+            "score": 9.1,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N"
+          },
+          "range": "<=9.3.1"
+        },
+        {
+          "source": 1116761,
+          "name": "@fastify/middie",
+          "dependency": "@fastify/middie",
+          "title": "@fastify/middie vulnerable to middleware bypass via deprecated ignoreDuplicateSlashes option",
+          "url": "https://github.com/advisories/GHSA-v9ww-2j6r-98q6",
+          "severity": "high",
+          "cwe": [
+            "CWE-436"
+          ],
+          "cvss": {
+            "score": 7.4,
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:N"
+          },
+          "range": "<=9.3.1"
+        }
+      ],
+      "effects": [
+        "@nestjs/platform-fastify"
+      ],
+      "range": "<=9.3.1",
+      "nodes": [
+        "node_modules/@fastify/middie"
+      ],
+      "fixAvailable": {
+        "name": "@nestjs/platform-fastify",
+        "version": "11.2.5",
+        "isSemVerMajor": false
+      }
+    },
+    "@nestjs/common": {
+      "name": "@nestjs/common",
+      "severity": "moderate",
+      "isDirect": true,
+      "via": [
+        "file-type"
+      ],
+      "effects": [],
+      "range": "10.4.16 - 10.4.22 || 11.0.16 - 11.1.16 || 12.0.0-alpha.0 - 12.0.0-alpha.7",
+      "nodes": [
+        "node_modules/@nestjs/common"
+      ],
+      "fixAvailable": {
+        "name": "@nestjs/common",
+        "version": "11.2.5",
+        "isSemVerMajor": false
+      }
+    },
+    "@nestjs/core": {
+      "name": "@nestjs/core",
+      "severity": "high",
+      "isDirect": true,
+      "via": [
+        {
+          "source": 1117063,
+          "name": "@nestjs/core",
+          "dependency": "@nestjs/core",
+          "title": "@nestjs/core Improperly Neutralizes Special Elements in Output Used by a Downstream Component ('Injection')",
+          "url": "https://github.com/advisories/GHSA-36xv-jgw5-4q75",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-74"
+          ],
+          "cvss": {
+            "score": 6.1,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:N/A:L"
+          },
+          "range": "<=11.1.17"
+        },
+        "path-to-regexp"
+      ],
+      "effects": [],
+      "range": "<=11.1.17 || 12.0.0-alpha.0 - 12.0.0-alpha.7",
+      "nodes": [
+        "node_modules/@nestjs/core"
+      ],
+      "fixAvailable": {
+        "name": "@nestjs/core",
+        "version": "11.2.5",
+        "isSemVerMajor": false
+      }
+    },
+    "@nestjs/platform-fastify": {
+      "name": "@nestjs/platform-fastify",
+      "severity": "high",
+      "isDirect": true,
+      "via": [
+        "@fastify/middie",
+        {
+          "source": 1111721,
+          "name": "@nestjs/platform-fastify",
+          "dependency": "@nestjs/platform-fastify",
+          "title": "Nest has a Fastify URL Encoding Middleware Bypass (TOCTOU)",
+          "url": "https://github.com/advisories/GHSA-8wpr-639p-ccrj",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-367"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": "<11.1.10"
+        },
+        {
+          "source": 1113662,
+          "name": "@nestjs/platform-fastify",
+          "dependency": "@nestjs/platform-fastify",
+          "title": "Nest has a Fastify URL Encoding Middleware Bypass ",
+          "url": "https://github.com/advisories/GHSA-r4wm-x892-vjmx",
+          "severity": "high",
+          "cwe": [
+            "CWE-863"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": "<=11.1.13"
+        },
+        {
+          "source": 1115135,
+          "name": "@nestjs/platform-fastify",
+          "dependency": "@nestjs/platform-fastify",
+          "title": "Nest Fastify HEAD Request Middleware Bypass",
+          "url": "https://github.com/advisories/GHSA-wf42-42fg-fg84",
+          "severity": "high",
+          "cwe": [
+            "CWE-670"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": "<=11.1.15"
+        },
+        {
+          "source": 1123702,
+          "name": "@nestjs/platform-fastify",
+          "dependency": "@nestjs/platform-fastify",
+          "title": "Nest: Middleware Bypass on Fastify via Trailing Slash",
+          "url": "https://github.com/advisories/GHSA-6v32-fjc9-9qf6",
+          "severity": "high",
+          "cwe": [
+            "CWE-863"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": "<=11.1.23"
+        },
+        "fastify",
+        "path-to-regexp"
+      ],
+      "effects": [],
+      "range": "<=12.0.0-alpha.7",
+      "nodes": [
+        "node_modules/@nestjs/platform-fastify"
+      ],
+      "fixAvailable": {
+        "name": "@nestjs/platform-fastify",
+        "version": "11.2.5",
+        "isSemVerMajor": false
+      }
+    },
+    "fastify": {
+      "name": "fastify",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1112876,
+          "name": "fastify",
+          "dependency": "fastify",
+          "title": "Fastify Vulnerable to DoS via Unbounded Memory Allocation in sendWebStream",
+          "url": "https://github.com/advisories/GHSA-mrq3-vjjr-p77c",
+          "severity": "low",
+          "cwe": [
+            "CWE-770"
+          ],
+          "cvss": {
+            "score": 3.7,
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:L"
+          },
+          "range": "<=5.7.2"
+        },
+        {
+          "source": 1112877,
+          "name": "fastify",
+          "dependency": "fastify",
+          "title": "Fastify's Content-Type header tab character allows body validation bypass",
+          "url": "https://github.com/advisories/GHSA-jx2c-rxcm-jvmq",
+          "severity": "high",
+          "cwe": [
+            "CWE-436"
+          ],
+          "cvss": {
+            "score": 7.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N"
+          },
+          "range": "<5.7.2"
+        },
+        {
+          "source": 1115367,
+          "name": "fastify",
+          "dependency": "fastify",
+          "title": "fastify: request.protocol and request.host Spoofable via X-Forwarded-Proto/Host from Untrusted Connections",
+          "url": "https://github.com/advisories/GHSA-444r-cwp2-x5xf",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-348"
+          ],
+          "cvss": {
+            "score": 6.1,
+            "vectorString": "CVSS:3.1/AV:A/AC:H/PR:N/UI:N/S:C/C:H/I:N/A:N"
+          },
+          "range": "<=5.8.2"
+        },
+        {
+          "source": 1117061,
+          "name": "fastify",
+          "dependency": "fastify",
+          "title": "Fastify has a Body Schema Validation Bypass via Leading Space in Content-Type Header",
+          "url": "https://github.com/advisories/GHSA-247c-9743-5963",
+          "severity": "high",
+          "cwe": [
+            "CWE-1287"
+          ],
+          "cvss": {
+            "score": 7.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N"
+          },
+          "range": ">=5.3.2 <=5.8.4"
+        },
+        {
+          "source": 1158514,
+          "name": "fastify",
+          "dependency": "fastify",
+          "title": "fastify vulnerable to schema validation bypass via root primitive coercion mismatch",
+          "url": "https://github.com/advisories/GHSA-w2qp-rph6-63g4",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-20"
+          ],
+          "cvss": {
+            "score": 5.4,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N"
+          },
+          "range": "<5.12.1"
+        }
+      ],
+      "effects": [
+        "@nestjs/platform-fastify"
+      ],
+      "range": "<=5.12.0",
+      "nodes": [
+        "node_modules/fastify"
+      ],
+      "fixAvailable": {
+        "name": "@nestjs/platform-fastify",
+        "version": "11.2.5",
+        "isSemVerMajor": false
+      }
+    },
+    "file-type": {
+      "name": "file-type",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1114301,
+          "name": "file-type",
+          "dependency": "file-type",
+          "title": "file-type affected by infinite loop in ASF parser on malformed input with zero-size sub-header",
+          "url": "https://github.com/advisories/GHSA-5v7r-6r5c-r473",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-835"
+          ],
+          "cvss": {
+            "score": 5.3,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L"
+          },
+          "range": ">=13.0.0 <21.3.1"
+        },
+        {
+          "source": 1114726,
+          "name": "file-type",
+          "dependency": "file-type",
+          "title": "file-type: ZIP Decompression Bomb DoS via [Content_Types].xml entry",
+          "url": "https://github.com/advisories/GHSA-j47w-4g3g-c36v",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-400",
+            "CWE-409"
+          ],
+          "cvss": {
+            "score": 5.3,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L"
+          },
+          "range": ">=20.0.0 <=21.3.1"
+        }
+      ],
+      "effects": [
+        "@nestjs/common"
+      ],
+      "range": "13.0.0 - 21.3.1",
+      "nodes": [
+        "node_modules/file-type"
+      ],
+      "fixAvailable": {
+        "name": "@nestjs/common",
+        "version": "11.2.5",
+        "isSemVerMajor": false
+      }
+    },
+    "path-to-regexp": {
+      "name": "path-to-regexp",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1115573,
+          "name": "path-to-regexp",
+          "dependency": "path-to-regexp",
+          "title": "path-to-regexp vulnerable to Denial of Service via sequential optional groups",
+          "url": "https://github.com/advisories/GHSA-j3q9-mxjg-w52f",
+          "severity": "high",
+          "cwe": [
+            "CWE-400",
+            "CWE-1333"
+          ],
+          "cvss": {
+            "score": 7.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          },
+          "range": ">=8.0.0 <8.4.0"
+        },
+        {
+          "source": 1115582,
+          "name": "path-to-regexp",
+          "dependency": "path-to-regexp",
+          "title": "path-to-regexp vulnerable to Regular Expression Denial of Service via multiple wildcards",
+          "url": "https://github.com/advisories/GHSA-27v5-c462-wpq7",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-1333"
+          ],
+          "cvss": {
+            "score": 5.9,
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          },
+          "range": ">=8.0.0 <8.4.0"
+        }
+      ],
+      "effects": [
+        "@nestjs/core",
+        "@nestjs/platform-fastify"
+      ],
+      "range": "8.0.0 - 8.3.0",
+      "nodes": [
+        "node_modules/path-to-regexp"
+      ],
+      "fixAvailable": {
+        "name": "@nestjs/platform-fastify",
+        "version": "11.2.5",
+        "isSemVerMajor": false
+      }
+    }
+  },
+  "metadata": {
+    "vulnerabilities": {
+      "info": 0,
+      "low": 0,
+      "moderate": 2,
+      "high": 4,
+      "critical": 1,
+      "total": 7
+    },
+    "dependencies": {
+      "prod": 156,
+      "dev": 34,
+      "optional": 28,
+      "peer": 0,
+      "peerOptional": 0,
+      "total": 190
+    }
+  }
+}

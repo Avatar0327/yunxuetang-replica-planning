@@ -1,0 +1,36 @@
+▶ native: AUTH-T07/T20/T24 selected-source matrix
+  ✔ AUTH-T07-01 level1 (8.882958ms)
+  ✔ AUTH-T07 create level2 allowed (20.275917ms)
+  ✔ AUTH-T07 create level3 allowed (20.4335ms)
+  ✔ AUTH-T07-05 node ceiling (6.892625ms)
+  ✔ AUTH-T07-05 action ceiling (5.32625ms)
+  ✔ AUTH-T07-06 literal D2 outside D1 (10.637ms)
+  ✔ AUTH-T07-07 cannot borrow B phone (10.811875ms)
+  ✔ AUTH-T07-02 level1 ordinary edit (5.51075ms)
+  ✔ AUTH-T07-03 samelevel (5.653167ms)
+  ✔ AUTH-T07-04 higher (5.140709ms)
+  ✔ AUTH-T07-08 explicit delegability (74.118834ms)
+  ✔ source shrink suspends and restore requires explicit audit recheck (276.398416ms)
+✔ native: AUTH-T07/T20/T24 selected-source matrix (1106.638041ms)
+▶ casbin: AUTH-T07/T20/T24 selected-source matrix
+  ✔ AUTH-T07-01 level1 (7.691917ms)
+  ✔ AUTH-T07 create level2 allowed (19.375625ms)
+  ✔ AUTH-T07 create level3 allowed (20.395917ms)
+  ✔ AUTH-T07-05 node ceiling (6.687291ms)
+  ✔ AUTH-T07-05 action ceiling (4.924959ms)
+  ✔ AUTH-T07-06 literal D2 outside D1 (10.848167ms)
+  ✔ AUTH-T07-07 cannot borrow B phone (10.795833ms)
+  ✔ AUTH-T07-02 level1 ordinary edit (5.163792ms)
+  ✔ AUTH-T07-03 samelevel (5.375541ms)
+  ✔ AUTH-T07-04 higher (7.872292ms)
+  ✔ AUTH-T07-08 explicit delegability (69.104958ms)
+  ✔ source shrink suspends and restore requires explicit audit recheck (279.078459ms)
+✔ casbin: AUTH-T07/T20/T24 selected-source matrix (829.895875ms)
+ℹ tests 26
+ℹ suites 0
+ℹ pass 26
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2062.801541

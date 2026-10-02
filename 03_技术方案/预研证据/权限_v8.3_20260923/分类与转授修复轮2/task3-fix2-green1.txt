@@ -1,0 +1,10 @@
+✔ native: N1 inherited policy cannot expand its original saved cap (732.920916ms)
+✔ casbin: N1 inherited policy cannot expand its original saved cap (404.344458ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1228.867542

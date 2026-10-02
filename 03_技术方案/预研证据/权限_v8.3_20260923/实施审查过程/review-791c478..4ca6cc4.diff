@@ -1,0 +1,201 @@
+# Review package: 791c478..4ca6cc4
+
+## Commits
+4ca6cc4 docs(spike): record enrollment conflict fix evidence and residual sorting bug
+9fb9975 fix(spike): reject cross-company enrollment conflicts atomically
+
+## Files changed
+ .../task-5-fix-round1-report.md                    | 63 ++++++++++++++++
+ src/training/enrollment-service.ts                 |  9 ++-
+ test/task5-enrollment-conflict.test.ts             | 85 ++++++++++++++++++++++
+ 3 files changed, 156 insertions(+), 1 deletion(-)
+
+## Diff
+diff --git a/.superpowers/sdd/2026-09-23-permission-spike/task-5-fix-round1-report.md b/.superpowers/sdd/2026-09-23-permission-spike/task-5-fix-round1-report.md
+new file mode 100644
+index 0000000..34cc6d8
+--- /dev/null
++++ b/.superpowers/sdd/2026-09-23-permission-spike/task-5-fix-round1-report.md
+@@ -0,0 +1,63 @@
++# Task5 fix round1 — R1 enrollment-company conflict
++
++Status: **DONE_WITH_CONCERNS**, ready for bounded R1 review. Overall acceptance remains pending; formal B1 is prohibited.
++
++Workspace: `/Users/peng/Agent本地开发/云学堂权限预研`, branch `spike/permission-v83`.
++Base: `791c47841da1e176e2ed740bf5ad00fe27571402`.
++Scoped source/test commit: `9fb99755f146622d30f352444128ef77eb68c6fd`.
++This report is committed separately after the source commit. Controller coverage/audit/fault-summary/final-review files are excluded.
++
++## Verified finding and implementation
++
++Read the complete `task-5-review.md` and original `task-5-brief.md`, especially its immutable enrollment snapshot/no silent old-A reuse requirement. Existing `EnrollmentService.change` authorized X's current company B, then `ON CONFLICT DO NOTHING` skipped the old A enrollment and returned `{changed:true,count:1}`. A mixed request also inserted the other new person, falsely reporting a fully successful batch.
++
++`src/training/enrollment-service.ts:33`–`:39` now inspects existing enrollment facts against the current training person projection inside the existing transaction and tenant authority lock. Any company mismatch throws the existing safe `Denied` before insertion. Both project-appointment and direct-team paths pass this check after their own current authorization. Existing same-company conflicts retain their prior idempotent behavior. No old company/name/progress/attachment is rewritten; no learning-round engine, new response contract, or schema change was introduced.
++
++The owned-command serialization assumption is unchanged: current organization/enrollment mutations acquire the tenant authority lock. The conflict query additionally locks matching existing roster rows. Raw database writes outside those owning commands and independent database privilege isolation remain outside the prototype proof.
++
++## Actual RED → GREEN
++
++`test/task5-enrollment-conflict.test.ts` uses real APIs and PostgreSQL/Redis for Native and Casbin. Legitimately appointed customer B manager Y tries to add X after X transfers A→B and its current name becomes `new-B-X`. Old enrollment remains company A, captured name X, progress 25, attachment `attachment-X`.
++
++- Actual RED2: singleton returned 200 with `changed:true,count:1`; mixed `[W,X,Y]` returned 200/count3, inserted fresh B member W and advanced revision/export epoch. Both candidates failed the expected 403/unchanged complete roster checks. B roster then exposed the unintended partial W insert. Preserved output is 2 passing / 8 failing Node test entries (including parent entries), exit1.
++- GREEN: singleton and mixed requests return only the existing generic denial body (plus ordinary transport metadata), HTTP403; complete roster, revision and export epoch are unchanged. A customer sees old X/name, B customer sees only Y and cannot read X's progress or attachment; internal M sees all three enrollment facts. Exact list/count/search and project export create/execute/claim outcomes are checked for all three actors. Same-company `[Y,W]` succeeds twice, stores W once, and retains Y's original snapshot/progress/attachment.
++- Focused GREEN: **10/10** Node test entries; **68 literal observations**, 34 per candidate, zero mismatches.
++- Bounded related campaign: **36/36** entries; **164 literal observations**, 82 per candidate, zero mismatches. Covers existing direct-team positive/negative/mixed batches, cross-process enrollment/revoke ordering, attachment action restrictions, membership target restrictions, module boundaries, and transfer/current-person snapshot controls.
++
++All raw paths below are relative to the workspace above. No old raw failure was overwritten.
++
++## Exact validation commands and evidence
++
++Every Node/npm command below used `PATH=/opt/homebrew/opt/node@24/bin:$PATH`.
++
++1. `npm run seed > evidence/raw/task5-fix-round1-red-seed.txt 2>&1` — exit0.
++2. `TASK3_OBSERVATIONS=evidence/raw/task5-fix-round1-red.jsonl node --import tsx --test test/task5-enrollment-conflict.test.ts > evidence/raw/task5-fix-round1-red.txt 2>&1` — exit1, original pre-fix attempt; correct singleton R1 failure plus the separate mixed-ID ordering problem documented below.
++3. After changing only the fresh test fixture from lowercase `person-00002` to uppercase W: `TASK3_OBSERVATIONS=evidence/raw/task5-fix-round1-red2.jsonl node --import tsx --test test/task5-enrollment-conflict.test.ts > evidence/raw/task5-fix-round1-red2.txt 2>&1` — exit1, genuine singleton and mixed-batch R1 failures for both candidates before any production edit.
++4. After the scoped fix: `TASK3_OBSERVATIONS=evidence/raw/task5-fix-round1-green.jsonl node --import tsx --test test/task5-enrollment-conflict.test.ts > evidence/raw/task5-fix-round1-green.txt 2>&1` — exit0, 10/10.
++5. `npm run seed > evidence/raw/task5-fix-round1-regression-seed.txt 2>&1` — exit0.
++6. `TASK3_OBSERVATIONS=evidence/raw/task5-fix-round1-regressions.jsonl node --import tsx --test --test-concurrency=1 test/task5-enrollment-conflict.test.ts test/task5-transfer.test.ts test/task4-team.test.ts test/task4-delivery.test.ts test/task4-review-regressions.test.ts test/module-boundaries.test.ts > evidence/raw/task5-fix-round1-regressions.txt 2>&1` — exit0, 36/36.
++7. `npm run typecheck > evidence/raw/task5-fix-round1-typecheck.txt 2>&1`; `npm run build > evidence/raw/task5-fix-round1-build.txt 2>&1` — both exit0, no diagnostics.
++8. `git diff --check > evidence/raw/task5-fix-round1-diffcheck.txt` — exit0. No dependencies changed; no renewed dependency audit or full-core/long-load campaign was necessary for this bounded fix.
++
++`evidence/raw/task5-fix-round1-observation-audit.json` independently parses expected/actual literal pairs and records real SHA256 values:
++
++- GREEN JSONL: `70eff0002bb2e4cca921779098fecaa25cc426a3c6886ca23d31870c657dd0c9`.
++- Related campaign JSONL: `a6641526aeebc021cebcee5e8afea5417af9be7d9c83d62a4259cafc43a6d883`.
++
++These comparisons establish the recorded results, not untested semantic acceptance.
++
++## Out-of-scope — unresolved mixed-ID collation rejection
++
++**Not fixed.** Before production edits, the original same-company positive request from appointed Y was `POST /projects/P/enrollments`, body `{"operation":"add","personIds":["Y","person-00002"]}`. Both people are enabled/nondeleted current company B. Both candidates returned generic HTTP403, though this authorized mixed batch should succeed. Exact raw records: `evidence/raw/task5-fix-round1-red.jsonl`, observation `R1 same-company add response 0` for Native and Casbin; assertion failures are preserved in `evidence/raw/task5-fix-round1-red.txt`.
++
++Root-cause evidence: `src/training/enrollment-service.ts:19` uses JavaScript `.sort()`, producing `["Y","person-00002"]`; SQL at `:21` uses database `ORDER BY id`, yielding `["person-00002","Y"]`. Strict JSON array comparison at `:28` rejects equal authorized sets in different orders. Direct-team sorting at `:26` and remove sorting/comparison at `:30`–`:31` share the pattern (those variants were inspected, not newly claimed as reproduced).
++
++`evidence/raw/task5-fix-round1-out-of-scope-sort.json` records the original request plus a real read-only SQL query showing both authorized B records and both sort orders. The initial R1 mixed request `[person-00002,X,Y]` was also rejected before reaching insertion because of this issue; replacing only the fresh fixture with uppercase W allows the R1 test to reach the faulty conflict path. This fixture adjustment does **not** resolve or waive the collation bug. It is explicitly deferred to the controller's final whole-branch review, per controller instruction, and is a remaining correctness concern.
++
++## Environment handoff and limits
++
++- Test helpers stopped their owned API processes. `lsof -nP -iTCP:4311 -iTCP:4312 -sTCP:LISTEN > evidence/raw/task5-fix-round1-handoff-api.txt` — exit1 with empty output, expected no listeners.
++- After all tests, `npm run seed > evidence/raw/task5-fix-round1-handoff-seed.txt 2>&1` — exit0. Subsequent checks were read-only. No further API tests/mutations ran after this seed.
++- `docker ps --format '{{.Names}} {{.Status}}' > evidence/raw/task5-fix-round1-handoff-services.txt` shows PostgreSQL/Redis running. `evidence/raw/task5-fix-round1-handoff-state.json` contains real Redis PONG, original X=A/Y=B/null departments/names, absent W, original 3 P enrollments, zero appointments/export jobs, and T1=50000/T2=500 people.
++- No controller tools, planning inputs, coverage/status gates, runtime caps, or formal product source were changed. No subagents. Only source service/test commit plus this report are owned changes.
++- Actual browser, four capped 50-client/600-second reference windows, performance gate and independent full semantic acceptance remain controller work. Existing short-window >50ms permission overhead concern remains unchanged. The R1 tests are not overall Go or formal B1 approval.
+diff --git a/src/training/enrollment-service.ts b/src/training/enrollment-service.ts
+index 9cd7040..9f1d36a 100644
+--- a/src/training/enrollment-service.ts
++++ b/src/training/enrollment-service.ts
+@@ -23,15 +23,22 @@ export class EnrollmentService {
+     if(!project.team_enabled)throw new Denied();
+     const {plan}=await this.authority.plan(identity,candidate,'team-enrollment',action,db);
+     const c=compile(plan,{id:'id',personId:'person_id',companyId:'company_id',enabled:'enabled',deleted:'deleted'});
+     allowed=(await query(db,`SELECT r.id FROM training.person_projection r WHERE ${c.where} AND r.id=ANY(${c.bind(ids)}::text[]) ORDER BY r.id`,c.values)).rows.map(r=>r.id);
+    }
+    if(JSON.stringify(allowed)!==JSON.stringify(ids))throw new Denied();
+    if(body.operation==='remove'){
+     const rows=(await query(db,'SELECT person_id FROM training.roster WHERE tenant_id=$1 AND project_id=$2 AND person_id=ANY($3::text[]) AND company_id=ANY($4::text[]) ORDER BY person_id FOR UPDATE',[identity.tenantId,projectId,ids,companyCap(context)])).rows;
+     if(JSON.stringify(rows.map(r=>r.person_id))!==JSON.stringify(ids))throw new Denied();
+     await query(db,'DELETE FROM training.roster WHERE tenant_id=$1 AND project_id=$2 AND person_id=ANY($3::text[])',[identity.tenantId,projectId,ids]);
+-   }else await query(db,'INSERT INTO training.roster(tenant_id,project_id,person_id,company_id) SELECT tenant_id,$2,id,company_id FROM training.person_projection WHERE tenant_id=$1 AND id=ANY($3::text[]) ORDER BY id ON CONFLICT DO NOTHING',[identity.tenantId,projectId,ids]);
++   }else{
++    // The authority lock serializes enrollment/person commands. Reject the whole
++    // batch before inserting: an old-company fact cannot satisfy a current add.
++    const conflicts=await query(db,'SELECT r.person_id FROM training.roster r JOIN training.person_projection p ON p.tenant_id=r.tenant_id AND p.id=r.person_id WHERE r.tenant_id=$1 AND r.project_id=$2 AND r.person_id=ANY($3::text[]) AND r.company_id IS DISTINCT FROM p.company_id FOR UPDATE OF r',[identity.tenantId,projectId,ids]);
++    if(conflicts.rows.length)throw new Denied();
++    // Same-company duplicate enrollment remains an idempotent no-op.
++    await query(db,'INSERT INTO training.roster(tenant_id,project_id,person_id,company_id) SELECT tenant_id,$2,id,company_id FROM training.person_projection WHERE tenant_id=$1 AND id=ANY($3::text[]) ORDER BY id ON CONFLICT DO NOTHING',[identity.tenantId,projectId,ids]);
++   }
+    return {changed:true,count:ids.length};
+   });
+  }
+ }
+diff --git a/test/task5-enrollment-conflict.test.ts b/test/task5-enrollment-conflict.test.ts
+new file mode 100644
+index 0000000..668c338
+--- /dev/null
++++ b/test/task5-enrollment-conflict.test.ts
+@@ -0,0 +1,85 @@
++import test from 'node:test';
++import {createHash} from 'node:crypto';
++import {pool,transaction} from '../src/infrastructure/db.js';
++import {TrainingProjectionPort} from '../src/training/public.js';
++import {ReportProjectionPort} from '../src/report/public.js';
++import {OrganizationFactsPort} from '../src/organization/public.js';
++import {start,observe} from './task3-helper.js';
++
++const oldRows=[
++ {person_id:'A',company_id:'I',snapshot_display_name:'A',progress:50,attachment:'attachment-A'},
++ {person_id:'X',company_id:'A',snapshot_display_name:'X',progress:25,attachment:'attachment-X'},
++ {person_id:'Y',company_id:'B',snapshot_display_name:'Y',progress:75,attachment:'attachment-Y'},
++];
++const roster=async()=>(await pool.query("SELECT person_id,company_id,snapshot_display_name,progress,attachment FROM training.roster WHERE tenant_id='T1' AND project_id='P' ORDER BY person_id")).rows;
++const stamp=async()=>(await pool.query("SELECT revision,version FROM authz.revision JOIN training.export_epoch USING(tenant_id) WHERE tenant_id='T1'")).rows[0];
++async function rename(id:string,name:string){
++ await transaction(async db=>{
++  await db.query("SELECT revision FROM authz.revision WHERE tenant_id='T1' FOR UPDATE");
++  await db.query("UPDATE organization.person SET display_name=$2 WHERE tenant_id='T1' AND id=$1",[id,name]);
++  const fact=await new OrganizationFactsPort(db).person({tenantId:'T1',personId:id});
++  await new TrainingProjectionPort().person(db,fact!);await new ReportProjectionPort().person(db,fact!);
++ });
++}
++for(const candidate of ['native','casbin'])test(`${candidate}: old-company enrollment conflicts deny without partial enrollment`,async t=>{
++ const api=await start(candidate),token=createHash('sha256').update('spike-person-00001').digest('hex');
++ try{
++  for(const [id,department] of [['X','wide-1'],['Y','wide-2']] as const)
++   await observe(candidate,'R1 prepare lawful department '+id,200,(await api.request('POST','/people/'+id,{departmentId:department})).status);
++  await pool.query("INSERT INTO organization.person(tenant_id,id,company_id,department_id,internal,display_name) VALUES('T1','W','B','wide-2',false,'W')");
++  await pool.query("INSERT INTO training.person_projection SELECT tenant_id,id,id,company_id,enabled,deleted,department_id,manager_id,display_name FROM organization.person WHERE tenant_id='T1' AND id='W'");
++  await pool.query('INSERT INTO authz.session VALUES($1,$2,$3) ON CONFLICT DO NOTHING',[token,'T1','person-00001']);
++  for(const actor of ['Y','M','person-00001'])await observe(candidate,'R1 legitimate project appointment '+actor,200,(await api.request('POST','/appointments',{personId:actor,projectId:'P',active:true})).status);
++  await observe(candidate,'R1 transfer current X A to B',200,(await api.request('POST','/people/X',{companyId:'B',departmentId:'wide-2'})).status);
++  await rename('X','new-B-X');
++  await observe(candidate,'R1 immutable original enrollment before attempted add',oldRows,await roster());
++  for(const [label,personIds] of [['single',['X']],['mixed',['W','X','Y']]] as const){
++   await t.test(label+' conflict rejects entire batch',async()=>{
++    const before=await stamp();const response=await api.request('POST','/projects/P/enrollments',{operation:'add',personIds},'Y');
++    const {meta,...body}=response.body;
++    await observe(candidate,'R1 '+label+' safe denial and unchanged complete roster/revision/epoch',
++     {status:403,body:{message:'你暂时不能查看或操作这项内容，请联系管理员确认权限'},rows:oldRows,unchangedStamp:true},
++     {status:response.status,body,rows:await roster(),unchangedStamp:JSON.stringify(before)===JSON.stringify(await stamp())});
++   });
++  }
++  await t.test('A B and internal protected reads retain enrollment boundaries after rejection',async()=>{
++   for(const [actor,rows] of [
++    ['person-00001',[{person_id:'X',company_id:'A',display_name:'X'}]],
++    ['Y',[{person_id:'Y',company_id:'B',display_name:'Y'}]],
++    ['M',oldRows.map(r=>({person_id:r.person_id,company_id:r.company_id,display_name:r.snapshot_display_name}))],
++   ] as const){
++    const response=await api.request('GET','/projects/P/roster',undefined,actor);
++    await observe(candidate,'R1 exact roster/count '+actor,{status:200,rows,count:rows.length},{status:response.status,rows:response.body.rows,count:response.body.count});
++    const search=await api.request('GET','/projects/P/roster?search=new-B-X',undefined,actor);
++    await observe(candidate,'R1 current B name absent from enrollment search '+actor,{status:200,rows:[],count:0},{status:search.status,rows:search.body.rows,count:search.body.count});
++    for(const kind of ['progress','attachment']){
++     const r=await api.request('GET','/projects/P/people/X/'+kind,undefined,actor);const {meta,...body}=r.body;
++     const expected=actor==='Y'?{status:403,body:{message:'你暂时不能查看或操作这项内容，请联系管理员确认权限'}}:{status:200,body:kind==='progress'?{personId:'X',progress:25}:{personId:'X',bytes:'attachment-X'}};
++     await observe(candidate,'R1 old A '+kind+' boundary '+actor,expected,{status:r.status,body});
++    }
++    const job=await api.request('POST','/projects/P/exports',{},actor);
++    await observe(candidate,'R1 export create '+actor,200,job.status);
++    await observe(candidate,'R1 export execute '+actor,200,(await api.request('POST','/project-exports/'+job.body.id+'/execute',{},actor)).status);
++    const claim=await api.request('GET','/project-exports/'+job.body.id+'/claim',undefined,actor);
++    await observe(candidate,'R1 exact export snapshot '+actor,{status:200,rows,count:rows.length},{status:claim.status,rows:claim.body.rows,count:claim.body.count});
++   }
++  });
++  await t.test('same-company existing enrollment remains idempotent alongside fresh enrollment',async()=>{
++   for(let attempt=0;attempt<2;attempt++){
++    const response=await api.request('POST','/projects/P/enrollments',{operation:'add',personIds:['Y','W']},'Y');const {meta,...body}=response.body;
++    await observe(candidate,'R1 same-company add response '+attempt,{status:200,body:{changed:true,count:2}},{status:response.status,body});
++    await observe(candidate,'R1 same-company add preserves existing snapshots/progress '+attempt,
++     [oldRows[0],{person_id:'W',company_id:'B',snapshot_display_name:'W',progress:0,attachment:'synthetic-person-attachment'},oldRows[1],oldRows[2]],await roster());
++   }
++  });
++ }finally{
++  await api.request('POST','/people/X',{companyId:'A',departmentId:'wide-1'});await rename('X','X');await api.close();
++  await pool.query("DELETE FROM training.roster WHERE tenant_id='T1' AND project_id='P' AND person_id='W'");
++  await pool.query("DELETE FROM training.person_projection WHERE tenant_id='T1' AND id='W'");
++  await pool.query("DELETE FROM organization.person WHERE tenant_id='T1' AND id='W'");
++  await pool.query("DELETE FROM training.appointment WHERE tenant_id='T1' AND project_id='P' AND person_id IN('Y','M','person-00001')");
++  await pool.query("DELETE FROM authz.session WHERE token_hash=$1",[token]);
++  await transaction(async db=>{for(const id of ['X','Y']){await db.query("UPDATE organization.person SET department_id=null WHERE tenant_id='T1' AND id=$1",[id]);const fact=await new OrganizationFactsPort(db).person({tenantId:'T1',personId:id});await new TrainingProjectionPort().person(db,fact!);await new ReportProjectionPort().person(db,fact!);}});
++ }
++});
++test.after(()=>pool.end());

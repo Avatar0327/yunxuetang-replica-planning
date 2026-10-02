@@ -1,0 +1,68 @@
+#0 building with "colima-yxt-permission" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 286B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/node@sha256:0e0ff40c39bc087845bfb27465a0df4ea419520094bc35842ff83dd8cbe6f9b6
+#2 DONE 62.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 96B done
+#3 DONE 0.0s
+
+#4 [internal] load build context
+#4 DONE 0.0s
+
+#5 [1/6] FROM docker.io/library/node@sha256:0e0ff40c39bc087845bfb27465a0df4ea419520094bc35842ff83dd8cbe6f9b6
+#5 resolve docker.io/library/node@sha256:0e0ff40c39bc087845bfb27465a0df4ea419520094bc35842ff83dd8cbe6f9b6
+#5 resolve docker.io/library/node@sha256:0e0ff40c39bc087845bfb27465a0df4ea419520094bc35842ff83dd8cbe6f9b6 60.0s done
+#5 DONE 60.1s
+
+#4 [internal] load build context
+#4 transferring context: 326.83kB done
+#4 DONE 0.0s
+
+#6 [2/6] WORKDIR /spike
+#6 DONE 0.0s
+
+#7 [3/6] COPY package.json package-lock.json ./
+#7 DONE 0.0s
+
+#8 [4/6] RUN npm ci --no-audit --no-fund
+#8 4.356 
+#8 4.356 added 162 packages in 4s
+#8 4.357 npm warn install-scripts 3 packages have install scripts not yet covered by allowScripts:
+#8 4.357 npm warn install-scripts   vue-demi@0.14.10 (postinstall: node -e "try{require('./scripts/postinstall.js')}catch(e){}")
+#8 4.357 npm warn install-scripts   vue-demi@0.14.10 (postinstall: node -e "try{require('./scripts/postinstall.js')}catch(e){}")
+#8 4.357 npm warn install-scripts   esbuild@0.25.12 (postinstall: node install.js)
+#8 4.357 npm warn install-scripts
+#8 4.357 npm warn install-scripts Run `npm install-scripts ls` to review, or `npm install-scripts approve <pkg>` to allow.
+#8 4.357 npm notice
+#8 4.357 npm notice New major version of npm available! 11.19.0 -> 12.0.2
+#8 4.357 npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.0.2
+#8 4.357 npm notice To update run: npm install -g npm@12.0.2
+#8 4.357 npm notice
+#8 DONE 4.6s
+
+#9 [5/6] COPY . .
+#9 DONE 0.1s
+
+#10 [6/6] RUN npm run build
+#10 0.105 
+#10 0.105 > permission-v83-spike@0.0.1 build
+#10 0.105 > tsc
+#10 0.105 
+#10 DONE 1.0s
+
+#11 exporting to image
+#11 exporting layers
+#11 exporting layers 2.5s done
+#11 exporting manifest sha256:b791f4139e2b1bcdc0612b3e14701abb9d2d1274ced7d8e2b9a6cd3cc38a3294 done
+#11 exporting config sha256:7c2bd3ebc945feb1fd80a0e3bea477342b56931a814638c459b367bb1913808b done
+#11 exporting attestation manifest sha256:a856d3f2c36ccff94568a078d63dd12355bf259b8c91fc5b0ca60a50752754d2 done
+#11 exporting manifest list sha256:7fdc07b74d1b8335719c4f339c1f8c400c1ea9db985979efaeb7a6fc7c638327 done
+#11 naming to docker.io/library/yxt-permission:core-d62a470 done
+#11 unpacking to docker.io/library/yxt-permission:core-d62a470
+#11 unpacking to docker.io/library/yxt-permission:core-d62a470 0.8s done
+#11 DONE 3.3s

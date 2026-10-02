@@ -1,0 +1,26 @@
+{
+  "syntheticHelperTestsOnly": true,
+  "notPermissionOrPerformanceEvidence": true,
+  "checks": [
+    {
+      "case": "synthetic-valid-structure",
+      "expectedExit": 0,
+      "actualExit": 0
+    },
+    {
+      "case": "synthetic-exceeded-latency",
+      "expectedExit": 1,
+      "actualExit": 1
+    },
+    {
+      "case": "synthetic-fast-denial",
+      "expectedExit": 1,
+      "actualExit": 1
+    },
+    {
+      "case": "synthetic-missing-scenario",
+      "expectedExit": 1,
+      "actualExit": 1
+    }
+  ]
+}

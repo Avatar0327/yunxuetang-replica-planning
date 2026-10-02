@@ -1,0 +1,16 @@
+{
+  "status": "CONDITIONAL_PROPOSAL_NOT_APPROVED",
+  "basis": "A approval remains authoritative; proposed permission core change requires reference-performance evidence and subsequent feasibility review.",
+  "approved_A": {"original_business": [189,280], "company": [26,45], "other_T": [31,61], "engineering": [16,28], "implementation": [262,414], "original_spike": [3,3], "total": [265,417]},
+  "formal_core_replacement": {"B1-05_original": [5,8], "B1-05_proposed": [6,10], "B1-07_original": [3,5], "B1-07_proposed": [8,15], "combined_original": [8,13], "combined_proposed": [14,25], "increment": [6,12], "B1-08_original_and_proposed": [2,3], "B1_original_with_A_increments": [41,70], "B1_conditional": [47,82]},
+  "conditional_total_including_original_spike": [271,429],
+  "new_remediation_spike_not_executed": [2,4],
+  "if_both_new_spike_and_core_change_are_adopted": [273,433],
+  "reuse_credit": [0,0],
+  "formal_work_items_actually_replaced": [],
+  "automatic_budget_approval": false,
+  "calendar_commitment": false,
+  "three_days_elapsed_claim": false,
+  "no_double_count": ["Replace original8-13, never add full14-25 on top", "T05/T07/T16/company/engineering remain their existing A allocations", "Do not add6-12 again to271-429", "Prototype and formal work with actual overlap must be tracked once; current replacement none/credit0"],
+  "uncertainties": ["large permission relation and versioned plan feasibility", "SQL plan and scope cardinality", "snapshot parse/serialization, event loop and pool waits", "freeze/recheck/export restart frequency", "real media gateway", "single user plus AI review and execution pace"]
+}

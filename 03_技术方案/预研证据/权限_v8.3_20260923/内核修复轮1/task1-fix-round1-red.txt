@@ -1,0 +1,236 @@
+2026-09-22T19:29:04.534175+00:00
+$ node --import tsx --test --test-name-pattern=wallet hard facts test/semantic.test.ts
+✔ wallet hard facts: native: known separate old-company account (1.152042ms)
+✖ wallet hard facts: native: missing data company (1.361625ms)
+✖ wallet hard facts: native: empty data company (0.150167ms)
+✖ wallet hard facts: native: blank data company (0.099292ms)
+✖ wallet hard facts: native: missing reference status (0.093042ms)
+✖ wallet hard facts: native: unbound reviewer account (0.090167ms)
+✔ wallet hard facts: casbin: known separate old-company account (1.41275ms)
+✖ wallet hard facts: casbin: missing data company (0.458625ms)
+✖ wallet hard facts: casbin: empty data company (0.21925ms)
+✖ wallet hard facts: casbin: blank data company (0.280333ms)
+✖ wallet hard facts: casbin: missing reference status (0.221792ms)
+✖ wallet hard facts: casbin: unbound reviewer account (0.189375ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 2
+ℹ fail 10
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 145.935875
+
+✖ failing tests:
+
+test at test/semantic.test.ts:1:19706
+✖ wallet hard facts: native: missing data company (1.361625ms)
+  AssertionError [ERR_ASSERTION]: native/missing-company
+  + actual - expected
+  
+  + [
+  +   'role:wallet:wallet-own:account.own.view'
+  + ]
+  - []
+  
+      at TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/semantic.test.ts:281:16)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: [ 'role:wallet:wallet-own:account.own.view' ],
+    expected: [],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/semantic.test.ts:1:19706
+✖ wallet hard facts: native: empty data company (0.150167ms)
+  AssertionError [ERR_ASSERTION]: native/empty-company
+  + actual - expected
+  
+  + [
+  +   'role:wallet:wallet-own:account.own.view'
+  + ]
+  - []
+  
+      at TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/semantic.test.ts:281:16)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: [ 'role:wallet:wallet-own:account.own.view' ],
+    expected: [],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/semantic.test.ts:1:19706
+✖ wallet hard facts: native: blank data company (0.099292ms)
+  AssertionError [ERR_ASSERTION]: native/blank-company
+  + actual - expected
+  
+  + [
+  +   'role:wallet:wallet-own:account.own.view'
+  + ]
+  - []
+  
+      at TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/semantic.test.ts:281:16)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: [ 'role:wallet:wallet-own:account.own.view' ],
+    expected: [],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/semantic.test.ts:1:19706
+✖ wallet hard facts: native: missing reference status (0.093042ms)
+  AssertionError [ERR_ASSERTION]: native/missing-reference
+  + actual - expected
+  
+  + [
+  +   'role:wallet:wallet-own:account.own.view'
+  + ]
+  - []
+  
+      at TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/semantic.test.ts:281:16)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: [ 'role:wallet:wallet-own:account.own.view' ],
+    expected: [],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/semantic.test.ts:1:19706
+✖ wallet hard facts: native: unbound reviewer account (0.090167ms)
+  AssertionError [ERR_ASSERTION]: native/unbound-account
+  + actual - expected
+  
+  + [
+  +   'role:wallet:wallet-own:account.own.view'
+  + ]
+  - []
+  
+      at TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/semantic.test.ts:281:16)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: [ 'role:wallet:wallet-own:account.own.view' ],
+    expected: [],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/semantic.test.ts:1:19706
+✖ wallet hard facts: casbin: missing data company (0.458625ms)
+  AssertionError [ERR_ASSERTION]: casbin/missing-company
+  + actual - expected
+  
+  + [
+  +   'role:wallet:wallet-own:account.own.view'
+  + ]
+  - []
+  
+      at TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/semantic.test.ts:281:16)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: [ 'role:wallet:wallet-own:account.own.view' ],
+    expected: [],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/semantic.test.ts:1:19706
+✖ wallet hard facts: casbin: empty data company (0.21925ms)
+  AssertionError [ERR_ASSERTION]: casbin/empty-company
+  + actual - expected
+  
+  + [
+  +   'role:wallet:wallet-own:account.own.view'
+  + ]
+  - []
+  
+      at TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/semantic.test.ts:281:16)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: [ 'role:wallet:wallet-own:account.own.view' ],
+    expected: [],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/semantic.test.ts:1:19706
+✖ wallet hard facts: casbin: blank data company (0.280333ms)
+  AssertionError [ERR_ASSERTION]: casbin/blank-company
+  + actual - expected
+  
+  + [
+  +   'role:wallet:wallet-own:account.own.view'
+  + ]
+  - []
+  
+      at TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/semantic.test.ts:281:16)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: [ 'role:wallet:wallet-own:account.own.view' ],
+    expected: [],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/semantic.test.ts:1:19706
+✖ wallet hard facts: casbin: missing reference status (0.221792ms)
+  AssertionError [ERR_ASSERTION]: casbin/missing-reference
+  + actual - expected
+  
+  + [
+  +   'role:wallet:wallet-own:account.own.view'
+  + ]
+  - []
+  
+      at TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/semantic.test.ts:281:16)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: [ 'role:wallet:wallet-own:account.own.view' ],
+    expected: [],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/semantic.test.ts:1:19706
+✖ wallet hard facts: casbin: unbound reviewer account (0.189375ms)
+  AssertionError [ERR_ASSERTION]: casbin/unbound-account
+  + actual - expected
+  
+  + [
+  +   'role:wallet:wallet-own:account.own.view'
+  + ]
+  - []
+  
+      at TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/semantic.test.ts:281:16)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: [ 'role:wallet:wallet-own:account.own.view' ],
+    expected: [],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+exit=1

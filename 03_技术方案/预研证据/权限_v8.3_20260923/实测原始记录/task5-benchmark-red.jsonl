@@ -1,0 +1,12 @@
+{"candidate":"native","name":"list-broad status","expected":200,"actual":200,"at":"2026-09-22T22:48:42.066Z"}
+{"candidate":"native","name":"list-broad complete IDs fields groups sums","expected":"bd603134d121a43542536f562bed2d6aca6b1c2a63ba909b1c1d90a2b41b42be","actual":"bef4e136f796a7645a8fca60595b16150f5aa84abededefce1e92821367339bf","at":"2026-09-22T22:48:42.068Z"}
+{"candidate":"native","name":"list-constrained status","expected":200,"actual":403,"at":"2026-09-22T22:48:42.071Z"}
+{"candidate":"native","name":"history-broad status","expected":200,"actual":200,"at":"2026-09-22T22:48:42.154Z"}
+{"candidate":"native","name":"history-broad complete IDs fields groups sums","expected":"a9a0f1f8fbf7aa8ab8e14d47986d0611e075afaa661df67c60274f42c1fb7d6e","actual":"d0840fbe36b7b3a92af97931877e317dfd684368613b1d969fef7c023b2e571d","at":"2026-09-22T22:48:42.154Z"}
+{"candidate":"native","name":"history-constrained status","expected":200,"actual":403,"at":"2026-09-22T22:48:42.156Z"}
+{"candidate":"casbin","name":"list-broad status","expected":200,"actual":200,"at":"2026-09-22T22:48:42.474Z"}
+{"candidate":"casbin","name":"list-broad complete IDs fields groups sums","expected":"bd603134d121a43542536f562bed2d6aca6b1c2a63ba909b1c1d90a2b41b42be","actual":"bef4e136f796a7645a8fca60595b16150f5aa84abededefce1e92821367339bf","at":"2026-09-22T22:48:42.475Z"}
+{"candidate":"casbin","name":"list-constrained status","expected":200,"actual":403,"at":"2026-09-22T22:48:42.476Z"}
+{"candidate":"casbin","name":"history-broad status","expected":200,"actual":200,"at":"2026-09-22T22:48:42.565Z"}
+{"candidate":"casbin","name":"history-broad complete IDs fields groups sums","expected":"a9a0f1f8fbf7aa8ab8e14d47986d0611e075afaa661df67c60274f42c1fb7d6e","actual":"d0840fbe36b7b3a92af97931877e317dfd684368613b1d969fef7c023b2e571d","at":"2026-09-22T22:48:42.565Z"}
+{"candidate":"casbin","name":"history-constrained status","expected":200,"actual":403,"at":"2026-09-22T22:48:42.567Z"}

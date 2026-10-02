@@ -1,0 +1,42 @@
+{"candidate":"native","name":"worker credential cannot ordinary read /report","expected":403,"actual":403,"at":"2026-09-22T22:54:48.977Z"}
+{"candidate":"native","name":"worker credential cannot ordinary read /projects/P","expected":403,"actual":403,"at":"2026-09-22T22:54:48.980Z"}
+{"candidate":"native","name":"worker credential cannot ordinary read /account/entries","expected":403,"actual":403,"at":"2026-09-22T22:54:48.981Z"}
+{"candidate":"native","name":"worker credential cannot ordinary read /exports/26b0663b-1a07-4dde-bdd6-c09411cf88c7/claim","expected":403,"actual":403,"at":"2026-09-22T22:54:48.982Z"}
+{"candidate":"native","name":"worker cannot create arbitrary requester","expected":403,"actual":403,"at":"2026-09-22T22:54:48.984Z"}
+{"candidate":"native","name":"worker cannot replace persisted options","expected":403,"actual":403,"at":"2026-09-22T22:54:48.985Z"}
+{"candidate":"native","name":"worker token wrong domain","expected":403,"actual":403,"at":"2026-09-22T22:54:48.986Z"}
+{"candidate":"native","name":"worker nonexistent job","expected":403,"actual":403,"at":"2026-09-22T22:54:48.988Z"}
+{"candidate":"native","name":"limited worker actual HTTP executes bound job","expected":{"status":200,"state":"ready","count":7},"actual":{"status":200,"state":"ready","count":7},"at":"2026-09-22T22:54:49.011Z"}
+{"candidate":"native","name":"requester alone claims original exact set","expected":["A","B","C","D","E","M","N"],"actual":["A","B","C","D","E","M","N"],"at":"2026-09-22T22:54:49.027Z"}
+{"candidate":"native","name":"other user cannot claim","expected":403,"actual":403,"at":"2026-09-22T22:54:49.031Z"}
+{"candidate":"native","name":"invalid chunk cannot claim","expected":403,"actual":403,"at":"2026-09-22T22:54:49.045Z"}
+{"candidate":"native","name":"negative chunk cannot claim","expected":403,"actual":403,"at":"2026-09-22T22:54:49.059Z"}
+{"candidate":"native","name":"worker one bounded chunk","expected":{"status":200,"state":"running","count":49998},"actual":{"status":200,"state":"running","count":49998},"at":"2026-09-22T22:54:49.091Z"}
+{"candidate":"native","name":"partial job never claimable","expected":403,"actual":403,"at":"2026-09-22T22:54:49.111Z"}
+{"candidate":"native","name":"stored chunk bounded","expected":200,"actual":200,"at":"2026-09-22T22:54:49.117Z"}
+{"candidate":"native","name":"source mutation invalidates worker next chunk","expected":403,"actual":403,"at":"2026-09-22T22:54:49.123Z"}
+{"candidate":"native","name":"source mutation does not reveal partial chunk","expected":403,"actual":403,"at":"2026-09-22T22:54:49.127Z"}
+{"candidate":"native","name":"Guard bypass direct report denied","expected":true,"actual":true,"at":"2026-09-22T22:54:49.137Z"}
+{"candidate":"native","name":"Guard bypass direct training denied","expected":true,"actual":true,"at":"2026-09-22T22:54:49.143Z"}
+{"candidate":"native","name":"Guard bypass direct account denied","expected":true,"actual":true,"at":"2026-09-22T22:54:49.148Z"}
+{"candidate":"casbin","name":"worker credential cannot ordinary read /report","expected":403,"actual":403,"at":"2026-09-22T22:54:49.793Z"}
+{"candidate":"casbin","name":"worker credential cannot ordinary read /projects/P","expected":403,"actual":403,"at":"2026-09-22T22:54:49.794Z"}
+{"candidate":"casbin","name":"worker credential cannot ordinary read /account/entries","expected":403,"actual":403,"at":"2026-09-22T22:54:49.795Z"}
+{"candidate":"casbin","name":"worker credential cannot ordinary read /exports/47e2f6e5-e544-4cd5-9fc8-123182502b70/claim","expected":403,"actual":403,"at":"2026-09-22T22:54:49.796Z"}
+{"candidate":"casbin","name":"worker cannot create arbitrary requester","expected":403,"actual":403,"at":"2026-09-22T22:54:49.798Z"}
+{"candidate":"casbin","name":"worker cannot replace persisted options","expected":403,"actual":403,"at":"2026-09-22T22:54:49.799Z"}
+{"candidate":"casbin","name":"worker token wrong domain","expected":403,"actual":403,"at":"2026-09-22T22:54:49.800Z"}
+{"candidate":"casbin","name":"worker nonexistent job","expected":403,"actual":403,"at":"2026-09-22T22:54:49.801Z"}
+{"candidate":"casbin","name":"limited worker actual HTTP executes bound job","expected":{"status":200,"state":"ready","count":7},"actual":{"status":200,"state":"ready","count":7},"at":"2026-09-22T22:54:49.825Z"}
+{"candidate":"casbin","name":"requester alone claims original exact set","expected":["A","B","C","D","E","M","N"],"actual":["A","B","C","D","E","M","N"],"at":"2026-09-22T22:54:49.841Z"}
+{"candidate":"casbin","name":"other user cannot claim","expected":403,"actual":403,"at":"2026-09-22T22:54:49.845Z"}
+{"candidate":"casbin","name":"invalid chunk cannot claim","expected":403,"actual":403,"at":"2026-09-22T22:54:49.860Z"}
+{"candidate":"casbin","name":"negative chunk cannot claim","expected":403,"actual":403,"at":"2026-09-22T22:54:49.875Z"}
+{"candidate":"casbin","name":"worker one bounded chunk","expected":{"status":200,"state":"running","count":49998},"actual":{"status":200,"state":"running","count":49998},"at":"2026-09-22T22:54:49.907Z"}
+{"candidate":"casbin","name":"partial job never claimable","expected":403,"actual":403,"at":"2026-09-22T22:54:49.921Z"}
+{"candidate":"casbin","name":"stored chunk bounded","expected":200,"actual":200,"at":"2026-09-22T22:54:49.922Z"}
+{"candidate":"casbin","name":"source mutation invalidates worker next chunk","expected":403,"actual":403,"at":"2026-09-22T22:54:49.927Z"}
+{"candidate":"casbin","name":"source mutation does not reveal partial chunk","expected":403,"actual":403,"at":"2026-09-22T22:54:49.930Z"}
+{"candidate":"casbin","name":"Guard bypass direct report denied","expected":true,"actual":true,"at":"2026-09-22T22:54:49.938Z"}
+{"candidate":"casbin","name":"Guard bypass direct training denied","expected":true,"actual":true,"at":"2026-09-22T22:54:49.943Z"}
+{"candidate":"casbin","name":"Guard bypass direct account denied","expected":true,"actual":true,"at":"2026-09-22T22:54:49.948Z"}

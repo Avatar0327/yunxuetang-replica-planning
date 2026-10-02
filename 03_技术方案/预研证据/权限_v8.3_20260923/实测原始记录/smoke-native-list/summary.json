@@ -1,0 +1,67 @@
+{
+  "startAt": "2026-09-22T19:50:07.686Z",
+  "endAt": "2026-09-22T19:50:10.695Z",
+  "durationMs": 3008.380083,
+  "configuredSeconds": 3,
+  "concurrency": 4,
+  "total": 1454,
+  "candidate": "native",
+  "cache": "hot",
+  "scenario": "list-broad",
+  "phase": "success",
+  "urls": [
+    "http://127.0.0.1:4311",
+    "http://127.0.0.1:4312"
+  ],
+  "pageSize": 50,
+  "queryCounts": {
+    "8": 1450,
+    "10": 4
+  },
+  "instances": {
+    "A": 644,
+    "B": 810
+  },
+  "cacheHits": {
+    "cold": 4,
+    "L1": 1450
+  },
+  "referenceWindow": false,
+  "samplingRatio": 1,
+  "success": {
+    "count": 1454,
+    "p50": 8.05158300000005,
+    "p95": 9.293458999999984,
+    "p99": 10.536166000000037
+  },
+  "denial": {
+    "count": 0,
+    "p50": null,
+    "p95": null,
+    "p99": null
+  },
+  "failure": {
+    "count": 0,
+    "p50": null,
+    "p95": null,
+    "p99": null
+  },
+  "authorization_error": {
+    "count": 0,
+    "p50": null,
+    "p95": null,
+    "p99": null
+  },
+  "permission": {
+    "count": 1454,
+    "p50": 2.825750000018161,
+    "p95": 3.6158329999889247,
+    "p99": 4.3125
+  },
+  "data": {
+    "count": 1454,
+    "p50": 4.574875000020256,
+    "p95": 5.161875000019791,
+    "p99": 5.590457999991486
+  }
+}

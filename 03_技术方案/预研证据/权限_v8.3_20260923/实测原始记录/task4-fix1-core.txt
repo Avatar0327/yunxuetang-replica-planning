@@ -1,0 +1,25 @@
+✔ native: snapshot build crossing revoke rejects stale version (34.4165ms)
+✔ native: write before revoke commits; revoke before next write denies (54.105917ms)
+✔ casbin: snapshot build crossing revoke rejects stale version (26.489ms)
+✔ casbin: write before revoke commits; revoke before next write denies (108.264792ms)
+✔ native: waiting context reads committed department facts (46.550583ms)
+✔ native: waiting report reads committed department facts (38.635666ms)
+✔ native: waiting context reads committed company facts (37.224416ms)
+✔ native: waiting report reads committed company facts (36.962833ms)
+✔ native: waiting context reads committed disabled facts (28.422625ms)
+✔ native: waiting context reads committed deleted facts (27.8435ms)
+✔ casbin: waiting context reads committed department facts (43.873708ms)
+✔ casbin: waiting report reads committed department facts (43.058584ms)
+✔ casbin: waiting context reads committed company facts (37.695667ms)
+✔ casbin: waiting report reads committed company facts (37.20825ms)
+✔ casbin: waiting context reads committed disabled facts (27.274708ms)
+✔ casbin: waiting context reads committed deleted facts (27.54425ms)
+✔ locking authority rejects pool and a bare autocommit client (0.471959ms)
+ℹ tests 17
+ℹ suites 0
+ℹ pass 17
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 995.112917

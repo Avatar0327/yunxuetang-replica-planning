@@ -1,0 +1,32 @@
+{
+  "startedAt": "2026-09-23T00:35:12.096878+00:00",
+  "mode": "appointment",
+  "synthetic": true,
+  "request": {
+    "method": "POST",
+    "url": "http://127.0.0.1:4311/appointments",
+    "body": {
+      "personId": "L",
+      "projectId": "P",
+      "active": true
+    }
+  },
+  "status": 200,
+  "response": {
+    "id": "df57b7e1-3d85-4dee-8da4-af4a8f5fab37",
+    "active": true,
+    "meta": {
+      "candidate": "casbin",
+      "instance": "A",
+      "pid": 35505,
+      "pubsub": false,
+      "requestAt": "2026-09-23T00:35:12.104Z",
+      "responseAt": "2026-09-23T00:35:12.130Z",
+      "elapsedMs": 26.39650000000256,
+      "authorityObservedAt": "2026-09-23T00:35:12.176Z",
+      "observedRevision": 1790123693540,
+      "queryCount": 18
+    }
+  },
+  "finishedAt": "2026-09-23T00:35:12.131528+00:00"
+}

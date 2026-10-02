@@ -1,0 +1,133 @@
+[
+  {
+    "candidate": "native",
+    "cache": "cold",
+    "pass": false,
+    "reasons": [
+      "history-broad: nonSuccessRate>0.1%OrNoSamples",
+      "history-broad: permissionP95>50msOrMissing",
+      "history-broad: endpointP95>2000msOrMissing",
+      "history-constrained: nonSuccessRate>0.1%OrNoSamples",
+      "history-constrained: permissionP95>50msOrMissing",
+      "history-constrained: endpointP95>2000msOrMissing",
+      "list-broad: nonSuccessRate>0.1%OrNoSamples",
+      "list-broad: permissionP95>50msOrMissing",
+      "list-broad: endpointP95>500msOrMissing",
+      "list-constrained: nonSuccessRate>0.1%OrNoSamples",
+      "list-constrained: permissionP95>50msOrMissing",
+      "list-constrained: endpointP95>500msOrMissing",
+      "_all: nonSuccessRate>0.1%OrNoSamples"
+    ],
+    "scenarios": [
+      {
+        "scenario": "history-broad",
+        "counts": {
+          "success": 1545,
+          "denial": 0,
+          "failure": 39,
+          "authorization_error": 0,
+          "measurement_error": 0
+        },
+        "total": 1584,
+        "non_success": 39,
+        "non_success_rate": 0.02462121212121212,
+        "limit": 0.001,
+        "rate_pass": false,
+        "latency": {
+          "permission_p95_ms": 1979.64322800003,
+          "permission_limit_ms": 50,
+          "permission_met": false,
+          "success_p95_ms": 9386.983666000015,
+          "success_limit_ms": 2000,
+          "success_met": false
+        }
+      },
+      {
+        "scenario": "history-constrained",
+        "counts": {
+          "success": 483,
+          "denial": 0,
+          "failure": 1100,
+          "authorization_error": 0,
+          "measurement_error": 0
+        },
+        "total": 1583,
+        "non_success": 1100,
+        "non_success_rate": 0.6948831332912192,
+        "limit": 0.001,
+        "rate_pass": false,
+        "latency": {
+          "permission_p95_ms": 2280.834550999978,
+          "permission_limit_ms": 50,
+          "permission_met": false,
+          "success_p95_ms": 11747.394124999992,
+          "success_limit_ms": 2000,
+          "success_met": false
+        }
+      },
+      {
+        "scenario": "list-broad",
+        "counts": {
+          "success": 1564,
+          "denial": 0,
+          "failure": 20,
+          "authorization_error": 0,
+          "measurement_error": 0
+        },
+        "total": 1584,
+        "non_success": 20,
+        "non_success_rate": 0.012626262626262626,
+        "limit": 0.001,
+        "rate_pass": false,
+        "latency": {
+          "permission_p95_ms": 2285.61447900004,
+          "permission_limit_ms": 50,
+          "permission_met": false,
+          "success_p95_ms": 2662.748458999966,
+          "success_limit_ms": 500,
+          "success_met": false
+        }
+      },
+      {
+        "scenario": "list-constrained",
+        "counts": {
+          "success": 1561,
+          "denial": 0,
+          "failure": 23,
+          "authorization_error": 0,
+          "measurement_error": 0
+        },
+        "total": 1584,
+        "non_success": 23,
+        "non_success_rate": 0.01452020202020202,
+        "limit": 0.001,
+        "rate_pass": false,
+        "latency": {
+          "permission_p95_ms": 2416.6885790000015,
+          "permission_limit_ms": 50,
+          "permission_met": false,
+          "success_p95_ms": 3396.546250000014,
+          "success_limit_ms": 500,
+          "success_met": false
+        }
+      },
+      {
+        "scenario": "_all",
+        "counts": {
+          "success": 5153,
+          "denial": 0,
+          "failure": 1182,
+          "authorization_error": 0,
+          "measurement_error": 0
+        },
+        "total": 6335,
+        "non_success": 1182,
+        "non_success_rate": 0.18658247829518548,
+        "limit": 0.001,
+        "rate_pass": false,
+        "latency": null
+      }
+    ],
+    "scope": "Measured reference gate only. Full error-cause join, revocation/fault/semantic/noN+1 and observer validity required separately; never overallGo."
+  }
+]

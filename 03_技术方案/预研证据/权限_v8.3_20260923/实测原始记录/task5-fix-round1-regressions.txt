@@ -1,0 +1,50 @@
+✔ module repositories cannot read or write foreign private tables (5.524667ms)
+✔ SQL routines retain owning-module table boundaries (0.388833ms)
+✔ native: team lock order, two instances, Redis failure (2933.804667ms)
+✔ casbin: team lock order, two instances, Redis failure (2842.173042ms)
+▶ native: R1 membership revoke retains target-person cap
+  ✔ denies C (1.5455ms)
+  ✔ no target/dependent writes (2.109958ms)
+  ✔ permits B (12.60025ms)
+✔ native: R1 membership revoke retains target-person cap (354.182542ms)
+▶ native: R2 attachment uses project-specific download action
+  ✔ view remains progress only (27.945209ms)
+  ✔ other project download cannot join broader view (7.369125ms)
+  ✔ matching download permits bytes (14.463834ms)
+  ✔ download-only revoke applies next new request (37.792ms)
+✔ native: R2 attachment uses project-specific download action (711.499167ms)
+▶ casbin: R1 membership revoke retains target-person cap
+  ✔ denies C (0.351875ms)
+  ✔ no target/dependent writes (1.235416ms)
+  ✔ permits B (12.209458ms)
+✔ casbin: R1 membership revoke retains target-person cap (333.249708ms)
+▶ casbin: R2 attachment uses project-specific download action
+  ✔ view remains progress only (30.009958ms)
+  ✔ other project download cannot join broader view (7.543792ms)
+  ✔ matching download permits bytes (14.811833ms)
+  ✔ download-only revoke applies next new request (49.769875ms)
+✔ casbin: R2 attachment uses project-specific download action (684.878667ms)
+✔ native: direct-team enrollment paths (611.35775ms)
+✔ casbin: direct-team enrollment paths (647.976167ms)
+▶ native: old-company enrollment conflicts deny without partial enrollment
+  ✔ single conflict rejects entire batch (11.470833ms)
+  ✔ mixed conflict rejects entire batch (10.514833ms)
+  ✔ A B and internal protected reads retain enrollment boundaries after rejection (223.619584ms)
+  ✔ same-company existing enrollment remains idempotent alongside fresh enrollment (22.474834ms)
+✔ native: old-company enrollment conflicts deny without partial enrollment (682.882583ms)
+▶ casbin: old-company enrollment conflicts deny without partial enrollment
+  ✔ single conflict rejects entire batch (10.924ms)
+  ✔ mixed conflict rejects entire batch (9.118125ms)
+  ✔ A B and internal protected reads retain enrollment boundaries after rejection (225.30925ms)
+  ✔ same-company existing enrollment remains idempotent alongside fresh enrollment (22.508083ms)
+✔ casbin: old-company enrollment conflicts deny without partial enrollment (672.573458ms)
+✔ native: enrollment snapshot after person transfer (511.918375ms)
+✔ casbin: enrollment snapshot after person transfer (505.869542ms)
+ℹ tests 36
+ℹ suites 0
+ℹ pass 36
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 12114.591208

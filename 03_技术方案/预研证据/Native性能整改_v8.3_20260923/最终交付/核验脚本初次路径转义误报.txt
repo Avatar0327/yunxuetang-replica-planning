@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/Users/peng/Agent本地开发/云学堂权限预研/output/native-remediation/verify-final-delivery.py", line 15, in <module>
+    blobs={x.name:t.extractfile(x).read() for x in t if x.isfile()};names=subprocess.check_output(['git','ls-tree','-r','--name-only',head],text=True).splitlines();check('source archive exact tracked file set',set(blobs)==set(names))
+                                                                                                                                                                    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/peng/Agent本地开发/云学堂权限预研/output/native-remediation/verify-final-delivery.py", line 6, in check
+    if not b:raise AssertionError(n)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: source archive exact tracked file set

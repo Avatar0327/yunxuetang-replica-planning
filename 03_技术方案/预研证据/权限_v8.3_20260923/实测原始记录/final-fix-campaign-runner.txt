@@ -1,0 +1,12 @@
+core-seed 0
+core 0
+http-native-seed 0
+http-native 0
+http-casbin-seed 0
+http-casbin 0
+task3-seed 0
+task3 0
+task4-seed 0
+task4 0
+task5-seed 0
+task5 0

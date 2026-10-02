@@ -1,0 +1,215 @@
+{
+  "sourceCommit": "cb72484ed8e7547146920fd4312dd24f8c9e2402",
+  "files": [
+    {
+      "original": "output/final-fix-campaign/evidence/raw/commands.json",
+      "archived": "evidence/raw/final-fix-full-campaign/commands.json",
+      "bytes": 5243,
+      "sha256": "1c45a5f0788767bef626752596f0ad22461132a0759db88147c7e0210f9a27ad"
+    },
+    {
+      "original": "output/final-fix-campaign/evidence/raw/core-races.jsonl",
+      "archived": "evidence/raw/final-fix-full-campaign/core-races.jsonl",
+      "bytes": 1216,
+      "sha256": "37688e77424eb41731c5e9455cdf9988de7fa1cbc8ebb4b38db7494c1bcbce27"
+    },
+    {
+      "original": "output/final-fix-campaign/evidence/raw/core-seed.txt",
+      "archived": "evidence/raw/final-fix-full-campaign/core-seed.txt",
+      "bytes": 142,
+      "sha256": "888f8fe49a6b3da8dc75ae988ff63d8583b2439d55cc663ad5998233e049e1e6"
+    },
+    {
+      "original": "output/final-fix-campaign/evidence/raw/core-semantic.jsonl",
+      "archived": "evidence/raw/final-fix-full-campaign/core-semantic.jsonl",
+      "bytes": 33934,
+      "sha256": "406f33b224a0af1fe02f7d9d87ba927abeee5b356df084cd092ca64db8d87b56"
+    },
+    {
+      "original": "output/final-fix-campaign/evidence/raw/core.txt",
+      "archived": "evidence/raw/final-fix-full-campaign/core.txt",
+      "bytes": 4586,
+      "sha256": "445fa91f34f01dd20d9362772766cce4a2adfb160590dd878c674ef4f656ccef"
+    },
+    {
+      "original": "output/final-fix-campaign/evidence/raw/http-casbin-api.txt",
+      "archived": "evidence/raw/final-fix-full-campaign/http-casbin-api.txt",
+      "bytes": 82,
+      "sha256": "d436dfc5476e976062f4d106ea2862bc12b91f15083f3b1439a8ce2a726ace7f"
+    },
+    {
+      "original": "output/final-fix-campaign/evidence/raw/http-casbin-seed.txt",
+      "archived": "evidence/raw/final-fix-full-campaign/http-casbin-seed.txt",
+      "bytes": 142,
+      "sha256": "888f8fe49a6b3da8dc75ae988ff63d8583b2439d55cc663ad5998233e049e1e6"
+    },
+    {
+      "original": "output/final-fix-campaign/evidence/raw/http-casbin.jsonl",
+      "archived": "evidence/raw/final-fix-full-campaign/http-casbin.jsonl",
+      "bytes": 7672,
+      "sha256": "2238cf8db4036db8f72d68813fa763327689860ba382290d3f60a9a5a587b068"
+    },
+    {
+      "original": "output/final-fix-campaign/evidence/raw/http-casbin.txt",
+      "archived": "evidence/raw/final-fix-full-campaign/http-casbin.txt",
+      "bytes": 318,
+      "sha256": "f10bcf419c2a58583981fc57321de69c5466b779e4b2e64fc981bde758bddba7"
+    },
+    {
+      "original": "output/final-fix-campaign/evidence/raw/http-native-api.txt",
+      "archived": "evidence/raw/final-fix-full-campaign/http-native-api.txt",
+      "bytes": 82,
+      "sha256": "22390f619cc4680631e089bc2f0747b0282363f12d38d9c1cc8cd1db6da217cb"
+    },
+    {
+      "original": "output/final-fix-campaign/evidence/raw/http-native-seed.txt",
+      "archived": "evidence/raw/final-fix-full-campaign/http-native-seed.txt",
+      "bytes": 142,
+      "sha256": "888f8fe49a6b3da8dc75ae988ff63d8583b2439d55cc663ad5998233e049e1e6"
+    },
+    {
+      "original": "output/final-fix-campaign/evidence/raw/http-native.jsonl",
+      "archived": "evidence/raw/final-fix-full-campaign/http-native.jsonl",
+      "bytes": 7672,
+      "sha256": "ede4cf04c1ab7e4dd2244df01ae996e3a2bfa595343fb069007602e221346a6e"
+    },
+    {
+      "original": "output/final-fix-campaign/evidence/raw/http-native.txt",
+      "archived": "evidence/raw/final-fix-full-campaign/http-native.txt",
+      "bytes": 318,
+      "sha256": "5d941438f110ceb80fc83a07ed19db56da21e89c212b2ddcb61b64fe0857847f"
+    },
+    {
+      "original": "output/final-fix-campaign/evidence/raw/task2-fix1-observations.jsonl",
+      "archived": "evidence/raw/final-fix-full-campaign/task2-fix1-observations.jsonl",
+      "bytes": 22160,
+      "sha256": "bfb159391c8315a438c0a6439542fe3237b3261947cd10e72766524e792eac4a"
+    },
+    {
+      "original": "output/final-fix-campaign/evidence/raw/task2-scope-observations.jsonl",
+      "archived": "evidence/raw/final-fix-full-campaign/task2-scope-observations.jsonl",
+      "bytes": 3774,
+      "sha256": "8b797c9d966e561d7fcaf209f317df94fc99593cd152ddeb33aacb27bb841eb6"
+    },
+    {
+      "original": "output/final-fix-campaign/evidence/raw/task3-http.jsonl",
+      "archived": "evidence/raw/final-fix-full-campaign/task3-http.jsonl",
+      "bytes": 221963,
+      "sha256": "3f1c978f27421de44066b2eb53aa53bb0757b4cbd63eae856434fba9d02870be"
+    },
+    {
+      "original": "output/final-fix-campaign/evidence/raw/task3-seed.txt",
+      "archived": "evidence/raw/final-fix-full-campaign/task3-seed.txt",
+      "bytes": 142,
+      "sha256": "888f8fe49a6b3da8dc75ae988ff63d8583b2439d55cc663ad5998233e049e1e6"
+    },
+    {
+      "original": "output/final-fix-campaign/evidence/raw/task3.jsonl",
+      "archived": "evidence/raw/final-fix-full-campaign/task3.jsonl",
+      "bytes": 50391,
+      "sha256": "3833f398142602780bacd88fac0c854377b4e02a4bde8a28db3f55b3c360e386"
+    },
+    {
+      "original": "output/final-fix-campaign/evidence/raw/task3.txt",
+      "archived": "evidence/raw/final-fix-full-campaign/task3.txt",
+      "bytes": 9339,
+      "sha256": "174929a33815c550c0ea54c202f849cff153a755a9fbddb358161c795c61af72"
+    },
+    {
+      "original": "output/final-fix-campaign/evidence/raw/task4-http.jsonl",
+      "archived": "evidence/raw/final-fix-full-campaign/task4-http.jsonl",
+      "bytes": 191934,
+      "sha256": "38d3a713927ef66a1b3d103116a16d3549127cb7e0d980ea16e1ccee3a66a788"
+    },
+    {
+      "original": "output/final-fix-campaign/evidence/raw/task4-seed.txt",
+      "archived": "evidence/raw/final-fix-full-campaign/task4-seed.txt",
+      "bytes": 142,
+      "sha256": "888f8fe49a6b3da8dc75ae988ff63d8583b2439d55cc663ad5998233e049e1e6"
+    },
+    {
+      "original": "output/final-fix-campaign/evidence/raw/task4.jsonl",
+      "archived": "evidence/raw/final-fix-full-campaign/task4.jsonl",
+      "bytes": 50482,
+      "sha256": "f23c053b7623f71363049638edab96efd23ea503eb9fccb57f7a7021096b74b4"
+    },
+    {
+      "original": "output/final-fix-campaign/evidence/raw/task4.txt",
+      "archived": "evidence/raw/final-fix-full-campaign/task4.txt",
+      "bytes": 6039,
+      "sha256": "5223ab54d36b6e1da2e8c224e65dc8ea25bdc08f6b0add08df82c8178b97737e"
+    },
+    {
+      "original": "output/final-fix-campaign/evidence/raw/task5-commit-timeline.jsonl",
+      "archived": "evidence/raw/final-fix-full-campaign/task5-commit-timeline.jsonl",
+      "bytes": 4124,
+      "sha256": "122356c46a457bd5c99b5c7624e1a6b1e0fc776429335412b2dac9e9620e9f4b"
+    },
+    {
+      "original": "output/final-fix-campaign/evidence/raw/task5-complex-casbin.json",
+      "archived": "evidence/raw/final-fix-full-campaign/task5-complex-casbin.json",
+      "bytes": 342609,
+      "sha256": "14b344fbc7d0d6a688c23eec7cca2216b25c14dddb80a2cb995dc490eb52eef8"
+    },
+    {
+      "original": "output/final-fix-campaign/evidence/raw/task5-complex-native.json",
+      "archived": "evidence/raw/final-fix-full-campaign/task5-complex-native.json",
+      "bytes": 342607,
+      "sha256": "170c8a78466c41bf88c172f66f8a7356ef7f246028af51b3153b5e30b5827ec2"
+    },
+    {
+      "original": "output/final-fix-campaign/evidence/raw/task5-domain-export-scans-casbin.json",
+      "archived": "evidence/raw/final-fix-full-campaign/task5-domain-export-scans-casbin.json",
+      "bytes": 52949,
+      "sha256": "81a2f6792aa07b17775fc33759fc06295079ec9f4eff051b1e22bfa522f7ffab"
+    },
+    {
+      "original": "output/final-fix-campaign/evidence/raw/task5-domain-export-scans-native.json",
+      "archived": "evidence/raw/final-fix-full-campaign/task5-domain-export-scans-native.json",
+      "bytes": 52948,
+      "sha256": "6b7d4db4bea096da978afc2e32338fa148222168cb448aebb269f74a39e3c01f"
+    },
+    {
+      "original": "output/final-fix-campaign/evidence/raw/task5-http.jsonl",
+      "archived": "evidence/raw/final-fix-full-campaign/task5-http.jsonl",
+      "bytes": 1053480,
+      "sha256": "d4eecb81c6b411cf29051a42428ceb332f55b3dffcca658ab4d333a3062484f6"
+    },
+    {
+      "original": "output/final-fix-campaign/evidence/raw/task5-race-timeline.jsonl",
+      "archived": "evidence/raw/final-fix-full-campaign/task5-race-timeline.jsonl",
+      "bytes": 1096,
+      "sha256": "a446c4d6ed1adac445d691877b9db98f9c27027a6ba8caa376449b0b6d9e36bf"
+    },
+    {
+      "original": "output/final-fix-campaign/evidence/raw/task5-scans-casbin.json",
+      "archived": "evidence/raw/final-fix-full-campaign/task5-scans-casbin.json",
+      "bytes": 7026831,
+      "sha256": "dc5b13b887ca2bdccb396630a7082ebbffe25bfc1f3891be72c6bfab7ac72763"
+    },
+    {
+      "original": "output/final-fix-campaign/evidence/raw/task5-scans-native.json",
+      "archived": "evidence/raw/final-fix-full-campaign/task5-scans-native.json",
+      "bytes": 7124710,
+      "sha256": "0482a2470caa8ed557e1612780b236f26683373e3ebed6d6a7e51e1935f4114f"
+    },
+    {
+      "original": "output/final-fix-campaign/evidence/raw/task5-seed.txt",
+      "archived": "evidence/raw/final-fix-full-campaign/task5-seed.txt",
+      "bytes": 142,
+      "sha256": "888f8fe49a6b3da8dc75ae988ff63d8583b2439d55cc663ad5998233e049e1e6"
+    },
+    {
+      "original": "output/final-fix-campaign/evidence/raw/task5.jsonl",
+      "archived": "evidence/raw/final-fix-full-campaign/task5.jsonl",
+      "bytes": 142380,
+      "sha256": "13dd90d3876c964d9d1edb42dfdad8b4bb45c7dd3c1d34bef2b3f82e7b7b4c1c"
+    },
+    {
+      "original": "output/final-fix-campaign/evidence/raw/task5.txt",
+      "archived": "evidence/raw/final-fix-full-campaign/task5.txt",
+      "bytes": 4761,
+      "sha256": "8550c2d504bc810894d7106a41d3c246437fc7794858e16b756fd79fdc1f8b75"
+    }
+  ]
+}

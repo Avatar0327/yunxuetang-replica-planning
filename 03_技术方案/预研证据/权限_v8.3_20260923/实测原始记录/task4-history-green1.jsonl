@@ -1,0 +1,4 @@
+{"candidate":"native","name":"history role for person without facts","expected":200,"actual":200,"at":"2026-09-22T21:50:37.416Z"}
+{"candidate":"native","name":"new same-company fact appears, other company denied","expected":["t4-history-native-same"],"actual":["t4-history-native-same"],"at":"2026-09-22T21:50:37.428Z"}
+{"candidate":"casbin","name":"history role for person without facts","expected":200,"actual":200,"at":"2026-09-22T21:50:37.926Z"}
+{"candidate":"casbin","name":"new same-company fact appears, other company denied","expected":["t4-history-casbin-same"],"actual":["t4-history-casbin-same"],"at":"2026-09-22T21:50:37.936Z"}

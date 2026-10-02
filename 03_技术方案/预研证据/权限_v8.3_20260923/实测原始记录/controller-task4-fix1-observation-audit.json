@@ -1,0 +1,13 @@
+{
+  "audited_at": "2026-09-23T06:38:44.348808+08:00",
+  "source": "task4-fix1-final-observations.jsonl",
+  "source_commit": "4851eeb64f77944de9d7028a61277f9682601544",
+  "records": 108,
+  "by_candidate": {
+    "native": 54,
+    "casbin": 54
+  },
+  "literal_mismatches": [],
+  "sha256": "af88a28e40287be66d73089e0373b7f92c4096cdb1ab11cdb828bf9605df41eb",
+  "meaning": "Independent literal audit, not full permission gate or reviewer approval."
+}

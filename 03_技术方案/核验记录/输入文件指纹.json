@@ -1,0 +1,489 @@
+{
+  "captured_date": "2026-09-22",
+  "count": 65,
+  "files": [
+    {
+      "path": "00_项目管理/RUN_ID.txt",
+      "bytes": 20,
+      "sha256": "5bf11525326c570d7aaf3c122e300dc92accf1916c5069bde8aeeb272ca09106"
+    },
+    {
+      "path": "00_项目管理/进度台账.md",
+      "bytes": 26564,
+      "sha256": "15a59d51ab163f446fc987217e402da0d1312bb783710ca8c547fe0ab17b359c"
+    },
+    {
+      "path": "01_证据台账/E001_登录与验证拦截.md",
+      "bytes": 3880,
+      "sha256": "a09b9be2dec4114d1bd8581b947b374e65cc80f98ed251b7ea269eea3c24ed42"
+    },
+    {
+      "path": "01_证据台账/E002_管理后台首页与平台总览.md",
+      "bytes": 6720,
+      "sha256": "af34e1abf24453f58a1c0cc7dd7b463646611d7a5a18ea1bbc7abf8a928a5c0b"
+    },
+    {
+      "path": "01_证据台账/E003_身份核验与人员对象字段.md",
+      "bytes": 4448,
+      "sha256": "f4830dd0b4a5714fe6cd87eaea96cbcd0b2cf01c99ec79cce048afd42e9451ef"
+    },
+    {
+      "path": "01_证据台账/E004_全站模块地图与路由.md",
+      "bytes": 4919,
+      "sha256": "0d5e7472fb6b1404c893049cba55af85683d249bf0a9062fdca44be6cea93611"
+    },
+    {
+      "path": "01_证据台账/E005_组织人员与角色模型.md",
+      "bytes": 5860,
+      "sha256": "3e1d28fd7f58dd96e569fe40353274eb32484da53ec54d7aed1a125d9af9fb2e"
+    },
+    {
+      "path": "01_证据台账/E006_角色权限模型.md",
+      "bytes": 8545,
+      "sha256": "dc4e279402c6e213903c1c2a64187b502e570f720c4bb2ccf3ccc072912b4503"
+    },
+    {
+      "path": "01_证据台账/E007_指标口径字典.md",
+      "bytes": 7705,
+      "sha256": "e262c10a74a25e9d0de98e82effe0a832754925b90f1ed6738e77c7ea093a2f2"
+    },
+    {
+      "path": "01_证据台账/E008_课程对象与学习规则.md",
+      "bytes": 14858,
+      "sha256": "3188c30b830e7f2183b8d0a3685834379b1c233cc405ee063677b04bc076cbdf"
+    },
+    {
+      "path": "01_证据台账/E009_培训项目对象与指派规则.md",
+      "bytes": 7039,
+      "sha256": "4d2e4c6198343478a35269ea6077ae1a2709fe33ad68d01fffb6d8936fbe6871"
+    },
+    {
+      "path": "01_证据台账/E010_项目完成口径与督学规则.md",
+      "bytes": 9150,
+      "sha256": "13ee9b1b2375519800bc1bca1e203aaf6f8fab264a2bd60e9bbc568b30373a1e"
+    },
+    {
+      "path": "01_证据台账/E011_学员指派与学习记录对象.md",
+      "bytes": 7928,
+      "sha256": "855b6abceec10df067d8249492179663e69763e8dbf79f8b876400bf96e14b9f"
+    },
+    {
+      "path": "01_证据台账/E012_任务结构与任务对象.md",
+      "bytes": 6626,
+      "sha256": "e416b5f073665c8a46271df63ca7101eacfaeda4e3a52ad53b1206d8a4bf39fe"
+    },
+    {
+      "path": "01_证据台账/E013_报表中心与指标定义.md",
+      "bytes": 11856,
+      "sha256": "561d8767376dfad6b2a544ec0800d9c2599d033d392d846dd62a0daa2677233e"
+    },
+    {
+      "path": "01_证据台账/E014_考试规则与考试记录对象.md",
+      "bytes": 16010,
+      "sha256": "3580260e84d0275bbf22fbb396e1d1fa415f0713544e3fcbda340e7bc7eec0b0"
+    },
+    {
+      "path": "01_证据台账/E015_学员端结构与学习页.md",
+      "bytes": 12829,
+      "sha256": "f8223d9c64410f8bbfc8897816c5d5251c29f9d2fd73c0648a2b537c199de9ab"
+    },
+    {
+      "path": "01_证据台账/E016_课程可见范围与分类权限模型.md",
+      "bytes": 6850,
+      "sha256": "6572dac641d52d332b41e6e0e77d0453e15a2955a7b71b64a9f6800b492be909"
+    },
+    {
+      "path": "01_证据台账/E017_学习时长规则配置.md",
+      "bytes": 13382,
+      "sha256": "78250756fae772848b93c0269a4a29071fbb8fa5745af11a51af2e36b1a10ae9"
+    },
+    {
+      "path": "01_证据台账/E018_官方手册与网页交叉验证.md",
+      "bytes": 19308,
+      "sha256": "982c7cee475cdbaf6d8ec0111ffd79425d152f098e2ca847385f68ecd23aaf9b"
+    },
+    {
+      "path": "01_证据台账/E019_全模块范围依据.md",
+      "bytes": 9181,
+      "sha256": "d0a524567d554a0326e58e4f67b71275dc659d5c728c0496a9dc4b7a038294fd"
+    },
+    {
+      "path": "01_证据台账/E020_调查中心.md",
+      "bytes": 8839,
+      "sha256": "83d717ceadf40816db63b8a9288140d5aaa23d1467dc85ad00279ef28da6980a"
+    },
+    {
+      "path": "01_证据台账/E021_面授中心.md",
+      "bytes": 9134,
+      "sha256": "060d7e97e2a7895ca1957f35dba44cf8ada740b2a586ad3ce548ce456bee3732"
+    },
+    {
+      "path": "01_证据台账/E022_培训规划.md",
+      "bytes": 4593,
+      "sha256": "0d143253443272fc093036aa1eb9db9c729a7860b60e661bf13030c8740f6e93"
+    },
+    {
+      "path": "01_证据台账/E023_项目激励体系与任务大纲结构.md",
+      "bytes": 10216,
+      "sha256": "e784c01982ddd5605e0250b90055d3e211a3ef1259e79a24bb3c00ff5617f56a"
+    },
+    {
+      "path": "02_规划交付物/交付物1_产品目标与范围.md",
+      "bytes": 16549,
+      "sha256": "3da573d6892e1ca4dff9e9630420930fa90ffffdb5cf9370b030ffd8a8ab4cc1"
+    },
+    {
+      "path": "02_规划交付物/交付物2_原站能力与证据清单.md",
+      "bytes": 19583,
+      "sha256": "1b40f35d4121bdcaef34172a42db9d65182a4f8a2afdc41a993f7df3cbaf1fc8"
+    },
+    {
+      "path": "02_规划交付物/交付物3_用户旅程与业务流程.md",
+      "bytes": 13212,
+      "sha256": "b7f8f9b4d017fb85eabcd902265cedfbf24e3ebb68214185da42f611a6cf3768"
+    },
+    {
+      "path": "02_规划交付物/交付物4_需求基线.md",
+      "bytes": 80073,
+      "sha256": "acef30398c3345e4d2b4ac3111e08e49371db23c17ca131b8e15177e8461d474"
+    },
+    {
+      "path": "02_规划交付物/交付物5_业务对象与指标字典.md",
+      "bytes": 35716,
+      "sha256": "c26df6a959a366c65463432405a244b39a79653a36855296ec2a50d6cd8a8f92"
+    },
+    {
+      "path": "02_规划交付物/交付物6_角色权限矩阵.md",
+      "bytes": 12548,
+      "sha256": "0f2a5d85fa0d6bbaab4594bf5a685f93f22f30dd82dfcc3790e3537ea697fe95"
+    },
+    {
+      "path": "02_规划交付物/交付物7_功能模块开发批次与任务书.md",
+      "bytes": 36804,
+      "sha256": "30b82d37105269c3f481eb9d60be5a81062da4887541fff8c97ed7de64773889"
+    },
+    {
+      "path": "02_规划交付物/交付物8A_差异清单与待决策事项.md",
+      "bytes": 30841,
+      "sha256": "cb9b4d5acc2c7478661fb7daa4e4159f191515371067e8e5f6ef68a09183aa0c"
+    },
+    {
+      "path": "02_规划交付物/交付物8B_验收场景.md",
+      "bytes": 29754,
+      "sha256": "8062ce2b9a3bee4029efce2644c5799ec2f336fa6aebfe097940bcb9966bd03c"
+    },
+    {
+      "path": "02_规划交付物/交付物9_AI辅助开发工作量评估.md",
+      "bytes": 7106,
+      "sha256": "e03da8b13705ad4b8457385bb6dbd3b051b5c600f47ecf0829e44c4603374b1a"
+    },
+    {
+      "path": "02_规划交付物/到期前优先取证清单.md",
+      "bytes": 8374,
+      "sha256": "08503579298eeebaee103510d18e9029115fae46f907aabbfe1b8d7cdf91334f"
+    },
+    {
+      "path": "02_规划交付物/已定稿_剩余十项确认结果.md",
+      "bytes": 7334,
+      "sha256": "46f7c70ff480c45b68b0b1efc490376a465aa2d0e06d3dab341b327ce3949127"
+    },
+    {
+      "path": "02_规划交付物/需求池_暂不实施.md",
+      "bytes": 4349,
+      "sha256": "a10bc0cce3564c9e3f133742428c5647772348e0a63e6499176a23485330beee"
+    },
+    {
+      "path": "交接说明_v8.3.md",
+      "bytes": 19310,
+      "sha256": "258da035508e0f1243e57f7a9382df9f2a6fd803397a6fc85f1f19e5f91e4d0a"
+    },
+    {
+      "path": "产品手册合集 (1)/产品手册合集/操作手册/AI制课专家功能操作说明书.doc",
+      "bytes": 24235139,
+      "sha256": "de1c57de4a8c0d52a84b1772f3cd117fc7c10c4f6bf5ad3841f1dc475be04009"
+    },
+    {
+      "path": "产品手册合集 (1)/产品手册合集/操作手册/AI对练功能操作说明书.doc",
+      "bytes": 86411956,
+      "sha256": "7f3aacca53079be7cdea0e94642d7b73a8aacd481f0cfe48faed0c4316e87a18"
+    },
+    {
+      "path": "产品手册合集 (1)/产品手册合集/操作手册/AI对练学员端功能操作说明书.doc",
+      "bytes": 54579804,
+      "sha256": "de71490698cd377f734b0cc3ead1f5905707384811f6cd1d8974e29be8a66cb1"
+    },
+    {
+      "path": "产品手册合集 (1)/产品手册合集/操作手册/AI知识助手功能操作说明书.doc",
+      "bytes": 14981365,
+      "sha256": "dfb0871816447f81613afd0056dd360d2a1c45d15d79ee9b77b5bc74f29dbe5b"
+    },
+    {
+      "path": "产品手册合集 (1)/产品手册合集/操作手册/AI考试专家功能操作说明书.doc",
+      "bytes": 2596228,
+      "sha256": "86c85eb0f471deb13b30692e40a064917b32b8f914b861a6439c644d521a5154"
+    },
+    {
+      "path": "产品手册合集 (1)/产品手册合集/操作手册/人才中心功能操作说明书.doc",
+      "bytes": 21033774,
+      "sha256": "8e7aa7e42dbc5d8141923287376ee6cb69f7042453df6dc1b4642e9d8afa6314"
+    },
+    {
+      "path": "产品手册合集 (1)/产品手册合集/操作手册/发展中心功能操作说明书.doc",
+      "bytes": 7356220,
+      "sha256": "d012eeeee4eadf1cdabdb4dc28ab76b0657d868f0cbd7816269523cbd8a54188"
+    },
+    {
+      "path": "产品手册合集 (1)/产品手册合集/操作手册/在线课堂功能操作说明书.doc",
+      "bytes": 7991547,
+      "sha256": "ffc85f1afc491ff0186637c66e8f3cd7217812ec6cc1ea1a86a95672a2c36eaa"
+    },
+    {
+      "path": "产品手册合集 (1)/产品手册合集/操作手册/培训中心和培训规划功能操作说明书.doc",
+      "bytes": 36458214,
+      "sha256": "3ade48cda84e4d536b876d3da2cb84869825f9b6b41f5e05b4a5b2f3b941a291"
+    },
+    {
+      "path": "产品手册合集 (1)/产品手册合集/操作手册/学员端功能操作说明书.doc",
+      "bytes": 28176815,
+      "sha256": "e238f2ded903fca5b54248a2191534dedf3eb264a021346a59f3ea981a7bb244"
+    },
+    {
+      "path": "产品手册合集 (1)/产品手册合集/操作手册/岗位中心功能操作说明书.doc",
+      "bytes": 8474366,
+      "sha256": "14f31f3bc5c0831c5d677e44c93fce9b36be24fbccf173cffb4111333a0a273f"
+    },
+    {
+      "path": "产品手册合集 (1)/产品手册合集/操作手册/师资管理功能操作说明书.doc",
+      "bytes": 7452513,
+      "sha256": "cde22bbe6cc8ba5eac70f870050dae5acc59ec389ef8bcf1fcdbfa1770a369e6"
+    },
+    {
+      "path": "产品手册合集 (1)/产品手册合集/操作手册/平台运营功能操作说明书.doc",
+      "bytes": 26274395,
+      "sha256": "77ef528c0c069f74d615b23f1731cbed469ca5152d6e2e257f21327915917f6e"
+    },
+    {
+      "path": "产品手册合集 (1)/产品手册合集/操作手册/微课中心功能操作说明书.doc",
+      "bytes": 8079722,
+      "sha256": "e0864df1b95bb23e5342283f522865512ae9176bb024663530471cffa3468e78"
+    },
+    {
+      "path": "产品手册合集 (1)/产品手册合集/操作手册/我的企业功能操作说明书.doc",
+      "bytes": 19112001,
+      "sha256": "06b43c53e459e18066287bdd45fa6177a662781e9179b4403d0c11abd9ad7bb0"
+    },
+    {
+      "path": "产品手册合集 (1)/产品手册合集/操作手册/数据管理&标签管理功能操作说明书.doc",
+      "bytes": 1463984,
+      "sha256": "5bd514e4951a4b489bd9be36c2e2d919277f81d485f1bb4df2886ca6ed579caa"
+    },
+    {
+      "path": "产品手册合集 (1)/产品手册合集/操作手册/测练中心功能操作说明书.doc",
+      "bytes": 32886893,
+      "sha256": "c699e7a068341805cd53880acb856c09221c3f253f62a505984728f0c2cc8d06"
+    },
+    {
+      "path": "产品手册合集 (1)/产品手册合集/操作手册/游戏中心功能操作说明书.doc",
+      "bytes": 6231321,
+      "sha256": "c7dfde2f9f60f27f8b949a58acc8e0366ff936a4cb630caf1fbbf4b802b0c610"
+    },
+    {
+      "path": "产品手册合集 (1)/产品手册合集/操作手册/直播中心功能操作说明书.doc",
+      "bytes": 17756843,
+      "sha256": "e3b85c6d944095ea209d8ea75e73fe856df4bb6bd018057126b8f70daed1004e"
+    },
+    {
+      "path": "产品手册合集 (1)/产品手册合集/操作手册/知识空间功能操作说明书.doc",
+      "bytes": 1505463,
+      "sha256": "e8531a650c390a80ac1ec1b3d2fa150b977a4c9aed7ab107d39cf04ace3617e3"
+    },
+    {
+      "path": "产品手册合集 (1)/产品手册合集/操作手册/社区管理功能操作说明书.doc",
+      "bytes": 4456063,
+      "sha256": "b0b2130ca9937d688ceb98486331d27ebff8d9ac16dc09af5ff3c41ec0d8f39e"
+    },
+    {
+      "path": "产品手册合集 (1)/产品手册合集/操作手册/评鉴中心功能操作说明书.doc",
+      "bytes": 61871055,
+      "sha256": "3e8d1bbb1c9e32b8f1e64d12ebb40ce6b7e6310eec9c1bf465e7822ff59e4ded"
+    },
+    {
+      "path": "产品手册合集 (1)/产品手册合集/操作手册/调查中心功能操作说明书.doc",
+      "bytes": 4675099,
+      "sha256": "41a27bff4ae138fa4a2c5f0ee2a43dd29f5485f5853c617943a85c5263e9f77b"
+    },
+    {
+      "path": "产品手册合集 (1)/产品手册合集/操作手册/面授中心功能操作说明书.doc",
+      "bytes": 2920547,
+      "sha256": "e8ec3af68cef013759b30d8d3885ec5e4295c73b5b6cd53dc8b3bc9d10c5d466"
+    },
+    {
+      "path": "产品手册合集 (1)/产品手册合集/每期发版更新报告/【绚星云学习】2026年2月5日更新报告.docx",
+      "bytes": 16872414,
+      "sha256": "ac49515035f0a1ad6386986580e0d0ab58a7fd5c186971713438dc75584ea5fe"
+    },
+    {
+      "path": "产品手册合集 (1)/产品手册合集/每期发版更新报告/【绚星云学习】2026年4月16日更新报告.docx",
+      "bytes": 50442807,
+      "sha256": "1e1c950b193660aea30ab1a5e82e39da42c0ddf3b8e59b9502ea772349fcfa5b"
+    }
+  ],
+  "baseline_version": "v8.3",
+  "rebaselined_at": "2026-09-23T02:57:03+08:00",
+  "rebaseline_history": [
+    {
+      "at": "2026-09-23T01:19:19+08:00",
+      "from_version": "v8.1",
+      "to_version": "v8.2",
+      "reason": "业务规划负责人修订四份输入；修复AC-N-09重号、AC-N-10流水笔数，新增G-06并统一T-10课程学分目标语义。用户授权重设指定四文件指纹；另授权三项.DS_Store差异登记为元数据例外。",
+      "changed_files": [
+        {
+          "old_path": "00_项目管理/进度台账.md",
+          "new_path": "00_项目管理/进度台账.md",
+          "previous_sha256": "9f8c43a9c8656bfbc34d3058aaafecc0f419c202aeaacf2b347fe7a1c0620796",
+          "sha256": "62437ab422e659aa4124acb7d877b8143853441adbc2f9d5f7fd0460bd660308",
+          "bytes": 25772
+        },
+        {
+          "old_path": "02_规划交付物/交付物4_需求基线.md",
+          "new_path": "02_规划交付物/交付物4_需求基线.md",
+          "previous_sha256": "a3e49ac63695a72fffaf913931e4674edcba81ab98d6673bff7c72f442939fce",
+          "sha256": "acef30398c3345e4d2b4ac3111e08e49371db23c17ca131b8e15177e8461d474",
+          "bytes": 80073
+        },
+        {
+          "old_path": "02_规划交付物/交付物8B_验收场景.md",
+          "new_path": "02_规划交付物/交付物8B_验收场景.md",
+          "previous_sha256": "bda9d67c1eb35c9fedc202eb956bebd42bdeb88ed2d6edfc75eb895135a7d865",
+          "sha256": "8062ce2b9a3bee4029efce2644c5799ec2f336fa6aebfe097940bcb9966bd03c",
+          "bytes": 29754
+        },
+        {
+          "old_path": "交接说明_v8.1.md",
+          "new_path": "交接说明_v8.2.md",
+          "previous_sha256": "f5519203dded24e6d0b96a81667da750d63816628fbbd0073325f61b092bf3f6",
+          "sha256": "e05fae7023b7b69128d85be2ebf9931f43fdc74757d23fa0de7d7186d0b384e9",
+          "bytes": 18517
+        }
+      ],
+      "metadata_exceptions": [
+        {
+          "path": ".DS_Store",
+          "baseline_sha256_preserved": "69134abdafc191db9925beaf4703caab7eb4205405730bc3c4a5acdc1c88610c",
+          "observed_sha256": "23411b1ba3cfe25884e22112d7c9ffd401cd24845c3a2a72c83ad5ca901f3f3c",
+          "observed_bytes": 12292,
+          "reason": "用户明确授权仅将本次macOS元数据变化登记为例外，旧指纹保留"
+        },
+        {
+          "path": "产品手册合集 (1)/.DS_Store",
+          "baseline_sha256_preserved": "2cf8def80c68ce115b7c1b5565daa27a94779e1122dd4c06075657fba960f37c",
+          "observed_sha256": "3a8ee6f3f9d0a2b929d61aff1beecb341c39de64726c5405af57caea218a7436",
+          "observed_bytes": 6148,
+          "reason": "用户明确授权仅将本次macOS元数据变化登记为例外，旧指纹保留"
+        },
+        {
+          "path": "产品手册合集 (1)/产品手册合集/.DS_Store",
+          "baseline_sha256_preserved": "233edf08677d254e05b8a6d89a28bb56a17c6f893b5cdb6ab6f5f9bfd03f7686",
+          "observed_sha256": "7a13cb8af8835397f457f80dbafaad822f95e078f869835519a399047dcf6e60",
+          "observed_bytes": 6148,
+          "reason": "用户明确授权仅将本次macOS元数据变化登记为例外，旧指纹保留"
+        }
+      ],
+      "other_entry_fingerprints_unchanged": true
+    },
+    {
+      "at": "2026-09-23T02:57:03+08:00",
+      "from_version": "v8.2",
+      "to_version": "v8.3",
+      "reason": "规划负责人D-43裁定按任务行加总并上调B6验收执行量；D-44审核任务改B2-A1/A2；交接说明改名。65正本核验通过，其余62内容含24手册逐项匹配。",
+      "changed_files": [
+        {
+          "old_path": "00_项目管理/进度台账.md",
+          "new_path": "00_项目管理/进度台账.md",
+          "previous_sha256": "62437ab422e659aa4124acb7d877b8143853441adbc2f9d5f7fd0460bd660308",
+          "sha256": "15a59d51ab163f446fc987217e402da0d1312bb783710ca8c547fe0ab17b359c",
+          "bytes": 26564
+        },
+        {
+          "old_path": "02_规划交付物/交付物7_功能模块开发批次与任务书.md",
+          "new_path": "02_规划交付物/交付物7_功能模块开发批次与任务书.md",
+          "previous_sha256": "3d17d6e511170cb71ca56d845f4d08c077f6c968a81eada92cebe2fa1deee3d6",
+          "sha256": "30b82d37105269c3f481eb9d60be5a81062da4887541fff8c97ed7de64773889",
+          "bytes": 36804
+        },
+        {
+          "old_path": "交接说明_v8.2.md",
+          "new_path": "交接说明_v8.3.md",
+          "previous_sha256": "e05fae7023b7b69128d85be2ebf9931f43fdc74757d23fa0de7d7186d0b384e9",
+          "sha256": "258da035508e0f1243e57f7a9382df9f2a6fd803397a6fc85f1f19e5f91e4d0a",
+          "bytes": 19310
+        }
+      ],
+      "unchanged_content_count": 62,
+      "unchanged_manual_count": 24,
+      "input_count": 65,
+      "metadata_excluded": true,
+      "other_entry_fingerprints_unchanged": true
+    }
+  ],
+  "metadata_exclusion_policy": {
+    "exclude_basename": ".DS_Store",
+    "reason": "用户明确裁定macOS元数据不是内容，排除输入指纹；不将变化或缺失当作内容差异。"
+  },
+  "metadata_exclusion_history": [
+    {
+      "at": "2026-09-23T02:23:36+08:00",
+      "previous_count": 68,
+      "count": 65,
+      "removed_entries": [
+        {
+          "path": ".DS_Store",
+          "bytes": 10244,
+          "sha256": "69134abdafc191db9925beaf4703caab7eb4205405730bc3c4a5acdc1c88610c"
+        },
+        {
+          "path": "产品手册合集 (1)/.DS_Store",
+          "bytes": 8196,
+          "sha256": "2cf8def80c68ce115b7c1b5565daa27a94779e1122dd4c06075657fba960f37c"
+        },
+        {
+          "path": "产品手册合集 (1)/产品手册合集/.DS_Store",
+          "bytes": 6148,
+          "sha256": "233edf08677d254e05b8a6d89a28bb56a17c6f893b5cdb6ab6f5f9bfd03f7686"
+        }
+      ],
+      "previous_metadata_exceptions": [
+        {
+          "path": ".DS_Store",
+          "baseline_sha256_preserved": "69134abdafc191db9925beaf4703caab7eb4205405730bc3c4a5acdc1c88610c",
+          "observed_sha256": "23411b1ba3cfe25884e22112d7c9ffd401cd24845c3a2a72c83ad5ca901f3f3c",
+          "observed_bytes": 12292,
+          "reason": "用户明确授权仅将本次macOS元数据变化登记为例外，旧指纹保留",
+          "subsequent_observations": [
+            {
+              "at": "2026-09-23T01:31:10+08:00",
+              "sha256": "bb856d43e864006da4e35dc2015ea78ee8ee214b4627a3478b0ff52fe4b10da8",
+              "bytes": 12292,
+              "reason": "继续工作时同一获准元数据路径再次变化；沿用用户对该路径的例外授权，files旧指纹仍保留。"
+            }
+          ]
+        },
+        {
+          "path": "产品手册合集 (1)/.DS_Store",
+          "baseline_sha256_preserved": "2cf8def80c68ce115b7c1b5565daa27a94779e1122dd4c06075657fba960f37c",
+          "observed_sha256": "3a8ee6f3f9d0a2b929d61aff1beecb341c39de64726c5405af57caea218a7436",
+          "observed_bytes": 6148,
+          "reason": "用户明确授权仅将本次macOS元数据变化登记为例外，旧指纹保留"
+        },
+        {
+          "path": "产品手册合集 (1)/产品手册合集/.DS_Store",
+          "baseline_sha256_preserved": "233edf08677d254e05b8a6d89a28bb56a17c6f893b5cdb6ab6f5f9bfd03f7686",
+          "observed_sha256": "7a13cb8af8835397f457f80dbafaad822f95e078f869835519a399047dcf6e60",
+          "observed_bytes": 6148,
+          "reason": "用户明确授权仅将本次macOS元数据变化登记为例外，旧指纹保留"
+        }
+      ],
+      "authorization": "用户补充：.DS_Store ×3从指纹中排除。"
+    }
+  ]
+}

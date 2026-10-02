@@ -1,0 +1,8 @@
+{
+  "at": "2026-09-23T00:31:58.733016+00:00",
+  "reason": "Controller fixture omitted mandatory navigation:true; earlier independent-role denial is invalid setup, retained; application correctly denies incomplete source.",
+  "sql": "UPDATE authz.membership SET data=jsonb_set(data,'{policies,0,navigation}','true'::jsonb) WHERE tenant_id='T1' AND id='browser-independent-L';",
+  "exit": 0,
+  "output": "UPDATE 1\n",
+  "stderr": ""
+}

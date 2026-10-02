@@ -1,0 +1,6 @@
+{"candidate":"native","name":"Task4 department company required","expected":1,"actual":1,"at":"2026-09-22T21:49:22.220Z"}
+{"candidate":"native","name":"Task4 clear department and manager","expected":{"status":200,"department_id":null,"manager_id":null},"actual":{"status":200,"department_id":null,"manager_id":null},"at":"2026-09-22T21:49:22.259Z"}
+{"candidate":"native","name":"Task4 cross-company person rejected","expected":true,"actual":true,"at":"2026-09-22T21:49:22.263Z"}
+{"candidate":"casbin","name":"Task4 department company required","expected":1,"actual":1,"at":"2026-09-22T21:49:22.557Z"}
+{"candidate":"casbin","name":"Task4 clear department and manager","expected":{"status":200,"department_id":null,"manager_id":null},"actual":{"status":200,"department_id":null,"manager_id":null},"at":"2026-09-22T21:49:22.586Z"}
+{"candidate":"casbin","name":"Task4 cross-company person rejected","expected":true,"actual":true,"at":"2026-09-22T21:49:22.588Z"}

@@ -1,0 +1,145 @@
+{
+  "checked_at": "2026-09-23T16:16:28+08:00",
+  "verification_kind": "documentation_and_v83_input_audit_not_permission_gate",
+  "design_version": "1.0",
+  "input_baseline_version": "v8.3",
+  "input_rebaseline_complete": true,
+  "canonical_input_count": 65,
+  "metadata_entries_removed_from_original_manifest": 3,
+  "filesystem_current_counts": {
+    "all_files": 1485,
+    "canonical_inputs": 65,
+    "technical_outputs_excluding_metadata": 1416,
+    "metadata_all_directories": 4
+  },
+  "unchanged_content_count": 62,
+  "unchanged_manual_count": 24,
+  "unexpected_content_differences": [],
+  "canonical_document_count": 16,
+  "requirements_source": 94,
+  "requirements_trace": 94,
+  "requirements_exact": true,
+  "scenario_entries_source": 53,
+  "scenario_entries_trace": 53,
+  "scenario_exact": true,
+  "unique_scenario_ids": 53,
+  "B6_D43_execution_basis": {
+    "applicable_scenarios": 52,
+    "recitation_scenarios": 7,
+    "differences": 33,
+    "B6_01_person_days": [
+      11,
+      18
+    ],
+    "B6_total_person_days": [
+      16,
+      25
+    ],
+    "execution_growth": 0.625,
+    "reason": "验收执行量独立于功能实现工作，不以避免功能重复计入为由取消执行增量。"
+  },
+  "missing_local_links": [],
+  "unbalanced_fences": [],
+  "json_examples_checked": 12,
+  "json_errors": [],
+  "table_shape_errors": [],
+  "estimate_row_and_batch_checks_passed": true,
+  "estimate_totals": {
+    "original": [
+      189,
+      280
+    ],
+    "company_increment": [
+      26,
+      45
+    ],
+    "other_T_increment": [
+      31,
+      61
+    ],
+    "engineering_increment": [
+      16,
+      28
+    ],
+    "revised": [
+      262,
+      414
+    ],
+    "scope_subtotal": [
+      246,
+      386
+    ],
+    "spike_timebox": [
+      3,
+      3
+    ],
+    "path_A_with_spike": [
+      265,
+      417
+    ],
+    "conditional_auth_rework": [
+      6,
+      12
+    ],
+    "conditional_path_A": [
+      271,
+      429
+    ],
+    "first_three_implementation": [
+      129,
+      204
+    ],
+    "first_three_with_spike": [
+      132,
+      207
+    ]
+  },
+  "permanent_gaps": [
+    "G-01",
+    "G-02",
+    "G-04",
+    "G-05",
+    "G-06"
+  ],
+  "required_recitation_scenarios": [
+    "AC-N-03",
+    "AC-E-01",
+    "AC-E-02",
+    "AC-E-03",
+    "AC-E-22",
+    "AC-N-11",
+    "AC-E-25"
+  ],
+  "permission_tests_planned": 24,
+  "supplementary_acceptance_planned": 13,
+  "mechanical_document_checks_passed": true,
+  "business_design_review_complete": true,
+  "deliverable_A_user_review_complete": true,
+  "permission_spike_authorized": true,
+  "permission_spike_started": true,
+  "permission_spike_gate": "NO_GO",
+  "formal_B1_started": false,
+  "planning_input_written_by_verifier": false,
+  "previous_verification_sha256": "c7addeffde1134b43544aff275ad9cb7306dfb2bccacb3ab6d174a663fdd31b6",
+  "previous_verification_date": "2026-09-23T11:18:25+08:00",
+  "document_sha256": {
+    "00_技术方案索引与决策.md": "4e4ee3dd04d00b300d621c908973dd5702903402250287099438c558b9911d98",
+    "01_总体架构与目录边界.md": "551e9b156a0cea13162c57a6f001426a0405969fd55feee1cf046714c9ce9bea",
+    "02_数据库Schema设计.md": "891725e0cc0bf687aafb4ce0f9c2faedc97eb73ec7b3db39a33a6729952a7ccd",
+    "03_接口与事件设计.md": "8035a479dd667ef40b9fb204ad859681663b4a175a4319b1ca7596567cd433ae",
+    "04_权限模型与三天预研.md": "4b8390e908ec43e240b5517c391910e229d9318260730012d6e6b7fd8054f032",
+    "05_性能容量与部署方案.md": "dcdd83fa1c766df570ce42829b8002669a33d6797a039979b26721c83f486df6",
+    "06_前三批实施与验收计划.md": "a40a779af60429a8be5ba92db932daefda651d09ee56764b42f3ebcbc20edf00",
+    "07_需求与验收追踪.md": "7dc8a35cf15c4e0bd90f60f984098b7273cc7fc210c22e09ac1fa907fc416ff5",
+    "08_设计审查记录.md": "e95c71b0a2272f7bf38663eae2b3979a2ef93b2de3814d5056ae7aa3b16ba028",
+    "09_技术决策与运行细化.md": "893a0e3e157f62a3f2f4de2d51fb6e5c8755ea267324d989f8de380b852a7ee7",
+    "10_终审确认单.md": "7b38fac199126fa77a499426d7a35d7f5299b6b3de3f99300191c95561a329a2",
+    "11_范围与工期重估.md": "720d1acb432c8c82b326a38f16a3a1633e11ffff5ad9a930a38b33a0bc8fdc83",
+    "12_权限预研报告.md": "bcc602aeb5320cc71a3b4bfe48d4e27e9d85f071ff02f179aec414e5989b7d2c",
+    "13_Native与Casbin取舍ADR.md": "7e31ae06b9620b097472675bd97a57bd3a56841c605f4782a00358cac7279a31",
+    "14_Native性能归因报告.md": "2c7c23220cfe968ec75e2c446efdde21f938577adb74bc9d93f5e6061ed0890d",
+    "15_Native权限性能整改报告.md": "1c362ada1685ef8bd0aa3036cbb8c3fc524fae210dfbfa5dbea6e6fd00d4f6b6"
+  },
+  "input_manifest_sha256": "a67ba4236e0899e82d554fce54be319ec411cb5336652f47605f82cf93a5b1bd",
+  "estimate_ledger_sha256": "03b67af97d543d7b607c8372995bfe092ab27499ba5f5269c8889b23bb371571"
+}

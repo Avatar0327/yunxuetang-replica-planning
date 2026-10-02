@@ -1,0 +1,18 @@
+▶ native: mixed-company project and explicit grants
+  ✔ search/count company relation (43.863917ms)
+  ✔ personal progress and attachments (37.280458ms)
+  ✔ grant and revoke retain other companies (60.31875ms)
+✔ native: mixed-company project and explicit grants (469.959583ms)
+▶ casbin: mixed-company project and explicit grants
+  ✔ search/count company relation (31.521375ms)
+  ✔ personal progress and attachments (34.026292ms)
+  ✔ grant and revoke retain other companies (69.818125ms)
+✔ casbin: mixed-company project and explicit grants (429.102083ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 986.750375

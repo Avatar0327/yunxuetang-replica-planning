@@ -1,0 +1,57 @@
+✖ delegation object set excludes facts whose current person is disabled (26.804375ms)
+✖ virtual capability object resolution honors an empty saved cap (3.839958ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 0
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 203.521292
+
+✖ failing tests:
+
+test at test/task3-object-set.test.ts:1:351
+✖ delegation object set excludes facts whose current person is disabled (26.804375ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+  + [
+  +   'h-X-A',
+  +   'h-X-B'
+  + ]
+  - []
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-object-set.test.ts:17:3)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ 'h-X-A', 'h-X-B' ],
+    expected: [],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task3-object-set.test.ts:1:1295
+✖ virtual capability object resolution honors an empty saved cap (3.839958ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+  + [
+  +   'role-management'
+  + ]
+  - []
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-object-set.test.ts:24:3)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ 'role-management' ],
+    expected: [],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

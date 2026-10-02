@@ -1,0 +1,30 @@
+▶ native: R1 membership revoke retains target-person cap
+  ✔ denies C (1.546458ms)
+  ✔ no target/dependent writes (2.945834ms)
+  ✔ permits B (12.286375ms)
+✔ native: R1 membership revoke retains target-person cap (377.903708ms)
+▶ native: R2 attachment uses project-specific download action
+  ✔ view remains progress only (27.606042ms)
+  ✔ other project download cannot join broader view (7.328875ms)
+  ✔ matching download permits bytes (14.293458ms)
+  ✔ download-only revoke applies next new request (37.630792ms)
+✔ native: R2 attachment uses project-specific download action (673.052167ms)
+▶ casbin: R1 membership revoke retains target-person cap
+  ✔ denies C (0.316583ms)
+  ✔ no target/dependent writes (1.333583ms)
+  ✔ permits B (11.598292ms)
+✔ casbin: R1 membership revoke retains target-person cap (351.851917ms)
+▶ casbin: R2 attachment uses project-specific download action
+  ✔ view remains progress only (30.16875ms)
+  ✔ other project download cannot join broader view (7.557291ms)
+  ✔ matching download permits bytes (15.051625ms)
+  ✔ download-only revoke applies next new request (47.492417ms)
+✔ casbin: R2 attachment uses project-specific download action (685.687292ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 18
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2176.110125

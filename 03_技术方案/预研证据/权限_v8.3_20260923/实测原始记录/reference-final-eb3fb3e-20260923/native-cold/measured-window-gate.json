@@ -1,0 +1,23 @@
+{
+  "windows": [
+    {
+      "candidate": "native",
+      "cache": "cold",
+      "measured_window_pass": false,
+      "failure_reasons": [
+        "normal window contains denied, failed or incorrect responses",
+        "list-broad: permission p95 exceeds50ms or missing",
+        "list-broad: endpoint p95 exceeds limit or missing",
+        "history-broad: permission p95 exceeds50ms or missing",
+        "history-broad: endpoint p95 exceeds limit or missing",
+        "list-constrained: permission p95 exceeds50ms or missing",
+        "list-constrained: endpoint p95 exceeds limit or missing",
+        "history-constrained: permission p95 exceeds50ms or missing",
+        "history-constrained: endpoint p95 exceeds limit or missing"
+      ]
+    }
+  ],
+  "all_measured_windows_pass": false,
+  "overall_permission_go_inferred": false,
+  "limitation": "Only reference window evidence: source semantics, full coverage, no N+1 and other gates require separate review."
+}

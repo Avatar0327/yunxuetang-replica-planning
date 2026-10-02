@@ -1,0 +1,10 @@
+{
+  "startAt": "2026-09-22T23:17:03.212Z",
+  "aReadyAt": "2026-09-22T23:17:03.520Z",
+  "bReadyAt": "2026-09-22T23:17:03.826Z",
+  "logs": {
+    "a": "{\"ready\":true,\"port\":\"4311\",\"candidate\":\"native\",\"instance\":27747,\"pubsub\":false}\n",
+    "b": "{\"ready\":true,\"port\":\"4312\",\"candidate\":\"native\",\"instance\":27748,\"pubsub\":false}\n"
+  },
+  "note": "Host process start-to-ready boundaries, separate from request histogram; not a capped container cold-start measurement."
+}

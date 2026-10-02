@@ -1,0 +1,6 @@
+{"limit":20,"instance":0,"queries":8,"candidate":"native","revision":1}
+{"limit":50,"instance":0,"queries":8,"candidate":"native","revision":1}
+{"limit":200,"instance":0,"queries":8,"candidate":"native","revision":1}
+{"limit":20,"instance":1,"queries":8,"candidate":"native","revision":1}
+{"limit":50,"instance":1,"queries":8,"candidate":"native","revision":1}
+{"limit":200,"instance":1,"queries":8,"candidate":"native","revision":1}

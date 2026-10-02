@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/Users/peng/Agent本地开发/云学堂权限预研/tools/audit-benchmark.py", line 147, in <module>
+    results=[audit(Path(arg)) for arg in sys.argv[1:]]
+             ~~~~~^^^^^^^^^^^
+  File "/Users/peng/Agent本地开发/云学堂权限预研/tools/audit-benchmark.py", line 39, in audit
+    truth_document=json.loads((folder/summary['truthFile']).read_text())
+                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/pathlib/__init__.py", line 787, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/pathlib/__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'evidence/raw/task5-smoke-native-hot/evidence/raw/task5-smoke-native-hot/scenario-truth.json'

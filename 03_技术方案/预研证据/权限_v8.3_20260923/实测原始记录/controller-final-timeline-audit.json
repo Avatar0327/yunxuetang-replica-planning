@@ -1,0 +1,59 @@
+{
+  "at": "2026-09-23T02:13:05.091217+00:00",
+  "source": "evidence/raw/final-fix-full-campaign/task5-commit-timeline.jsonl",
+  "source_sha256": "122356c46a457bd5c99b5c7624e1a6b1e0fc776429335412b2dac9e9620e9f4b",
+  "results": [
+    {
+      "candidate": "native",
+      "line": 1,
+      "checks": {
+        "two_processes": true,
+        "B_previously_warm": true,
+        "pubsub_absent": true,
+        "revision_increment": true,
+        "different_transaction": true,
+        "host_request_after_revoke_ack": true,
+        "DB_authority_read_after_commit": true,
+        "new_revision_observed": true,
+        "denied_without_business_payload": true
+      },
+      "all_checks": true,
+      "A": "33444",
+      "B": "33415",
+      "db_xmin": "18700",
+      "db_commit": "2026-09-23T00:18:42.913Z",
+      "host_revoke_ack": "2026-09-23T00:18:42.813Z",
+      "host_next_request": "2026-09-23T00:18:42.814Z",
+      "db_next_authority_read": "2026-09-23T00:18:42.918Z",
+      "old_revision": "1790122683379",
+      "new_revision": "1790122683380"
+    },
+    {
+      "candidate": "casbin",
+      "line": 2,
+      "checks": {
+        "two_processes": true,
+        "B_previously_warm": true,
+        "pubsub_absent": true,
+        "revision_increment": true,
+        "different_transaction": true,
+        "host_request_after_revoke_ack": true,
+        "DB_authority_read_after_commit": true,
+        "new_revision_observed": true,
+        "denied_without_business_payload": true
+      },
+      "all_checks": true,
+      "A": "33508",
+      "B": "33482",
+      "db_xmin": "18790",
+      "db_commit": "2026-09-23T00:18:55.692Z",
+      "host_revoke_ack": "2026-09-23T00:18:55.614Z",
+      "host_next_request": "2026-09-23T00:18:55.615Z",
+      "db_next_authority_read": "2026-09-23T00:18:55.697Z",
+      "old_revision": "1790122683384",
+      "new_revision": "1790122683385"
+    }
+  ],
+  "all_checks": true,
+  "limitation": "Independent capture audit, no live API/database request. Same-clock comparisons only; L2 existence is a separate actual observation."
+}

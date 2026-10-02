@@ -1,0 +1,24 @@
+2026-09-22T19:29:22.517860+00:00
+$ node --import tsx --test --test-name-pattern=wallet hard facts test/semantic.test.ts
+✔ wallet hard facts: native: known separate old-company account (0.920375ms)
+✔ wallet hard facts: native: missing data company (0.057792ms)
+✔ wallet hard facts: native: empty data company (0.043958ms)
+✔ wallet hard facts: native: blank data company (0.041708ms)
+✔ wallet hard facts: native: missing reference status (0.054958ms)
+✔ wallet hard facts: native: unbound reviewer account (0.0465ms)
+✔ wallet hard facts: casbin: known separate old-company account (1.38475ms)
+✔ wallet hard facts: casbin: missing data company (0.044167ms)
+✔ wallet hard facts: casbin: empty data company (0.04975ms)
+✔ wallet hard facts: casbin: blank data company (0.087ms)
+✔ wallet hard facts: casbin: missing reference status (0.041542ms)
+✔ wallet hard facts: casbin: unbound reviewer account (0.029958ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 128.749125
+
+exit=0

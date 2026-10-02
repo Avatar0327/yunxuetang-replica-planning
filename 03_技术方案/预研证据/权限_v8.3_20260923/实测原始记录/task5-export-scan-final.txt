@@ -1,0 +1,20 @@
+▶ native: protected domain export HTTP contract
+  ✔ project export obeys exact project and company (65.774791ms)
+  ✔ account protected export (28.115584ms)
+  ✔ legacy account export bounded pages (19.077625ms)
+  ✔ report claim bounded (10551.826375ms)
+✔ native: protected domain export HTTP contract (11030.933792ms)
+▶ casbin: protected domain export HTTP contract
+  ✔ project export obeys exact project and company (55.318292ms)
+  ✔ account protected export (27.32975ms)
+  ✔ legacy account export bounded pages (19.512375ms)
+  ✔ report claim bounded (10466.35975ms)
+✔ casbin: protected domain export HTTP contract (10953.868625ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 22083.325959

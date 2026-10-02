@@ -1,0 +1,686 @@
+{
+  "as_of": "2026-09-23T02:57:03+08:00",
+  "kind": "pre_spike_estimate_not_delivery_commitment",
+  "units": "person_days_8h_comparison_basis",
+  "basis": "v8.3输入已核验；D-43/D-44裁定已同步；不套AI倍速",
+  "original_batches": {
+    "B1": [
+      25,
+      41
+    ],
+    "B2A": [
+      29,
+      43
+    ],
+    "B2B": [
+      15,
+      21
+    ],
+    "B3": [
+      22,
+      31
+    ],
+    "B4": [
+      45,
+      65
+    ],
+    "FACE": [
+      20,
+      28
+    ],
+    "REPORT": [
+      17,
+      26
+    ],
+    "DELIVERY": [
+      16,
+      25
+    ]
+  },
+  "company_increment": {
+    "B1": [
+      7,
+      12
+    ],
+    "B2A": [
+      1,
+      2
+    ],
+    "B2B": [
+      2,
+      3
+    ],
+    "B3": [
+      4,
+      7
+    ],
+    "B4": [
+      5,
+      9
+    ],
+    "FACE": [
+      2,
+      4
+    ],
+    "REPORT": [
+      3,
+      5
+    ],
+    "DELIVERY": [
+      2,
+      3
+    ]
+  },
+  "company_includes": [
+    "T-07",
+    "T-15公司分账/移籍历史隔离部分"
+  ],
+  "T_allocations": {
+    "T-01": {},
+    "T-02": {},
+    "T-03": {},
+    "T-04": {
+      "B1": [
+        0,
+        1
+      ]
+    },
+    "T-05": {
+      "B1": [
+        1,
+        3
+      ]
+    },
+    "T-06": {
+      "B1": [
+        1,
+        2
+      ],
+      "B2B": [
+        1,
+        2
+      ],
+      "B4": [
+        1,
+        2
+      ]
+    },
+    "T-07": {
+      "B1": [
+        7,
+        12
+      ],
+      "B2A": [
+        1,
+        2
+      ],
+      "B2B": [
+        2,
+        3
+      ],
+      "B3": [
+        4,
+        7
+      ],
+      "B4": [
+        5,
+        9
+      ],
+      "FACE": [
+        2,
+        4
+      ],
+      "REPORT": [
+        3,
+        5
+      ],
+      "DELIVERY": [
+        2,
+        3
+      ]
+    },
+    "T-08": {
+      "B4": [
+        0,
+        1
+      ]
+    },
+    "T-09": {
+      "B4": [
+        0,
+        1
+      ]
+    },
+    "T-10": {
+      "B2A": [
+        1,
+        2
+      ]
+    },
+    "T-11": {
+      "B3": [
+        1,
+        2
+      ],
+      "B4": [
+        3,
+        5
+      ]
+    },
+    "T-12": {
+      "B2A": [
+        1,
+        2
+      ],
+      "B3": [
+        2,
+        3
+      ]
+    },
+    "T-13": {
+      "B4": [
+        2,
+        4
+      ]
+    },
+    "T-14": {
+      "B2B": [
+        2,
+        3
+      ],
+      "B4": [
+        2,
+        4
+      ],
+      "REPORT": [
+        1,
+        2
+      ]
+    },
+    "T-15": {
+      "REPORT": [
+        0,
+        1
+      ]
+    },
+    "T-16": {
+      "B1": [
+        3,
+        5
+      ],
+      "B2A": [
+        1,
+        2
+      ]
+    },
+    "T-17": {
+      "B4": [
+        4,
+        7
+      ],
+      "FACE": [
+        2,
+        3
+      ]
+    },
+    "T-18": {},
+    "T-19": {
+      "B3": [
+        1,
+        2
+      ],
+      "B4": [
+        1,
+        2
+      ]
+    }
+  },
+  "engineering_corrections": {
+    "EST-ENG-01": {
+      "B1": [
+        4,
+        6
+      ]
+    },
+    "EST-ENG-02": {
+      "B3": [
+        3,
+        5
+      ]
+    },
+    "EST-ENG-03": {
+      "B3": [
+        2,
+        4
+      ]
+    },
+    "EST-ENG-04": {
+      "B4": [
+        3,
+        5
+      ]
+    },
+    "EST-ENG-05": {
+      "DELIVERY": [
+        4,
+        8
+      ]
+    }
+  },
+  "by_batch": {
+    "B1": {
+      "original": [
+        25,
+        41
+      ],
+      "company_increment": [
+        7,
+        12
+      ],
+      "other_T_increment": [
+        5,
+        11
+      ],
+      "engineering_increment": [
+        4,
+        6
+      ],
+      "revised": [
+        41,
+        70
+      ]
+    },
+    "B2A": {
+      "original": [
+        29,
+        43
+      ],
+      "company_increment": [
+        1,
+        2
+      ],
+      "other_T_increment": [
+        3,
+        6
+      ],
+      "engineering_increment": [
+        0,
+        0
+      ],
+      "revised": [
+        33,
+        51
+      ]
+    },
+    "B2B": {
+      "original": [
+        15,
+        21
+      ],
+      "company_increment": [
+        2,
+        3
+      ],
+      "other_T_increment": [
+        3,
+        5
+      ],
+      "engineering_increment": [
+        0,
+        0
+      ],
+      "revised": [
+        20,
+        29
+      ]
+    },
+    "B3": {
+      "original": [
+        22,
+        31
+      ],
+      "company_increment": [
+        4,
+        7
+      ],
+      "other_T_increment": [
+        4,
+        7
+      ],
+      "engineering_increment": [
+        5,
+        9
+      ],
+      "revised": [
+        35,
+        54
+      ]
+    },
+    "B4": {
+      "original": [
+        45,
+        65
+      ],
+      "company_increment": [
+        5,
+        9
+      ],
+      "other_T_increment": [
+        13,
+        26
+      ],
+      "engineering_increment": [
+        3,
+        5
+      ],
+      "revised": [
+        66,
+        105
+      ]
+    },
+    "FACE": {
+      "original": [
+        20,
+        28
+      ],
+      "company_increment": [
+        2,
+        4
+      ],
+      "other_T_increment": [
+        2,
+        3
+      ],
+      "engineering_increment": [
+        0,
+        0
+      ],
+      "revised": [
+        24,
+        35
+      ]
+    },
+    "REPORT": {
+      "original": [
+        17,
+        26
+      ],
+      "company_increment": [
+        3,
+        5
+      ],
+      "other_T_increment": [
+        1,
+        3
+      ],
+      "engineering_increment": [
+        0,
+        0
+      ],
+      "revised": [
+        21,
+        34
+      ]
+    },
+    "DELIVERY": {
+      "original": [
+        16,
+        25
+      ],
+      "company_increment": [
+        2,
+        3
+      ],
+      "other_T_increment": [
+        0,
+        0
+      ],
+      "engineering_increment": [
+        4,
+        8
+      ],
+      "revised": [
+        22,
+        36
+      ]
+    }
+  },
+  "totals": {
+    "original": [
+      189,
+      280
+    ],
+    "company_increment": [
+      26,
+      45
+    ],
+    "other_T_increment": [
+      31,
+      61
+    ],
+    "engineering_increment": [
+      16,
+      28
+    ],
+    "revised": [
+      262,
+      414
+    ],
+    "scope_subtotal": [
+      246,
+      386
+    ],
+    "spike_timebox": [
+      3,
+      3
+    ],
+    "path_A_with_spike": [
+      265,
+      417
+    ],
+    "conditional_auth_rework": [
+      6,
+      12
+    ],
+    "conditional_path_A": [
+      271,
+      429
+    ],
+    "first_three_implementation": [
+      129,
+      204
+    ],
+    "first_three_with_spike": [
+      132,
+      207
+    ]
+  },
+  "T17_decomposition": {
+    "original_scope_omitted_tasks": {
+      "B4": [
+        3,
+        5
+      ]
+    },
+    "new_submission_correction_rules": {
+      "B4": [
+        1,
+        2
+      ]
+    },
+    "new_fixed_face_history_and_manual_correction": {
+      "FACE": [
+        2,
+        3
+      ]
+    }
+  },
+  "source_arithmetic_discrepancy": {
+    "B2A": {
+      "in_scope_rows": [
+        29,
+        43
+      ],
+      "published": [
+        31,
+        46
+      ],
+      "unallocated_difference": [
+        2,
+        3
+      ]
+    },
+    "B4": {
+      "in_scope_rows": [
+        45,
+        65
+      ],
+      "published": [
+        47,
+        68
+      ],
+      "unallocated_difference": [
+        2,
+        3
+      ]
+    },
+    "combined_unallocated_difference": [
+      4,
+      6
+    ],
+    "action": "已裁定（D-43），按行加总，同时B6-01上调+4～7；净效应中性（下限不变、上限+1），不保留未分配差额。",
+    "status": "resolved_by_user_D43",
+    "unallocated_difference_retained": [
+      0,
+      0
+    ]
+  },
+  "spike_executed": false,
+  "spike_authorized": true,
+  "implementation_started": false,
+  "reuse_credit_deducted": [
+    0,
+    0
+  ],
+  "decision_history": [
+    {
+      "at": "2026-09-23T02:23:36+08:00",
+      "decisions": [
+        "D-43",
+        "D-44"
+      ],
+      "authority": "用户本轮明确裁定；v8.3三份源文件尚未到位，未声称已重新基线化",
+      "previous_totals": {
+        "original": [
+          189,
+          279
+        ],
+        "company_increment": [
+          26,
+          45
+        ],
+        "other_T_increment": [
+          31,
+          61
+        ],
+        "engineering_increment": [
+          16,
+          28
+        ],
+        "revised": [
+          262,
+          413
+        ],
+        "scope_subtotal": [
+          246,
+          385
+        ],
+        "spike_timebox": [
+          3,
+          3
+        ],
+        "path_A_with_spike": [
+          265,
+          416
+        ],
+        "conditional_auth_rework": [
+          6,
+          12
+        ],
+        "conditional_path_A": [
+          271,
+          428
+        ]
+      },
+      "previous_original_batches": {
+        "B1": [
+          25,
+          41
+        ],
+        "B2A": [
+          31,
+          46
+        ],
+        "B2B": [
+          15,
+          21
+        ],
+        "B3": [
+          22,
+          31
+        ],
+        "B4": [
+          47,
+          68
+        ],
+        "FACE": [
+          20,
+          28
+        ],
+        "REPORT": [
+          17,
+          26
+        ],
+        "DELIVERY": [
+          12,
+          18
+        ]
+      },
+      "changes": {
+        "B2A": [
+          -2,
+          -3
+        ],
+        "B4": [
+          -2,
+          -3
+        ],
+        "DELIVERY": [
+          4,
+          7
+        ]
+      },
+      "net_change": [
+        0,
+        1
+      ]
+    }
+  ],
+  "B6_acceptance_basis": {
+    "applicable_scenarios": 52,
+    "recitation_scenarios": 7,
+    "differences": 33,
+    "B6_01_person_days": [
+      11,
+      18
+    ],
+    "B6_total_person_days": [
+      16,
+      25
+    ],
+    "execution_growth": 0.625,
+    "reason": "验收执行量独立于功能实现工作，不以避免功能重复计入为由取消执行增量。"
+  },
+  "input_baseline_ready": true,
+  "input_baseline_version": "v8.3"
+}

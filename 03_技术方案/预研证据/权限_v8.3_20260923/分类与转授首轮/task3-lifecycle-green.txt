@@ -1,0 +1,18 @@
+▶ native: role fanout, explicit recheck and populated move
+  ✔ role edit propagates every member and preserves local override (70.206542ms)
+  ✔ freeze requires explicit current-source recheck (66.492625ms)
+  ✔ populated move succeeds within depth and freezes before response (20.418083ms)
+✔ native: role fanout, explicit recheck and populated move (630.823708ms)
+▶ casbin: role fanout, explicit recheck and populated move
+  ✔ role edit propagates every member and preserves local override (59.568791ms)
+  ✔ freeze requires explicit current-source recheck (52.812334ms)
+  ✔ populated move succeeds within depth and freezes before response (24.054708ms)
+✔ casbin: role fanout, explicit recheck and populated move (548.52475ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1267.464166

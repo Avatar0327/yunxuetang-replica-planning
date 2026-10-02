@@ -1,0 +1,73 @@
+{
+  "updated_at": "2026-09-23T10:13:16+08:00",
+  "input_baseline": "v8.3",
+  "input_gate": "PASS_65_MATCH",
+  "task1": "semantic_kernel_review_accepted",
+  "task2": "bounded_core_review_accepted",
+  "task3": "bounded_domain_review_accepted",
+  "permission_gate": "NO_GO",
+  "formal_B1_started": false,
+  "prototype_reuse_credit_person_days": 0,
+  "actual_plan_commit_at": "2026-09-23T03:08:33+08:00",
+  "local_repository": "/Users/peng/Agent本地开发/云学堂权限预研",
+  "plan_commit": "2d21695b4293c70a51ad1d7de95b193e41676bcf",
+  "three_day_window_is_elapsed_time_claim": false,
+  "known_open_findings": [
+    "AUTH-T18-09/10/11/12/13性能未达门槛",
+    "正常参考负载出现非成功请求"
+  ],
+  "kernel_commit": "b7e31f6",
+  "integration_base": "de41c1810db3c6a1f7ca0a82b49fff5eca123268",
+  "phase": "交付物B已交付；163点通过/5性能失败；正式B1不放行",
+  "core_commit": "6f1e75a4c4fca597b23cc86e321756f142460680",
+  "permission_spike_go": false,
+  "core_review": "accepted_bounded_core",
+  "open_findings": [
+    "Performance remediation required before formalB1"
+  ],
+  "core_fix_round": 1,
+  "domain_integration_complete": true,
+  "benchmark_reference_complete": true,
+  "browser_complete": true,
+  "task3_source_commit": "146073b",
+  "task3_domain_tests": {
+    "passed": 118,
+    "failed": 0
+  },
+  "task3_core_regression": {
+    "passed": 53,
+    "failed": 0
+  },
+  "task3_literal_observations": 322,
+  "task3_review_complete": true,
+  "overall_go": false,
+  "task4": "bounded_company_team_account_review_accepted",
+  "task5": "bounded_export_measurement_review_accepted",
+  "task6": "complete_evidence_delivery_NO_GO_and_archive_verified",
+  "task3_N1_red_files": [
+    "task3-fix2-red.txt",
+    "task3-fix2-red-observations.jsonl"
+  ],
+  "task4_source_commit": "4851eeb64f77944de9d7028a61277f9682601544",
+  "task4_domain_tests": {
+    "passed": 64,
+    "failed": 0
+  },
+  "task4_literal_observations": 266,
+  "task4_review_complete": true,
+  "task4_fix1_observations": 108,
+  "task5_source_commit": "9fb99755f146622d30f352444128ef77eb68c6fd",
+  "task5_fix_round": 1,
+  "final_application_source": "cb72484ed8e7547146920fd4312dd24f8c9e2402",
+  "reference_source": "eb3fb3eae8332eea6acfc31da0696119225933f1",
+  "final_matrix": {
+    "pass": 163,
+    "fail": 5
+  },
+  "final_reference_requests": 30863,
+  "final_reference_success": 28830,
+  "human_signature": null,
+  "final_delivery_commit": "d5b0c03a0cdab6791458b112ed50387b93cb5f0a",
+  "package_manifest": "交付证据指纹.json",
+  "archive_verification": "../../核验记录/预研交付归档核验.json"
+}

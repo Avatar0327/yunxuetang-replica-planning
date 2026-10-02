@@ -1,0 +1,115 @@
+{
+  "sql": "SELECT r.id FROM report.person_projection r WHERE r.tenant_id=$1 AND r.enabled=true AND r.deleted=false AND r.company_id=ANY($2::text[]) AND ((true) OR (r.person_id IN (SELECT unnest($3::text[])))) ORDER BY r.id LIMIT 50",
+  "parameters": [
+    "T1",
+    [
+      "A",
+      "B",
+      "I"
+    ],
+    [
+      "A",
+      "C",
+      "M"
+    ]
+  ],
+  "revision": 45,
+  "plan": [
+    {
+      "QUERY PLAN": [
+        {
+          "Plan": {
+            "Node Type": "Limit",
+            "Parallel Aware": false,
+            "Async Capable": false,
+            "Startup Cost": 0.29,
+            "Total Cost": 3.94,
+            "Plan Rows": 50,
+            "Plan Width": 12,
+            "Actual Startup Time": 0.015,
+            "Actual Total Time": 0.022,
+            "Actual Rows": 50,
+            "Actual Loops": 1,
+            "Shared Hit Blocks": 3,
+            "Shared Read Blocks": 0,
+            "Shared Dirtied Blocks": 0,
+            "Shared Written Blocks": 0,
+            "Local Hit Blocks": 0,
+            "Local Read Blocks": 0,
+            "Local Dirtied Blocks": 0,
+            "Local Written Blocks": 0,
+            "Temp Read Blocks": 0,
+            "Temp Written Blocks": 0,
+            "Shared I/O Read Time": 0,
+            "Shared I/O Write Time": 0,
+            "Local I/O Read Time": 0,
+            "Local I/O Write Time": 0,
+            "Temp I/O Read Time": 0,
+            "Temp I/O Write Time": 0,
+            "Plans": [
+              {
+                "Node Type": "Index Scan",
+                "Parent Relationship": "Outer",
+                "Parallel Aware": false,
+                "Async Capable": false,
+                "Scan Direction": "Forward",
+                "Index Name": "person_projection_pkey",
+                "Relation Name": "person_projection",
+                "Alias": "r",
+                "Startup Cost": 0.29,
+                "Total Cost": 3648.96,
+                "Plan Rows": 50025,
+                "Plan Width": 12,
+                "Actual Startup Time": 0.015,
+                "Actual Total Time": 0.019,
+                "Actual Rows": 50,
+                "Actual Loops": 1,
+                "Index Cond": "(tenant_id = 'T1'::text)",
+                "Rows Removed by Index Recheck": 0,
+                "Filter": "(enabled AND (NOT deleted) AND (company_id = ANY ('{A,B,I}'::text[])))",
+                "Rows Removed by Filter": 2,
+                "Shared Hit Blocks": 3,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 0,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0,
+                "Shared I/O Read Time": 0,
+                "Shared I/O Write Time": 0,
+                "Local I/O Read Time": 0,
+                "Local I/O Write Time": 0,
+                "Temp I/O Read Time": 0,
+                "Temp I/O Write Time": 0
+              }
+            ]
+          },
+          "Planning": {
+            "Shared Hit Blocks": 52,
+            "Shared Read Blocks": 0,
+            "Shared Dirtied Blocks": 0,
+            "Shared Written Blocks": 0,
+            "Local Hit Blocks": 0,
+            "Local Read Blocks": 0,
+            "Local Dirtied Blocks": 0,
+            "Local Written Blocks": 0,
+            "Temp Read Blocks": 0,
+            "Temp Written Blocks": 0,
+            "Shared I/O Read Time": 0,
+            "Shared I/O Write Time": 0,
+            "Local I/O Read Time": 0,
+            "Local I/O Write Time": 0,
+            "Temp I/O Read Time": 0,
+            "Temp I/O Write Time": 0
+          },
+          "Planning Time": 0.054,
+          "Triggers": [],
+          "Execution Time": 0.026
+        }
+      ]
+    }
+  ]
+}

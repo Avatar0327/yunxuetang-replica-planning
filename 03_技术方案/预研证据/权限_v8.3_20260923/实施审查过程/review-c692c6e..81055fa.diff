@@ -1,0 +1,1415 @@
+# Review package: c692c6e92e2c9c8e9569785a940d727cfac18194..81055fa
+
+## Commits
+81055fa fix(authz): validate recipient and affected resource delegation caps
+a935348 chore(spike): prepare complete coverage and measurement audits
+
+## Files changed
+ .../2026-09-23-permission-spike/task-3-report.md   |  44 +++
+ docs/controller-acceptance-audit-notes.md          |  20 +
+ docs/coverage-map-contract.md                      |  18 +
+ .../plans/2026-09-23-permission-spike.md           |   7 +-
+ docs/task3-coverage.json                           | 424 ++++++++++++++++++++-
+ docs/task3-ports.md                                |   4 +-
+ src/authz/contracts.ts                             |   2 +
+ src/authz/delegation-caps.ts                       |  30 +-
+ src/authz/delegation.ts                            |  41 +-
+ src/authz/role-service.ts                          |  14 +-
+ src/knowledge/public.ts                            |  10 +-
+ src/knowledge/service.ts                           |  38 +-
+ test/task3-review-regressions.test.ts              |  85 +++++
+ tools/audit-benchmark.py                           |  24 +-
+ tools/audit-coverage.py                            |  78 ++++
+ tools/capture-runtime.sh                           |  27 ++
+ tools/index-observations.py                        |  30 ++
+ 17 files changed, 834 insertions(+), 62 deletions(-)
+
+## Diff
+diff --git a/.superpowers/sdd/2026-09-23-permission-spike/task-3-report.md b/.superpowers/sdd/2026-09-23-permission-spike/task-3-report.md
+index 51d593a..5ed279d 100644
+--- a/.superpowers/sdd/2026-09-23-permission-spike/task-3-report.md
++++ b/.superpowers/sdd/2026-09-23-permission-spike/task-3-report.md
+@@ -100,10 +100,54 @@ The task's implementation paths are present, but this is deliberately **not** fu
+ 
+ Source: `src/contracts/ports.ts`; authz `contracts,policy,registry,revision,scope,public,objects,delegation-caps,role-service`; organization `public,service`; training `public,service`; report `public`; knowledge `public,service`; `src/bootstrap.ts`.
+ 
+ Persistence/run: `sql/schema.sql`, `sql/seed.sql`, `scripts/seed.ts`, `package.json` (test/functional scripts only).
+ 
+ Tests: `test/module-boundaries.test.ts`, all `test/task3-*.ts`, and the canonical-query waiter/evidence-path adjustment in `test/races.test.ts`.
+ 
+ Docs: README, `docs/kernel-contract.md`, `docs/task2-follow-up.md`, `docs/task3-ports.md`, `docs/task3-coverage.json`, and this report. Raw files intentionally stay ignored in `evidence/raw`.
+ 
+ Do not include controller-owned modified plan, `docs/controller-acceptance-audit-notes.md`, `docs/coverage-map-contract.md`, `tools/capture-runtime.sh`, or `tools/audit-coverage.py` in this implementation commit. Own API processes are stopped. The shared synthetic DB contains the final tests' fixtures; reseed before the next isolated acceptance/performance campaign.
++
++## Review fix round 1/5 — four accepted Important findings
++
++Status: **DONE_WITH_CONCERNS**, ready for independent re-review of the four findings in `task-3-review.md`. All four have fresh real SQL/HTTP RED→GREEN evidence in both Native and Casbin. This does not approve the full spike or expand Task4 scope.
++
++### Changes
++
++1. Original-source company loss: role recheck retains the actor's existing authorization check and separately requires the original source context's current company cap to include the recipient company. A failure persists/audits `suspended`; restoring the source company grant permits explicit recheck to `active`.
++2. Recipient-relative grants: centralized action/field/delegability validation now runs without enumerating the grantor-relative proposal. Each actual recipient is resolved in its own context/jurisdiction and checked against the selected source's actual same-node/action objects. Create, edit, add-member and recheck share that subset implementation. Empty scope results still require available actions, registered fields and explicit delegability. Templates with no members remain inert until add-member validates the real recipient. Existing expansion-negative tests remain unchanged.
++3. Affected knowledge objects: custom browse save/recheck passes its own course ID to central validation and saves the validated proposal cap. Category create/update/import/append/recheck compute actual affected courses from effective policy ownership, inherited/forced descendants and proposed hierarchy flags; unlocked custom browse overrides are excluded from category browse proposals. IDs are trusted owning-module facts and not accepted from DTOs. The selected source's broader unrelated courses no longer become the saved snapshot.
++4. Maintenance accessibility: enumeration and live course queries now share `courseAccessPredicate`. Maintenance includes inaccessible current resources; browse/download still exclude them. The delegate can restore accessibility, and ordinary object mutation freezes dependencies as before.
++
++No revision-lock ordering, isolation level, authorization revision fence, module SQL ownership, physical schema, business-rule fixtures or controller files were changed. Category affected-set coverage includes a positive SELF source with its inherited child, a negative forced descendant uploaded by another person, a negative inherited descendant uploaded by another person, persisted exact IDs and explicit category recheck. These supplementary category assertions were added after the original four REDs and are not claimed as separate historical REDs.
++
++### Fresh commands and evidence
++
++All commands ran in `/Users/peng/Agent本地开发/云学堂权限预研` with `PATH=/opt/homebrew/opt/node@24/bin:$PATH`.
++
++| Command / observation | Exit / result | Raw evidence |
++|---|---|---|
++| `npm run seed`; original `TASK3_OBSERVATIONS=evidence/raw/task3-fix1-red-observations.jsonl node --import tsx --test test/task3-review-regressions.test.ts` | seed0; test1, all four children fail per candidate (8 child failures plus2 parent failures) | `task3-fix1-seed.txt`, `task3-fix1-red.txt`, `task3-fix1-red-observations.jsonl` |
++| Fresh seed; same four regression scenarios after fixes | 0, **10/10** including2 parents | `task3-fix1-green-seed1.txt`, `task3-fix1-green1.txt`, `task3-fix1-green-observations1.jsonl` |
++| Fresh seed; `RACE_EVIDENCE=evidence/raw/task3-fix1-races.jsonl node --import tsx --test --test-concurrency=1 test/semantic.test.ts test/integration.test.ts test/races.test.ts test/review-regressions.test.ts test/cache.test.ts` | 0, **53/53** | `task3-fix1-core-seed.txt`, `task3-fix1-core.txt`, `task3-fix1-races.jsonl` |
++| Fresh seed; `TASK3_OBSERVATIONS=evidence/raw/task3-fix1-final-observations.jsonl npm run test:task3` | 0, **112/112**, including12 review tests/parents | `task3-fix1-domain-seed.txt`, `task3-fix1-domains.txt` |
++| `npm run typecheck`; `npm run build`; `npm audit --json` | 0 / 0 / 0; zero vulnerabilities | `task3-fix1-final-typecheck.txt`, `task3-fix1-final-build.txt`, `task3-fix1-final-audit.json` |
++| Literal JSONL check | **252 records**, Native125/Casbin125/shared-resolver2, zero expected/actual mismatches | `task3-fix1-observation-check.json` |
++| `lsof -nP -iTCP:4311 -iTCP:4312 -sTCP:LISTEN` | 1, expected empty/no API listeners | `task3-fix1-api-process-check.txt` |
++
++The full domain command includes the required role-company, delegation-matrix, protection, knowledge, policy-recheck, module-boundary and review regression suites, plus existing functional timeout/revoke tests. No performance campaign was run. Original RED failures are: R1 `active` instead of `suspended`; R2 valid recipient-relative create403 instead of200; R3 valid own-course custom403 instead of200; R4 delegated inaccessible maintenance403 instead of200. Raw failures were preserved.
++
++`task3-fix1-final-observations.jsonl` SHA256: `de4c077594240616589771b5b6270568b567e84dc8a39f0b4c8764b268e6123c`. `docs/task3-coverage.json.reviewFixRound1` records every new observation with exact line, candidate and name, while retaining the historical baseline map. Focused final line references:
++
++- R1 original-source revoke/restore: Native183–186, Casbin215–218.
++- R2 recipient D2 positive create/edit/add/recheck and empty-set negatives: Native187–195, Casbin219–227. Existing D2-beyond-D1 denial is unchanged in the full suite.
++- R3 own-course positive, cap, browse, unrelated uploader denial and custom recheck: Native196–200, Casbin228–232; category actual descendants: Native201–205, Casbin233–237.
++- R4 source/delegate maintenance, recheck, browse/download denials and restore: Native206–214, Casbin238–246.
++
++One local edit wrapper initially invoked missing `python` (exit127 for that command); no edit was applied. Its subsequent typecheck ran against unchanged sources (`task3-fix1-typecheck-attempt1.txt`), so it is not fix verification. Re-running the edit with `python3` applied the changes, and `task3-fix1-typecheck-attempt2.txt` and final checks passed. No test oracle was weakened, no extra company grant was added to bypass a check, and no failed raw file was overwritten.
++
++### Limits / handoff
++
++The prior whole-spike limitations remain: full168 acceptance, company-qualified schema/large fixtures, independent deployment, browser/UI, production media/export and performance gates are unverified. This round changes small-fixture correctness, not production performance. Category cap construction currently scans tenant category/course facts; large-set efficiency remains deferred. API children were stopped; reseed before an isolated follow-up campaign.
++
++Owned fix files: `src/authz/contracts.ts`, `delegation.ts`, `delegation-caps.ts`, `role-service.ts`; `src/knowledge/public.ts`, `service.ts`; `test/task3-review-regressions.test.ts`; `docs/task3-ports.md`, `docs/task3-coverage.json`; this appended report. Controller `docs/decision-evidence.md`, `docs/reuse-candidates.md`, performance protocol, benchmark auditor and other helper/planning files are excluded from this commit.
+diff --git a/docs/controller-acceptance-audit-notes.md b/docs/controller-acceptance-audit-notes.md
+new file mode 100644
+index 0000000..8078bbf
+--- /dev/null
++++ b/docs/controller-acceptance-audit-notes.md
+@@ -0,0 +1,20 @@
++# Controller acceptance audit notes
++
++This file is a coverage audit, not an implemented/accepted matrix. Full source authority is04§9.4 and the168-subcase manifest.
++
++- Recompute actual/expected observation JSON independently; raw IDs alone are not proof. Core old AUTH-T14-03 is an acting-account disable observation, not target-person state filtering.
++- AUTH-T06 requires real browser navigation and route/error output, in addition to HTTP/data/source assertions. Preserve P/Q transitions and a separate lawful role.
++- AUTH-T15 must demonstrate two different processes, pre-revocation old caches, and next-request/media after a completed revoke acknowledgment. PubSub absence is intentionally injected, not assumed cache delivery. State timestamp precision explicitly.
++- AUTH-T16 cold and warm Redis failures, timeout and recovery, plus authoritative DB failure; every protected path rejects without data and no DB fallback. Permission failures cannot contribute to normal list/query timing.
++- AUTH-T18 exact actual counts and resource caps, stable source image label,50 total concurrent clients600seconds, separate per-scenario/cache/candidate histograms, all raw samples; complete real list/count/aggregate SQL plans. Simplified core EXPLAIN is diagnostic only.
++- AUTH-T19 needs ordered conflicting operations, including waiting-write after actor/company change (corefix1) and forthcoming batch/delegation/download paths; a sequential next-call test alone is not the contention test.
++- AUTH-T20/24 selected management membership and provenance caps, role-level policy fanout preserving membership-local overrides, deletion/recreation identities, freeze/recheck. Distinguish source changes from membership creation.
++- AUTH-T21/22/23 customersA/B/internal non-super all exercised, not onlyfixtureZ; shared content vs personal data; immutable historicalcompany; restricted selfwallet exception; no crosscompany offset/source references.
++- Full53 product AC scenarios are not completed by24 permission AUTH groups. G01/G02/G04/G05/G06 stay permanent; no fabricated human recitation or signature.
++- Core original review was interrupted by an automatic safety flag after two confirmed findings; read-only continuation subsequently accepted the boundedcore after6f1e75a. Preserve both history and actual finalreview limits.
++
++- Core constrained workloads3people/1fact do not establish most-complex-range performance. Reference constrained workloads must include >=10000 resolvedpeople, multiple role-local sources/overrides and a partialcompany cap. Keep independent fixture arithmetic oracle; do not hide expensive scopes behind ALL or smallSELF.
++
++## Browser campaign after fixtures stabilize
++
++Use real browser and local Vue/ElementPlus shell, never infer rendered behavior from source. Select fixtureL before appointments: learner heading/no training management. GrantP through authorized test command, refresh: backend heading/training only/listP; openP successfully, inspect unauthorizedQ and other-module navigation through the businessUI route. GrantQ, revokeP:Q retained/P next request denied. RevokeLast:backend closed. Repeat with a lawful role retained. Capture safe empty/error copy and no SQL/stack/target person names. UI screenshots/snapshots + server request evidence are complementary, not substitutes. If a deep link/denial business route is absent, add the minimal prototype navigation before claiming browser coverage. New knowledge/role nodes must not all be mislabeled learningreports in the synthetic shell.
+diff --git a/docs/coverage-map-contract.md b/docs/coverage-map-contract.md
+new file mode 100644
+index 0000000..43e9e51
+--- /dev/null
++++ b/docs/coverage-map-contract.md
+@@ -0,0 +1,18 @@
++# 实测矩阵证据映射
++
++`evidence/coverage-map.json` 使用 `docs/acceptance-manifest.json` 的全部168个子项，ID不改名、不省略。此文件由执行者填写、controller逐项审核，不从测试总数自动推断覆盖。
++
++顶层包含 `sourceCommit`、`updatedAt`、`items`。每个item包含：
++
++- `id`：冻结清单ID。
++- `status`：`pass`、`fail`、`incomplete`之一；没有事实依据时保持incomplete。
++- `actualResult`：实际观察结果及边界，明确哪些候选已测；不写计划时态冒充结果。
++- `evidence`：引用数组，每条包含`kind`、`candidate`、`path`，可另有`line`、`observationName`和说明。路径相对原型根目录。
++
++kind可用`http_sql`、`domain_sql`、`fault`、`browser`、`benchmark`、`boundary`、`unit`、`review`。candidate用`native`、`casbin`或`shared`，共享静态约束/前端证据须注明理由。纯unit/review不能把需要运行证据的子项填写通过。
++
++JSONL引用指定1起始行号；若该行存在expected/actual则由controller脚本重新比较。保留修复前失败文件，但通过行应引用明确的修复后证据。原始记录若用name则observationName匹配name；其他格式应在说明中点明字段。截图/SQL计划/终端输出允许引用完整文件，controller仍须检查内容，文件存在不等于已证明要求。
++
++`tools/audit-coverage.py`只核对ID、路径、已引用字面值和证据种类，不能判断证据是否足以证明对应语义。controller必须独立做该判断。不能用这份机械核验替代168项实测审计、性能门槛或最终Go签字。
++
++`tools/index-observations.py`可生成带文件SHA与行号的原始观察索引，输出到`evidence/raw/controller-observation-index.json`。索引包含历史失败尝试；literalEqual不能自动变成覆盖通过，必须选择对应已审实现的证据并检查语义。
+diff --git a/docs/superpowers/plans/2026-09-23-permission-spike.md b/docs/superpowers/plans/2026-09-23-permission-spike.md
+index a86675c..565089b 100644
+--- a/docs/superpowers/plans/2026-09-23-permission-spike.md
++++ b/docs/superpowers/plans/2026-09-23-permission-spike.md
+@@ -91,22 +91,27 @@ Use the actual production contract rather than creating an `actual` object of ha
+ ### Task 4: Company, team, account, remaining acceptance and benchmark paths
+ 
+ **Files:** new owning-module services/public ports under knowledge/account/authz/training/organization/report, compatible central contracts/registry/schema/seed/bootstrap extensions; focused tests and functional/fault runner extensions; README and continuation map. Do not edit Docker/controller tools or planning inputs. Keep implementation within this isolated synthetic permission spike.
+ 
+ **Read:** docs/kernel-contract.md, docs/task2-follow-up.md, README.md, docs/acceptance-manifest.json and the full authoritative04. Use every168subcase as an audit checklist, preserve unknowns. Core code is reviewed before this task. Derive literal expectations independently of policy/compiler. Write failing focused behavior tests before each new domain implementation; save actual RED/GREEN. No fabricated historical failures.
+ 
+ 
+ **Interfaces:** Consume reviewed Task3 public ports, catalog/delegation services, and selected-source contracts. Do not reimplement them; read its report and continuation map.
+ 
+ - [ ] Implement team add/remove: M directA/B only (crossdepartmentB allowed; C/D/E denied), switch gates only team path, appointments independent, current-state/company cap, batch atomic validation and high-risk transaction order.
++- [ ] Align synthetic company/organization invariants with approved02§4/5: departments carry company_id and parent belongs to samecompany; people with a nonempty department must belong to thatcompany. Rebuild valid mixedcompany bulk fixtures within50000people/2000departments; retain explicit NULL/invalid negative cases. Core seed placed threecompanies in companylesswide departments, which cannot substantiate the approved company hierarchy contract. Preserve department20depth/cycle and current/history tests and add crosscompany parent/person-department negatives. Internal company cap is owncompany plus explicitgrants (Task3 repair), external remains owncompany only.
+ - [ ] Implement T07 mixed-company project personal progress/search/attachments/project export create-execute-claim, customerA/B appointed managers, ordinary customer learner, internal non-super with only explicitcompany grants. Shared course access follows content grants; whole-project changes cover all affected companies. Grant/revokecompany immediate, other grants retained; transferred person history company remains immutable and newcompany SELF report cannot accessoldcompany.
+-- [ ] Implement minimal own account and management account paths with separate company balances/debts, B reward cannot offset A debt, own narrow wallet exception only, deny crosscompany source references/exports. Synthetic account operations test isolation, do not build full formal credit engine.
++- [ ] Implement minimal own account and management account paths with separate company balances/debts, B reward cannot offset A debt, own narrow wallet exception only, deny crosscompany source references/exports. Include a samecompany/samecurrency positive offset control as well as the forbidden crosscompany offset, so a blanket no-offset implementation cannot pass. Synthetic account operations test isolation, do not build full formal credit engine.
+ - [ ] Complete current enabled/disabled/deleted/restored and dept/manager/transfer null boundary tests with immutable historical department/job/state/company and current projection freshness. Same-name cross-tenant interference, unsupported/emptyscope, same-row field source, raw list/detail/export/cache/log/error scans; randomID and invalidresource fail closed.
+ - [ ] Real limited service job identity with current requester authorization at create/execute/claim; chunked protected export output without unbounded in-memory allrows. Direct domain/job bypass of Guard denies. Include all export/media download fault/revoke paths, batchdelegation/download races, explicit DBcommit/request/revision times; do not relabel HTTP response time as exact commit.
+ - [ ] Extend real two-process candidate campaigns for every applicable required subcase; write machine-readable mapping to test IDs/raw actual/expected/commands. Do not fill whole groups from unit-only proof. Preserve holes as incomplete and investigate addressable ones; controller audits and runs long benchmark/browser.
++- [ ] Use docs/coverage-map-contract.md for evidence/coverage-map.json: all168frozenIDs with actualResult/status and candidate/file/JSONL-line references. Leave controller browser/longbenchmark entries incomplete until real execution. Mechanical citation validation does not replace semantic review; do not auto-pass groups by matching IDs or test counts.
++- [ ] Complete minimal Vue business navigation for T06 real-backend browser acceptance (including allowed project deep link and safe denied project/module route), preserve lawful other-role navigation, and label newly registered knowledge/role nodes accurately. Use docs/controller-acceptance-audit-notes.md browser campaign as the handoff checklist; controller executes the actual browser campaign. Do not build full formal role/course product UI.
+ - [ ] Save EXPLAIN(ANALYZE,BUFFERS) for the actual measured list, count and aggregate query shapes and bound parameters, both broad and constrained sources; the core helper currently explains simplified ID/count queries, so do not label those complete measured endpoint plans.
++- [ ] The core constrained benchmark (M department with3people, X history1fact) is insufficient for the specified most-complex-scope workload. Add a deterministic non-super internal benchmark actor (reuse an existing person to retain50000people) with2–5memberships, role-local managed/override composition, multiple effective sources, partial company cap, and a non-ALL resolved person set >=10000. Constrained list/history reference scenarios use this actor; preserve small customerSELF cases for correctness/smoke. Derive independent literal/formula expected IDs/counts/group sums from synthetic seed arithmetic, never from production policy/compiler; save the scenario truth. Include historical department/job/status grouping as appropriate to the implemented historical projection.
+ - [ ] Add a mixed reference benchmark option compatible with docs/performance-protocol.md:50 total valid concurrent clients for600seconds, deterministic equal rotation of four existing list/history broad/constrained scenarios on both instances. Preserve separate per-scenario success/auth/data histograms and raw observations, denied/fault windows separate. This is not50clients per endpoint. Reject missing/nonfinite timing or incorrect candidate/cache/results as measurement error. Keep existing single-scenario runner available. Controller runs four candidate×temperature reference windows and does not aggregate fast denials into normal results.
++- [ ] Benchmark correctness must check the complete deterministic first-page IDs/authorized fields and historical group/count/sum results against an independent seed-arithmetic oracle, not only count/rowlength. Save actualCount/rowCount and a canonical result digest for every HTTP200 response (not one-in-200 sampling), plus expected result/digest in a scenario truth artifact. An unexpected/extra field, wrongcompany/IDs or group sum is an authorization error. This enables raw-sample auditing without dumping every repeated50rowpayload.
+ - [ ] Run covering semantic/integration/domain/HTTP/fault suites where changed; typecheck/build/audit; commit scoped files; report exact evidence and residual risks. Stop own API processes before handoff. No subagents.
+ 
+ ### Task 5: Evidence audit and reviewable Go/No-Go package
+ 
+ Controller task, no application changes. Read matrix raw output against every required subcase; missing evidence blocks Go. Execute complete benchmark after reviewed code/environment are ready, preserving failures and fixes separately. Use real browser for backend shell evidence. Save versions, source commit, environment limits, SQL plans and timelines. Independently review whole branch and reconcile all findings before claims. Write03/12 report,03/13 ADR, evidence links, risk/person-day ranges and a technical signature with user signoff blank. Update00/04/07/08/11 active status without changing frozen business inputs. Permanent gaps5, recitations7, simplestimplementations4, acceptedrisks2 stay in report. Prototype credit0; map files to possible replaced formal work without deduction. Recheck65 fingerprints and document counts at completion. Evidence incomplete or gate failed => No-Go; report still delivered.
+diff --git a/docs/task3-coverage.json b/docs/task3-coverage.json
+index 34da7ae..9d910ed 100644
+--- a/docs/task3-coverage.json
++++ b/docs/task3-coverage.json
+@@ -1114,12 +1114,434 @@
+         {
+           "path": "evidence/raw/task3-final-observations2.jsonl",
+           "line": 142,
+           "candidate": "casbin",
+           "name": "AUTH-T24 local empty override retained"
+         }
+       ],
+       "limitation": "Full AUTH group, browser and performance gate remain unpassed."
+     }
+   ],
+-  "otherRequiredSubcases": "All other required subcases remain as recorded in the unchanged 168-point manifest and Task2 evidence; Task3 does not upgrade them."
++  "otherRequiredSubcases": "All other required subcases remain as recorded in the unchanged 168-point manifest and Task2 evidence; Task3 does not upgrade them.",
++  "reviewFixRound1": {
++    "path": "evidence/raw/task3-fix1-final-observations.jsonl",
++    "sha256": "de4c077594240616589771b5b6270568b567e84dc8a39f0b4c8764b268e6123c",
++    "observations": 252,
++    "candidates": {
++      "native": 125,
++      "casbin": 125,
++      "shared-resolver": 2
++    },
++    "literalMismatches": 0,
++    "scope": "Four accepted Task3 Important findings only; full acceptance/performance remain pending",
++    "subcases": [
++      {
++        "id": "TASK3-REVIEW-R1",
++        "status": "focused-observation-pending-independent-audit",
++        "evidence": [
++          {
++            "path": "evidence/raw/task3-fix1-final-observations.jsonl",
++            "line": 183,
++            "candidate": "native",
++            "name": "R1 initial customer assignment"
++          },
++          {
++            "path": "evidence/raw/task3-fix1-final-observations.jsonl",
++            "line": 184,
++            "candidate": "native",
++            "name": "R1 original source remains active"
++          },
++          {
++            "path": "evidence/raw/task3-fix1-final-observations.jsonl",
++            "line": 185,
++            "candidate": "native",
++            "name": "R1 revoke A then Z recheck suspended"
++          },
++          {
++            "path": "evidence/raw/task3-fix1-final-observations.jsonl",
++            "line": 186,
++            "candidate": "native",
++            "name": "R1 restored source company recheck active"
++          },
++          {
++            "path": "evidence/raw/task3-fix1-final-observations.jsonl",
++            "line": 215,
++            "candidate": "casbin",
++            "name": "R1 initial customer assignment"
++          },
++          {
++            "path": "evidence/raw/task3-fix1-final-observations.jsonl",
++            "line": 216,
++            "candidate": "casbin",
++            "name": "R1 original source remains active"
++          },
++          {
++            "path": "evidence/raw/task3-fix1-final-observations.jsonl",
++            "line": 217,
++            "candidate": "casbin",
++            "name": "R1 revoke A then Z recheck suspended"
++          },
++          {
++            "path": "evidence/raw/task3-fix1-final-observations.jsonl",
++            "line": 218,
++            "candidate": "casbin",
++            "name": "R1 restored source company recheck active"
++          }
++        ]
++      },
++      {
++        "id": "TASK3-REVIEW-R2",
++        "status": "focused-observation-pending-independent-audit",
++        "evidence": [
++          {
++            "path": "evidence/raw/task3-fix1-final-observations.jsonl",
++            "line": 187,
++            "candidate": "native",
++            "name": "R2 D1 grantor D2 cap to D2 ownDept create"
++          },
++          {
++            "path": "evidence/raw/task3-fix1-final-observations.jsonl",
++            "line": 188,
++            "candidate": "native",
++            "name": "R2 literal recipient objects"
++          },
++          {
++            "path": "evidence/raw/task3-fix1-final-observations.jsonl",
++            "line": 189,
++            "candidate": "native",
++            "name": "R2 relative edit"
++          },
++          {
++            "path": "evidence/raw/task3-fix1-final-observations.jsonl",
++            "line": 190,
++            "candidate": "native",
++            "name": "R2 relative add member"
++          },
++          {
++            "path": "evidence/raw/task3-fix1-final-observations.jsonl",
++            "line": 191,
++            "candidate": "native",
++            "name": "R2 second recipient cap"
++          },
++          {
++            "path": "evidence/raw/task3-fix1-final-observations.jsonl",
++            "line": 192,
++            "candidate": "native",
++            "name": "R2 relative recheck"
++          },
++          {
++            "path": "evidence/raw/task3-fix1-final-observations.jsonl",
++            "line": 193,
++            "candidate": "native",
++            "name": "R2 empty recipient preserves field ceiling"
++          },
++          {
++            "path": "evidence/raw/task3-fix1-final-observations.jsonl",
++            "line": 194,
++            "candidate": "native",
++            "name": "R2 empty recipient preserves action ceiling"
++          },
++          {
++            "path": "evidence/raw/task3-fix1-final-observations.jsonl",
++            "line": 195,
++            "candidate": "native",
++            "name": "R2 empty recipient preserves delegability"
++          },
++          {
++            "path": "evidence/raw/task3-fix1-final-observations.jsonl",
++            "line": 219,
++            "candidate": "casbin",
++            "name": "R2 D1 grantor D2 cap to D2 ownDept create"
++          },
++          {
++            "path": "evidence/raw/task3-fix1-final-observations.jsonl",
++            "line": 220,
++            "candidate": "casbin",
++            "name": "R2 literal recipient objects"
++          },
++          {
++            "path": "evidence/raw/task3-fix1-final-observations.jsonl",
++            "line": 221,
++            "candidate": "casbin",
++            "name": "R2 relative edit"
++          },
++          {
++            "path": "evidence/raw/task3-fix1-final-observations.jsonl",
++            "line": 222,
++            "candidate": "casbin",
++            "name": "R2 relative add member"
++          },
++          {
++            "path": "evidence/raw/task3-fix1-final-observations.jsonl",
++            "line": 223,
++            "candidate": "casbin",
++            "name": "R2 second recipient cap"
++          },
++          {
++            "path": "evidence/raw/task3-fix1-final-observations.jsonl",
++            "line": 224,
++            "candidate": "casbin",
++            "name": "R2 relative recheck"
++          },
++          {
++            "path": "evidence/raw/task3-fix1-final-observations.jsonl",
++            "line": 225,
++            "candidate": "casbin",
++            "name": "R2 empty recipient preserves field ceiling"
++          },
++          {
++            "path": "evidence/raw/task3-fix1-final-observations.jsonl",
++            "line": 226,
++            "candidate": "casbin",
++            "name": "R2 empty recipient preserves action ceiling"
++          },
++          {
++            "path": "evidence/raw/task3-fix1-final-observations.jsonl",
++            "line": 227,
++            "candidate": "casbin",
++            "name": "R2 empty recipient preserves delegability"
++          }
++        ]
++      },
++      {
++        "id": "TASK3-REVIEW-R3",
++        "status": "focused-observation-pending-independent-audit",
++        "evidence": [
++          {
++            "path": "evidence/raw/task3-fix1-final-observations.jsonl",
++            "line": 196,
++            "candidate": "native",
++            "name": "R3 selected SELF custom own course"
++          },
++          {
++            "path": "evidence/raw/task3-fix1-final-observations.jsonl",
++            "line": 197,
++            "candidate": "native",
++            "name": "R3 saved affected course cap"
++          },
++          {
++            "path": "evidence/raw/task3-fix1-final-observations.jsonl",
++            "line": 198,
++            "candidate": "native",
++            "name": "R3 custom subject can browse own course"
++          },
++          {
++            "path": "evidence/raw/task3-fix1-final-observations.jsonl",
++            "line": 199,
++            "candidate": "native",
++            "name": "R3 cannot borrow maintain role to grant other uploader"
++          },
++          {
++            "path": "evidence/raw/task3-fix1-final-observations.jsonl",
++            "line": 200,
++            "candidate": "native",
++            "name": "R3 custom recheck retains target-only set"
++          },
++          {
++            "path": "evidence/raw/task3-fix1-final-observations.jsonl",
++            "line": 201,
++            "candidate": "native",
++            "name": "R3 SELF category includes inherited own courses only"
++          },
++          {
++            "path": "evidence/raw/task3-fix1-final-observations.jsonl",
++            "line": 202,
++            "candidate": "native",
++            "name": "R3 category persisted affected set"
++          },
++          {
++            "path": "evidence/raw/task3-fix1-final-observations.jsonl",
++            "line": 203,
++            "candidate": "native",
++            "name": "R3 category recheck affected set"
++          },
++          {
++            "path": "evidence/raw/task3-fix1-final-observations.jsonl",
++            "line": 204,
++            "candidate": "native",
++            "name": "R3 forced descendant outside selected SELF denied"
++          },
++          {
++            "path": "evidence/raw/task3-fix1-final-observations.jsonl",
++            "line": 205,
++            "candidate": "native",
++            "name": "R3 inherited descendant outside selected SELF denied"
++          },
++          {
++            "path": "evidence/raw/task3-fix1-final-observations.jsonl",
++            "line": 228,
++            "candidate": "casbin",
++            "name": "R3 selected SELF custom own course"
++          },
++          {
++            "path": "evidence/raw/task3-fix1-final-observations.jsonl",
++            "line": 229,
++            "candidate": "casbin",
++            "name": "R3 saved affected course cap"
++          },
++          {
++            "path": "evidence/raw/task3-fix1-final-observations.jsonl",
++            "line": 230,
++            "candidate": "casbin",
++            "name": "R3 custom subject can browse own course"
++          },
++          {
++            "path": "evidence/raw/task3-fix1-final-observations.jsonl",
++            "line": 231,
++            "candidate": "casbin",
++            "name": "R3 cannot borrow maintain role to grant other uploader"
++          },
++          {
++            "path": "evidence/raw/task3-fix1-final-observations.jsonl",
++            "line": 232,
++            "candidate": "casbin",
++            "name": "R3 custom recheck retains target-only set"
++          },
++          {
++            "path": "evidence/raw/task3-fix1-final-observations.jsonl",
++            "line": 233,
++            "candidate": "casbin",
++            "name": "R3 SELF category includes inherited own courses only"
++          },
++          {
++            "path": "evidence/raw/task3-fix1-final-observations.jsonl",
++            "line": 234,
++            "candidate": "casbin",
++            "name": "R3 category persisted affected set"
++          },
++          {
++            "path": "evidence/raw/task3-fix1-final-observations.jsonl",
++            "line": 235,
++            "candidate": "casbin",
++            "name": "R3 category recheck affected set"
++          },
++          {
++            "path": "evidence/raw/task3-fix1-final-observations.jsonl",
++            "line": 236,
++            "candidate": "casbin",
++            "name": "R3 forced descendant outside selected SELF denied"
++          },
++          {
++            "path": "evidence/raw/task3-fix1-final-observations.jsonl",
++            "line": 237,
++            "candidate": "casbin",
++            "name": "R3 inherited descendant outside selected SELF denied"
++          }
++        ]
++      },
++      {
++        "id": "TASK3-REVIEW-R4",
++        "status": "focused-observation-pending-independent-audit",
++        "evidence": [
++          {
++            "path": "evidence/raw/task3-fix1-final-observations.jsonl",
++            "line": 206,
++            "candidate": "native",
++            "name": "R4 source maintains inaccessible"
++          },
++          {
++            "path": "evidence/raw/task3-fix1-final-observations.jsonl",
++            "line": 207,
++            "candidate": "native",
++            "name": "R4 inaccessible delegation create"
++          },
++          {
++            "path": "evidence/raw/task3-fix1-final-observations.jsonl",
++            "line": 208,
++            "candidate": "native",
++            "name": "R4 recipient maintains inaccessible"
++          },
++          {
++            "path": "evidence/raw/task3-fix1-final-observations.jsonl",
++            "line": 209,
++            "candidate": "native",
++            "name": "R4 maintenance survives valid recheck"
++          },
++          {
++            "path": "evidence/raw/task3-fix1-final-observations.jsonl",
++            "line": 210,
++            "candidate": "native",
++            "name": "R4 inaccessible M browse denied"
++          },
++          {
++            "path": "evidence/raw/task3-fix1-final-observations.jsonl",
++            "line": 211,
++            "candidate": "native",
++            "name": "R4 inaccessible M download denied"
++          },
++          {
++            "path": "evidence/raw/task3-fix1-final-observations.jsonl",
++            "line": 212,
++            "candidate": "native",
++            "name": "R4 inaccessible L browse denied"
++          },
++          {
++            "path": "evidence/raw/task3-fix1-final-observations.jsonl",
++            "line": 213,
++            "candidate": "native",
++            "name": "R4 inaccessible L download denied"
++          },
++          {
++            "path": "evidence/raw/task3-fix1-final-observations.jsonl",
++            "line": 214,
++            "candidate": "native",
++            "name": "R4 recipient can restore accessible state"
++          },
++          {
++            "path": "evidence/raw/task3-fix1-final-observations.jsonl",
++            "line": 238,
++            "candidate": "casbin",
++            "name": "R4 source maintains inaccessible"
++          },
++          {
++            "path": "evidence/raw/task3-fix1-final-observations.jsonl",
++            "line": 239,
++            "candidate": "casbin",
++            "name": "R4 inaccessible delegation create"
++          },
++          {
++            "path": "evidence/raw/task3-fix1-final-observations.jsonl",
++            "line": 240,
++            "candidate": "casbin",
++            "name": "R4 recipient maintains inaccessible"
++          },
++          {
++            "path": "evidence/raw/task3-fix1-final-observations.jsonl",
++            "line": 241,
++            "candidate": "casbin",
++            "name": "R4 maintenance survives valid recheck"
++          },
++          {
++            "path": "evidence/raw/task3-fix1-final-observations.jsonl",
++            "line": 242,
++            "candidate": "casbin",
++            "name": "R4 inaccessible M browse denied"
++          },
++          {
++            "path": "evidence/raw/task3-fix1-final-observations.jsonl",
++            "line": 243,
++            "candidate": "casbin",
++            "name": "R4 inaccessible M download denied"
++          },
++          {
++            "path": "evidence/raw/task3-fix1-final-observations.jsonl",
++            "line": 244,
++            "candidate": "casbin",
++            "name": "R4 inaccessible L browse denied"
++          },
++          {
++            "path": "evidence/raw/task3-fix1-final-observations.jsonl",
++            "line": 245,
++            "candidate": "casbin",
++            "name": "R4 inaccessible L download denied"
++          },
++          {
++            "path": "evidence/raw/task3-fix1-final-observations.jsonl",
++            "line": 246,
++            "candidate": "casbin",
++            "name": "R4 recipient can restore accessible state"
++          }
++        ]
++      }
++    ]
++  }
+ }
+diff --git a/docs/task3-ports.md b/docs/task3-ports.md
+index c0ddd91..b49fd3c 100644
+--- a/docs/task3-ports.md
++++ b/docs/task3-ports.md
+@@ -8,17 +8,17 @@
+ | `OrganizationFacts.resolveScopeMembers(specs,revision)` | Existing version-bound bulk relation resolution; ALL/SELF avoid whole-person enumeration. |
+ | `TrainingFacts.appointments(identity)` | Training-owned appointments; no organization-private SQL. |
+ | `KnowledgeFacts.catalogs(identity)` | Category hierarchy/policy, course category/custom references, synthetic classroom membership. Central Authority normalizes subjects to ordinary course QueryPolicy sources. The resource SQL never switches on subject types. |
+ | `ReportProjection.person(db,fact)` | Report-owned synchronous projection update using the same marked transaction client. |
+ | `reportObjects / trainingObjects / knowledgeObjects(db,QueryPolicy)` | Owning-module exact business-object enumeration for delegation only. History uses report's current person projection. They consume central compiler predicates and do not interpret scope enums. |
+ | `authz/public.ts` | Central application-strategy entry points; exposes no repositories. |
+ | `knowledge.freeze_source_configs(tenant)` | Owning-module SQL transaction port, invoked by central dependency trigger; only knowledge private tables are changed within it. |
+ 
+ Protected mutations retain the reviewed protocol: `BEGIN ISOLATION LEVEL READ COMMITTED`; marked pinned client; revision-only `FOR UPDATE OF r`; then fresh revision/company/person reads and a revision fence. The new facts ports must use that same client. Reports do not join organization-private tables. Membership and role reads are authz-owned; role policy is canonical when present, while seeded legacy roles with null canonical policy retain local fixture compatibility. Editing a legacy role promotes its policy to canonical and fans out to all memberships without clearing overrides, active flags or provenance.
+ 
+-Derived membership data contains `delegation.sourceMembershipId,sourceActorId,revision,caps[]`; each cap binds node/action, exact permitted object IDs and raw fields. Normalization intersects saved caps with current scope. Recipient-relative SELF/department scopes are resolved independently before issuance. A source may not borrow another membership or appointment. Source and organization/object-set changes freeze derived configurations in the same transaction. Membership graph cycles have service and database checks. Recheck follows the original membership ID, not a newly created membership for the same role/person, and writes active/suspended audit details. Role mutations and rechecks also respect target member company caps.
++Derived membership data contains `delegation.sourceMembershipId,sourceActorId,revision,caps[]`; each cap binds node/action, exact permitted object IDs and raw fields. Normalization intersects saved caps with current scope. Recipient-relative SELF/department scopes are resolved independently before issuance. A source may not borrow another membership or appointment. Source and organization/object-set changes freeze derived configurations in the same transaction. Membership graph cycles have service and database checks. Recheck follows the original membership ID, not a newly created membership for the same role/person, and writes active/suspended audit details. Role mutations and rechecks also respect target member company caps. Recheck requires both the acting administrator and the original source actor to retain the recipient company; a broad rechecker cannot repair a missing original-source company cap. Capability/level validation does not resolve the proposed SELF/department scope against the grantor: exact subset comparison resolves the recipient context (and recipient jurisdiction) against the original source. Empty object sets still require explicit action/field delegability. An unassigned role template grants no membership; adding a recipient validates its actual set before issuance.
+ 
+-Category and custom policies persist selected source and a cap snapshot/version. Effective ancestry ignores frozen local grants. Forced/inherited policy overrides an earlier course custom policy; locked writes reject even for the creator. Public means authenticated current-tenant browse, never anonymous/cross-tenant exposure. Parent append uses a current revision preview and changes one named parent while retaining existing allows. Policy saves validate the whole retained set against the newly selected source before replacing provenance.
++Category and custom policies persist selected source and a cap snapshot/version. The saved cap is the actual affected object set: a custom browse save/recheck uses its single course, while category saves/append/recheck follow the effective policy owner through inherited or forced descendants (including proposed force/inherit flags). Stored course browse overrides exclude that course from an unlocked category browse proposal. These affected IDs are trusted owning-module facts, never copied from a request DTO. Knowledge enumeration and live queries share the action-sensitive accessibility predicate: inaccessible courses remain maintainable, while browse/download remain blocked. Effective ancestry ignores frozen local grants. Forced/inherited policy overrides an earlier course custom policy; locked writes reject even for the creator. Public means authenticated current-tenant browse, never anonymous/cross-tenant exposure. Parent append uses a current revision preview and changes one named parent while retaining existing allows. Policy saves validate the whole retained set against the newly selected source before replacing provenance.
+ 
+ Freeze granularity is conservative: organization/company/object-set changes freeze all derived memberships and source-bound knowledge policies in the tenant; membership changes freeze dependency descendants and conservatively freeze source-bound knowledge policies. Knowledge course insertion/deletion and writes naming enabled/deleted/published/accessibility/uploader fields are object-set triggers. Saving custom browse alone does not trigger object-set freezing, so a validated save remains usable. Semantic object writes that name unchanged fields can still over-freeze. This is safe but may be expensive and inconvenient. Category/custom explicit recheck endpoints follow the stored original source membership and append active/suspended outcomes plus cap/version snapshots to knowledge.policy_audit. Authorized full policy saves also revalidate the selected source.
+ 
+ This is source-level modularity in a shared database. Cross-module foreign keys and a shared transaction coordinator are intentional. Independently deployed services would require a revision-consistent facts/projection/dependency protocol before the transaction client could be replaced; no independent database-role/RLS/service split is claimed. The synthetic KnowledgeFacts adapter materializes course/category policy references before source compilation; production-scale policy cardinality and Casbin source cost remain unmeasured. Exact object cap snapshots also enumerate potentially large business sets during delegation; large-cap storage/performance remains Task4 audit work. No full UI/production upload workflow or cloud storage adapter is implemented here.
+diff --git a/src/authz/contracts.ts b/src/authz/contracts.ts
+index bcb3b45..6762fa7 100644
+--- a/src/authz/contracts.ts
++++ b/src/authz/contracts.ts
+@@ -183,20 +183,22 @@ export interface Catalog {
+ }
+ export interface ObjectSet {
+     tenantId: string;
+     actorId: string;
+     revision: number;
+     nodeId: string;
+     action: string;
+     objectIds: string[];
+ }
+ export interface ProposedGrant {
++    /** Trusted owning-module affected IDs; never copied from a request DTO. */
++    objectIds?: string[];
+     nodeId: string;
+     action: string;
+     scope: Scope;
+     rawFields: string[];
+ }
+ export interface QuerySource {
+     sourceId: string;
+     rawFields: string[];
+     resolved: ResolvedScope;
+ }
+diff --git a/src/authz/delegation-caps.ts b/src/authz/delegation-caps.ts
+index f2d0488..4a35040 100644
+--- a/src/authz/delegation-caps.ts
++++ b/src/authz/delegation-caps.ts
+@@ -1,22 +1,14 @@
+-import type { Context, Membership, NodePolicy, DelegationCap } from './contracts.js';
+-import { normalizePolicy } from './policy.js';
+-import { makeScope } from './scope.js';
++import type { Context, Membership, NodePolicy, DelegationCap, Scope } from './contracts.js';
++import { assertGrantSubset } from './delegation.js';
+ import { nodes } from './registry.js';
+ import { ObjectResolver } from './objects.js';
+-import { Denied } from '../infrastructure/db.js';
+-/** Evaluate recipient-relative SELF/department scopes against one selected grantor, by actual object IDs. */
+-export async function recipientCaps(context:Context,selected:Membership,target:Context,policies:NodePolicy[],resolver:ObjectResolver):Promise<DelegationCap[]> {
+- const grants=normalizePolicy({context,nodes,memberships:[selected]}).filter(g=>g.delegable), result:DelegationCap[]=[];
+- for(const p of policies) for(const action of p.actions) {
+-  const node=nodes.find(n=>n.id===p.nodeId)!;
+-  const spec=makeScope(target,node,action,p.scope,selected.jurisdiction); if(!spec)throw new Denied();
+-  const desired=await resolver.resolve(spec),coverage=new Map<string,Set<string>>();
+-  for(const g of grants.filter(g=>g.nodeId===p.nodeId&&g.action===action)) {
+-   const cap=await resolver.resolve(g.scope);
+-   for(const id of cap.objectIds){const fields=coverage.get(id)??new Set<string>();for(const f of g.rawFields)fields.add(f);coverage.set(id,fields);}
+-  }
+-  if(desired.objectIds.some(id=>!coverage.has(id)||!p.rawFields.every(f=>coverage.get(id)!.has(f))))throw new Denied();
+-  result.push({nodeId:p.nodeId,action,objectIds:desired.objectIds,rawFields:p.rawFields});
+- }
+- return result;
++import { Denied, Unavailable } from '../infrastructure/db.js';
++/** Resolve the recipient's actual scopes against the selected grantor's actual capabilities. */
++export async function recipientCaps(context:Context,selected:Membership,target:Context,policies:NodePolicy[],resolver:ObjectResolver,jurisdiction?:Scope):Promise<DelegationCap[]> {
++ try {
++  return await assertGrantSubset({context,nodes,memberships:[selected],managementRoleMembershipId:selected.id,
++   proposalContext:target,proposalJurisdiction:jurisdiction,
++   proposed:policies.flatMap(p=>p.actions.map(action=>({nodeId:p.nodeId,action,scope:p.scope,rawFields:p.rawFields}))),
++   resolveObjects:s=>resolver.resolve(s)});
++ } catch(error) {if(error instanceof Unavailable)throw error;throw new Denied();}
+ }
+diff --git a/src/authz/delegation.ts b/src/authz/delegation.ts
+index 6fe8995..5e42b0c 100644
+--- a/src/authz/delegation.ts
++++ b/src/authz/delegation.ts
+@@ -1,70 +1,91 @@
+-import type { Context, Membership, NodeDefinition, ObjectSet, ProposedGrant, ScopeSpec } from './contracts.js';
++import type { Context, Membership, NodeDefinition, ObjectSet, ProposedGrant, ScopeSpec, Scope, DelegationCap } from './contracts.js';
+ import { activeMembership, normalizePolicy, validContext } from './policy.js';
+ import { makeScope } from './scope.js';
+ export interface DelegateInput {
+     context: Context;
+     nodes: readonly NodeDefinition[];
+     memberships: readonly Membership[];
+     managementRoleMembershipId: string;
+     operation: 'create' | 'edit';
+     targetLevel: 1 | 2 | 3;
+     proposed: readonly ProposedGrant[];
+     resolveObjects: (spec: ScopeSpec) => Promise<ObjectSet>;
+ }
+ function checkBound(set: ObjectSet, spec: ScopeSpec) { if (set.tenantId !== spec.tenantId || set.actorId !== spec.actorId || set.revision !== spec.revision || set.nodeId !== spec.nodeId || set.action !== spec.action)
+     throw new Error('delegation resolution binding mismatch'); }
+-/** Object resolver is a trusted module port: compare actual same-node/action object sets. */
+-export async function assertCanDelegate(input: DelegateInput): Promise<void> {
++/** Role mutation and capability checks only; recipients are resolved separately. */
++export function assertRoleDelegateCapabilities(input: Omit<DelegateInput, 'resolveObjects'>): void {
+     const m = input.memberships.find(m => m.id === input.managementRoleMembershipId);
+     if (!validContext(input.context) || !m || !activeMembership(m, input.context))
+         throw new Error('inactive management membership');
+     if (![2, 3].includes(input.targetLevel) || !['create', 'edit'].includes(input.operation) || (input.operation === 'edit' && input.targetLevel <= m.level))
+         throw new Error('role level forbidden');
+     const normalized = normalizePolicy({ context: input.context, nodes: input.nodes, memberships: [m] });
+     const mutationAction = input.operation === 'create' ? 'authz.role.create' : 'authz.role.update';
+     if (!normalized.some(g => g.nodeId === 'role-management' && g.action === mutationAction && g.scope.scope.kind === 'all'))
+         throw new Error('role mutation action not allowed in selected membership');
++    grantCapabilities(input);
++}
++export async function assertCanDelegate(input: DelegateInput): Promise<void> {
++    assertRoleDelegateCapabilities(input);
+     await assertGrantSubset(input);
+ }
+ 
+ /** Capability subset check reused by non-role grants; caller checks its own mutation action and locks. */
+-export type GrantSubsetInput = Omit<DelegateInput, 'operation' | 'targetLevel'>;
+-export async function assertGrantSubset(input: GrantSubsetInput): Promise<void> {
++export type GrantSubsetInput = Omit<DelegateInput, 'operation' | 'targetLevel'> & {
++    proposalContext?: Context;
++    proposalJurisdiction?: Scope;
++};
++/** Validate capabilities without resolving relative scopes against the grantor. */
++function grantCapabilities(input: Omit<GrantSubsetInput, 'resolveObjects'>) {
+     const m = input.memberships.find(m => m.id === input.managementRoleMembershipId);
+     if (!validContext(input.context) || !m || !activeMembership(m, input.context))
+         throw new Error('inactive management membership');
+     const grants = normalizePolicy({ context: input.context, nodes: input.nodes, memberships: [m] }).filter(g => g.delegable);
+-    for (const p of input.proposed) {
++    const target = input.proposalContext ?? input.context;
++    if (!validContext(target) || target.tenantId !== input.context.tenantId || target.revision !== input.context.revision)
++        throw new Error('proposal context binding mismatch');
++    return input.proposed.map(p => {
+         const node = input.nodes.find(n => n.id === p.nodeId);
+         if (!node)
+             throw new Error('unknown node');
+-        const scope = makeScope(input.context, node, p.action, p.scope, m.jurisdiction);
++        const scope = makeScope(target, node, p.action, p.scope, input.proposalContext ? input.proposalJurisdiction : m.jurisdiction);
+         if (!scope)
+             throw new Error('unsupported scope/action');
+         const candidates = grants.filter(g => g.nodeId === p.nodeId && g.action === p.action);
+         if (!candidates.length)
+             throw new Error('action not delegable');
++        // Empty object sets still require a registered, explicitly delegable action and fields.
++        if (!p.rawFields.every(f => node.rawFields.includes(f) && candidates.some(g => g.rawFields.includes(f))))
++            throw new Error('field not delegable');
++        if (p.objectIds !== undefined) scope.objectIds = [...p.objectIds];
++        return { p, scope, candidates };
++    });
++}
++/** Return the exact validated proposal caps, never the broader source caps. */
++export async function assertGrantSubset(input: GrantSubsetInput): Promise<DelegationCap[]> {
++    const result: DelegationCap[] = [];
++    for (const { p, scope, candidates } of grantCapabilities(input)) {
+         const proposed = await input.resolveObjects(scope);
+         checkBound(proposed, scope);
+         const coverage = new Map<string, Set<string>>();
+         for (const g of candidates) {
+             const cap = await input.resolveObjects(g.scope);
+             checkBound(cap, g.scope);
+             for (const id of cap.objectIds) {
+                 const fields = coverage.get(id) ?? new Set<string>();
+                 for (const f of g.rawFields)
+                     fields.add(f);
+                 coverage.set(id, fields);
+             }
+         }
+         for (const id of proposed.objectIds) {
+             if (!coverage.has(id))
+                 throw new Error('scope exceeds selected membership');
+             if (!p.rawFields.every(f => coverage.get(id)!.has(f)))
+                 throw new Error('field exceeds selected membership');
+         }
+-        // A currently empty proposed set must not be used to mint future raw-field powers.
+-        if (!p.rawFields.every(f => node.rawFields.includes(f) && candidates.some(g => g.rawFields.includes(f))))
+-            throw new Error('field not delegable');
++        result.push({nodeId:p.nodeId, action:p.action, objectIds:proposed.objectIds, rawFields:p.rawFields});
+     }
++    return result;
+ }
+diff --git a/src/authz/role-service.ts b/src/authz/role-service.ts
+index 828158c..da08e71 100644
+--- a/src/authz/role-service.ts
++++ b/src/authz/role-service.ts
+@@ -1,31 +1,31 @@
+ import { companyCap } from './scope.js';
+ import { randomUUID } from 'node:crypto';
+ import { Authority } from './revision.js';
+ import { nodes } from './registry.js';
+-import { assertCanDelegate, assertGrantSubset } from './delegation.js';
++import { assertRoleDelegateCapabilities } from './delegation.js';
+ import { recipientCaps } from './delegation-caps.js';
+ import { ObjectResolver } from './objects.js';
+ import type { NodePolicy, Membership, ProposedGrant } from './contracts.js';
+ import { transaction, query, Denied, Unavailable, type Identity, type DB } from '../infrastructure/db.js';
+ export interface RoleCommand {id?:string;level:1|2|3;managementRoleMembershipId:string;policies:NodePolicy[];memberPersonIds?:string[]}
+ export function proposed(policies:NodePolicy[]):ProposedGrant[]{return policies.flatMap(p=>p.actions.map(action=>({nodeId:p.nodeId,action,scope:p.scope,rawFields:p.rawFields})));}
+ export function validatePolicies(policies:NodePolicy[]) {
+  if(!Array.isArray(policies)||new Set(policies.map(p=>p.nodeId)).size!==policies.length)throw new Denied();
+  for(const p of policies){const n=nodes.find(n=>n.id===p.nodeId);if(!n||typeof p.navigation!=='boolean'||!p.scope||!n.scopes.includes(p.scope.kind)||!Array.isArray(p.actions)||!Array.isArray(p.rawFields)||!Array.isArray(p.delegableActions)||!p.actions.every(a=>n.actions.includes(a))||!p.rawFields.every(f=>n.rawFields.includes(f))||!p.delegableActions.every(a=>p.actions.includes(a)))throw new Denied();}
+ }
+ export class RoleService {
+  constructor(private authority:Authority){}
+  async create(identity:Identity,body:RoleCommand){return transaction(async db=>{
+   const {context}=await this.authority.load(identity,db,true);validatePolicies(body.policies);
+   const memberships=await this.authority.memberships(identity,db), resolver=new ObjectResolver(this.authority,db);
+-  try {await assertCanDelegate({context,nodes,memberships,managementRoleMembershipId:body.managementRoleMembershipId,operation:'create',targetLevel:body.level,proposed:proposed(body.policies),resolveObjects:s=>resolver.resolve(s)});}catch{throw new Denied();}
++  try {assertRoleDelegateCapabilities({context,nodes,memberships,managementRoleMembershipId:body.managementRoleMembershipId,operation:'create',targetLevel:body.level,proposed:proposed(body.policies)});}catch{throw new Denied();}
+   const id=body.id??randomUUID();if(typeof id!=='string'||!id||!Array.isArray(body.memberPersonIds??[])||(body.memberPersonIds??[]).some(x=>typeof x!=='string'))throw new Denied();
+   const prepared:Membership[]=[];
+   for(const personId of [...new Set(body.memberPersonIds??[])]){
+    const target=await this.authority.current({tenantId:identity.tenantId,personId},db);
+    if(!companyCap(context).includes(target.companyId))throw new Denied();
+    const caps=await recipientCaps(context,memberships.find(m=>m.id===body.managementRoleMembershipId)!,target,body.policies,resolver);
+    prepared.push({id:randomUUID(),tenantId:identity.tenantId,personId,roleId:id,level:body.level,active:true,provenance:'active',policies:body.policies,delegation:{sourceMembershipId:body.managementRoleMembershipId,sourceActorId:identity.personId,revision:context.revision,caps}});
+   }
+   await query(db,'INSERT INTO authz.role(tenant_id,id,level,policies) VALUES($1,$2,$3,$4)',[identity.tenantId,id,body.level,JSON.stringify(body.policies)]);
+   const membershipIds:string[]=[];
+@@ -34,27 +34,27 @@ export class RoleService {
+   }
+   return {id,membershipIds};
+  });}
+  async edit(identity:Identity,id:string,body:RoleCommand){return transaction(async db=>{
+   const {context}=await this.authority.load(identity,db,true);validatePolicies(body.policies);
+   const role=(await query(db,'SELECT level FROM authz.role WHERE tenant_id=$1 AND id=$2',[identity.tenantId,id])).rows[0];
+   const targets=(await query(db,'SELECT data FROM authz.membership WHERE tenant_id=$1 AND role_id=$2',[identity.tenantId,id])).rows.map(r=>r.data as Membership);
+   const level=role?.level??targets[0]?.level;
+   if(!role||level===1||body.level!==level)throw new Denied();
+   const memberships=await this.authority.memberships(identity,db),resolver=new ObjectResolver(this.authority,db);
+-  try{await assertCanDelegate({context,nodes,memberships,managementRoleMembershipId:body.managementRoleMembershipId,operation:'edit',targetLevel:level,proposed:proposed(body.policies),resolveObjects:s=>resolver.resolve(s)});}catch{throw new Denied();}
++  try{assertRoleDelegateCapabilities({context,nodes,memberships,managementRoleMembershipId:body.managementRoleMembershipId,operation:'edit',targetLevel:level,proposed:proposed(body.policies)});}catch{throw new Denied();}
+   const selected=memberships.find(m=>m.id===body.managementRoleMembershipId)!;
+   for(const target of targets){
+    await this.assertNoCycle(identity.tenantId,target.id,selected.id,db);
+    const targetContext=await this.authority.current({tenantId:identity.tenantId,personId:target.personId},db);
+    if(!companyCap(context).includes(targetContext.companyId))throw new Denied();
+-   const caps=await recipientCaps(context,selected,targetContext,this.effectivePolicies(body.policies,target),resolver);
++   const caps=await recipientCaps(context,selected,targetContext,this.effectivePolicies(body.policies,target),resolver,target.jurisdiction);
+    target.policies=body.policies;target.level=level;
+    target.delegation={sourceMembershipId:selected.id,sourceActorId:identity.personId,revision:context.revision,caps};
+   }
+   await query(db,'UPDATE authz.role SET policies=$3,level=$4 WHERE tenant_id=$1 AND id=$2',[identity.tenantId,id,JSON.stringify(body.policies),level]);
+   for(const target of targets)await query(db,'UPDATE authz.membership SET data=$3,source_id=$4 WHERE tenant_id=$1 AND id=$2',[identity.tenantId,target.id,target,selected.id]);
+   await this.audit(identity,db,'role.edit',{id,sourceMembershipId:selected.id,membershipIds:targets.map(m=>m.id)});
+   return {id,membershipIds:targets.map(m=>m.id)};
+  });}
+  private effectivePolicies(policies:NodePolicy[],target:Membership):NodePolicy[]{
+   return policies.map(p=>{const o=target.overrides?.find(o=>o.membershipId===target.id&&o.nodeId===p.nodeId);return o?{...p,scope:o.scope??p.scope,actions:o.scope===null?[]:p.actions}:p;});
+@@ -76,35 +76,35 @@ export class RoleService {
+   if(!targetFact||!companyCap(context).includes(targetFact.companyId))throw new Denied();
+   let state:'active'|'suspended'='suspended';
+   try{
+    if(!target.active||!target.delegation||target.delegation.sourceMembershipId!==row.source_id)throw new Denied();
+    const sourceRow=(await query(db,'SELECT person_id FROM authz.membership WHERE tenant_id=$1 AND id=$2',[identity.tenantId,row.source_id])).rows[0];
+    if(!sourceRow)throw new Denied();
+    const sourceIdentity={tenantId:identity.tenantId,personId:sourceRow.person_id};
+    const sourceContext=await this.authority.current(sourceIdentity,db),sourceMemberships=await this.authority.memberships(sourceIdentity,db);
+    const selected=sourceMemberships.find(m=>m.id===row.source_id)!;
+    const resolver=new ObjectResolver(this.authority,db);
+-   await assertGrantSubset({context:sourceContext,nodes,memberships:sourceMemberships,managementRoleMembershipId:row.source_id,proposed:proposed(target.policies),resolveObjects:s=>resolver.resolve(s)});
++   if(!companyCap(sourceContext).includes(targetFact.companyId))throw new Denied();
+    const targetContext=await this.authority.current({tenantId:identity.tenantId,personId:target.personId},db);
+-   target.delegation={sourceMembershipId:row.source_id,sourceActorId:sourceIdentity.personId,revision:context.revision,caps:await recipientCaps(sourceContext,selected,targetContext,this.effectivePolicies(target.policies,target),resolver)};
++   target.delegation={sourceMembershipId:row.source_id,sourceActorId:sourceIdentity.personId,revision:context.revision,caps:await recipientCaps(sourceContext,selected,targetContext,this.effectivePolicies(target.policies,target),resolver,target.jurisdiction)};
+    state='active';
+   }catch(error){if(error instanceof Unavailable)throw error;if(error instanceof Denied || (error instanceof Error && !(error as any).code)){state='suspended';}else throw error;}
+   target.provenance=state;
+   await query(db,'UPDATE authz.membership SET data=$3 WHERE tenant_id=$1 AND id=$2',[identity.tenantId,id,target]);
+   await this.audit(identity,db,'delegation.recheck',{id,state,sourceMembershipId:row.source_id,caps:target.delegation?.caps});
+   return {id,state};
+  });}
+  async addMember(identity:Identity,id:string,body:{personId:string;managementRoleMembershipId:string}){return transaction(async db=>{
+   const {context}=await this.authority.load(identity,db,true);
+   const role=(await query(db,'SELECT level,policies FROM authz.role WHERE tenant_id=$1 AND id=$2',[identity.tenantId,id])).rows[0];
+   if(!role||!role.policies)throw new Denied();
+   const memberships=await this.authority.memberships(identity,db),resolver=new ObjectResolver(this.authority,db);
+-  try{await assertCanDelegate({context,nodes,memberships,managementRoleMembershipId:body.managementRoleMembershipId,operation:'edit',targetLevel:role.level,proposed:proposed(role.policies),resolveObjects:s=>resolver.resolve(s)});}catch{throw new Denied();}
++  try{assertRoleDelegateCapabilities({context,nodes,memberships,managementRoleMembershipId:body.managementRoleMembershipId,operation:'edit',targetLevel:role.level,proposed:proposed(role.policies)});}catch{throw new Denied();}
+   const target=await this.authority.current({tenantId:identity.tenantId,personId:body.personId},db);
+   if(!companyCap(context).includes(target.companyId))throw new Denied();
+   const caps=await recipientCaps(context,memberships.find(m=>m.id===body.managementRoleMembershipId)!,target,role.policies,resolver);
+   const m:Membership={id:randomUUID(),tenantId:identity.tenantId,personId:body.personId,roleId:id,level:role.level,active:true,provenance:'active',policies:role.policies,delegation:{sourceMembershipId:body.managementRoleMembershipId,sourceActorId:identity.personId,revision:context.revision,caps}};
+   await query(db,'INSERT INTO authz.membership(tenant_id,id,person_id,role_id,data,source_id) VALUES($1,$2,$3,$4,$5,$6)',[identity.tenantId,m.id,m.personId,id,m,body.managementRoleMembershipId]);
+   await this.audit(identity,db,'membership.create',{id:m.id,roleId:id,sourceMembershipId:body.managementRoleMembershipId});return {id:m.id};
+  });}
+ 
+ }
+diff --git a/src/knowledge/public.ts b/src/knowledge/public.ts
+index e1b2bf4..dcf4ede 100644
+--- a/src/knowledge/public.ts
++++ b/src/knowledge/public.ts
+@@ -1,27 +1,29 @@
+ import { query, type DB } from '../infrastructure/db.js';
+ import { compile } from '../authz/compiler.js';
+ import type { QueryPolicy } from '../authz/contracts.js';
++/** Owning-module resource state rule shared by live queries and delegation enumeration. */
++export function courseAccessPredicate(action:string) {return action==='knowledge.course.maintain'?'':' AND r.accessible=true';}
+ export async function knowledgeObjects(db: DB, plan: QueryPolicy) {
+  const c=compile(plan,{id:'id',uploaderId:'uploader_id',enabled:'enabled',deleted:'deleted',published:'published'});
+- return (await query(db,`SELECT r.id FROM knowledge.course r WHERE ${c.where} AND r.accessible=true ORDER BY r.id`,c.values)).rows.map(r=>r.id as string);
++ return (await query(db,`SELECT r.id FROM knowledge.course r WHERE ${c.where}${courseAccessPredicate(plan.action)} ORDER BY r.id`,c.values)).rows.map(r=>r.id as string);
+ }
+ 
+ export interface CategoryFact {id:string;parent_id:string|null;creator_id:string;inherit_parent:boolean;force_children:boolean;provenance?:string;grants:import('../authz/contracts.js').CatalogGrant[]}
+ export function effectiveCategory(rows:CategoryFact[],id:string) {
+  const chain:CategoryFact[]=[];let current=rows.find(c=>c.id===id);
+  while(current){if(chain.some(c=>c.id===current!.id)||chain.length>=10)throw new Error('invalid category ancestry');chain.unshift(current);current=current.parent_id?rows.find(c=>c.id===current!.parent_id):undefined;}
+  if(!chain.length||chain[0]!.parent_id)throw new Error('missing category ancestor');
+- let grants:CategoryFact['grants']=[],lockedBy:string|undefined,forcedBy:string|undefined;
+- for(const c of chain){lockedBy=forcedBy??(c.inherit_parent?c.parent_id??undefined:undefined);if(!lockedBy)grants=(!c.provenance||['active','system_origin'].includes(c.provenance))?c.grants:[];if(!forcedBy&&c.force_children)forcedBy=c.id;}
++ let grants:CategoryFact['grants']=[],lockedBy:string|undefined,forcedBy:string|undefined,policyCategoryId:string|undefined;
++ for(const c of chain){lockedBy=forcedBy??(c.inherit_parent?c.parent_id??undefined:undefined);if(!lockedBy){policyCategoryId=c.id;grants=(!c.provenance||['active','system_origin'].includes(c.provenance))?c.grants:[];}if(!forcedBy&&c.force_children)forcedBy=c.id;}
+  const leaf=chain.at(-1)!;
+- return {id,tenantId:'',creatorId:leaf.creator_id,grants,lockedBy,forcedBy};
++ return {id,tenantId:'',creatorId:leaf.creator_id,grants,lockedBy,forcedBy,policyCategoryId};
+ }
+ export async function categoryFacts(db:DB,tenantId:string):Promise<CategoryFact[]>{return (await query(db,'SELECT id,parent_id,creator_id,inherit_parent,force_children,grants,provenance FROM knowledge.category WHERE tenant_id=$1',[tenantId])).rows;}
+ 
+ export class KnowledgeFactsPort {
+  constructor(private db:DB){}
+  async catalogs(identity:import('../infrastructure/db.js').Identity){
+   const categories=await categoryFacts(this.db,identity.tenantId);
+   const courses: {id:string;category_id:string;custom_browse:import('../authz/contracts.js').CatalogGrant[]|null}[]=(await query(this.db,`SELECT id,category_id,CASE WHEN custom_provenance IN('active','system_origin') THEN custom_browse WHEN custom_browse IS NOT NULL THEN '[]'::jsonb ELSE NULL END custom_browse FROM knowledge.course WHERE tenant_id=$1`,[identity.tenantId])).rows;
+   const classroomIds=(await query(this.db,'SELECT classroom_id FROM knowledge.classroom_member WHERE tenant_id=$1 AND person_id=$2',[identity.tenantId,identity.personId])).rows.map(r=>r.classroom_id as string);
+   return {categories,courses,classroomIds};
+diff --git a/src/knowledge/service.ts b/src/knowledge/service.ts
+index e3d1b52..c5777ed 100644
+--- a/src/knowledge/service.ts
++++ b/src/knowledge/service.ts
+@@ -1,99 +1,105 @@
+ import { randomUUID } from 'node:crypto';
+-import { categoryFacts,effectiveCategory } from './public.js';
+-import { Authority,assertGrantSubset,normalizePolicy,nodes,ObjectResolver,compile,type CatalogGrant,type CandidateName } from '../authz/public.js';
++import { categoryFacts,effectiveCategory,courseAccessPredicate } from './public.js';
++import { Authority,assertGrantSubset,nodes,ObjectResolver,compile,type CatalogGrant,type CandidateName } from '../authz/public.js';
+ import { pool,transaction,query,Denied,type DB,type Identity } from '../infrastructure/db.js';
+ export class KnowledgeService {
+  constructor(private authority:Authority){}
+  private async grants(identity:Identity,db:DB,input:unknown):Promise<CatalogGrant[]>{
+   if(!Array.isArray(input))throw new Denied();
+   const result:CatalogGrant[]=[];
+   for(const g of input){
+    if(!g||!nodes.find(n=>n.id==='course')!.actions.includes(g.action)||typeof g.subject?.id!=='string')throw new Denied();
+    const {type,id}=g.subject;
+    if(type==='public'){if(id!==identity.tenantId||g.action!=='knowledge.course.browse')throw new Denied();}
+    else if(type==='user'){if(!await this.authority.ports.organization(db).person({tenantId:identity.tenantId,personId:id}))throw new Denied();}
+    else if(type==='role'){if(!await this.authority.roleExists(identity.tenantId,id,db))throw new Denied();}
+    else if(type==='classroom_member'){if(!(await query(db,'SELECT 1 FROM knowledge.classroom_member WHERE tenant_id=$1 AND classroom_id=$2 LIMIT 1',[identity.tenantId,id])).rows.length)throw new Denied();}
+    else throw new Denied();
+    result.push({id:randomUUID(),action:g.action,subject:{type,id}});
+   }
+   return result;
+  }
+- private async ceiling(identity:Identity,db:DB,source:string,grants:CatalogGrant[]){
++ private async ceiling(identity:Identity,db:DB,source:string,grants:CatalogGrant[],affected:(action:string)=>string[]){
+   const context=await this.authority.current(identity,db),memberships=await this.authority.memberships(identity,db),resolver=new ObjectResolver(this.authority,db);
+-  try{await assertGrantSubset({context,nodes,memberships,managementRoleMembershipId:source,proposed:grants.map(g=>({nodeId:'course',action:g.action,scope:{kind:'all'},rawFields:[]})),resolveObjects:s=>resolver.resolve(s)});}catch{throw new Denied();}
+-  const selected=memberships.find(m=>m.id===source)!;
+-  const capabilities=normalizePolicy({context,nodes,memberships:[selected]}).filter(g=>g.delegable&&g.nodeId==='course'&&grants.some(p=>p.action===g.action));
+-  const caps=[];for(const g of capabilities){caps.push({...await resolver.resolve(g.scope),rawFields:g.rawFields});}
+-  return {sourceMembershipId:source,revision:context.revision,caps};
++  try{
++   const caps=await assertGrantSubset({context,nodes,memberships,managementRoleMembershipId:source,proposed:[...new Set(grants.map(g=>g.action))].map(action=>({nodeId:'course',action,scope:{kind:'all'},rawFields:[],objectIds:affected(action)})),resolveObjects:s=>resolver.resolve(s)});
++   return {sourceMembershipId:source,revision:context.revision,caps};
++  }catch{throw new Denied();}
++ }
++ private async categoryCeiling(identity:Identity,db:DB,source:string,grants:CatalogGrant[],id:string,patch:{inheritParent?:boolean;forceChildren?:boolean}={}){
++  const categories=await categoryFacts(db,identity.tenantId);
++  const target=categories.find(c=>c.id===id);
++  if(target){target.inherit_parent=patch.inheritParent??target.inherit_parent;target.force_children=patch.forceChildren??target.force_children;}
++  const courses=(await query(db,'SELECT id,category_id,custom_browse FROM knowledge.course WHERE tenant_id=$1 ORDER BY id',[identity.tenantId])).rows;
++  const affected=courses.map(course=>({course,catalog:effectiveCategory(categories,course.category_id)})).filter(({catalog})=>catalog.policyCategoryId===id);
++  return this.ceiling(identity,db,source,grants,action=>affected.filter(({course,catalog})=>action!=='knowledge.course.browse'||catalog.lockedBy||course.custom_browse===null).map(({course})=>course.id));
+  }
+  private async configure(identity:Identity,candidate:CandidateName,db:DB,id:string,action='knowledge.category.configure'){
+   const current=effectiveCategory(await categoryFacts(db,identity.tenantId),id);
+   if(current.lockedBy)throw new Denied();
+   if(current.creatorId!==identity.personId)await this.authority.plan(identity,candidate,'category',action,db);
+   return current;
+  }
+  async createCategory(identity:Identity,candidate:CandidateName,body:any){return transaction(async db=>{
+   await this.authority.plan(identity,candidate,'category','knowledge.category.create',db,true);
+   if(typeof body.id!=='string'||!body.id||('inheritParent'in body&&typeof body.inheritParent!=='boolean')||('forceChildren'in body&&typeof body.forceChildren!=='boolean'))throw new Denied();
+   const grants=await this.grants(identity,db,body.grants??[]);
+   if(body.parentId){const parent=effectiveCategory(await categoryFacts(db,identity.tenantId),body.parentId);if((parent.forcedBy||body.inheritParent)&&grants.length)throw new Denied();}
+-  const snapshot=await this.ceiling(identity,db,body.managementRoleMembershipId,grants);
++  const snapshot=await this.categoryCeiling(identity,db,body.managementRoleMembershipId,grants,body.id);
+   await query(db,'INSERT INTO knowledge.category(tenant_id,id,parent_id,creator_id,inherit_parent,force_children,grants,source_id,provenance,authority_snapshot) VALUES($1,$2,$3,$4,$5,$6,$7,$8,\'active\',$9)',[identity.tenantId,body.id,body.parentId??null,identity.personId,body.inheritParent??false,body.forceChildren??false,JSON.stringify(grants),body.managementRoleMembershipId,snapshot]);
+   return {id:body.id};
+  });}
+  private async updateInTransaction(identity:Identity,candidate:CandidateName,db:DB,id:string,body:any){
+   await this.configure(identity,candidate,db,id);
+   // Structural parent mutation is a separate explicit command, never a policy-update bypass.
+   if('parentId'in body||('inheritParent'in body&&typeof body.inheritParent!=='boolean')||('forceChildren'in body&&typeof body.forceChildren!=='boolean'))throw new Denied();
+-  const grants=await this.grants(identity,db,body.grants);const snapshot=await this.ceiling(identity,db,body.managementRoleMembershipId,grants);
++  const grants=await this.grants(identity,db,body.grants);const snapshot=await this.categoryCeiling(identity,db,body.managementRoleMembershipId,grants,id,body);
+   await query(db,'UPDATE knowledge.category SET grants=$3,inherit_parent=coalesce($4,inherit_parent),force_children=coalesce($5,force_children),source_id=$6,provenance=\'active\',authority_snapshot=$7 WHERE tenant_id=$1 AND id=$2',[identity.tenantId,id,JSON.stringify(grants),body.inheritParent??null,body.forceChildren??null,body.managementRoleMembershipId,snapshot]);
+   return {id};
+  }
+  async updateCategory(identity:Identity,candidate:CandidateName,id:string,body:any){return transaction(async db=>{await this.authority.load(identity,db,true);return this.updateInTransaction(identity,candidate,db,id,body);});}
+  async importCategories(identity:Identity,candidate:CandidateName,updates:any){return transaction(async db=>{
+   await this.authority.load(identity,db,true);if(!Array.isArray(updates)||updates.length>100)throw new Denied();
+   for(const u of updates)await this.updateInTransaction(identity,candidate,db,u.id,u);return {updated:updates.length};
+  });}
+  async append(identity:Identity,candidate:CandidateName,id:string,body:any,preview:boolean){return transaction(async db=>{
+   const {context}=await this.authority.load(identity,db,true);await this.configure(identity,candidate,db,id,'knowledge.category.append');
+   const current=(await query(db,'SELECT grants FROM knowledge.category WHERE tenant_id=$1 AND id=$2',[identity.tenantId,id])).rows[0];
+-  const additions=await this.grants(identity,db,body.grants);await this.ceiling(identity,db,body.managementRoleMembershipId,additions);
++  const additions=await this.grants(identity,db,body.grants);await this.categoryCeiling(identity,db,body.managementRoleMembershipId,additions,id);
+   if(preview)return {id,revision:context.revision,additions,retained:current.grants};
+   if(body.revision!==context.revision)throw new Denied();
+   const combined=[...current.grants,...additions];
+   // Existing permits must also remain within this selected source before provenance changes.
+-  const snapshot=await this.ceiling(identity,db,body.managementRoleMembershipId,combined);
++  const snapshot=await this.categoryCeiling(identity,db,body.managementRoleMembershipId,combined,id);
+   await query(db,'UPDATE knowledge.category SET grants=$3,source_id=$4,provenance=\'active\',authority_snapshot=$5 WHERE tenant_id=$1 AND id=$2',[identity.tenantId,id,JSON.stringify(combined),body.managementRoleMembershipId,snapshot]);return {id,appended:additions.length};
+  });}
+  async courses(identity:Identity,candidate:CandidateName,options:{id?:string;prefix?:string;action?:string;limit?:number;offset?:number}={},db:DB=pool){
+   const action=options.action??'knowledge.course.browse';const {plan}=await this.authority.plan(identity,candidate,'course',action,db);
+   const c=compile(plan,{id:'id',uploaderId:'uploader_id',enabled:'enabled',deleted:'deleted',published:'published'});
+-  let where=c.where;
+-  if(action!=='knowledge.course.maintain')where+=' AND r.accessible=true';
++  let where=c.where+courseAccessPredicate(action);
+   if(options.id)where+=` AND r.id=${c.bind(options.id)}`;
+   if(options.prefix)where+=` AND starts_with(r.id,${c.bind(options.prefix)})`;
+   const count=Number((await query(db,`SELECT count(*) n FROM knowledge.course r WHERE ${where}`,c.values)).rows[0].n);
+   const rows=(await query(db,`SELECT r.id,r.title,r.published FROM knowledge.course r WHERE ${where} ORDER BY r.id LIMIT ${c.bind(Math.min(Math.max(Number(options.limit)||50,1),200))} OFFSET ${c.bind(Math.max(Number(options.offset)||0,0))}`,c.values)).rows;
+   if(options.id&&!rows.length)throw new Denied();return {rows,count};
+  }
+  async download(identity:Identity,candidate:CandidateName,id:string){return transaction(async db=>{
+   await this.authority.load(identity,db,true);await this.courses(identity,candidate,{id,action:'knowledge.course.download'},db);
+   const data=(await query(db,'SELECT payload FROM knowledge.course WHERE tenant_id=$1 AND id=$2',[identity.tenantId,id])).rows[0];return {id,bytes:data.payload};
+  });}
+  async customBrowse(identity:Identity,candidate:CandidateName,id:string,body:any){return transaction(async db=>{
+   await this.authority.load(identity,db,true);await this.courses(identity,candidate,{id,action:'knowledge.course.maintain'},db);
+   const row=(await query(db,'SELECT category_id FROM knowledge.course WHERE tenant_id=$1 AND id=$2',[identity.tenantId,id])).rows[0];
+   const catalog=effectiveCategory(await categoryFacts(db,identity.tenantId),row.category_id);if(catalog.lockedBy)throw new Denied();
+   const grants=await this.grants(identity,db,body.grants);if(grants.some(g=>g.action!=='knowledge.course.browse'))throw new Denied();
+-  const snapshot=await this.ceiling(identity,db,body.managementRoleMembershipId,grants);
++  const snapshot=await this.ceiling(identity,db,body.managementRoleMembershipId,grants,()=>[id]);
+   await query(db,'UPDATE knowledge.course SET custom_browse=$3,custom_source_id=$4,custom_provenance=\'active\',custom_snapshot=$5 WHERE tenant_id=$1 AND id=$2',[identity.tenantId,id,JSON.stringify(grants),body.managementRoleMembershipId,snapshot]);
+   return {id};
+  });}
+  async saveCourse(identity:Identity,candidate:CandidateName,id:string,body:any){return transaction(async db=>{
+   await this.authority.load(identity,db,true);await this.courses(identity,candidate,{id,action:'knowledge.course.maintain'},db);
+   if(['uploaderId','createdBy','categoryId'].some(k=>k in body)||('title'in body&&typeof body.title!=='string')||['published','accessible','enabled','deleted'].some(k=>k in body&&typeof body[k]!=='boolean'))throw new Denied();
+   await query(db,'UPDATE knowledge.course SET title=coalesce($3,title),published=coalesce($4,published),accessible=coalesce($5,accessible),enabled=coalesce($6,enabled),deleted=coalesce($7,deleted) WHERE tenant_id=$1 AND id=$2',[identity.tenantId,id,body.title??null,body.published??null,body.accessible??null,body.enabled??null,body.deleted??null]);return {id};
+  });}
+  async distribute(identity:Identity,candidate:CandidateName,id:string){return transaction(async db=>{await this.authority.load(identity,db,true);await this.courses(identity,candidate,{id,action:'knowledge.course.distribute'},db);return {id,distributed:true};});}
+  async recheckPolicy(identity:Identity,candidate:CandidateName,id:string,kind:'category'|'custom'){return transaction(async db=>{
+@@ -105,20 +111,20 @@ export class KnowledgeService {
+   }else{
+    await this.courses(identity,candidate,{id,action:'knowledge.course.maintain'},db);
+    row=(await query(db,'SELECT category_id,custom_browse AS grants,custom_source_id AS source_id FROM knowledge.course WHERE tenant_id=$1 AND id=$2',[identity.tenantId,id])).rows[0];
+    if(!row||effectiveCategory(await categoryFacts(db,identity.tenantId),row.category_id).lockedBy)throw new Denied();
+   }
+   if(!row?.source_id||!Array.isArray(row.grants))throw new Denied();
+   let state:'active'|'suspended'='suspended',snapshot:unknown=null;
+   try{
+    const sourceIdentity=await this.authority.sourceMembershipIdentity(identity.tenantId,row.source_id,db);
+    if(!sourceIdentity)throw new Denied();
+-   snapshot=await this.ceiling(sourceIdentity,db,row.source_id,row.grants);state='active';
++   snapshot=kind==='custom'?await this.ceiling(sourceIdentity,db,row.source_id,row.grants,()=>[id]):await this.categoryCeiling(sourceIdentity,db,row.source_id,row.grants,id);state='active';
+   }catch(error){if(!(error instanceof Denied))throw error;}
+   if(kind==='category')await query(db,'UPDATE knowledge.category SET provenance=$3,authority_snapshot=coalesce($4,authority_snapshot) WHERE tenant_id=$1 AND id=$2',[identity.tenantId,id,state,snapshot]);
+   else await query(db,'UPDATE knowledge.course SET custom_provenance=$3,custom_snapshot=coalesce($4,custom_snapshot) WHERE tenant_id=$1 AND id=$2',[identity.tenantId,id,state,snapshot]);
+   const revision=(await this.authority.current(identity,db)).revision;
+   await query(db,'INSERT INTO knowledge.policy_audit(tenant_id,target_id,kind,state,source_id,revision,snapshot) VALUES($1,$2,$3,$4,$5,$6,$7)',[identity.tenantId,id,kind,state,row.source_id,revision,snapshot]);
+   return {id,state};
+  });}
+ 
+ }
+diff --git a/test/task3-review-regressions.test.ts b/test/task3-review-regressions.test.ts
+new file mode 100644
+index 0000000..df2cdbe
+--- /dev/null
++++ b/test/task3-review-regressions.test.ts
+@@ -0,0 +1,85 @@
++import test from 'node:test';
++import { randomUUID } from 'node:crypto';
++import { pool } from '../src/infrastructure/db.js';
++import { prepareAdmin,start,observe,policy } from './task3-helper.js';
++const management=policy('role-management',['authz.role.create','authz.role.update','authz.role.recheck']);
++async function membership(id:string,personId:string,policies:any[]){
++ await pool.query("INSERT INTO authz.role(tenant_id,id) VALUES('T1',$1)",[id]);
++ const data={id,tenantId:'T1',personId,roleId:id,level:2,active:true,provenance:'system_origin',policies};
++ await pool.query("INSERT INTO authz.membership(tenant_id,id,person_id,role_id,data) VALUES('T1',$1,$2,$1,$3)",[id,personId,data]);return id;
++}
++async function course(id:string,uploader:string,accessible=true){
++ await pool.query("INSERT INTO knowledge.category(tenant_id,id,creator_id) VALUES('T1',$1,$2)",[id,uploader]);
++ await pool.query("INSERT INTO knowledge.course(tenant_id,id,category_id,uploader_id,created_by,title,published,accessible) VALUES('T1',$1,$1,$2,'Z',$1,true,$3)",[id,uploader,accessible]);
++}
++for(const candidate of ['native','casbin'])test(`${candidate}: Task3 review regressions`,async t=>{
++ await prepareAdmin();const api=await start(candidate);const id='review-'+randomUUID();
++ try{
++  await t.test('R1 original source company revoke stays suspended under broad rechecker',async()=>{
++   await course(id+'company','M');const p=policy('course',['knowledge.course.maintain']);
++   const source=await membership(id+'company-source','M',[management,p]);
++   const issued=await api.request('POST','/roles',{id:id+'company-role',level:3,managementRoleMembershipId:source,policies:[p],memberPersonIds:['X']},'M');await observe(candidate,'R1 initial customer assignment',200,issued.status);const child=issued.body.membershipIds[0];
++   try{
++    await pool.query("DELETE FROM authz.company_grant WHERE tenant_id='T1' AND person_id='M' AND company_id='A'");
++    await observe(candidate,'R1 original source remains active','system_origin',(await pool.query("SELECT data->>'provenance' state FROM authz.membership WHERE tenant_id='T1' AND id=$1",[source])).rows[0].state);
++    const check=await api.request('POST','/memberships/'+child+'/recheck',{managementRoleMembershipId:'admin'});
++    await observe(candidate,'R1 revoke A then Z recheck suspended',{status:200,state:'suspended'},{status:check.status,state:check.body.state});
++   }finally{await pool.query("INSERT INTO authz.company_grant VALUES('T1','M','A') ON CONFLICT DO NOTHING");}
++   const restored=await api.request('POST','/memberships/'+child+'/recheck',{managementRoleMembershipId:'admin'});await observe(candidate,'R1 restored source company recheck active',{status:200,state:'active'},{status:restored.status,state:restored.body.state});
++  });
++  await t.test('R2 recipient D2 relative scope uses recipient for create/edit/add/recheck',async()=>{
++   const p=policy('department-report',['report.personal-learning.view'],{kind:'ownDept'});
++   const source=await membership(id+'relative-source','M',[management,policy('department-report',['report.personal-learning.view'],{kind:'departments',departmentIds:['D2']})]);
++   const body={id:id+'relative-role',level:3,managementRoleMembershipId:source,policies:[p],memberPersonIds:['B']};
++   const created=await api.request('POST','/roles',body,'M');await observe(candidate,'R2 D1 grantor D2 cap to D2 ownDept create',200,created.status);const child=created.body.membershipIds[0];
++   const cap=async(id:string)=>(await pool.query("SELECT data FROM authz.membership WHERE tenant_id='T1' AND id=$1",[id])).rows[0].data.delegation.caps[0].objectIds;
++   await observe(candidate,'R2 literal recipient objects',['B','E','N'],await cap(child));
++   const edit=await api.request('POST','/roles/'+body.id,body,'M');await observe(candidate,'R2 relative edit',200,edit.status);
++   const add=await api.request('POST','/roles/'+body.id+'/members',{personId:'E',managementRoleMembershipId:source},'M');await observe(candidate,'R2 relative add member',200,add.status);await observe(candidate,'R2 second recipient cap',['B','E','N'],await cap(add.body.id));
++   await pool.query("UPDATE organization.person SET manager_id=manager_id WHERE tenant_id='T1' AND id='B'");
++   const check=await api.request('POST','/memberships/'+child+'/recheck',{managementRoleMembershipId:'admin'});await observe(candidate,'R2 relative recheck',{status:200,state:'active',cap:['B','E','N']},{status:check.status,state:check.body.state,cap:await cap(child)});
++   for(const [name,grant] of [['field',policy('department-report',['report.personal-learning.view'],{kind:'ownDept'},['phone'])],['action',policy('department-report',['report.personal-learning.update'],{kind:'ownDept'})]] as const){
++    const denied=await api.request('POST','/roles',{...body,id:id+'empty-'+name,policies:[grant],memberPersonIds:['L']},'M');await observe(candidate,'R2 empty recipient preserves '+name+' ceiling',403,denied.status);
++   }
++   const nondelegable=await membership(id+'empty-source','M',[management,policy('department-report',['report.personal-learning.view'],{kind:'all'},[],[])]);
++   const no=await api.request('POST','/roles',{...body,id:id+'empty-delegability',managementRoleMembershipId:nondelegable,memberPersonIds:['L']},'M');await observe(candidate,'R2 empty recipient preserves delegability',403,no.status);
++  });
++  await t.test('R3 custom browse compares one selected own course, not unrelated courses',async()=>{
++   await course(id+'own','M');await course(id+'other','Z');
++   const selected=await membership(id+'self-source','M',[policy('course',['knowledge.course.maintain','knowledge.course.browse'],{kind:'self'})]);
++   await membership(id+'broad-maintain','M',[policy('course',['knowledge.course.maintain'],{kind:'all'},[],[])]);
++   const body={managementRoleMembershipId:selected,grants:[{action:'knowledge.course.browse',subject:{type:'user',id:'L'}}]};
++   const saved=await api.request('POST','/courses/'+id+'own/browse-policy',body,'M');await observe(candidate,'R3 selected SELF custom own course',200,saved.status);
++   const snapshot=(await pool.query("SELECT custom_snapshot FROM knowledge.course WHERE tenant_id='T1' AND id=$1",[id+'own'])).rows[0].custom_snapshot;
++   await observe(candidate,'R3 saved affected course cap',[id+'own'],snapshot.caps[0].objectIds);
++   const granted=await api.request('GET','/courses/'+id+'own',undefined,'L');await observe(candidate,'R3 custom subject can browse own course',200,granted.status);
++   const other=await api.request('POST','/courses/'+id+'other/browse-policy',body,'M');await observe(candidate,'R3 cannot borrow maintain role to grant other uploader',403,other.status);
++   const check=await api.request('POST','/courses/'+id+'own/recheck',{});await observe(candidate,'R3 custom recheck retains target-only set',{status:200,state:'active'},{status:check.status,state:check.body.state});
++  });
++  await t.test('R3 category ceiling follows affected inherited and forced course sets',async()=>{
++   const root=id+'category';await course(root,'M');await course(root+'child','M');await course(root+'other','Z');
++   await pool.query("UPDATE knowledge.category SET parent_id=$2,inherit_parent=true WHERE tenant_id='T1' AND id=$1",[root+'child',root]);
++   const selected=await membership(root+'source','M',[policy('course',['knowledge.course.browse'],{kind:'self'})]);
++   const body={managementRoleMembershipId:selected,grants:[{action:'knowledge.course.browse',subject:{type:'user',id:'L'}}]};
++   const save=await api.request('POST','/categories/'+root,body,'M');await observe(candidate,'R3 SELF category includes inherited own courses only',200,save.status);
++   const caps=async()=>(await pool.query("SELECT authority_snapshot FROM knowledge.category WHERE tenant_id='T1' AND id=$1",[root])).rows[0].authority_snapshot.caps[0].objectIds;
++   await observe(candidate,'R3 category persisted affected set',[root,root+'child'],await caps());
++   const check=await api.request('POST','/categories/'+root+'/recheck',{});await observe(candidate,'R3 category recheck affected set',{status:200,state:'active'},{status:check.status,state:check.body.state});
++   await pool.query("UPDATE knowledge.category SET parent_id=$2 WHERE tenant_id='T1' AND id=$1",[root+'other',root]);
++   const forced=await api.request('POST','/categories/'+root,{...body,forceChildren:true},'M');await observe(candidate,'R3 forced descendant outside selected SELF denied',403,forced.status);
++   await pool.query("UPDATE knowledge.category SET inherit_parent=true WHERE tenant_id='T1' AND id=$1",[root+'other']);
++   const inherited=await api.request('POST','/categories/'+root,body,'M');await observe(candidate,'R3 inherited descendant outside selected SELF denied',403,inherited.status);
++  });
++  await t.test('R4 inaccessible course is maintainable by source and recipient but not browsable/downloadable',async()=>{
++   await course(id+'inaccessible','M',false);const p=policy('course',['knowledge.course.maintain','knowledge.course.browse','knowledge.course.download']);
++   const selected=await membership(id+'access-source','M',[management,p]);
++   const sourceRead=await api.request('GET','/courses/'+id+'inaccessible?action=knowledge.course.maintain',undefined,'M');await observe(candidate,'R4 source maintains inaccessible',200,sourceRead.status);
++   const created=await api.request('POST','/roles',{id:id+'access-role',level:3,managementRoleMembershipId:selected,policies:[p],memberPersonIds:['L']},'M');await observe(candidate,'R4 inaccessible delegation create',200,created.status);const child=created.body.membershipIds[0];
++   const targetRead=await api.request('GET','/courses/'+id+'inaccessible?action=knowledge.course.maintain',undefined,'L');await observe(candidate,'R4 recipient maintains inaccessible',200,targetRead.status);
++   const check=await api.request('POST','/memberships/'+child+'/recheck',{managementRoleMembershipId:'admin'});await observe(candidate,'R4 maintenance survives valid recheck','active',check.body.state);
++   for(const actor of ['M','L'])for(const suffix of ['', '/download']){const denied=await api.request('GET','/courses/'+id+'inaccessible'+suffix,undefined,actor);await observe(candidate,'R4 inaccessible '+actor+' '+(suffix?'download':'browse')+' denied',403,denied.status);}
++   const restored=await api.request('POST','/courses/'+id+'inaccessible',{accessible:true},'L');await observe(candidate,'R4 recipient can restore accessible state',200,restored.status);
++  });
++ }finally{await api.close();}
++});
++test.after(async()=>pool.end());
+diff --git a/tools/audit-benchmark.py b/tools/audit-benchmark.py
+index 3456902..4610a17 100644
+--- a/tools/audit-benchmark.py
++++ b/tools/audit-benchmark.py
+@@ -10,26 +10,29 @@ import sys
+ def quantiles(values):
+     values = sorted(values)
+     return {'count': len(values), **{k: values[min(len(values)-1, math.ceil(len(values)*p)-1)] if values else None
+         for k,p in [('p50',.5),('p95',.95),('p99',.99)]}}
+ 
+ 
+ def audit(folder):
+     summary=json.loads((folder/'summary.json').read_text())
+     groups=defaultdict(lambda:defaultdict(list))
+     categories=Counter(); instances=Counter(); caches=Counter(); issues=[]
++    scenario_counts=Counter(); query_counts=defaultdict(Counter)
+     with gzip.open(folder/'samples.jsonl.gz','rt') as f:
+         for line_no,line in enumerate(f,1):
+             sample=json.loads(line)
+             scenario=sample.get('scenario','unknown')
+             classification=sample.get('classification')
+             categories[classification]+=1
++            scenario_counts[scenario]+=1
++            query_counts[scenario][str(sample.get('queryCount'))]+=1
+             instances[sample.get('instance')]+=1
+             caches[sample.get('cache')]+=1
+             if sample.get('candidate')!=summary['candidate']:
+                 issues.append(f'line {line_no}: candidate label mismatch')
+             metrics={'elapsedMs':classification}
+             if classification=='success':
+                 metrics.update(permissionMs='permission',dataMs='data')
+                 if sample.get('status')!=200 or sample.get('phase')!='success':
+                     issues.append(f'line {line_no}: success with wrong HTTP status/phase')
+                 if summary['cache']=='cold' and sample.get('cache')!='cold':
+@@ -44,21 +47,38 @@ def audit(folder):
+     computed={scenario:{key:quantiles(values) for key,values in buckets.items()} for scenario,buckets in groups.items()}
+     if sum(categories.values())!=summary['total']:
+         issues.append('total sample count mismatch')
+     # Check top-level metric summaries when present, independently of published gates.
+     for key,actual in computed.get('_all',{}).items():
+         published=summary.get(key)
+         if isinstance(published,dict) and all(k in published for k in actual):
+             for metric,value in actual.items():
+                 if published[metric]!=value:
+                     issues.append(f'published {key}.{metric} does not match raw samples')
++    thresholds={}
++    for scenario,statistics in computed.items():
++        if scenario=='_all':
++            continue
++        permission=statistics.get('permission',{}).get('p95')
++        success=statistics.get('success',{}).get('p95')
++        limit=2000 if scenario.startswith('history-') else 500
++        thresholds[scenario]={
++            'permission_p95_ms':permission,'permission_limit_ms':50,
++            'permission_met':permission is not None and permission<=50,
++            'success_p95_ms':success,'success_limit_ms':limit,
++            'success_met':success is not None and success<=limit,
++        }
++    reference=summary.get('configuredSeconds')==600 and summary.get('concurrency')==50
+     return {'directory':str(folder),'candidate':summary['candidate'],'cache':summary['cache'],
+         'configured_seconds':summary.get('configuredSeconds'),'concurrency':summary.get('concurrency'),
+-        'reference_window':summary.get('configuredSeconds')==600 and summary.get('concurrency')==50,
++        'reference_window':reference,
+         'phase':summary.get('phase'),'sample_count':sum(categories.values()),'categories':dict(categories),
+-        'instances':dict(instances),'cache_states':dict(caches),'statistics':computed,'audit_errors':issues}
++        'instances':dict(instances),'cache_states':dict(caches),'scenario_counts':dict(scenario_counts),
++        'query_counts_by_scenario':{k:dict(v) for k,v in query_counts.items()},
++        'statistics':computed,'threshold_observations':thresholds,'audit_errors':issues,
++        'limitation':'Threshold observations alone do not establish full acceptance, result truth, no N+1, resource limits or sufficient workload.'}
+ 
+ 
+ if __name__=='__main__':
+     results=[audit(Path(arg)) for arg in sys.argv[1:]]
+     print(json.dumps(results,ensure_ascii=False,indent=2))
+     if any(r['audit_errors'] for r in results):raise SystemExit(1)
+diff --git a/tools/audit-coverage.py b/tools/audit-coverage.py
+new file mode 100644
+index 0000000..b7c4e7b
+--- /dev/null
++++ b/tools/audit-coverage.py
+@@ -0,0 +1,78 @@
++"""Check frozen coverage IDs and cited raw observations; never infer semantic coverage."""
++from collections import Counter
++from pathlib import Path
++import json
++import sys
++
++ROOT = Path(__file__).resolve().parents[1]
++RUNTIME = {'http_sql', 'domain_sql', 'fault', 'browser', 'benchmark', 'boundary'}
++KINDS = RUNTIME | {'unit', 'review'}
++
++
++def audit(path):
++    manifest = json.loads((ROOT / 'docs/acceptance-manifest.json').read_text())
++    required = {case['id'] for group in manifest['groups'] for case in group['required_subcases']}
++    document = json.loads(path.read_text())
++    items = document.get('items', [])
++    ids = Counter(item.get('id') for item in items)
++    issues = []
++    for ident in sorted(required - set(ids)):
++        issues.append(f'{ident}: missing row')
++    for ident, count in ids.items():
++        if ident not in required or count != 1:
++            issues.append(f'{ident}: unknown or duplicated row ({count})')
++    observations = 0
++    files = {}
++    for item in items:
++        ident, status = item.get('id'), item.get('status')
++        if status not in {'pass', 'fail', 'incomplete'}:
++            issues.append(f'{ident}: invalid status {status}')
++        if not isinstance(item.get('actualResult'), str) or not item['actualResult'].strip():
++            issues.append(f'{ident}: missing actual result or explicit incomplete reason')
++        refs = item.get('evidence', [])
++        if status == 'pass' and not any(ref.get('kind') in RUNTIME for ref in refs):
++            issues.append(f'{ident}: pass lacks runtime/boundary evidence')
++        for ref in refs:
++            if ref.get('kind') not in KINDS or ref.get('candidate') not in {'native', 'casbin', 'shared'}:
++                issues.append(f'{ident}: invalid evidence kind/candidate')
++            target = ROOT / ref.get('path', '')
++            if not target.is_file():
++                issues.append(f'{ident}: missing evidence {ref.get("path")}')
++                continue
++            if 'line' not in ref:
++                continue
++            line = ref['line']
++            if target not in files:
++                files[target] = target.read_text().splitlines()
++            if not isinstance(line, int) or isinstance(line, bool) or not 1 <= line <= len(files[target]):
++                issues.append(f'{ident}: invalid evidence line {line}')
++                continue
++            if target.suffix != '.jsonl':
++                continue
++            try:
++                record = json.loads(files[target][line - 1])
++            except ValueError:
++                issues.append(f'{ident}: invalid JSON observation at {target}:{line}')
++                continue
++            if ref.get('observationName') and record.get('name') != ref['observationName']:
++                issues.append(f'{ident}: observation name mismatch at {target}:{line}')
++            if ref.get('candidate') != 'shared' and record.get('candidate') != ref['candidate']:
++                issues.append(f'{ident}: observation candidate mismatch at {target}:{line}')
++            if 'expected' in record and 'actual' in record:
++                observations += 1
++                if status == 'pass' and record['expected'] != record['actual']:
++                    issues.append(f'{ident}: cited pass has unequal expected/actual at {target}:{line}')
++    return {
++        'mapping': str(path), 'required': len(required), 'rows': len(items),
++        'statuses': dict(Counter(item.get('status') for item in items)),
++        'literal_comparisons_checked': observations, 'errors': issues,
++        'limitation': 'Mechanical citation audit only; semantic coverage and Go require independent review.'
++    }
++
++
++if __name__ == '__main__':
++    path = Path(sys.argv[1]) if len(sys.argv) > 1 else ROOT / 'evidence/coverage-map.json'
++    result = audit(path)
++    print(json.dumps(result, ensure_ascii=False, indent=2))
++    if result['errors']:
++        raise SystemExit(1)
+diff --git a/tools/capture-runtime.sh b/tools/capture-runtime.sh
+new file mode 100755
+index 0000000..42515c5
+--- /dev/null
++++ b/tools/capture-runtime.sh
+@@ -0,0 +1,27 @@
++#!/usr/bin/env bash
++set -euo pipefail
++cd "$(dirname "$0")/.."
++spike_output="${1:-evidence/raw/runtime}"
++mkdir -p "$spike_output"
++spike_docker() { docker --context colima-yxt-permission "$@"; }
++# Captures synthetic container configuration only. Never reads unrelated host env.
++spike_docker inspect yxt-pg yxt-redis yxt-api-a yxt-api-b > "$spike_output/containers.json"
++spike_docker exec yxt-pg psql -U spike -d permission_spike -X -A -t -c "SELECT json_build_object('version',version(),'shared_buffers',current_setting('shared_buffers'),'work_mem',current_setting('work_mem'),'max_connections',current_setting('max_connections'),'track_io_timing',current_setting('track_io_timing'),'statement_timeout',current_setting('statement_timeout'))" > "$spike_output/postgresql-settings.json"
++spike_docker exec yxt-pg psql -U spike -d permission_spike -X -A -t -c "SELECT json_build_object('main_people',(SELECT count(*) FROM organization.person WHERE tenant_id='T1'),'second_people',(SELECT count(*) FROM organization.person WHERE tenant_id='T2'),'departments',(SELECT count(*) FROM organization.department WHERE tenant_id='T1'),'roles',(SELECT count(*) FROM authz.role WHERE tenant_id='T1'),'load_facts',(SELECT count(*) FROM report.learning_fact WHERE fixture=false),'actual_facts',(SELECT count(*) FROM report.learning_fact),'at',clock_timestamp())" > "$spike_output/actual-data-counts.json"
++spike_docker exec yxt-redis redis-server --version > "$spike_output/redis-version.txt"
++spike_docker exec yxt-api-a node --version > "$spike_output/api-node-version.txt"
++git rev-parse HEAD > "$spike_output/source-commit.txt"
++python3 - "$spike_output" <<'PY'
++from pathlib import Path
++import json,sys
++p=Path(sys.argv[1]); rows=json.loads((p/'containers.json').read_text())
++expected={'yxt-pg':(4_000_000_000,8*1024**3),'yxt-redis':(1_000_000_000,1024**3),'yxt-api-a':(2_000_000_000,4*1024**3),'yxt-api-b':(2_000_000_000,4*1024**3)}
++source=(p/'source-commit.txt').read_text().strip()
++for row in rows:
++ name=row['Name'].lstrip('/');actual=(row['HostConfig']['NanoCpus'],row['HostConfig']['Memory'])
++ if expected[name]!=actual or not row['State']['Running']:raise SystemExit('Resource/runtime gate failed: '+name)
++ if name.startswith('yxt-api') and row['Config']['Labels'].get('org.opencontainers.image.revision')!=source:raise SystemExit('Source label mismatch: '+name)
++counts=json.loads((p/'actual-data-counts.json').read_text())
++if not (counts['main_people']==50000 and counts['second_people']>=500 and counts['departments']==2000 and counts['roles']>=20 and counts['load_facts']>=1000000):raise SystemExit('Data scale gate failed')
++print(json.dumps({'resource_gate':True,'data_scale_gate':True,'source_commit':source,'counts':counts},ensure_ascii=False))
++PY
+diff --git a/tools/index-observations.py b/tools/index-observations.py
+new file mode 100644
+index 0000000..7275622
+--- /dev/null
++++ b/tools/index-observations.py
+@@ -0,0 +1,30 @@
++"""Index literal observations for human coverage review; never infer a passed case."""
++from pathlib import Path
++import hashlib
++import json
++
++ROOT = Path(__file__).resolve().parents[1]
++rows = []
++for path in sorted((ROOT / 'evidence/raw').rglob('*.jsonl')):
++    payload = path.read_bytes()
++    digest = hashlib.sha256(payload).hexdigest()
++    for line, text in enumerate(payload.decode().splitlines(), 1):
++        if not text.strip():
++            continue
++        observation = json.loads(text)
++        if not isinstance(observation, dict) or not {'expected', 'actual'} <= observation.keys():
++            continue
++        rows.append({
++            'path': str(path.relative_to(ROOT)), 'line': line, 'fileSHA256': digest,
++            'name': observation.get('name', observation.get('id')),
++            'candidate': observation.get('candidate'),
++            'literalEqual': observation['expected'] == observation['actual'],
++            'expected': observation['expected'], 'actual': observation['actual'],
++        })
++target = ROOT / 'evidence/raw/controller-observation-index.json'
++target.write_text(json.dumps({
++    'meaning': 'Search index only. Includes preserved failed attempts; equality is not semantic coverage.',
++    'observations': rows,
++}, ensure_ascii=False, indent=2) + '\n')
++print(json.dumps({'output': str(target), 'observations': len(rows),
++                  'literalDifferences': sum(not row['literalEqual'] for row in rows)}, ensure_ascii=False))

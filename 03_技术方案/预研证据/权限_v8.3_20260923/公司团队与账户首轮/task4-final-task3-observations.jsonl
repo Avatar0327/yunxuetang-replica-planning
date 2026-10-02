@@ -1,0 +1,322 @@
+{"candidate":"native","name":"SELF course uploader","expected":["anchor-50aa657a-f8ea-4640-8f23-11f664e0f107mine"],"actual":["anchor-50aa657a-f8ea-4640-8f23-11f664e0f107mine"],"at":"2026-09-22T22:03:59.516Z"}
+{"candidate":"native","name":"SELF project original creator","expected":["anchor-50aa657a-f8ea-4640-8f23-11f664e0f107mine"],"actual":["anchor-50aa657a-f8ea-4640-8f23-11f664e0f107mine"],"at":"2026-09-22T22:03:59.525Z"}
+{"candidate":"native","name":"SELF face-to-face owner","expected":{"status":200,"ids":["anchor-50aa657a-f8ea-4640-8f23-11f664e0f107mine"]},"actual":{"status":200,"ids":["anchor-50aa657a-f8ea-4640-8f23-11f664e0f107mine"]},"at":"2026-09-22T22:03:59.531Z"}
+{"candidate":"native","name":"AUTH-T09 depth10","expected":200,"actual":200,"at":"2026-09-22T22:03:59.545Z"}
+{"candidate":"native","name":"AUTH-T09 depth11","expected":403,"actual":403,"at":"2026-09-22T22:03:59.557Z"}
+{"candidate":"casbin","name":"SELF course uploader","expected":["anchor-2b432d84-f9f5-4559-b351-854565de86b8mine"],"actual":["anchor-2b432d84-f9f5-4559-b351-854565de86b8mine"],"at":"2026-09-22T22:03:59.902Z"}
+{"candidate":"casbin","name":"SELF project original creator","expected":["anchor-2b432d84-f9f5-4559-b351-854565de86b8mine"],"actual":["anchor-2b432d84-f9f5-4559-b351-854565de86b8mine"],"at":"2026-09-22T22:03:59.909Z"}
+{"candidate":"casbin","name":"SELF face-to-face owner","expected":{"status":200,"ids":["anchor-2b432d84-f9f5-4559-b351-854565de86b8mine"]},"actual":{"status":200,"ids":["anchor-2b432d84-f9f5-4559-b351-854565de86b8mine"]},"at":"2026-09-22T22:03:59.915Z"}
+{"candidate":"casbin","name":"AUTH-T09 depth10","expected":200,"actual":200,"at":"2026-09-22T22:03:59.933Z"}
+{"candidate":"casbin","name":"AUTH-T09 depth11","expected":403,"actual":403,"at":"2026-09-22T22:03:59.946Z"}
+{"candidate":"native","name":"category provenance create","expected":200,"actual":200,"at":"2026-09-22T22:04:00.377Z"}
+{"candidate":"native","name":"category stores source cap version","expected":{"source":"admin","hasRevision":true,"hasObjectSet":true},"actual":{"source":"admin","hasRevision":true,"hasObjectSet":true},"at":"2026-09-22T22:04:00.379Z"}
+{"candidate":"native","name":"category source change freezes atomically","expected":"recheck_required","actual":"recheck_required","at":"2026-09-22T22:04:00.380Z"}
+{"candidate":"casbin","name":"category provenance create","expected":200,"actual":200,"at":"2026-09-22T22:04:00.708Z"}
+{"candidate":"casbin","name":"category stores source cap version","expected":{"source":"admin","hasRevision":true,"hasObjectSet":true},"actual":{"source":"admin","hasRevision":true,"hasObjectSet":true},"at":"2026-09-22T22:04:00.709Z"}
+{"candidate":"casbin","name":"category source change freezes atomically","expected":"recheck_required","actual":"recheck_required","at":"2026-09-22T22:04:00.711Z"}
+{"candidate":"native","name":"02 own company without extra grant","expected":["A","B","C","D","E","M","N"],"actual":["A","B","C","D","E","M","N"],"at":"2026-09-22T22:04:00.920Z"}
+{"candidate":"native","name":"02 customer A absent grant","expected":403,"actual":403,"at":"2026-09-22T22:04:00.926Z"}
+{"candidate":"casbin","name":"02 own company without extra grant","expected":["A","B","C","D","E","M","N"],"actual":["A","B","C","D","E","M","N"],"at":"2026-09-22T22:04:00.942Z"}
+{"candidate":"casbin","name":"02 customer A absent grant","expected":403,"actual":403,"at":"2026-09-22T22:04:00.947Z"}
+{"candidate":"native","name":"custom accepted","expected":200,"actual":200,"at":"2026-09-22T22:04:01.384Z"}
+{"candidate":"native","name":"AUTH-T09 new custom subject works","expected":200,"actual":200,"at":"2026-09-22T22:04:01.394Z"}
+{"candidate":"native","name":"AUTH-T09 old browse replaced","expected":403,"actual":403,"at":"2026-09-22T22:04:01.401Z"}
+{"candidate":"native","name":"AUTH-T09 custom retains knowledge.course.maintain","expected":200,"actual":200,"at":"2026-09-22T22:04:01.408Z"}
+{"candidate":"native","name":"AUTH-T09 custom retains knowledge.course.distribute","expected":200,"actual":200,"at":"2026-09-22T22:04:01.414Z"}
+{"candidate":"native","name":"AUTH-T09 custom retains knowledge.course.download","expected":200,"actual":200,"at":"2026-09-22T22:04:01.421Z"}
+{"candidate":"casbin","name":"custom accepted","expected":200,"actual":200,"at":"2026-09-22T22:04:01.755Z"}
+{"candidate":"casbin","name":"AUTH-T09 new custom subject works","expected":200,"actual":200,"at":"2026-09-22T22:04:01.764Z"}
+{"candidate":"casbin","name":"AUTH-T09 old browse replaced","expected":403,"actual":403,"at":"2026-09-22T22:04:01.771Z"}
+{"candidate":"casbin","name":"AUTH-T09 custom retains knowledge.course.maintain","expected":200,"actual":200,"at":"2026-09-22T22:04:01.778Z"}
+{"candidate":"casbin","name":"AUTH-T09 custom retains knowledge.course.distribute","expected":200,"actual":200,"at":"2026-09-22T22:04:01.785Z"}
+{"candidate":"casbin","name":"AUTH-T09 custom retains knowledge.course.download","expected":200,"actual":200,"at":"2026-09-22T22:04:01.792Z"}
+{"candidate":"native","name":"matrix source create","expected":200,"actual":200,"at":"2026-09-22T22:04:02.316Z"}
+{"candidate":"native","name":"AUTH-T07-01 level1","expected":403,"actual":403,"at":"2026-09-22T22:04:02.327Z"}
+{"candidate":"native","name":"AUTH-T07 create level2 allowed","expected":200,"actual":200,"at":"2026-09-22T22:04:02.343Z"}
+{"candidate":"native","name":"AUTH-T07 create level3 allowed","expected":200,"actual":200,"at":"2026-09-22T22:04:02.360Z"}
+{"candidate":"native","name":"AUTH-T07-05 node ceiling","expected":403,"actual":403,"at":"2026-09-22T22:04:02.367Z"}
+{"candidate":"native","name":"AUTH-T07-05 action ceiling","expected":403,"actual":403,"at":"2026-09-22T22:04:02.373Z"}
+{"candidate":"native","name":"AUTH-T07-06 literal D2 outside D1","expected":403,"actual":403,"at":"2026-09-22T22:04:02.385Z"}
+{"candidate":"native","name":"AUTH-T07-07 cannot borrow B phone","expected":403,"actual":403,"at":"2026-09-22T22:04:02.390Z"}
+{"candidate":"native","name":"AUTH-T07-02 level1 ordinary edit","expected":403,"actual":403,"at":"2026-09-22T22:04:02.396Z"}
+{"candidate":"native","name":"AUTH-T07-03 samelevel","expected":403,"actual":403,"at":"2026-09-22T22:04:02.401Z"}
+{"candidate":"native","name":"AUTH-T07-04 higher","expected":403,"actual":403,"at":"2026-09-22T22:04:02.406Z"}
+{"candidate":"native","name":"AUTH-T07-08 owned but nondelegable","expected":403,"actual":403,"at":"2026-09-22T22:04:02.498Z"}
+{"candidate":"native","name":"AUTH-T07 level3 can create level2","expected":200,"actual":200,"at":"2026-09-22T22:04:02.598Z"}
+{"candidate":"native","name":"AUTH-T07-03 level3 samelevel edit","expected":403,"actual":403,"at":"2026-09-22T22:04:02.605Z"}
+{"candidate":"native","name":"AUTH-T07-04 level3 higher edit","expected":403,"actual":403,"at":"2026-09-22T22:04:02.610Z"}
+{"candidate":"native","name":"unsupported course department scope rejects save","expected":403,"actual":403,"at":"2026-09-22T22:04:02.615Z"}
+{"candidate":"native","name":"AUTH-T24 appointment never serves selected membership","expected":403,"actual":403,"at":"2026-09-22T22:04:02.621Z"}
+{"candidate":"native","name":"derived create before shrink","expected":200,"actual":200,"at":"2026-09-22T22:04:02.634Z"}
+{"candidate":"native","name":"AUTH-T20 source shrink edit","expected":200,"actual":200,"at":"2026-09-22T22:04:02.719Z"}
+{"candidate":"native","name":"AUTH-T20 exceeds source suspended","expected":{"status":200,"state":"suspended"},"actual":{"status":200,"state":"suspended"},"at":"2026-09-22T22:04:02.735Z"}
+{"candidate":"native","name":"AUTH-T20 restored explicit active","expected":"active","actual":"active","at":"2026-09-22T22:04:02.835Z"}
+{"candidate":"native","name":"AUTH-T20 audit states","expected":["suspended","active"],"actual":["suspended","active"],"at":"2026-09-22T22:04:02.836Z"}
+{"candidate":"native","name":"AUTH-T20 graph cycle rejected","expected":"rejected","actual":"rejected","at":"2026-09-22T22:04:02.838Z"}
+{"candidate":"native","name":"AUTH-T24 recreated source","expected":200,"actual":200,"at":"2026-09-22T22:04:02.933Z"}
+{"candidate":"native","name":"AUTH-T24 fresh membership has new ID and no old override","expected":{"newId":true,"overrides":null},"actual":{"newId":true,"overrides":null},"at":"2026-09-22T22:04:02.933Z"}
+{"candidate":"native","name":"AUTH-T24 old dependency never revives","expected":"suspended","actual":"suspended","at":"2026-09-22T22:04:02.944Z"}
+{"candidate":"casbin","name":"matrix source create","expected":200,"actual":200,"at":"2026-09-22T22:04:03.362Z"}
+{"candidate":"casbin","name":"AUTH-T07-01 level1","expected":403,"actual":403,"at":"2026-09-22T22:04:03.374Z"}
+{"candidate":"casbin","name":"AUTH-T07 create level2 allowed","expected":200,"actual":200,"at":"2026-09-22T22:04:03.388Z"}
+{"candidate":"casbin","name":"AUTH-T07 create level3 allowed","expected":200,"actual":200,"at":"2026-09-22T22:04:03.402Z"}
+{"candidate":"casbin","name":"AUTH-T07-05 node ceiling","expected":403,"actual":403,"at":"2026-09-22T22:04:03.409Z"}
+{"candidate":"casbin","name":"AUTH-T07-05 action ceiling","expected":403,"actual":403,"at":"2026-09-22T22:04:03.414Z"}
+{"candidate":"casbin","name":"AUTH-T07-06 literal D2 outside D1","expected":403,"actual":403,"at":"2026-09-22T22:04:03.425Z"}
+{"candidate":"casbin","name":"AUTH-T07-07 cannot borrow B phone","expected":403,"actual":403,"at":"2026-09-22T22:04:03.430Z"}
+{"candidate":"casbin","name":"AUTH-T07-02 level1 ordinary edit","expected":403,"actual":403,"at":"2026-09-22T22:04:03.435Z"}
+{"candidate":"casbin","name":"AUTH-T07-03 samelevel","expected":403,"actual":403,"at":"2026-09-22T22:04:03.441Z"}
+{"candidate":"casbin","name":"AUTH-T07-04 higher","expected":403,"actual":403,"at":"2026-09-22T22:04:03.446Z"}
+{"candidate":"casbin","name":"AUTH-T07-08 owned but nondelegable","expected":403,"actual":403,"at":"2026-09-22T22:04:03.538Z"}
+{"candidate":"casbin","name":"AUTH-T07 level3 can create level2","expected":200,"actual":200,"at":"2026-09-22T22:04:03.638Z"}
+{"candidate":"casbin","name":"AUTH-T07-03 level3 samelevel edit","expected":403,"actual":403,"at":"2026-09-22T22:04:03.646Z"}
+{"candidate":"casbin","name":"AUTH-T07-04 level3 higher edit","expected":403,"actual":403,"at":"2026-09-22T22:04:03.651Z"}
+{"candidate":"casbin","name":"unsupported course department scope rejects save","expected":403,"actual":403,"at":"2026-09-22T22:04:03.657Z"}
+{"candidate":"casbin","name":"AUTH-T24 appointment never serves selected membership","expected":403,"actual":403,"at":"2026-09-22T22:04:03.662Z"}
+{"candidate":"casbin","name":"derived create before shrink","expected":200,"actual":200,"at":"2026-09-22T22:04:03.675Z"}
+{"candidate":"casbin","name":"AUTH-T20 source shrink edit","expected":200,"actual":200,"at":"2026-09-22T22:04:03.761Z"}
+{"candidate":"casbin","name":"AUTH-T20 exceeds source suspended","expected":{"status":200,"state":"suspended"},"actual":{"status":200,"state":"suspended"},"at":"2026-09-22T22:04:03.778Z"}
+{"candidate":"casbin","name":"AUTH-T20 restored explicit active","expected":"active","actual":"active","at":"2026-09-22T22:04:03.877Z"}
+{"candidate":"casbin","name":"AUTH-T20 audit states","expected":["suspended","active"],"actual":["suspended","active"],"at":"2026-09-22T22:04:03.878Z"}
+{"candidate":"casbin","name":"AUTH-T20 graph cycle rejected","expected":"rejected","actual":"rejected","at":"2026-09-22T22:04:03.879Z"}
+{"candidate":"casbin","name":"AUTH-T24 recreated source","expected":200,"actual":200,"at":"2026-09-22T22:04:03.977Z"}
+{"candidate":"casbin","name":"AUTH-T24 fresh membership has new ID and no old override","expected":{"newId":true,"overrides":null},"actual":{"newId":true,"overrides":null},"at":"2026-09-22T22:04:03.978Z"}
+{"candidate":"casbin","name":"AUTH-T24 old dependency never revives","expected":"suspended","actual":"suspended","at":"2026-09-22T22:04:03.989Z"}
+{"candidate":"native","name":"delivery role create","expected":200,"actual":200,"at":"2026-09-22T22:04:04.775Z"}
+{"candidate":"native","name":"B warmed protected bytes","expected":{"status":200,"bytes":"synthetic-course-bytes"},"actual":{"status":200,"bytes":"synthetic-course-bytes"},"at":"2026-09-22T22:04:04.802Z"}
+{"candidate":"native","name":"download Redis timeout fails closed","expected":{"status":503,"bytes":null},"actual":{"status":503,"bytes":null},"at":"2026-09-22T22:04:05.112Z"}
+{"candidate":"native","name":"download after Redis recovery","expected":200,"actual":200,"at":"2026-09-22T22:04:05.892Z"}
+{"candidate":"native","name":"A revoke committed","expected":200,"actual":200,"at":"2026-09-22T22:04:05.911Z"}
+{"candidate":"native","name":"B next new download denies old L1/L2","expected":{"status":403,"bytes":null,"pubsub":false,"afterCommit":true},"actual":{"status":403,"bytes":null,"pubsub":false,"afterCommit":true},"at":"2026-09-22T22:04:05.927Z"}
+{"candidate":"casbin","name":"delivery role create","expected":200,"actual":200,"at":"2026-09-22T22:04:06.562Z"}
+{"candidate":"casbin","name":"B warmed protected bytes","expected":{"status":200,"bytes":"synthetic-course-bytes"},"actual":{"status":200,"bytes":"synthetic-course-bytes"},"at":"2026-09-22T22:04:06.589Z"}
+{"candidate":"casbin","name":"download Redis timeout fails closed","expected":{"status":503,"bytes":null},"actual":{"status":503,"bytes":null},"at":"2026-09-22T22:04:06.898Z"}
+{"candidate":"casbin","name":"download after Redis recovery","expected":200,"actual":200,"at":"2026-09-22T22:04:07.680Z"}
+{"candidate":"casbin","name":"A revoke committed","expected":200,"actual":200,"at":"2026-09-22T22:04:07.705Z"}
+{"candidate":"casbin","name":"B next new download denies old L1/L2","expected":{"status":403,"bytes":null,"pubsub":false,"afterCommit":true},"actual":{"status":403,"bytes":null,"pubsub":false,"afterCommit":true},"at":"2026-09-22T22:04:07.721Z"}
+{"candidate":"native","name":"category persistence","expected":200,"actual":200,"at":"2026-09-22T22:04:08.239Z"}
+{"candidate":"native","name":"role creation level2","expected":200,"actual":200,"at":"2026-09-22T22:04:08.240Z"}
+{"candidate":"casbin","name":"category persistence","expected":200,"actual":200,"at":"2026-09-22T22:04:08.647Z"}
+{"candidate":"casbin","name":"role creation level2","expected":200,"actual":200,"at":"2026-09-22T22:04:08.647Z"}
+{"candidate":"native","name":"N1 narrow parent save","expected":200,"actual":200,"at":"2026-09-22T22:04:09.103Z"}
+{"candidate":"native","name":"N1 saved parent cap excludes other uploader","expected":["inherit-cap-7611da1e-4dd3-4650-9554-2d285cbb4028P"],"actual":["inherit-cap-7611da1e-4dd3-4650-9554-2d285cbb4028P"],"at":"2026-09-22T22:04:09.105Z"}
+{"candidate":"native","name":"N1 original parent course browsable","expected":200,"actual":200,"at":"2026-09-22T22:04:09.115Z"}
+{"candidate":"native","name":"N1 failed import rejects whole transaction","expected":403,"actual":403,"at":"2026-09-22T22:04:09.127Z"}
+{"candidate":"native","name":"N1 failed import rolls back inheritance and ancestor freeze","expected":[{"id":"inherit-cap-7611da1e-4dd3-4650-9554-2d285cbb4028C","inherit_parent":false,"provenance":"system_origin"},{"id":"inherit-cap-7611da1e-4dd3-4650-9554-2d285cbb4028P","inherit_parent":false,"provenance":"active"}],"actual":[{"id":"inherit-cap-7611da1e-4dd3-4650-9554-2d285cbb4028C","inherit_parent":false,"provenance":"system_origin"},{"id":"inherit-cap-7611da1e-4dd3-4650-9554-2d285cbb4028P","inherit_parent":false,"provenance":"active"}],"at":"2026-09-22T22:04:09.128Z"}
+{"candidate":"native","name":"N1 child inherit mutation","expected":200,"actual":200,"at":"2026-09-22T22:04:09.137Z"}
+{"candidate":"native","name":"N1 immediate inherited other-uploader course denied","expected":403,"actual":403,"at":"2026-09-22T22:04:09.144Z"}
+{"candidate":"native","name":"N1 ancestor atomically frozen with unchanged cap","expected":{"state":"recheck_required","ids":["inherit-cap-7611da1e-4dd3-4650-9554-2d285cbb4028P"]},"actual":{"state":"recheck_required","ids":["inherit-cap-7611da1e-4dd3-4650-9554-2d285cbb4028P"]},"at":"2026-09-22T22:04:09.145Z"}
+{"candidate":"native","name":"N1 active ancestor still intersects inherited saved cap","expected":403,"actual":403,"at":"2026-09-22T22:04:09.154Z"}
+{"candidate":"native","name":"N1 active ancestor saved cap retains original course","expected":200,"actual":200,"at":"2026-09-22T22:04:09.160Z"}
+{"candidate":"native","name":"N1 original SELF source cannot recheck expanded ancestor","expected":{"status":200,"state":"suspended"},"actual":{"status":200,"state":"suspended"},"at":"2026-09-22T22:04:09.177Z"}
+{"candidate":"native","name":"N1 original source broadened then explicit recheck active","expected":{"status":200,"state":"active"},"actual":{"status":200,"state":"active"},"at":"2026-09-22T22:04:09.195Z"}
+{"candidate":"native","name":"N1 child allowed only after original source explicit recheck","expected":200,"actual":200,"at":"2026-09-22T22:04:09.203Z"}
+{"candidate":"casbin","name":"N1 narrow parent save","expected":200,"actual":200,"at":"2026-09-22T22:04:09.547Z"}
+{"candidate":"casbin","name":"N1 saved parent cap excludes other uploader","expected":["inherit-cap-1e51d728-a2e4-4673-91aa-0d605668fa72P"],"actual":["inherit-cap-1e51d728-a2e4-4673-91aa-0d605668fa72P"],"at":"2026-09-22T22:04:09.548Z"}
+{"candidate":"casbin","name":"N1 original parent course browsable","expected":200,"actual":200,"at":"2026-09-22T22:04:09.559Z"}
+{"candidate":"casbin","name":"N1 failed import rejects whole transaction","expected":403,"actual":403,"at":"2026-09-22T22:04:09.572Z"}
+{"candidate":"casbin","name":"N1 failed import rolls back inheritance and ancestor freeze","expected":[{"id":"inherit-cap-1e51d728-a2e4-4673-91aa-0d605668fa72C","inherit_parent":false,"provenance":"system_origin"},{"id":"inherit-cap-1e51d728-a2e4-4673-91aa-0d605668fa72P","inherit_parent":false,"provenance":"active"}],"actual":[{"id":"inherit-cap-1e51d728-a2e4-4673-91aa-0d605668fa72C","inherit_parent":false,"provenance":"system_origin"},{"id":"inherit-cap-1e51d728-a2e4-4673-91aa-0d605668fa72P","inherit_parent":false,"provenance":"active"}],"at":"2026-09-22T22:04:09.572Z"}
+{"candidate":"casbin","name":"N1 child inherit mutation","expected":200,"actual":200,"at":"2026-09-22T22:04:09.582Z"}
+{"candidate":"casbin","name":"N1 immediate inherited other-uploader course denied","expected":403,"actual":403,"at":"2026-09-22T22:04:09.589Z"}
+{"candidate":"casbin","name":"N1 ancestor atomically frozen with unchanged cap","expected":{"state":"recheck_required","ids":["inherit-cap-1e51d728-a2e4-4673-91aa-0d605668fa72P"]},"actual":{"state":"recheck_required","ids":["inherit-cap-1e51d728-a2e4-4673-91aa-0d605668fa72P"]},"at":"2026-09-22T22:04:09.590Z"}
+{"candidate":"casbin","name":"N1 active ancestor still intersects inherited saved cap","expected":403,"actual":403,"at":"2026-09-22T22:04:09.600Z"}
+{"candidate":"casbin","name":"N1 active ancestor saved cap retains original course","expected":200,"actual":200,"at":"2026-09-22T22:04:09.608Z"}
+{"candidate":"casbin","name":"N1 original SELF source cannot recheck expanded ancestor","expected":{"status":200,"state":"suspended"},"actual":{"status":200,"state":"suspended"},"at":"2026-09-22T22:04:09.631Z"}
+{"candidate":"casbin","name":"N1 original source broadened then explicit recheck active","expected":{"status":200,"state":"active"},"actual":{"status":200,"state":"active"},"at":"2026-09-22T22:04:09.652Z"}
+{"candidate":"casbin","name":"N1 child allowed only after original source explicit recheck","expected":200,"actual":200,"at":"2026-09-22T22:04:09.661Z"}
+{"candidate":"native","name":"N1 runtime category save","expected":200,"actual":200,"at":"2026-09-22T22:04:09.982Z"}
+{"candidate":"native","name":"N1 runtime valid category browse","expected":200,"actual":200,"at":"2026-09-22T22:04:09.991Z"}
+{"candidate":"native","name":"N1 runtime valid category maintain","expected":200,"actual":200,"at":"2026-09-22T22:04:09.999Z"}
+{"candidate":"native","name":"N1 runtime cap action isolation browse","expected":200,"actual":200,"at":"2026-09-22T22:04:10.008Z"}
+{"candidate":"native","name":"N1 runtime cap action isolation maintain","expected":403,"actual":403,"at":"2026-09-22T22:04:10.014Z"}
+{"candidate":"native","name":"N1 source-bound missing category snapshot denies","expected":403,"actual":403,"at":"2026-09-22T22:04:10.022Z"}
+{"candidate":"native","name":"N1 runtime custom save","expected":200,"actual":200,"at":"2026-09-22T22:04:10.040Z"}
+{"candidate":"native","name":"N1 runtime custom cap excludes wrong course ID","expected":403,"actual":403,"at":"2026-09-22T22:04:10.047Z"}
+{"candidate":"native","name":"N1 failed custom cap does not restore replaced category browse","expected":403,"actual":403,"at":"2026-09-22T22:04:10.053Z"}
+{"candidate":"native","name":"N1 custom cap preserves independent category maintenance","expected":200,"actual":200,"at":"2026-09-22T22:04:10.059Z"}
+{"candidate":"native","name":"N1 valid custom saved cap permits its course","expected":200,"actual":200,"at":"2026-09-22T22:04:10.068Z"}
+{"candidate":"casbin","name":"N1 runtime category save","expected":200,"actual":200,"at":"2026-09-22T22:04:10.389Z"}
+{"candidate":"casbin","name":"N1 runtime valid category browse","expected":200,"actual":200,"at":"2026-09-22T22:04:10.400Z"}
+{"candidate":"casbin","name":"N1 runtime valid category maintain","expected":200,"actual":200,"at":"2026-09-22T22:04:10.408Z"}
+{"candidate":"casbin","name":"N1 runtime cap action isolation browse","expected":200,"actual":200,"at":"2026-09-22T22:04:10.417Z"}
+{"candidate":"casbin","name":"N1 runtime cap action isolation maintain","expected":403,"actual":403,"at":"2026-09-22T22:04:10.424Z"}
+{"candidate":"casbin","name":"N1 source-bound missing category snapshot denies","expected":403,"actual":403,"at":"2026-09-22T22:04:10.431Z"}
+{"candidate":"casbin","name":"N1 runtime custom save","expected":200,"actual":200,"at":"2026-09-22T22:04:10.456Z"}
+{"candidate":"casbin","name":"N1 runtime custom cap excludes wrong course ID","expected":403,"actual":403,"at":"2026-09-22T22:04:10.464Z"}
+{"candidate":"casbin","name":"N1 failed custom cap does not restore replaced category browse","expected":403,"actual":403,"at":"2026-09-22T22:04:10.470Z"}
+{"candidate":"casbin","name":"N1 custom cap preserves independent category maintenance","expected":200,"actual":200,"at":"2026-09-22T22:04:10.477Z"}
+{"candidate":"casbin","name":"N1 valid custom saved cap permits its course","expected":200,"actual":200,"at":"2026-09-22T22:04:10.485Z"}
+{"candidate":"native","name":"N1 force fixture local policy save","expected":200,"actual":200,"at":"2026-09-22T22:04:10.806Z"}
+{"candidate":"native","name":"N1 force fixture custom save","expected":200,"actual":200,"at":"2026-09-22T22:04:10.825Z"}
+{"candidate":"native","name":"N1 force switch true","expected":200,"actual":200,"at":"2026-09-22T22:04:10.835Z"}
+{"candidate":"native","name":"N1 force switch false","expected":200,"actual":200,"at":"2026-09-22T22:04:10.846Z"}
+{"candidate":"native","name":"N1 force release atomically freezes restored owners","expected":{"provenance":"recheck_required","custom_provenance":"recheck_required"},"actual":{"provenance":"recheck_required","custom_provenance":"recheck_required"},"at":"2026-09-22T22:04:10.846Z"}
+{"candidate":"native","name":"N1 force release awaits explicit recheck maintain","expected":403,"actual":403,"at":"2026-09-22T22:04:10.855Z"}
+{"candidate":"native","name":"N1 force release awaits explicit recheck browse","expected":403,"actual":403,"at":"2026-09-22T22:04:10.861Z"}
+{"candidate":"native","name":"N1 force release original-source recheck categories","expected":{"status":200,"state":"active"},"actual":{"status":200,"state":"active"},"at":"2026-09-22T22:04:10.876Z"}
+{"candidate":"native","name":"N1 force release original-source recheck courses","expected":{"status":200,"state":"active"},"actual":{"status":200,"state":"active"},"at":"2026-09-22T22:04:10.894Z"}
+{"candidate":"native","name":"N1 force release explicitly restored maintain","expected":200,"actual":200,"at":"2026-09-22T22:04:10.903Z"}
+{"candidate":"native","name":"N1 force release explicitly restored browse","expected":200,"actual":200,"at":"2026-09-22T22:04:10.910Z"}
+{"candidate":"casbin","name":"N1 force fixture local policy save","expected":200,"actual":200,"at":"2026-09-22T22:04:11.232Z"}
+{"candidate":"casbin","name":"N1 force fixture custom save","expected":200,"actual":200,"at":"2026-09-22T22:04:11.257Z"}
+{"candidate":"casbin","name":"N1 force switch true","expected":200,"actual":200,"at":"2026-09-22T22:04:11.268Z"}
+{"candidate":"casbin","name":"N1 force switch false","expected":200,"actual":200,"at":"2026-09-22T22:04:11.278Z"}
+{"candidate":"casbin","name":"N1 force release atomically freezes restored owners","expected":{"provenance":"recheck_required","custom_provenance":"recheck_required"},"actual":{"provenance":"recheck_required","custom_provenance":"recheck_required"},"at":"2026-09-22T22:04:11.279Z"}
+{"candidate":"casbin","name":"N1 force release awaits explicit recheck maintain","expected":403,"actual":403,"at":"2026-09-22T22:04:11.290Z"}
+{"candidate":"casbin","name":"N1 force release awaits explicit recheck browse","expected":403,"actual":403,"at":"2026-09-22T22:04:11.297Z"}
+{"candidate":"casbin","name":"N1 force release original-source recheck categories","expected":{"status":200,"state":"active"},"actual":{"status":200,"state":"active"},"at":"2026-09-22T22:04:11.311Z"}
+{"candidate":"casbin","name":"N1 force release original-source recheck courses","expected":{"status":200,"state":"active"},"actual":{"status":200,"state":"active"},"at":"2026-09-22T22:04:11.331Z"}
+{"candidate":"casbin","name":"N1 force release explicitly restored maintain","expected":200,"actual":200,"at":"2026-09-22T22:04:11.339Z"}
+{"candidate":"casbin","name":"N1 force release explicitly restored browse","expected":200,"actual":200,"at":"2026-09-22T22:04:11.347Z"}
+{"candidate":"native","name":"AUTH-T08 knowledge.course.browse","expected":{"status":200,"ids":["know-6e803e1e-6351-46c0-87aa-f435ef21ebf7browse","know-6e803e1e-6351-46c0-87aa-f435ef21ebf7classroom","know-6e803e1e-6351-46c0-87aa-f435ef21ebf7public"],"count":3},"actual":{"status":200,"ids":["know-6e803e1e-6351-46c0-87aa-f435ef21ebf7browse","know-6e803e1e-6351-46c0-87aa-f435ef21ebf7classroom","know-6e803e1e-6351-46c0-87aa-f435ef21ebf7public"],"count":3},"at":"2026-09-22T22:04:11.776Z"}
+{"candidate":"native","name":"AUTH-T08 knowledge.course.maintain","expected":{"status":200,"ids":["know-6e803e1e-6351-46c0-87aa-f435ef21ebf7maintain"],"count":1},"actual":{"status":200,"ids":["know-6e803e1e-6351-46c0-87aa-f435ef21ebf7maintain"],"count":1},"at":"2026-09-22T22:04:11.786Z"}
+{"candidate":"native","name":"AUTH-T08 knowledge.course.distribute","expected":{"status":200,"ids":["know-6e803e1e-6351-46c0-87aa-f435ef21ebf7distribute"],"count":1},"actual":{"status":200,"ids":["know-6e803e1e-6351-46c0-87aa-f435ef21ebf7distribute"],"count":1},"at":"2026-09-22T22:04:11.795Z"}
+{"candidate":"native","name":"AUTH-T08 knowledge.course.download","expected":{"status":200,"ids":["know-6e803e1e-6351-46c0-87aa-f435ef21ebf7download"],"count":1},"actual":{"status":200,"ids":["know-6e803e1e-6351-46c0-87aa-f435ef21ebf7download"],"count":1},"at":"2026-09-22T22:04:11.802Z"}
+{"candidate":"native","name":"AUTH-T08 protected bytes","expected":{"status":200,"bytes":"synthetic-course-bytes","hasStorage":false},"actual":{"status":200,"bytes":"synthetic-course-bytes","hasStorage":false},"at":"2026-09-22T22:04:11.814Z"}
+{"candidate":"native","name":"AUTH-T08 browse never downloads","expected":403,"actual":403,"at":"2026-09-22T22:04:11.824Z"}
+{"candidate":"native","name":"AUTH-T08 current unpublish denies","expected":403,"actual":403,"at":"2026-09-22T22:04:11.837Z"}
+{"candidate":"native","name":"AUTH-T09 locked direct","expected":403,"actual":403,"at":"2026-09-22T22:04:11.847Z"}
+{"candidate":"native","name":"AUTH-T09 locked import","expected":403,"actual":403,"at":"2026-09-22T22:04:11.852Z"}
+{"candidate":"native","name":"AUTH-T09 locked custom","expected":403,"actual":403,"at":"2026-09-22T22:04:11.864Z"}
+{"candidate":"native","name":"AUTH-T09 custom save","expected":200,"actual":200,"at":"2026-09-22T22:04:11.881Z"}
+{"candidate":"native","name":"AUTH-T09 custom removed former public browse","expected":403,"actual":403,"at":"2026-09-22T22:04:11.890Z"}
+{"candidate":"native","name":"AUTH-T09 append preview","expected":200,"actual":200,"at":"2026-09-22T22:04:11.902Z"}
+{"candidate":"native","name":"AUTH-T09 append command","expected":200,"actual":200,"at":"2026-09-22T22:04:11.921Z"}
+{"candidate":"native","name":"AUTH-T09 parent retains original allow","expected":["knowledge.course.browse","knowledge.course.download"],"actual":["knowledge.course.browse","knowledge.course.download"],"at":"2026-09-22T22:04:11.922Z"}
+{"candidate":"casbin","name":"AUTH-T08 knowledge.course.browse","expected":{"status":200,"ids":["know-8b0db8e5-9835-4644-87f0-ad2478226108browse","know-8b0db8e5-9835-4644-87f0-ad2478226108classroom","know-8b0db8e5-9835-4644-87f0-ad2478226108public"],"count":3},"actual":{"status":200,"ids":["know-8b0db8e5-9835-4644-87f0-ad2478226108browse","know-8b0db8e5-9835-4644-87f0-ad2478226108classroom","know-8b0db8e5-9835-4644-87f0-ad2478226108public"],"count":3},"at":"2026-09-22T22:04:12.249Z"}
+{"candidate":"casbin","name":"AUTH-T08 knowledge.course.maintain","expected":{"status":200,"ids":["know-8b0db8e5-9835-4644-87f0-ad2478226108maintain"],"count":1},"actual":{"status":200,"ids":["know-8b0db8e5-9835-4644-87f0-ad2478226108maintain"],"count":1},"at":"2026-09-22T22:04:12.258Z"}
+{"candidate":"casbin","name":"AUTH-T08 knowledge.course.distribute","expected":{"status":200,"ids":["know-8b0db8e5-9835-4644-87f0-ad2478226108distribute"],"count":1},"actual":{"status":200,"ids":["know-8b0db8e5-9835-4644-87f0-ad2478226108distribute"],"count":1},"at":"2026-09-22T22:04:12.268Z"}
+{"candidate":"casbin","name":"AUTH-T08 knowledge.course.download","expected":{"status":200,"ids":["know-8b0db8e5-9835-4644-87f0-ad2478226108download"],"count":1},"actual":{"status":200,"ids":["know-8b0db8e5-9835-4644-87f0-ad2478226108download"],"count":1},"at":"2026-09-22T22:04:12.278Z"}
+{"candidate":"casbin","name":"AUTH-T08 protected bytes","expected":{"status":200,"bytes":"synthetic-course-bytes","hasStorage":false},"actual":{"status":200,"bytes":"synthetic-course-bytes","hasStorage":false},"at":"2026-09-22T22:04:12.289Z"}
+{"candidate":"casbin","name":"AUTH-T08 browse never downloads","expected":403,"actual":403,"at":"2026-09-22T22:04:12.300Z"}
+{"candidate":"casbin","name":"AUTH-T08 current unpublish denies","expected":403,"actual":403,"at":"2026-09-22T22:04:12.312Z"}
+{"candidate":"casbin","name":"AUTH-T09 locked direct","expected":403,"actual":403,"at":"2026-09-22T22:04:12.321Z"}
+{"candidate":"casbin","name":"AUTH-T09 locked import","expected":403,"actual":403,"at":"2026-09-22T22:04:12.326Z"}
+{"candidate":"casbin","name":"AUTH-T09 locked custom","expected":403,"actual":403,"at":"2026-09-22T22:04:12.340Z"}
+{"candidate":"casbin","name":"AUTH-T09 custom save","expected":200,"actual":200,"at":"2026-09-22T22:04:12.360Z"}
+{"candidate":"casbin","name":"AUTH-T09 custom removed former public browse","expected":403,"actual":403,"at":"2026-09-22T22:04:12.368Z"}
+{"candidate":"casbin","name":"AUTH-T09 append preview","expected":200,"actual":200,"at":"2026-09-22T22:04:12.380Z"}
+{"candidate":"casbin","name":"AUTH-T09 append command","expected":200,"actual":200,"at":"2026-09-22T22:04:12.398Z"}
+{"candidate":"casbin","name":"AUTH-T09 parent retains original allow","expected":["knowledge.course.browse","knowledge.course.download"],"actual":["knowledge.course.browse","knowledge.course.download"],"at":"2026-09-22T22:04:12.399Z"}
+{"candidate":"native","name":"lifecycle create","expected":200,"actual":200,"at":"2026-09-22T22:04:12.968Z"}
+{"candidate":"native","name":"AUTH-T24 role edit API","expected":200,"actual":200,"at":"2026-09-22T22:04:13.056Z"}
+{"candidate":"native","name":"AUTH-T24 canonical role fanout","expected":["D2","D2"],"actual":["D2","D2"],"at":"2026-09-22T22:04:13.057Z"}
+{"candidate":"native","name":"AUTH-T24 local empty override retained","expected":null,"actual":null,"at":"2026-09-22T22:04:13.058Z"}
+{"candidate":"native","name":"AUTH-T20 frozen after org update","expected":"recheck_required","actual":"recheck_required","at":"2026-09-22T22:04:13.060Z"}
+{"candidate":"native","name":"AUTH-T20 explicit safe recheck","expected":{"status":200,"state":"active"},"actual":{"status":200,"state":"active"},"at":"2026-09-22T22:04:13.143Z"}
+{"candidate":"native","name":"AUTH-T20 populated subtree moves","expected":200,"actual":200,"at":"2026-09-22T22:04:13.154Z"}
+{"candidate":"native","name":"AUTH-T20 populated move freeze","expected":"recheck_required","actual":"recheck_required","at":"2026-09-22T22:04:13.155Z"}
+{"candidate":"casbin","name":"lifecycle create","expected":200,"actual":200,"at":"2026-09-22T22:04:13.628Z"}
+{"candidate":"casbin","name":"AUTH-T24 role edit API","expected":200,"actual":200,"at":"2026-09-22T22:04:13.717Z"}
+{"candidate":"casbin","name":"AUTH-T24 canonical role fanout","expected":["D2","D2"],"actual":["D2","D2"],"at":"2026-09-22T22:04:13.718Z"}
+{"candidate":"casbin","name":"AUTH-T24 local empty override retained","expected":null,"actual":null,"at":"2026-09-22T22:04:13.718Z"}
+{"candidate":"casbin","name":"AUTH-T20 frozen after org update","expected":"recheck_required","actual":"recheck_required","at":"2026-09-22T22:04:13.719Z"}
+{"candidate":"casbin","name":"AUTH-T20 explicit safe recheck","expected":{"status":200,"state":"active"},"actual":{"status":200,"state":"active"},"at":"2026-09-22T22:04:13.802Z"}
+{"candidate":"casbin","name":"AUTH-T20 populated subtree moves","expected":200,"actual":200,"at":"2026-09-22T22:04:13.818Z"}
+{"candidate":"casbin","name":"AUTH-T20 populated move freeze","expected":"recheck_required","actual":"recheck_required","at":"2026-09-22T22:04:13.819Z"}
+{"candidate":"shared-resolver","name":"exact current-state business objects","expected":[],"actual":[],"at":"2026-09-22T22:04:14.033Z"}
+{"candidate":"shared-resolver","name":"empty virtual cap stays empty","expected":[],"actual":[],"at":"2026-09-22T22:04:14.038Z"}
+{"candidate":"native","name":"categories original-source shrink suspends","expected":{"status":200,"state":"suspended"},"actual":{"status":200,"state":"suspended"},"at":"2026-09-22T22:04:14.517Z"}
+{"candidate":"native","name":"courses original-source shrink suspends","expected":{"status":200,"state":"suspended"},"actual":{"status":200,"state":"suspended"},"at":"2026-09-22T22:04:14.534Z"}
+{"candidate":"native","name":"categories explicit original-source restore","expected":{"status":200,"state":"active"},"actual":{"status":200,"state":"active"},"at":"2026-09-22T22:04:14.549Z"}
+{"candidate":"native","name":"courses explicit original-source restore","expected":{"status":200,"state":"active"},"actual":{"status":200,"state":"active"},"at":"2026-09-22T22:04:14.568Z"}
+{"candidate":"native","name":"knowledge policy recheck audit","expected":[{"kind":"category","state":"suspended"},{"kind":"custom","state":"suspended"},{"kind":"category","state":"active"},{"kind":"custom","state":"active"}],"actual":[{"kind":"category","state":"suspended"},{"kind":"custom","state":"suspended"},{"kind":"category","state":"active"},{"kind":"custom","state":"active"}],"at":"2026-09-22T22:04:14.569Z"}
+{"candidate":"casbin","name":"categories original-source shrink suspends","expected":{"status":200,"state":"suspended"},"actual":{"status":200,"state":"suspended"},"at":"2026-09-22T22:04:14.957Z"}
+{"candidate":"casbin","name":"courses original-source shrink suspends","expected":{"status":200,"state":"suspended"},"actual":{"status":200,"state":"suspended"},"at":"2026-09-22T22:04:14.981Z"}
+{"candidate":"casbin","name":"categories explicit original-source restore","expected":{"status":200,"state":"active"},"actual":{"status":200,"state":"active"},"at":"2026-09-22T22:04:14.996Z"}
+{"candidate":"casbin","name":"courses explicit original-source restore","expected":{"status":200,"state":"active"},"actual":{"status":200,"state":"active"},"at":"2026-09-22T22:04:15.017Z"}
+{"candidate":"casbin","name":"knowledge policy recheck audit","expected":[{"kind":"category","state":"suspended"},{"kind":"custom","state":"suspended"},{"kind":"category","state":"active"},{"kind":"custom","state":"active"}],"actual":[{"kind":"category","state":"suspended"},{"kind":"custom","state":"suspended"},{"kind":"category","state":"active"},{"kind":"custom","state":"active"}],"at":"2026-09-22T22:04:15.017Z"}
+{"candidate":"native","name":"populated source creation","expected":200,"actual":200,"at":"2026-09-22T22:04:15.532Z"}
+{"candidate":"native","name":"populated derived creation","expected":200,"actual":200,"at":"2026-09-22T22:04:15.551Z"}
+{"candidate":"native","name":"AUTH-T20-01 initial literal cap","expected":["A"],"actual":["A"],"at":"2026-09-22T22:04:15.552Z"}
+{"candidate":"native","name":"AUTH-T20-01 populated B branch move","expected":200,"actual":200,"at":"2026-09-22T22:04:15.564Z"}
+{"candidate":"native","name":"AUTH-T20-01 no unchecked expansion","expected":{"state":"recheck_required","cap":["A"]},"actual":{"state":"recheck_required","cap":["A"]},"at":"2026-09-22T22:04:15.566Z"}
+{"candidate":"native","name":"AUTH-T20-01 frozen parent cannot regrant","expected":"suspended","actual":"suspended","at":"2026-09-22T22:04:15.577Z"}
+{"candidate":"native","name":"AUTH-T20-01 explicit parent and child recheck","expected":{"state":"active","cap":["A","B"]},"actual":{"state":"active","cap":["A","B"]},"at":"2026-09-22T22:04:15.685Z"}
+{"candidate":"casbin","name":"populated source creation","expected":200,"actual":200,"at":"2026-09-22T22:04:16.117Z"}
+{"candidate":"casbin","name":"populated derived creation","expected":200,"actual":200,"at":"2026-09-22T22:04:16.135Z"}
+{"candidate":"casbin","name":"AUTH-T20-01 initial literal cap","expected":["A"],"actual":["A"],"at":"2026-09-22T22:04:16.135Z"}
+{"candidate":"casbin","name":"AUTH-T20-01 populated B branch move","expected":200,"actual":200,"at":"2026-09-22T22:04:16.151Z"}
+{"candidate":"casbin","name":"AUTH-T20-01 no unchecked expansion","expected":{"state":"recheck_required","cap":["A"]},"actual":{"state":"recheck_required","cap":["A"]},"at":"2026-09-22T22:04:16.152Z"}
+{"candidate":"casbin","name":"AUTH-T20-01 frozen parent cannot regrant","expected":"suspended","actual":"suspended","at":"2026-09-22T22:04:16.164Z"}
+{"candidate":"casbin","name":"AUTH-T20-01 explicit parent and child recheck","expected":{"state":"active","cap":["A","B"]},"actual":{"state":"active","cap":["A","B"]},"at":"2026-09-22T22:04:16.271Z"}
+{"candidate":"native","name":"AUTH-T09 forced child write","expected":403,"actual":403,"at":"2026-09-22T22:04:16.692Z"}
+{"candidate":"native","name":"AUTH-T09 category cannot borrow admin","expected":403,"actual":403,"at":"2026-09-22T22:04:16.704Z"}
+{"candidate":"native","name":"AUTH-T07 recipient D2 exceeds source D1","expected":403,"actual":403,"at":"2026-09-22T22:04:16.724Z"}
+{"candidate":"native","name":"AUTH-T20 create within literal D1 cap","expected":200,"actual":200,"at":"2026-09-22T22:04:16.740Z"}
+{"candidate":"native","name":"AUTH-T20 freeze committed with source shrink","expected":"recheck_required","actual":"recheck_required","at":"2026-09-22T22:04:16.741Z"}
+{"candidate":"casbin","name":"AUTH-T09 forced child write","expected":403,"actual":403,"at":"2026-09-22T22:04:17.065Z"}
+{"candidate":"casbin","name":"AUTH-T09 category cannot borrow admin","expected":403,"actual":403,"at":"2026-09-22T22:04:17.078Z"}
+{"candidate":"casbin","name":"AUTH-T07 recipient D2 exceeds source D1","expected":403,"actual":403,"at":"2026-09-22T22:04:17.098Z"}
+{"candidate":"casbin","name":"AUTH-T20 create within literal D1 cap","expected":200,"actual":200,"at":"2026-09-22T22:04:17.113Z"}
+{"candidate":"casbin","name":"AUTH-T20 freeze committed with source shrink","expected":"recheck_required","actual":"recheck_required","at":"2026-09-22T22:04:17.115Z"}
+{"candidate":"native","name":"R1 initial customer assignment","expected":200,"actual":200,"at":"2026-09-22T22:04:17.545Z"}
+{"candidate":"native","name":"R1 original source remains active","expected":"system_origin","actual":"system_origin","at":"2026-09-22T22:04:17.548Z"}
+{"candidate":"native","name":"R1 revoke A then Z recheck suspended","expected":{"status":200,"state":"suspended"},"actual":{"status":200,"state":"suspended"},"at":"2026-09-22T22:04:17.560Z"}
+{"candidate":"native","name":"R1 restored source company recheck active","expected":{"status":200,"state":"active"},"actual":{"status":200,"state":"active"},"at":"2026-09-22T22:04:17.577Z"}
+{"candidate":"native","name":"R2 D1 grantor D2 cap to D2 ownDept create","expected":200,"actual":200,"at":"2026-09-22T22:04:17.595Z"}
+{"candidate":"native","name":"R2 literal recipient objects","expected":["B","E","N"],"actual":["B","E","N"],"at":"2026-09-22T22:04:17.596Z"}
+{"candidate":"native","name":"R2 relative edit","expected":200,"actual":200,"at":"2026-09-22T22:04:17.613Z"}
+{"candidate":"native","name":"R2 relative add member","expected":200,"actual":200,"at":"2026-09-22T22:04:17.634Z"}
+{"candidate":"native","name":"R2 second recipient cap","expected":["B","E","N"],"actual":["B","E","N"],"at":"2026-09-22T22:04:17.635Z"}
+{"candidate":"native","name":"R2 relative recheck","expected":{"status":200,"state":"active","cap":["B","E","N"]},"actual":{"status":200,"state":"active","cap":["B","E","N"]},"at":"2026-09-22T22:04:17.653Z"}
+{"candidate":"native","name":"R2 empty recipient preserves field ceiling","expected":403,"actual":403,"at":"2026-09-22T22:04:17.660Z"}
+{"candidate":"native","name":"R2 empty recipient preserves action ceiling","expected":403,"actual":403,"at":"2026-09-22T22:04:17.666Z"}
+{"candidate":"native","name":"R2 empty recipient preserves delegability","expected":403,"actual":403,"at":"2026-09-22T22:04:17.674Z"}
+{"candidate":"native","name":"R3 selected SELF custom own course","expected":200,"actual":200,"at":"2026-09-22T22:04:17.697Z"}
+{"candidate":"native","name":"R3 saved affected course cap","expected":["review-2dd5d7a1-29a1-4141-93d9-13d55214b34bown"],"actual":["review-2dd5d7a1-29a1-4141-93d9-13d55214b34bown"],"at":"2026-09-22T22:04:17.698Z"}
+{"candidate":"native","name":"R3 custom subject can browse own course","expected":200,"actual":200,"at":"2026-09-22T22:04:17.706Z"}
+{"candidate":"native","name":"R3 cannot borrow maintain role to grant other uploader","expected":403,"actual":403,"at":"2026-09-22T22:04:17.724Z"}
+{"candidate":"native","name":"R3 custom recheck retains target-only set","expected":{"status":200,"state":"active"},"actual":{"status":200,"state":"active"},"at":"2026-09-22T22:04:17.742Z"}
+{"candidate":"native","name":"R3 SELF category includes inherited own courses only","expected":200,"actual":200,"at":"2026-09-22T22:04:17.761Z"}
+{"candidate":"native","name":"R3 category persisted affected set","expected":["review-2dd5d7a1-29a1-4141-93d9-13d55214b34bcategory","review-2dd5d7a1-29a1-4141-93d9-13d55214b34bcategorychild"],"actual":["review-2dd5d7a1-29a1-4141-93d9-13d55214b34bcategory","review-2dd5d7a1-29a1-4141-93d9-13d55214b34bcategorychild"],"at":"2026-09-22T22:04:17.762Z"}
+{"candidate":"native","name":"R3 category recheck affected set","expected":{"status":200,"state":"active"},"actual":{"status":200,"state":"active"},"at":"2026-09-22T22:04:17.778Z"}
+{"candidate":"native","name":"R3 forced descendant outside selected SELF denied","expected":403,"actual":403,"at":"2026-09-22T22:04:17.791Z"}
+{"candidate":"native","name":"R3 inherited descendant outside selected SELF denied","expected":403,"actual":403,"at":"2026-09-22T22:04:17.803Z"}
+{"candidate":"native","name":"R4 source maintains inaccessible","expected":200,"actual":200,"at":"2026-09-22T22:04:17.814Z"}
+{"candidate":"native","name":"R4 inaccessible delegation create","expected":200,"actual":200,"at":"2026-09-22T22:04:17.829Z"}
+{"candidate":"native","name":"R4 recipient maintains inaccessible","expected":200,"actual":200,"at":"2026-09-22T22:04:17.837Z"}
+{"candidate":"native","name":"R4 maintenance survives valid recheck","expected":"active","actual":"active","at":"2026-09-22T22:04:17.856Z"}
+{"candidate":"native","name":"R4 inaccessible M browse denied","expected":403,"actual":403,"at":"2026-09-22T22:04:17.864Z"}
+{"candidate":"native","name":"R4 inaccessible M download denied","expected":403,"actual":403,"at":"2026-09-22T22:04:17.874Z"}
+{"candidate":"native","name":"R4 inaccessible L browse denied","expected":403,"actual":403,"at":"2026-09-22T22:04:17.882Z"}
+{"candidate":"native","name":"R4 inaccessible L download denied","expected":403,"actual":403,"at":"2026-09-22T22:04:17.891Z"}
+{"candidate":"native","name":"R4 recipient can restore accessible state","expected":200,"actual":200,"at":"2026-09-22T22:04:17.902Z"}
+{"candidate":"casbin","name":"R1 initial customer assignment","expected":200,"actual":200,"at":"2026-09-22T22:04:18.246Z"}
+{"candidate":"casbin","name":"R1 original source remains active","expected":"system_origin","actual":"system_origin","at":"2026-09-22T22:04:18.247Z"}
+{"candidate":"casbin","name":"R1 revoke A then Z recheck suspended","expected":{"status":200,"state":"suspended"},"actual":{"status":200,"state":"suspended"},"at":"2026-09-22T22:04:18.259Z"}
+{"candidate":"casbin","name":"R1 restored source company recheck active","expected":{"status":200,"state":"active"},"actual":{"status":200,"state":"active"},"at":"2026-09-22T22:04:18.274Z"}
+{"candidate":"casbin","name":"R2 D1 grantor D2 cap to D2 ownDept create","expected":200,"actual":200,"at":"2026-09-22T22:04:18.292Z"}
+{"candidate":"casbin","name":"R2 literal recipient objects","expected":["B","E","N"],"actual":["B","E","N"],"at":"2026-09-22T22:04:18.293Z"}
+{"candidate":"casbin","name":"R2 relative edit","expected":200,"actual":200,"at":"2026-09-22T22:04:18.310Z"}
+{"candidate":"casbin","name":"R2 relative add member","expected":200,"actual":200,"at":"2026-09-22T22:04:18.329Z"}
+{"candidate":"casbin","name":"R2 second recipient cap","expected":["B","E","N"],"actual":["B","E","N"],"at":"2026-09-22T22:04:18.330Z"}
+{"candidate":"casbin","name":"R2 relative recheck","expected":{"status":200,"state":"active","cap":["B","E","N"]},"actual":{"status":200,"state":"active","cap":["B","E","N"]},"at":"2026-09-22T22:04:18.347Z"}
+{"candidate":"casbin","name":"R2 empty recipient preserves field ceiling","expected":403,"actual":403,"at":"2026-09-22T22:04:18.354Z"}
+{"candidate":"casbin","name":"R2 empty recipient preserves action ceiling","expected":403,"actual":403,"at":"2026-09-22T22:04:18.359Z"}
+{"candidate":"casbin","name":"R2 empty recipient preserves delegability","expected":403,"actual":403,"at":"2026-09-22T22:04:18.367Z"}
+{"candidate":"casbin","name":"R3 selected SELF custom own course","expected":200,"actual":200,"at":"2026-09-22T22:04:18.401Z"}
+{"candidate":"casbin","name":"R3 saved affected course cap","expected":["review-6ef15890-f701-4515-9fac-56656766ed9eown"],"actual":["review-6ef15890-f701-4515-9fac-56656766ed9eown"],"at":"2026-09-22T22:04:18.402Z"}
+{"candidate":"casbin","name":"R3 custom subject can browse own course","expected":200,"actual":200,"at":"2026-09-22T22:04:18.411Z"}
+{"candidate":"casbin","name":"R3 cannot borrow maintain role to grant other uploader","expected":403,"actual":403,"at":"2026-09-22T22:04:18.435Z"}
+{"candidate":"casbin","name":"R3 custom recheck retains target-only set","expected":{"status":200,"state":"active"},"actual":{"status":200,"state":"active"},"at":"2026-09-22T22:04:18.456Z"}
+{"candidate":"casbin","name":"R3 SELF category includes inherited own courses only","expected":200,"actual":200,"at":"2026-09-22T22:04:18.474Z"}
+{"candidate":"casbin","name":"R3 category persisted affected set","expected":["review-6ef15890-f701-4515-9fac-56656766ed9ecategory","review-6ef15890-f701-4515-9fac-56656766ed9ecategorychild"],"actual":["review-6ef15890-f701-4515-9fac-56656766ed9ecategory","review-6ef15890-f701-4515-9fac-56656766ed9ecategorychild"],"at":"2026-09-22T22:04:18.475Z"}
+{"candidate":"casbin","name":"R3 category recheck affected set","expected":{"status":200,"state":"active"},"actual":{"status":200,"state":"active"},"at":"2026-09-22T22:04:18.493Z"}
+{"candidate":"casbin","name":"R3 forced descendant outside selected SELF denied","expected":403,"actual":403,"at":"2026-09-22T22:04:18.506Z"}
+{"candidate":"casbin","name":"R3 inherited descendant outside selected SELF denied","expected":403,"actual":403,"at":"2026-09-22T22:04:18.518Z"}
+{"candidate":"casbin","name":"R4 source maintains inaccessible","expected":200,"actual":200,"at":"2026-09-22T22:04:18.538Z"}
+{"candidate":"casbin","name":"R4 inaccessible delegation create","expected":200,"actual":200,"at":"2026-09-22T22:04:18.553Z"}
+{"candidate":"casbin","name":"R4 recipient maintains inaccessible","expected":200,"actual":200,"at":"2026-09-22T22:04:18.562Z"}
+{"candidate":"casbin","name":"R4 maintenance survives valid recheck","expected":"active","actual":"active","at":"2026-09-22T22:04:18.581Z"}
+{"candidate":"casbin","name":"R4 inaccessible M browse denied","expected":403,"actual":403,"at":"2026-09-22T22:04:18.597Z"}
+{"candidate":"casbin","name":"R4 inaccessible M download denied","expected":403,"actual":403,"at":"2026-09-22T22:04:18.614Z"}
+{"candidate":"casbin","name":"R4 inaccessible L browse denied","expected":403,"actual":403,"at":"2026-09-22T22:04:18.624Z"}
+{"candidate":"casbin","name":"R4 inaccessible L download denied","expected":403,"actual":403,"at":"2026-09-22T22:04:18.634Z"}
+{"candidate":"casbin","name":"R4 recipient can restore accessible state","expected":200,"actual":200,"at":"2026-09-22T22:04:18.645Z"}
+{"candidate":"native","name":"company fixtures","expected":[200,200],"actual":[200,200],"at":"2026-09-22T22:04:19.093Z"}
+{"candidate":"native","name":"role recheck respects target company","expected":403,"actual":403,"at":"2026-09-22T22:04:19.103Z"}
+{"candidate":"native","name":"role edit respects target company","expected":403,"actual":403,"at":"2026-09-22T22:04:19.112Z"}
+{"candidate":"casbin","name":"company fixtures","expected":[200,200],"actual":[200,200],"at":"2026-09-22T22:04:19.456Z"}
+{"candidate":"casbin","name":"role recheck respects target company","expected":403,"actual":403,"at":"2026-09-22T22:04:19.465Z"}
+{"candidate":"casbin","name":"role edit respects target company","expected":403,"actual":403,"at":"2026-09-22T22:04:19.473Z"}

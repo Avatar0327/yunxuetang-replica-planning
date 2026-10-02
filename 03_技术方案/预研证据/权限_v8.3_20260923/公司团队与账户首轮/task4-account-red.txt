@@ -1,0 +1,190 @@
+▶ native: company/currency wallet and true positive offset
+  ✖ own split wallet (17.337667ms)
+  ✖ cross-company denied positive same-company works (2.751208ms)
+  ✖ management source and export stay company-bound (1.118167ms)
+✖ native: company/currency wallet and true positive offset (345.688084ms)
+▶ casbin: company/currency wallet and true positive offset
+  ✖ own split wallet (3.417458ms)
+  ✖ cross-company denied positive same-company works (1.586167ms)
+  ✖ management source and export stay company-bound (0.812417ms)
+✖ casbin: company/currency wallet and true positive offset (298.07825ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 0
+ℹ fail 8
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 740.448708
+
+✖ failing tests:
+
+test at test/task4-account.test.ts:1:287
+✖ own split wallet (17.337667ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+  +   rows: undefined,
+  +   status: 404
+  -   rows: [
+  -     {
+  -       balance: 0,
+  -       company_id: 'A',
+  -       currency: 'credit',
+  -       debt: 30
+  -     },
+  -     {
+  -       balance: 20,
+  -       company_id: 'B',
+  -       currency: 'credit',
+  -       debt: 10
+  -     },
+  -     {
+  -       balance: 8,
+  -       company_id: 'B',
+  -       currency: 'point',
+  -       debt: 0
+  -     }
+  -   ],
+  -   status: 200
+    }
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task4-account.test.ts:7:107)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task4-account.test.ts:7:3)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { status: 404, rows: undefined },
+    expected: { status: 200, rows: [ [Object], [Object], [Object] ] },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task4-account.test.ts:1:659
+✖ cross-company denied positive same-company works (2.751208ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  
+  404 !== 403
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task4-account.test.ts:9:100)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task4-account.test.ts:8:3)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 404,
+    expected: 403,
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task4-account.test.ts:1:1427
+✖ management source and export stay company-bound (1.118167ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  
+  404 !== 403
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task4-account.test.ts:14:4)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task4-account.test.ts:13:3)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 404,
+    expected: 403,
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task4-account.test.ts:1:287
+✖ own split wallet (3.417458ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+  +   rows: undefined,
+  +   status: 404
+  -   rows: [
+  -     {
+  -       balance: 0,
+  -       company_id: 'A',
+  -       currency: 'credit',
+  -       debt: 30
+  -     },
+  -     {
+  -       balance: 20,
+  -       company_id: 'B',
+  -       currency: 'credit',
+  -       debt: 10
+  -     },
+  -     {
+  -       balance: 8,
+  -       company_id: 'B',
+  -       currency: 'point',
+  -       debt: 0
+  -     }
+  -   ],
+  -   status: 200
+    }
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task4-account.test.ts:7:107)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task4-account.test.ts:7:3)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { status: 404, rows: undefined },
+    expected: { status: 200, rows: [ [Object], [Object], [Object] ] },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task4-account.test.ts:1:659
+✖ cross-company denied positive same-company works (1.586167ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  
+  404 !== 403
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task4-account.test.ts:9:100)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task4-account.test.ts:8:3)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 404,
+    expected: 403,
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task4-account.test.ts:1:1427
+✖ management source and export stay company-bound (0.812417ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  
+  404 !== 403
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task4-account.test.ts:14:4)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task4-account.test.ts:13:3)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 404,
+    expected: 403,
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

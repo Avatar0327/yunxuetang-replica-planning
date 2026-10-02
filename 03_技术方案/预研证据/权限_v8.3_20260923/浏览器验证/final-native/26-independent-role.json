@@ -1,0 +1,11 @@
+{
+  "startedAt": "2026-09-23T00:30:15.664943+00:00",
+  "mode": "independent-role",
+  "synthetic": true,
+  "fixture": "Explicit system-origin synthetic membership, not a test of role-grant UI",
+  "sql": "INSERT INTO authz.membership(tenant_id,id,person_id,role_id,data) VALUES('T1','browser-independent-L','L','role-9','{\"id\": \"browser-independent-L\", \"tenantId\": \"T1\", \"personId\": \"L\", \"roleId\": \"role-9\", \"level\": 3, \"active\": true, \"provenance\": \"system_origin\", \"policies\": [{\"nodeId\": \"personal-learning\", \"actions\": [\"report.personal-learning.view\"], \"scope\": {\"kind\": \"self\"}, \"rawFields\": []}]}');",
+  "exitCode": 0,
+  "stdout": "INSERT 0 1\n",
+  "stderr": "",
+  "finishedAt": "2026-09-23T00:30:15.744884+00:00"
+}

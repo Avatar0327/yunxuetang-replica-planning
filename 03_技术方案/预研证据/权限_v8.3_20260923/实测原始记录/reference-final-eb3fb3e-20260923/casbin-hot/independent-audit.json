@@ -1,0 +1,257 @@
+[
+  {
+    "directory": "evidence/raw/reference-final-eb3fb3e-20260923/casbin-hot/measurement",
+    "candidate": "casbin",
+    "cache": "hot",
+    "configured_seconds": 600,
+    "concurrency": 50,
+    "reference_window": true,
+    "phase": "success",
+    "sample_count": 8557,
+    "categories": {
+      "success": 8212,
+      "failure": 345
+    },
+    "instances": {
+      "B": 4277,
+      "A": 4280
+    },
+    "cache_states": {
+      "L1": 8212,
+      "null": 345
+    },
+    "scenario_counts": {
+      "history-broad": 2139,
+      "list-broad": 2140,
+      "list-constrained": 2139,
+      "history-constrained": 2139
+    },
+    "actual_wall_ms": 608344.0,
+    "observed_client_count": 50,
+    "request_start_span_ms": 599674.0,
+    "query_counts_by_scenario": {
+      "history-broad": {
+        "11": 2119,
+        "2": 4,
+        "6": 3,
+        "7": 1,
+        "5": 5,
+        "3": 1,
+        "9": 2,
+        "1": 4
+      },
+      "list-broad": {
+        "14": 2115,
+        "3": 4,
+        "13": 2,
+        "8": 2,
+        "1": 4,
+        "6": 4,
+        "5": 2,
+        "9": 2,
+        "12": 1,
+        "10": 2,
+        "7": 1,
+        "4": 1
+      },
+      "list-constrained": {
+        "14": 2117,
+        "2": 2,
+        "11": 1,
+        "3": 2,
+        "12": 2,
+        "5": 2,
+        "7": 3,
+        "6": 4,
+        "1": 5,
+        "10": 1
+      },
+      "history-constrained": {
+        "13": 2121,
+        "1": 5,
+        "9": 2,
+        "2": 2,
+        "7": 2,
+        "5": 3,
+        "11": 2,
+        "10": 1,
+        "3": 1
+      }
+    },
+    "statistics": {
+      "history-broad": {
+        "success": {
+          "count": 2075,
+          "p50": 2677.8326669999806,
+          "p95": 6494.932499999995,
+          "p99": 9910.50774999999
+        },
+        "permission": {
+          "count": 2075,
+          "p50": 568.20387700008,
+          "p95": 1461.7927399999462,
+          "p99": 1874.3308650000254
+        },
+        "data": {
+          "count": 2075,
+          "p50": 1890.642182999989,
+          "p95": 5710.776339000033,
+          "p99": 7815.045114999986
+        },
+        "failure": {
+          "count": 64,
+          "p50": 10587.347249999992,
+          "p95": 12163.339125000057,
+          "p99": 13667.90633300005
+        }
+      },
+      "_all": {
+        "success": {
+          "count": 8212,
+          "p50": 1881.398958999991,
+          "p95": 9285.911499999987,
+          "p99": 10606.786374999967
+        },
+        "permission": {
+          "count": 8212,
+          "p50": 687.0707809999003,
+          "p95": 1701.4985750000924,
+          "p99": 2225.8349039999302
+        },
+        "data": {
+          "count": 8212,
+          "p50": 909.9376319999865,
+          "p95": 8482.661924000015,
+          "p99": 9693.97834099998
+        },
+        "failure": {
+          "count": 345,
+          "p50": 10931.732291000022,
+          "p95": 16934.94529100007,
+          "p99": 18132.380667000078
+        }
+      },
+      "list-broad": {
+        "success": {
+          "count": 2112,
+          "p50": 886.087583000015,
+          "p95": 2068.157707999926,
+          "p99": 3100.7635829999344
+        },
+        "permission": {
+          "count": 2112,
+          "p50": 695.2409479999915,
+          "p95": 1729.3931969999976,
+          "p99": 2373.174912999966
+        },
+        "data": {
+          "count": 2112,
+          "p50": 140.75291599999764,
+          "p95": 506.5900440000114,
+          "p99": 802.5778799999971
+        },
+        "failure": {
+          "count": 28,
+          "p50": 1340.1606670000037,
+          "p95": 2039.9279579999857,
+          "p99": 2206.352499999921
+        }
+      },
+      "list-constrained": {
+        "success": {
+          "count": 2116,
+          "p50": 1263.4848340000026,
+          "p95": 2591.7591250000405,
+          "p99": 5192.030167000019
+        },
+        "permission": {
+          "count": 2116,
+          "p50": 733.5094060000265,
+          "p95": 1794.744283,
+          "p99": 2510.4997689999873
+        },
+        "data": {
+          "count": 2116,
+          "p50": 496.3500930000446,
+          "p95": 1009.6426109999884,
+          "p99": 2073.80605299992
+        },
+        "failure": {
+          "count": 23,
+          "p50": 1292.4086670000106,
+          "p95": 1924.7412919999988,
+          "p99": 2071.801624999993
+        }
+      },
+      "history-constrained": {
+        "success": {
+          "count": 1909,
+          "p50": 7981.482500000042,
+          "p95": 10386.040749999986,
+          "p99": 11095.235707999964
+        },
+        "permission": {
+          "count": 1909,
+          "p50": 716.7195639999991,
+          "p95": 1717.2276330000313,
+          "p99": 2071.03354199999
+        },
+        "data": {
+          "count": 1909,
+          "p50": 7284.55145899998,
+          "p95": 9595.340536000003,
+          "p99": 10099.943279
+        },
+        "failure": {
+          "count": 230,
+          "p50": 11506.617625000072,
+          "p95": 17440.787458000006,
+          "p99": 18212.946832999936
+        }
+      }
+    },
+    "threshold_observations": {
+      "history-broad": {
+        "permission_p95_ms": 1461.7927399999462,
+        "permission_limit_ms": 50,
+        "permission_met": false,
+        "success_p95_ms": 6494.932499999995,
+        "success_limit_ms": 2000,
+        "success_met": false
+      },
+      "list-broad": {
+        "permission_p95_ms": 1729.3931969999976,
+        "permission_limit_ms": 50,
+        "permission_met": false,
+        "success_p95_ms": 2068.157707999926,
+        "success_limit_ms": 500,
+        "success_met": false
+      },
+      "list-constrained": {
+        "permission_p95_ms": 1794.744283,
+        "permission_limit_ms": 50,
+        "permission_met": false,
+        "success_p95_ms": 2591.7591250000405,
+        "success_limit_ms": 500,
+        "success_met": false
+      },
+      "history-constrained": {
+        "permission_p95_ms": 1717.2276330000313,
+        "permission_limit_ms": 50,
+        "permission_met": false,
+        "success_p95_ms": 10386.040749999986,
+        "success_limit_ms": 2000,
+        "success_met": false
+      }
+    },
+    "audit_errors": [],
+    "truth_scenarios": [
+      "list-broad",
+      "list-constrained",
+      "history-broad",
+      "history-constrained"
+    ],
+    "raw_correctness_mismatches": {},
+    "limitation": "Threshold observations alone do not establish full acceptance, result truth, no N+1, resource limits or sufficient workload."
+  }
+]

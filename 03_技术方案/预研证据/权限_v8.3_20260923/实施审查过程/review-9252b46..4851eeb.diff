@@ -1,0 +1,470 @@
+# Review package: 9252b46af14039207b894b8bd5ac021ec64f057e..4851eeb64f77944de9d7028a61277f9682601544
+
+## Commits
+4851eeb Enforce revoke target caps and attachment download permission
+a14098d docs(spike): record Task4 review evidence boundaries for candidate ADR
+
+## Files changed
+ .../2026-09-23-permission-spike/task-4-report.md   |  32 ++++
+ docs/decision-evidence.md                          |   4 +-
+ docs/task4-coverage.json                           | 161 ++++++++++++++++++++-
+ docs/task4-ports.md                                |   4 +-
+ src/authz/revision.ts                              |  13 +-
+ src/training/service.ts                            |   4 +
+ test/task4-review-regressions.test.ts              |  95 ++++++++++++
+ 7 files changed, 309 insertions(+), 4 deletions(-)
+
+## Diff
+diff --git a/.superpowers/sdd/2026-09-23-permission-spike/task-4-report.md b/.superpowers/sdd/2026-09-23-permission-spike/task-4-report.md
+index 89d67f1..13d2ac9 100644
+--- a/.superpowers/sdd/2026-09-23-permission-spike/task-4-report.md
++++ b/.superpowers/sdd/2026-09-23-permission-spike/task-4-report.md
+@@ -62,10 +62,42 @@ The first “final” typecheck/build caught only a new test's inferred optional
+ - `docs/task4-ports.md`: command/public-port contracts, cap migration, source/field/company binding and precise continuation. `docs/task2-follow-up.md`, README and kernel contract link current status without changing approved planning inputs.
+ - Conservative organization/source freezes remain intentionally broad. Pair-cap cross products can be large, and normal history/account SQL uses JSON tuple predicates; memory/storage/query/Casbin source performance is not measured. ALL ordinary query paths still avoid whole-person enumeration; delegation is the explicit expensive path.
+ - Shared transaction/module ownership checks pass, but independent services/RLS/outbox are not proved. Current projections are synchronous only through authorized commands or explicit test fixture helpers; arbitrary raw SQL is not a product API.
+ - Internal company I and fixture classifications are fixed synthetic values. There is no company-authoring/product organization workflow. Required-department storage exception is documented above. A transfer ends no real learning session because this spike has no real learning-session engine; formal preview/reconciliation is not claimed.
+ - Project asynchronous export, protected/chunked account/report export, export/cache/log sweeps, full DB/disconnect fault campaign, complete UI/browser and deployment evidence, large-cap/performance windows and independent168 audit remain Tasks5/6. Existing full-manifest obligations are retained, not weakened. Account credit issuance/recovery/media/workers remain synthetic minimal paths.
+ - All owned APIs are stopped. No evidence of overall Go or formalB1 authorization is asserted. Reported result is a reviewable Task4 milestone with explicit residuals.
+ 
+ ## Owned commit scope
+ 
+ Application/schema/seed/bootstrap/authz/organization/training/report/account changes; Task4 tests/helper, module ownership gate and the company-qualified Task3 fixture adjustment; package scripts; README/kernel/continuation/Task4 docs; this report. Raw evidence remains gitignored locally. Controller tools, audits, plan inputs and Docker files are excluded. The application commit SHA is supplied in the handoff message.
++
++## Review fix round1/5 — target-bound revoke and attachment download
++
++Status: **DONE_WITH_CONCERNS**, ready for controller re-review. Reviewed application baseline `9252b46af14039207b894b8bd5ac021ec64f057e`; controller-only `a14098d` is outside this repair. Both Important findings in `task-4-review.md` were independently reproduced in real HTTP on Native and Casbin before production changes. The report's earlier full-suite results remain historical; this fix runs the requested affected subset rather than claiming all unchanged suites were rerun. Full168 and downstream export/browser/performance obligations are unchanged.
++
++### R1 — membership revoke cap
++
++The RED showed a source capped to target person B could revoke C's membership (actual200, expected403), change C's active flag tofalse and freeze C-child. The positive B control already passed. `Authority.revokeMembership` now uses central `scopeMatches` to match the target person's ID against the actual same-action plan sources before either target or dependent UPDATE. It keeps the existing company check, marked READ COMMITTED transaction and revision-first lock/fresh facts protocol. It does not borrow M's broader report-view role. A fresh GREEN compares complete target/dependent data+source rows to their before-state and separately asserts their literal active/provenance values; permitted B is actually revoked and its dependent becomes recheck_required.
++
++### R2 — attachment action
++
++The RED returned attachment-A bytes with view-only permission, with download scoped only to Q while viewing P, and on B's next new request after A revoked only P's download membership. Each was actual200 with bytes versus expected403 without bytes. The matching P-download positive already passed. `TrainingService.personal` now checks `training.project.download` through the existing exact-project compiler before reading attachment bytes. It preserves the existing roster access (view), company and current-person conditions. Progress retains its view path, including after only download is revoked. Separate view and download sources remain bound to their own project sets; no coarse action union is used. No new business requirement was introduced: authoritative03§1.5 / attachment passage and04§6.1 already require independent download.
++
++### Commands and full raw outputs
++
++Commands run in the spike directory with `PATH=/opt/homebrew/opt/node@24/bin:$PATH`. Every filename below is under `evidence/raw/`; no prior raw output was overwritten. The new tests clean up memberships and stop both owned APIs. PostgreSQL track_commit_timestamp remains on as configured by the controller; this repair does not alter settings and its HTTP acknowledgment timing is not claimed to be an exact commit-timestamp campaign.
++
++| Command | Exit / result | Full output and observations |
++|---|---|---|
++| `npm run seed` |0 | `task4-fix1-red-seed.txt` |
++| `TASK3_OBSERVATIONS=evidence/raw/task4-fix1-red-observations.jsonl node --import tsx --test test/task4-review-regressions.test.ts` before production edits |1;18 nodes,4 pass/14 fail including4 parents. R1 and R2 negative reproductions fail in each engine; existing B revoke/P download positive controls pass. | `task4-fix1-red.txt`, `task4-fix1-red-observations.jsonl` |
++| Same command after fixes, with fresh `task4-fix1-green-observations.jsonl` output |0;18/18 | `task4-fix1-green.txt`, `task4-fix1-green-observations.jsonl` |
++| `RACE_EVIDENCE=evidence/raw/task4-fix1-core-races.jsonl node --import tsx --test --test-concurrency=1 --test-name-pattern='snapshot build\|write before revoke\|waiting .* reads committed\|locking authority' test/races.test.ts test/review-regressions.test.ts` |0;17/17. Snapshot/revoke, both write/revoke orderings, waiting fresh department/company/disabled/deleted facts and bare-client rejection. Shell pattern uses ordinary regex alternation characters, not literal backslashes. | `task4-fix1-core.txt`, `task4-fix1-core-races.jsonl` |
++| `TASK3_OBSERVATIONS=evidence/raw/task4-fix1-final-observations.jsonl node --import tsx --test --test-concurrency=1 test/task4-review-regressions.test.ts test/task4-person-cap.test.ts test/task4-source-boundary.test.ts test/task4-company.test.ts test/task4-delivery.test.ts test/task3-delivery.test.ts` |0;40/40. Requested adjacent same-source/company paths plus both-instance download/revoke and real Redis pause checks. | `task4-fix1-domains.txt`, `task4-fix1-final-observations.jsonl` |
++| `npm run typecheck`; `npm run build`; `npm audit --json` |0/0/0;zero vulnerabilities | `task4-fix1-typecheck.txt`, `task4-fix1-build.txt`, `task4-fix1-audit.json` |
++| `lsof -nP -iTCP:4311 -iTCP:4312 -sTCP:LISTEN` |1, expected empty/no API listeners | `task4-fix1-api-processes.txt` |
++
++The final JSONL contains108 literal observations (Native54/Casbin54), zero expected/actual differences; SHA256 `af88a28e40287be66d73089e0373b7f92c4096cdb1ab11cdb828bf9605df41eb`. `task4-fix1-observation-check.json` records this differential and hash. `docs/task4-coverage.json.reviewFixRound1` maps every new R1/R2 observation to exact final path/line/candidate/name while retaining the original266-observation map and all168 incomplete checklist entries. Counts include parent/subtest nodes and are not acceptance denominators. No test oracle, permission fixture ceiling or expected status was weakened.
++
++### Scope and limits
++
++Owned production repair is limited to `src/authz/revision.ts` and `src/training/service.ts`; new regression file, coverage/port documentation and this appended report are included. Existing lock ordering, company/source/cap dimensions, field projection, SQL ownership and candidate paths remain intact. The Minor dense-formatting observation is deferred to the final review as instructed, without a broad rewrite. No complete export/cache/log sweep, UI/browser, independent deployment or performance window was executed. Public file/media delivery remains synthetic; full168 and overallGo remain incomplete. Owned APIs are stopped. Raw evidence stays local/gitignored; the final repair SHA is supplied in the handoff.
+diff --git a/docs/decision-evidence.md b/docs/decision-evidence.md
+index dc24455..bd7f091 100644
+--- a/docs/decision-evidence.md
++++ b/docs/decision-evidence.md
+@@ -3,11 +3,13 @@
+ 这是ADR的事实输入，不是候选选定或Go结论。最终取舍需要完整功能、故障和资源匹配的性能统计。
+ 
+ - 两候选共有角色内覆盖、同动作并集、公司上限、字段来源、组织事实解析、SQL编译、任命/分类关系和权威版本协议。`src/authz/bulk-candidate.ts`的Native执行显式来源匹配，Casbin创建真实模型/策略并逐来源enforce；Casbin未接收Native最终允许布尔值。其后使用共同的SQL授权计划，因此比较的是本项目两个适配实现，不能泛称Casbin产品不能表达这些规则。
+ - Casbin不会替代本项目的来源选择/精确集合转授、课程状态谓词、部门事实与公司边界、导出/媒体重验或事务排序。框架承担基础匹配的收益与额外适配维护成本须分开说明。
+ - 已确认的核心修复包括Redis并发握手、锁等待后的旧人物事实/新revision混用、聚合导出重复；Task3审查又发现原来源公司重验、接收人相对范围、单课程custom集合和维护状态集合问题。这些都属于公共业务/基础设施实现，不能归咎于某候选引擎，也不能凭引擎替换认为已解决。
+ - Task3首轮100/100测试、188次字面观察仍漏掉四个独立审查场景，说明局部绿色测试/来源ID匹配不等于168点门禁。报告须保留发现、修复前后、复审及已审代码版本。
+ - 源码模块接口测试证明的是源代码依赖及SQL拥有边界；共享数据库事务、跨模块外键仍在。未来独立服务必须另建版本一致的事实/投影/提交协议，不能把源码可拆误写成已验证独立部署。
+ - 50并发权限基准即使通过，也不证明1万人在学、真实OSS/CDN、生产网络、备份恢复或大纲重算容量。原型复用折抵保持0，业务五项永久缺口保持未验证。
+ 
+ - Task3四项修复后复审又发现继承变化静默扩权N1，两个候选真实HTTP均复现。146073b加入事务冻结与运行时已存cap后，定向6/6、核心53/53、领域118/118、322观察通过，独立复审接受限定里程碑。该问题仍是共享业务授权实现，不是候选引擎产品差异。
+-- Task4发现历史派生上限固定为fact ID的技术表示不符合T-15当前人员模式：新增同公司事实会意外被排除。按已审语义改用人员与事实公司组合，需保留真实RED/GREEN和原来源重验；不能借此取消公司约束。该修复尚在执行，不能预写通过。
++- Task4发现历史派生上限固定为fact ID的技术表示不符合T-15当前人员模式：新增同公司事实会意外被排除。按已审语义改用人员与事实公司组合，需保留真实RED/GREEN和原来源重验；不能借此取消公司约束。Task4提交9252b46的定向RED/GREEN与最终64/64、266观察已核对；独立审查另发现撤销成员范围检查及附件下载动作遗漏，限定任务尚未接受。大上限性能仍未测。
++
++- Task4独立审查R1/R2分别涉及同动作目标人员上限与附件下载动作。两者在共享授权/业务适配层，不能解释为Native/Casbin引擎优劣；修复前静态发现、之后真实复现及修复分别记录。最终ADR不得仅因两个候选跑相同绿色测试就忽略共同失败。
+diff --git a/docs/task4-coverage.json b/docs/task4-coverage.json
+index cd572df..043c2cc 100644
+--- a/docs/task4-coverage.json
++++ b/docs/task4-coverage.json
+@@ -3193,12 +3193,171 @@
+       "relatedFocusedTests": [
+         "test/task4-source-boundary.test.ts",
+         "test/task4-person-cap.test.ts",
+         "test/task4-history-caps.test.ts"
+       ],
+       "remaining": "Controller Task6 must verify exact subcase; Task5 includes export/cache/log/UI/deployment/performance and remaining race evidence. Related tests alone do not close this point."
+     }
+   ],
+   "continuation": "docs/task4-ports.md",
+   "seedOracle": "docs/task4-seed-contract.md",
+-  "historicalRedNote": "task4-org-red documented original NULL-clear interpretation; controller clarified required main department and normal command now denies NULL, proven by task4-dept-required-red/green1. Original files unchanged."
++  "historicalRedNote": "task4-org-red documented original NULL-clear interpretation; controller clarified required main department and normal command now denies NULL, proven by task4-dept-required-red/green1. Original files unchanged.",
++  "reviewFixRound1": {
++    "boundary": "R1 revoke target-person cap and R2 independent project attachment download; no full acceptance claims.",
++    "final": {
++      "path": "evidence/raw/task4-fix1-final-observations.jsonl",
++      "records": 108,
++      "candidates": {
++        "native": 54,
++        "casbin": 54
++      },
++      "mismatches": [],
++      "sha256": "af88a28e40287be66d73089e0373b7f92c4096cdb1ab11cdb828bf9605df41eb"
++    },
++    "focusedObservations": [
++      {
++        "path": "evidence/raw/task4-fix1-final-observations.jsonl",
++        "line": 83,
++        "candidate": "native",
++        "name": "R1 B-only revoke cannot borrow broad report scope for C"
++      },
++      {
++        "path": "evidence/raw/task4-fix1-final-observations.jsonl",
++        "line": 84,
++        "candidate": "native",
++        "name": "R1 denied target and dependent byte-equivalent state"
++      },
++      {
++        "path": "evidence/raw/task4-fix1-final-observations.jsonl",
++        "line": 85,
++        "candidate": "native",
++        "name": "R1 denied target and dependent literal lifecycle"
++      },
++      {
++        "path": "evidence/raw/task4-fix1-final-observations.jsonl",
++        "line": 86,
++        "candidate": "native",
++        "name": "R1 B-only revoke permits B"
++      },
++      {
++        "path": "evidence/raw/task4-fix1-final-observations.jsonl",
++        "line": 87,
++        "candidate": "native",
++        "name": "R1 allowed target revoked and dependent frozen"
++      },
++      {
++        "path": "evidence/raw/task4-fix1-final-observations.jsonl",
++        "line": 88,
++        "candidate": "native",
++        "name": "R2 view-only progress preserved"
++      },
++      {
++        "path": "evidence/raw/task4-fix1-final-observations.jsonl",
++        "line": 89,
++        "candidate": "native",
++        "name": "R2 view-only attachment denies without bytes"
++      },
++      {
++        "path": "evidence/raw/task4-fix1-final-observations.jsonl",
++        "line": 90,
++        "candidate": "native",
++        "name": "R2 download Q cannot borrow view P"
++      },
++      {
++        "path": "evidence/raw/task4-fix1-final-observations.jsonl",
++        "line": 91,
++        "candidate": "native",
++        "name": "R2 matching P download returns protected bytes"
++      },
++      {
++        "path": "evidence/raw/task4-fix1-final-observations.jsonl",
++        "line": 92,
++        "candidate": "native",
++        "name": "R2 download membership revoke committed"
++      },
++      {
++        "path": "evidence/raw/task4-fix1-final-observations.jsonl",
++        "line": 93,
++        "candidate": "native",
++        "name": "R2 next B attachment denies revoked download"
++      },
++      {
++        "path": "evidence/raw/task4-fix1-final-observations.jsonl",
++        "line": 94,
++        "candidate": "native",
++        "name": "R2 download revoke retains independent view progress"
++      },
++      {
++        "path": "evidence/raw/task4-fix1-final-observations.jsonl",
++        "line": 95,
++        "candidate": "casbin",
++        "name": "R1 B-only revoke cannot borrow broad report scope for C"
++      },
++      {
++        "path": "evidence/raw/task4-fix1-final-observations.jsonl",
++        "line": 96,
++        "candidate": "casbin",
++        "name": "R1 denied target and dependent byte-equivalent state"
++      },
++      {
++        "path": "evidence/raw/task4-fix1-final-observations.jsonl",
++        "line": 97,
++        "candidate": "casbin",
++        "name": "R1 denied target and dependent literal lifecycle"
++      },
++      {
++        "path": "evidence/raw/task4-fix1-final-observations.jsonl",
++        "line": 98,
++        "candidate": "casbin",
++        "name": "R1 B-only revoke permits B"
++      },
++      {
++        "path": "evidence/raw/task4-fix1-final-observations.jsonl",
++        "line": 99,
++        "candidate": "casbin",
++        "name": "R1 allowed target revoked and dependent frozen"
++      },
++      {
++        "path": "evidence/raw/task4-fix1-final-observations.jsonl",
++        "line": 100,
++        "candidate": "casbin",
++        "name": "R2 view-only progress preserved"
++      },
++      {
++        "path": "evidence/raw/task4-fix1-final-observations.jsonl",
++        "line": 101,
++        "candidate": "casbin",
++        "name": "R2 view-only attachment denies without bytes"
++      },
++      {
++        "path": "evidence/raw/task4-fix1-final-observations.jsonl",
++        "line": 102,
++        "candidate": "casbin",
++        "name": "R2 download Q cannot borrow view P"
++      },
++      {
++        "path": "evidence/raw/task4-fix1-final-observations.jsonl",
++        "line": 103,
++        "candidate": "casbin",
++        "name": "R2 matching P download returns protected bytes"
++      },
++      {
++        "path": "evidence/raw/task4-fix1-final-observations.jsonl",
++        "line": 104,
++        "candidate": "casbin",
++        "name": "R2 download membership revoke committed"
++      },
++      {
++        "path": "evidence/raw/task4-fix1-final-observations.jsonl",
++        "line": 105,
++        "candidate": "casbin",
++        "name": "R2 next B attachment denies revoked download"
++      },
++      {
++        "path": "evidence/raw/task4-fix1-final-observations.jsonl",
++        "line": 106,
++        "candidate": "casbin",
++        "name": "R2 download revoke retains independent view progress"
++      }
++    ]
++  }
+ }
+diff --git a/docs/task4-ports.md b/docs/task4-ports.md
+index 4487399..10125c3 100644
+--- a/docs/task4-ports.md
++++ b/docs/task4-ports.md
+@@ -1,22 +1,24 @@
+ # Task4 public contracts and continuation
+ 
+ Task4 preserves the reviewed READ COMMITTED revision-only lock, then fresh person/company facts and version fencing. All high-risk mutations call that authority boundary before object/row locks. Native and Casbin select sources through genuinely separate existing engine paths; central normalization, scopes, SQL compiler and row predicates remain shared.
+ 
+ - `OrganizationFacts.person` now carries manager/job/display name for synchronous projection delivery. `OrganizationService.update` consumes its actual action plan and same-source person cap in addition to old/new company caps. Restoring disabled/deleted targets remains allowed to an authorized current administrator; historical status is never used for actor authentication. Normal department null clears reject. `syntheticMissingDepartment` is test-only abnormal-data injection.
+ - `ReportProjectionPort`, `TrainingProjectionPort`, `AccountProjectionPort` receive the same marked transaction client. Report owns current company/status/department/manager/job/name; training owns a minimal person projection for roster/team commands; account owns current person status. No module queries another module's private SQL tables. Independent services/RLS/outbox remain unproven.
+ - `EnrollmentService.change(identity,candidate,projectId,{operation,personIds})` accepts1..200 unique IDs. It validates every target before a single batch mutation. An authorized project role/appointment action and direct-team action are alternative sources. Team sources require team_enabled and managerId==actor and company/current-state constraints. Project capabilities remain independent of the team switch. Revocation races use the shared revision lock; no client ScopeSpec/grant/sourceId is accepted.
+-- `TrainingService.roster(...,search?,personId?)` uses one company-filtered relation for list/count/search. `personal(...,'progress'|'attachment')` first consumes that relation, returns protected synthetic data and never a storage URL. Whole-project save examines every roster company, including invisible rows. Project asynchronous export remains Task5.
++- `TrainingService.roster(...,search?,personId?)` uses one company-filtered relation for list/count/search. `personal(...,'progress'|'attachment')` consumes that relation; attachments additionally require `training.project.download` bound to the exact project before bytes are read. Progress keeps the view path. It returns protected synthetic data and never a storage URL. Whole-project save examines every roster company, including invisible rows. Project asynchronous export remains Task5.
+ - `CompanyGrantService.change` requires a selected active source membership with the exact delegable authz.company.grant action, its same-action target person cap, target internal status and both target/desired company bounds. It never borrows another role's capability. Grant/revoke trigger revision/dependency updates atomically.
+ - `AccountService.own` returns only actor/company/currency balances and debt. Management list/detail/source/export use separate exact actions with dataCompany caps and current target status. Offset validates both entries against its own action plan, locks sorted IDs after revision, and requires same person/company/currency plus debt/reward kinds. Audit records actual consumed amount. Own-wallet authorization never unlocks management sources.
+ - `departmentObjects` is organization-owned exact department enumeration. The registered department node permits only all; organization.department.move is distinct from person.update. The move command checks the complete subtree and destination parent IDs with the same central plan, current company cap and physical same-company/depth/cycle rules. Root parent null introduces no parent object. No new department SELF semantics were invented.
+ 
+ History/account use `NodeDefinition.capDimension`, propagated to ScopeSpec and validated in central binding. Their cap dimension is person-company-v1. ObjectSet exact subset checks retain that dimension, original selected membership, actor, revision and fields. `reportObjects`/`accountObjects` enumerate current people crossed with valid company caps even with zero existing facts/entries. Runtime sources decode only valid tagged two-string tuples into ScopeSpec.personCompanyPairs; the SQL compiler intersects pairs per source before pagination/count/aggregation/export. Pure candidate scope matching uses the same tuple predicate. Untagged legacy or unknown dimensions fail closed, and normal explicit original-source recheck is the migration route. Other object types retain exact object-ID caps. This fixes generated-row cutoff behavior under approved T-15; it does not create a new business authorization rule.
+ 
+ Task5 continuation (all original168 full gates remain incomplete):
+ 
+ 1. Use task4-seed-contract.md formulas and fixed IDs for an independent oracle. Seed must be clean at campaign start. Build the complex benchmark actor without changing50k main people; measure large pair-cap enumeration/storage/SQL/source selection and knowledge source cardinality.
+ 2. Add protected, chunked project export create/execute/claim. Explicitly cover or replace `/account/export` (currently synchronous JSON rows) and report exports (existing protected DB payload, memory accumulation). Every route remains in export/cache/log/raw response scans; do not omit a synchronous export entry point.
+ 3. Complete raw export/cache/log sweeps, large exports and failure/revoke races, complete UI/browser and independent deployment boundaries, exact24-group/168-subcase audit, full50-client/600-second windows and resource/EXPLAIN/query-count evidence. Focused tests are not whole acceptance.
+ 4. Current company IDs I/A/B and boolean internal mapping are synthetic fixed fixtures. Nullable department storage and null fixed actors are explicitly abnormal test accommodation, not full approved02 physical-schema compliance. Normal product organization creation, preview/outbox/session teardown, durable credit issuance/recovery, media storage, and service-identity workers are not implemented.
+ 
+ Run Task4 serially with `npm run seed` then `TASK3_OBSERVATIONS=<unique.jsonl> npm run test:task4`. The reused observer writes literal expected/actual values; filenames must be unique to preserve REDs. `npm run functional:task4` starts/stops its two APIs, performs actual lock waits and Redis CLIENT PAUSE, then shuts down. Never run this concurrently with shared-DB tests or performance campaigns.
++
++Review fix round1: membership revoke now matches the target person against the same `administration/authz.membership.revoke` source plan before mutation, in addition to the existing company check and revision lock. A denied target and its dependents remain unchanged. Another action's broader scope cannot supply the missing revoke cap.
+diff --git a/src/authz/revision.ts b/src/authz/revision.ts
+index 7bf84bd..51cea88 100644
+--- a/src/authz/revision.ts
++++ b/src/authz/revision.ts
+@@ -1,12 +1,12 @@
+ import { KnowledgeFactsPort,effectiveCategory } from '../knowledge/public.js';
+-import { companyCap } from './scope.js';
++import { companyCap, scopeMatches } from './scope.js';
+ import { createHash } from 'node:crypto';
+ import type { Context, Membership, Appointment } from './contracts.js';
+ import { normalizePolicy, normalizeCatalog, activeMembership, buildQueryPolicy, backendCapabilities } from './policy.js';
+ import { nodes, appointmentCapabilities } from './registry.js';
+ import { selectSources, type CandidateName } from './bulk-candidate.js';
+ import { OrganizationFactsPort } from '../organization/public.js';
+ import { TrainingFactsPort } from '../training/public.js';
+ import type { AuthorityPorts } from '../contracts/ports.js';
+ import { SessionCache } from './cache.js';
+ import { pool, query, requireTransaction, Denied, Unavailable, type DB, type Identity } from '../infrastructure/db.js';
+@@ -26,20 +26,31 @@ export class Authority {
+     }
+     async freezeDerived(tenantId: string, db: DB) {
+         requireTransaction(db);
+         await query(db, `UPDATE authz.membership SET data=jsonb_set(data,'{provenance}','"recheck_required"') WHERE tenant_id=$1 AND source_id IS NOT NULL`, [tenantId]);
+     }
+     async revokeMembership(identity: Identity, candidate: CandidateName, id: string, db: DB) {
+         const a = await this.plan(identity, candidate, 'administration', 'authz.membership.revoke', db, true);
+         const membership = (await query(db, 'SELECT person_id FROM authz.membership WHERE tenant_id=$1 AND id=$2', [identity.tenantId, id])).rows[0];
+         const target = membership && await this.ports.organization(db).person({ tenantId: identity.tenantId, personId: membership.person_id });
+         if (!target || !companyCap(a.context).includes(target.companyId)) throw new Denied();
++        const targetResource = {
++            id: target.id,
++            personId: target.id,
++            tenantId: identity.tenantId,
++            type: 'person',
++            exists: true,
++            enabled: target.enabled,
++            deleted: target.deleted,
++        };
++        if (!a.plan.sources.some(source => scopeMatches(source.resolved, targetResource)))
++            throw new Denied();
+         await query(db, `UPDATE authz.membership SET data=jsonb_set(data,'{active}','false') WHERE tenant_id=$1 AND id=$2`, [identity.tenantId, id]);
+         await query(db, `WITH RECURSIVE dependents AS (SELECT id FROM authz.membership WHERE tenant_id=$1 AND source_id=$2 UNION SELECT m.id FROM authz.membership m JOIN dependents d ON m.source_id=d.id WHERE m.tenant_id=$1) UPDATE authz.membership SET data=jsonb_set(data,'{provenance}','"recheck_required"') WHERE tenant_id=$1 AND id IN(SELECT id FROM dependents)`, [identity.tenantId, id]);
+         return { revoked: true, revision: (await this.current(identity, db)).revision };
+     }
+     async token(token: string): Promise<Identity> { try {
+         const r = await query(pool, 'select tenant_id as "tenantId",person_id as "personId" from authz.session where token_hash=$1', [createHash('sha256').update(token).digest('hex')]);
+         if (!r.rows[0])
+             throw new Denied();
+         return r.rows[0];
+     }
+diff --git a/src/training/service.ts b/src/training/service.ts
+index 1cfacc0..c2ca7fd 100644
+--- a/src/training/service.ts
++++ b/src/training/service.ts
+@@ -20,20 +20,24 @@ export class TrainingService {
+         const {auth}=await this.projects(identity,candidate,id);
+         const values:unknown[]=[identity.tenantId,id,companyCap(auth.context)];
+         let where='r.tenant_id=$1 AND r.project_id=$2 AND r.company_id=ANY($3::text[]) AND p.enabled AND NOT p.deleted';
+         if(search!==undefined){if(typeof search!=='string'||search.length>200)throw new Denied();values.push('%'+search+'%');where+=` AND p.display_name ILIKE $${values.length}`;}
+         if(personId!==undefined){values.push(personId);where+=` AND r.person_id=$${values.length}`;}
+         const rows=(await query(pool,`SELECT r.person_id,r.company_id,p.display_name FROM training.roster r JOIN training.person_projection p ON p.tenant_id=r.tenant_id AND p.person_id=r.person_id WHERE ${where} ORDER BY r.person_id`,values)).rows;
+         if(personId&&!rows.length)throw new Denied();
+         return {rows,count:rows.length};
+     }
+     async personal(identity:Identity,candidate:CandidateName,id:string,personId:string,kind:'progress'|'attachment'){
++        // Attachment bytes need their own action bound to this exact project.
++        // Keep the existing roster access, company and current-person checks too.
++        if (kind === 'attachment')
++            await this.projects(identity, candidate, id, pool, 'training.project.download');
+         await this.roster(identity,candidate,id,undefined,personId);
+         const row=(await query(pool,'SELECT progress,attachment FROM training.roster WHERE tenant_id=$1 AND project_id=$2 AND person_id=$3',[identity.tenantId,id,personId])).rows[0];
+         if(!row)throw new Denied();
+         return kind==='progress'?{personId,progress:row.progress}:{personId,bytes:row.attachment};
+     }
+     async save(identity: Identity, candidate: CandidateName, id: string, body: {
+         title?: string;
+         teamEnabled?: boolean;
+     }) {
+         return transaction(async (db) => {
+diff --git a/test/task4-review-regressions.test.ts b/test/task4-review-regressions.test.ts
+new file mode 100644
+index 0000000..b808e40
+--- /dev/null
++++ b/test/task4-review-regressions.test.ts
+@@ -0,0 +1,95 @@
++import test from 'node:test';
++import { pool } from '../src/infrastructure/db.js';
++import { start, observe, policy } from './task3-helper.js';
++import type { Membership } from '../src/authz/contracts.js';
++
++async function insert(m: Membership, sourceId?: string) {
++    await pool.query('INSERT INTO authz.membership(tenant_id,id,person_id,role_id,data,source_id) VALUES($1,$2,$3,$4,$5,$6)', [m.tenantId, m.id, m.personId, m.roleId, m, sourceId ?? null]);
++}
++function membership(id: string, personId: string, roleId: string, policies: Membership['policies']): Membership {
++    return { id, tenantId: 'T1', personId, roleId, level: 3, active: true, provenance: 'system_origin', policies };
++}
++function cap(m: Membership, nodeId: string, action: string, objectIds: string[]) {
++    m.provenance = 'active';
++    m.delegation = { sourceMembershipId: 'admin', sourceActorId: 'Z', revision: 1, caps: [{ nodeId, action, objectIds, rawFields: [] }] };
++    return m;
++}
++
++for (const candidate of ['native', 'casbin']) {
++    test(`${candidate}: R1 membership revoke retains target-person cap`, async t => {
++        const api = await start(candidate), id = 't4-r1-' + candidate;
++        const ids = ['actor', 'B', 'C', 'B-child', 'C-child'].map(s => id + '-' + s);
++        try {
++            const action = 'authz.membership.revoke';
++            await insert(cap(membership(ids[0]!, 'M', 'role-11', [policy('administration', [action])]), 'administration', action, ['B']), 'admin');
++            await insert(membership(ids[1]!, 'B', 'role-12', []));
++            await insert(membership(ids[2]!, 'C', 'role-12', []));
++            await insert({ ...membership(ids[3]!, 'A', 'role-12', []), provenance: 'active' }, ids[1]);
++            await insert({ ...membership(ids[4]!, 'E', 'role-12', []), provenance: 'active' }, ids[2]);
++            const states = async (which: string[]) => (await pool.query("SELECT id,data->>'active' active,data->>'provenance' provenance FROM authz.membership WHERE tenant_id='T1' AND id=ANY($1::text[]) ORDER BY id", [which])).rows;
++            const before = (await pool.query("SELECT data,source_id FROM authz.membership WHERE tenant_id='T1' AND id=ANY($1::text[]) ORDER BY id", [[ids[2], ids[4]]])).rows;
++            const denied = await api.request('POST', '/memberships/' + ids[2] + '/revoke', {}, 'M');
++            await t.test('denies C', async () => observe(candidate, 'R1 B-only revoke cannot borrow broad report scope for C', 403, denied.status));
++            await t.test('no target/dependent writes', async () => {
++                const after = (await pool.query("SELECT data,source_id FROM authz.membership WHERE tenant_id='T1' AND id=ANY($1::text[]) ORDER BY id", [[ids[2], ids[4]]])).rows;
++                await observe(candidate, 'R1 denied target and dependent byte-equivalent state', before, after);
++                await observe(candidate, 'R1 denied target and dependent literal lifecycle', [
++                    { id: ids[2], active: 'true', provenance: 'system_origin' },
++                    { id: ids[4], active: 'true', provenance: 'active' }
++                ], await states([ids[2]!, ids[4]!]));
++            });
++            await t.test('permits B', async () => {
++                const allowed = await api.request('POST', '/memberships/' + ids[1] + '/revoke', {}, 'M');
++                await observe(candidate, 'R1 B-only revoke permits B', 200, allowed.status);
++                await observe(candidate, 'R1 allowed target revoked and dependent frozen', [
++                    { id: ids[1], active: 'false', provenance: 'system_origin' },
++                    { id: ids[3], active: 'true', provenance: 'recheck_required' }
++                ], await states([ids[1]!, ids[3]!]));
++            });
++        } finally {
++            await api.close();
++            await pool.query("DELETE FROM authz.membership WHERE tenant_id='T1' AND id=ANY($1::text[])", [[ids[3], ids[4]]]);
++            await pool.query("DELETE FROM authz.membership WHERE tenant_id='T1' AND id=ANY($1::text[])", [ids]);
++        }
++    });
++
++    test(`${candidate}: R2 attachment uses project-specific download action`, async t => {
++        const a = await start(candidate, 4311), b = await start(candidate, 4312), id = 't4-r2-' + candidate;
++        const viewId = id + '-view', downloadId = id + '-download';
++        const download = cap(membership(downloadId, 'M', 'role-14', [policy('project', ['training.project.download'])]), 'project', 'training.project.download', ['Q']);
++        const attachment = () => b.request('GET', '/projects/P/people/A/attachment', undefined, 'M');
++        try {
++            await insert(cap(membership(viewId, 'M', 'role-13', [policy('project', ['training.project.view'])]), 'project', 'training.project.view', ['P', 'Q']), 'admin');
++            await t.test('view remains progress only', async () => {
++                const progress = await b.request('GET', '/projects/P/people/A/progress', undefined, 'M');
++                await observe(candidate, 'R2 view-only progress preserved', { status: 200, progress: 50 }, { status: progress.status, progress: progress.body.progress });
++                const response = await attachment();
++                await observe(candidate, 'R2 view-only attachment denies without bytes', { status: 403, bytes: null }, { status: response.status, bytes: response.body.bytes ?? null });
++            });
++            await insert(download, 'admin');
++            await t.test('other project download cannot join broader view', async () => {
++                const response = await attachment();
++                await observe(candidate, 'R2 download Q cannot borrow view P', { status: 403, bytes: null }, { status: response.status, bytes: response.body.bytes ?? null });
++            });
++            download.delegation!.caps[0]!.objectIds = ['P'];
++            await pool.query("UPDATE authz.membership SET data=$2 WHERE tenant_id='T1' AND id=$1", [downloadId, download]);
++            await t.test('matching download permits bytes', async () => {
++                const response = await attachment();
++                await observe(candidate, 'R2 matching P download returns protected bytes', { status: 200, bytes: 'attachment-A' }, { status: response.status, bytes: response.body.bytes ?? null });
++            });
++            await t.test('download-only revoke applies next new request', async () => {
++                const revoke = await a.request('POST', '/memberships/' + downloadId + '/revoke', {});
++                await observe(candidate, 'R2 download membership revoke committed', 200, revoke.status);
++                const response = await attachment();
++                await observe(candidate, 'R2 next B attachment denies revoked download', { status: 403, bytes: null, afterCommit: true, pubsub: false }, { status: response.status, bytes: response.body.bytes ?? null, afterCommit: response.body.meta.requestAt >= revoke.body.meta.responseAt, pubsub: response.body.meta.pubsub });
++                const progress = await b.request('GET', '/projects/P/people/A/progress', undefined, 'M');
++                await observe(candidate, 'R2 download revoke retains independent view progress', { status: 200, progress: 50 }, { status: progress.status, progress: progress.body.progress });
++            });
++        } finally {
++            await b.close();
++            await a.close();
++            await pool.query("DELETE FROM authz.membership WHERE tenant_id='T1' AND id=ANY($1::text[])", [[viewId, downloadId]]);
++        }
++    });
++}
++test.after(() => pool.end());

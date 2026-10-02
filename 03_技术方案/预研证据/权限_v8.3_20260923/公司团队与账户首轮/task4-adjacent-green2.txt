@@ -1,0 +1,24 @@
+▶ native: mixed-company project and explicit grants
+  ✔ ordinary customer shared course (69.555334ms)
+  ✔ search/count company relation (16.459542ms)
+  ✔ personal progress and attachments (31.2195ms)
+  ✔ grant and revoke retain other companies (55.28225ms)
+✔ native: mixed-company project and explicit grants (505.4175ms)
+▶ casbin: mixed-company project and explicit grants
+  ✔ ordinary customer shared course (58.975584ms)
+  ✔ search/count company relation (16.276833ms)
+  ✔ personal progress and attachments (34.193417ms)
+  ✔ grant and revoke retain other companies (69.934916ms)
+✔ casbin: mixed-company project and explicit grants (471.395959ms)
+✔ native: history cap covers future facts of authorized people (932.37075ms)
+✔ casbin: history cap covers future facts of authorized people (909.747959ms)
+✔ native: direct-team enrollment paths (616.809625ms)
+✔ casbin: direct-team enrollment paths (631.609459ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 14
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4348.356292

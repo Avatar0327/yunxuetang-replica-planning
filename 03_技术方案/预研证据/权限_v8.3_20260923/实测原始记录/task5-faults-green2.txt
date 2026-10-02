@@ -1,0 +1,10 @@
+✔ native: all protected output classes fail closed and commit timeline (12929.719833ms)
+✔ casbin: all protected output classes fail closed and commit timeline (12995.960417ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 26180.076208

@@ -1,0 +1,20 @@
+▶ native: independent benchmark complete result oracle
+  ✔ list-broad (41.94375ms)
+  ✔ list-constrained (85.660917ms)
+  ✔ history-broad (96.455708ms)
+  ✔ history-constrained (477.015625ms)
+✔ native: independent benchmark complete result oracle (1018.093458ms)
+▶ casbin: independent benchmark complete result oracle
+  ✔ list-broad (29.243583ms)
+  ✔ list-constrained (84.830333ms)
+  ✔ history-broad (99.081583ms)
+  ✔ history-constrained (481.2635ms)
+✔ casbin: independent benchmark complete result oracle (1003.782542ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2275.733125

@@ -1,0 +1,6 @@
+{"candidate":"native","name":"account role before any L entry","expected":200,"actual":200,"at":"2026-09-22T22:09:10.393Z"}
+{"candidate":"native","name":"future same-company account entry only","expected":["t4-account-cap-native-same"],"actual":["t4-account-cap-native-same"],"at":"2026-09-22T22:09:10.403Z"}
+{"candidate":"native","name":"account export uses stable person company cap","expected":["t4-account-cap-native-same"],"actual":["t4-account-cap-native-same"],"at":"2026-09-22T22:09:10.408Z"}
+{"candidate":"casbin","name":"account role before any L entry","expected":200,"actual":200,"at":"2026-09-22T22:09:10.877Z"}
+{"candidate":"casbin","name":"future same-company account entry only","expected":["t4-account-cap-casbin-same"],"actual":["t4-account-cap-casbin-same"],"at":"2026-09-22T22:09:10.887Z"}
+{"candidate":"casbin","name":"account export uses stable person company cap","expected":["t4-account-cap-casbin-same"],"actual":["t4-account-cap-casbin-same"],"at":"2026-09-22T22:09:10.892Z"}

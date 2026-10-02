@@ -1,0 +1,13 @@
+{
+  "checkedAt": "2026-09-23T05:04:18.024555+08:00",
+  "source": "evidence/raw/task3-final-observations2.jsonl",
+  "sourceSHA256": "3780aadcd97babd6ea7738d767115e2eb3deee05b942bab56e49d94dbd651edf",
+  "observations": 188,
+  "candidates": {
+    "native": 93,
+    "casbin": 93,
+    "shared-resolver": 2
+  },
+  "literal_mismatches": [],
+  "scope": "Independent literal observation audit. Task review and complete168point evidence gate remain pending."
+}

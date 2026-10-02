@@ -1,0 +1,5 @@
+
+> permission-v83-spike@0.0.1 typecheck
+> tsc --noEmit
+
+test/task5-ticket.test.ts(11,282): error TS18048: 'path' is possibly 'undefined'.

@@ -1,0 +1,2 @@
+{"candidate":"native","name":"team includes direct A and cross-department B","expected":200,"actual":404,"at":"2026-09-22T21:51:13.953Z"}
+{"candidate":"casbin","name":"team includes direct A and cross-department B","expected":200,"actual":404,"at":"2026-09-22T21:51:14.257Z"}

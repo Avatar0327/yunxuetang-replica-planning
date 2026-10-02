@@ -1,0 +1,154 @@
+▶ native: Task4 organization contract
+  ✖ physical company-qualified department (14.234542ms)
+  ✖ clear nullable current relationships (41.432875ms)
+  ✖ cross-company person department rejected (1.830459ms)
+✖ native: Task4 organization contract (372.622083ms)
+▶ casbin: Task4 organization contract
+  ✖ physical company-qualified department (2.087792ms)
+  ✖ clear nullable current relationships (31.775458ms)
+  ✖ cross-company person department rejected (1.695125ms)
+✖ casbin: Task4 organization contract (327.732208ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 0
+ℹ fail 8
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 804.191042
+
+✖ failing tests:
+
+test at test/task4-organization.test.ts:1:453
+✖ physical company-qualified department (14.234542ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  
+  0 !== 1
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task4-organization.test.ts:8:261)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task4-organization.test.ts:8:3)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 1,
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task4-organization.test.ts:1:778
+✖ clear nullable current relationships (41.432875ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+  +   department_id: 'D2',
+  +   manager_id: 'M',
+  -   department_id: null,
+  -   manager_id: null,
+      status: 200
+    }
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task4-organization.test.ts:9:277)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task4-organization.test.ts:9:3)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { status: 200, department_id: 'D2', manager_id: 'M' },
+    expected: { status: 200, department_id: null, manager_id: null },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task4-organization.test.ts:1:1303
+✖ cross-company person department rejected (1.830459ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  
+  false !== true
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task4-organization.test.ts:10:302)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task4-organization.test.ts:10:3)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task4-organization.test.ts:1:453
+✖ physical company-qualified department (2.087792ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  
+  0 !== 1
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task4-organization.test.ts:8:261)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task4-organization.test.ts:8:3)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 1,
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task4-organization.test.ts:1:778
+✖ clear nullable current relationships (31.775458ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+  +   department_id: 'D2',
+  +   manager_id: 'M',
+  -   department_id: null,
+  -   manager_id: null,
+      status: 200
+    }
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task4-organization.test.ts:9:277)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task4-organization.test.ts:9:3)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { status: 200, department_id: 'D2', manager_id: 'M' },
+    expected: { status: 200, department_id: null, manager_id: null },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task4-organization.test.ts:1:1303
+✖ cross-company person department rejected (1.695125ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  
+  false !== true
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task4-organization.test.ts:10:302)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task4-organization.test.ts:10:3)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

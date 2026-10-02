@@ -1,0 +1,5 @@
+
+> permission-v83-spike@0.0.1 start
+> node dist/src/bootstrap.js
+
+{"ready":true,"port":"4311","candidate":"native","instance":"A","pubsub":false}

@@ -1,0 +1,28 @@
+{"candidate":"native","name":"team includes direct A and cross-department B","expected":200,"actual":200,"at":"2026-09-22T21:52:49.940Z"}
+{"candidate":"native","name":"team persisted literal A B","expected":["A","B"],"actual":["A","B"],"at":"2026-09-22T21:52:49.942Z"}
+{"candidate":"native","name":"team denies C","expected":403,"actual":403,"at":"2026-09-22T21:52:49.958Z"}
+{"candidate":"native","name":"team denies D","expected":403,"actual":403,"at":"2026-09-22T21:52:49.970Z"}
+{"candidate":"native","name":"team denies E","expected":403,"actual":403,"at":"2026-09-22T21:52:49.981Z"}
+{"candidate":"native","name":"team denies missing","expected":403,"actual":403,"at":"2026-09-22T21:52:49.993Z"}
+{"candidate":"native","name":"team denies other-1","expected":403,"actual":403,"at":"2026-09-22T21:52:50.004Z"}
+{"candidate":"native","name":"team denies disabled","expected":403,"actual":403,"at":"2026-09-22T21:52:50.015Z"}
+{"candidate":"native","name":"team denies deleted","expected":403,"actual":403,"at":"2026-09-22T21:52:50.029Z"}
+{"candidate":"native","name":"team mixed batch all-or-nothing","expected":403,"actual":403,"at":"2026-09-22T21:52:50.040Z"}
+{"candidate":"native","name":"batch retained A B","expected":["A","B"],"actual":["A","B"],"at":"2026-09-22T21:52:50.041Z"}
+{"candidate":"native","name":"switch off denies team","expected":403,"actual":403,"at":"2026-09-22T21:52:50.057Z"}
+{"candidate":"native","name":"appointment remains independent from switch","expected":200,"actual":200,"at":"2026-09-22T21:52:50.075Z"}
+{"candidate":"native","name":"team removal A B","expected":200,"actual":200,"at":"2026-09-22T21:52:50.103Z"}
+{"candidate":"casbin","name":"team includes direct A and cross-department B","expected":200,"actual":200,"at":"2026-09-22T21:52:50.434Z"}
+{"candidate":"casbin","name":"team persisted literal A B","expected":["A","B"],"actual":["A","B"],"at":"2026-09-22T21:52:50.435Z"}
+{"candidate":"casbin","name":"team denies C","expected":403,"actual":403,"at":"2026-09-22T21:52:50.449Z"}
+{"candidate":"casbin","name":"team denies D","expected":403,"actual":403,"at":"2026-09-22T21:52:50.463Z"}
+{"candidate":"casbin","name":"team denies E","expected":403,"actual":403,"at":"2026-09-22T21:52:50.475Z"}
+{"candidate":"casbin","name":"team denies missing","expected":403,"actual":403,"at":"2026-09-22T21:52:50.488Z"}
+{"candidate":"casbin","name":"team denies other-1","expected":403,"actual":403,"at":"2026-09-22T21:52:50.500Z"}
+{"candidate":"casbin","name":"team denies disabled","expected":403,"actual":403,"at":"2026-09-22T21:52:50.511Z"}
+{"candidate":"casbin","name":"team denies deleted","expected":403,"actual":403,"at":"2026-09-22T21:52:50.523Z"}
+{"candidate":"casbin","name":"team mixed batch all-or-nothing","expected":403,"actual":403,"at":"2026-09-22T21:52:50.534Z"}
+{"candidate":"casbin","name":"batch retained A B","expected":["A","B"],"actual":["A","B"],"at":"2026-09-22T21:52:50.535Z"}
+{"candidate":"casbin","name":"switch off denies team","expected":403,"actual":403,"at":"2026-09-22T21:52:50.553Z"}
+{"candidate":"casbin","name":"appointment remains independent from switch","expected":200,"actual":200,"at":"2026-09-22T21:52:50.573Z"}
+{"candidate":"casbin","name":"team removal A B","expected":200,"actual":200,"at":"2026-09-22T21:52:50.605Z"}

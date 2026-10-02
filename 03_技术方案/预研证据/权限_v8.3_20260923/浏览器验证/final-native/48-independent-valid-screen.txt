@@ -1,0 +1,11 @@
+### Result
+- [Screenshot of viewport](output/playwright/final-native/independent-report-valid.png)
+### Ran Playwright code
+```js
+// Screenshot viewport and save it as output/playwright/final-native/independent-report-valid.png
+await page.screenshot({
+  path: 'output/playwright/final-native/independent-report-valid.png',
+  scale: 'css',
+  type: 'png'
+});
+```

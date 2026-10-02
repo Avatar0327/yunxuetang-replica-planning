@@ -1,0 +1,4 @@
+{"candidate":"native","name":"person command cannot borrow broad report role for C","expected":403,"actual":200,"at":"2026-09-22T22:06:13.385Z"}
+{"candidate":"native","name":"person command permits same-source capped B","expected":200,"actual":200,"at":"2026-09-22T22:06:13.404Z"}
+{"candidate":"casbin","name":"person command cannot borrow broad report role for C","expected":403,"actual":200,"at":"2026-09-22T22:06:13.743Z"}
+{"candidate":"casbin","name":"person command permits same-source capped B","expected":200,"actual":200,"at":"2026-09-22T22:06:13.766Z"}

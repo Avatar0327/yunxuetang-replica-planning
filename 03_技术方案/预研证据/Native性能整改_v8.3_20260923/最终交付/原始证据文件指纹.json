@@ -1,0 +1,4062 @@
+{
+  "source_commit": "817256bf1e1fc722aaa5f0c21878e84fe8df1306",
+  "files": [
+    {
+      "path": "evidence/raw/native-candidate1/build.txt",
+      "bytes": 43,
+      "sha256": "23cc06998bc5d1af15b91e021c1dd1e98e239b7094da8ea781f1e39341b5a35f"
+    },
+    {
+      "path": "evidence/raw/native-candidate1/cleanup-seed.txt",
+      "bytes": 114,
+      "sha256": "ee891899eca01d3ca05f1091ed5045ac8eaf9162e444f4abe11597877912666f"
+    },
+    {
+      "path": "evidence/raw/native-candidate1/fresh-seed-capture/fact-access.json",
+      "bytes": 7072818,
+      "sha256": "36d8d714ff3ab81aacf90b7b630a79ff3314618b23db188b17c6b54d10e30b16"
+    },
+    {
+      "path": "evidence/raw/native-candidate1/fresh-seed-capture.txt",
+      "bytes": 6717,
+      "sha256": "0496aad52d769ad869ed8fe8a7b7bab2beb297da89b255ed8e31c5b7ccee3fce"
+    },
+    {
+      "path": "evidence/raw/native-candidate1/fresh-seed-reference.txt",
+      "bytes": 114,
+      "sha256": "0c3e2a782b3dedac41f58dab04a4990d210c8f857b2f6d09c398a1480ff03619"
+    },
+    {
+      "path": "evidence/raw/native-candidate1/fresh-seed.txt",
+      "bytes": 1168,
+      "sha256": "0581e45aaccf8c25e95509ccba3502cd6f841a29f8f249976c71815934c1a1da"
+    },
+    {
+      "path": "evidence/raw/native-candidate1/green-final/fact-access.json",
+      "bytes": 7073114,
+      "sha256": "46d50eebccde8c9cfddf51b64044c5aed22ec0db088c81ee2dac4a069ad3988d"
+    },
+    {
+      "path": "evidence/raw/native-candidate1/green-final-test.txt",
+      "bytes": 219,
+      "sha256": "87a5afbf88d15114186809ed78fc63c1b3b2dfcc26fbe49d6da0dd3982cad9e0"
+    },
+    {
+      "path": "evidence/raw/native-candidate1/green-seed-built/fact-access.json",
+      "bytes": 7073083,
+      "sha256": "172f218c22660680b1199f3e7e04a9cd36ee82890ef15bc098bba29ab1ec3865"
+    },
+    {
+      "path": "evidence/raw/native-candidate1/green-seed-built-test.txt",
+      "bytes": 218,
+      "sha256": "3728d13309a31f07f6500f4e7de83011bbce59d29cc5b68b140333273a236782"
+    },
+    {
+      "path": "evidence/raw/native-candidate1/green-visible/fact-access.json",
+      "bytes": 7072698,
+      "sha256": "86929ab51233afb8a842c1364ab756b2dce1ed2e9ff5cae2186c71892942d80c"
+    },
+    {
+      "path": "evidence/raw/native-candidate1/green-visible-test.txt",
+      "bytes": 219,
+      "sha256": "20cfcbea78f9eefbd72b8beb71db08c55881f2034c4564513bd7c31f593f8cd5"
+    },
+    {
+      "path": "evidence/raw/native-candidate1/index-build.json",
+      "bytes": 290,
+      "sha256": "516cd81a7a042baa8adb23526d437671371931f3fc4bfd07fefd193697fdbd7b"
+    },
+    {
+      "path": "evidence/raw/native-candidate1/module-boundaries.txt",
+      "bytes": 264,
+      "sha256": "98e8ef8380eaeb4b066aacd82791096f9abbea5c06b08a85c8d2c154efe85bf3"
+    },
+    {
+      "path": "evidence/raw/native-candidate1/native-query-regressions.txt",
+      "bytes": 374,
+      "sha256": "44a0916f5197eb67a8e9daf15ab4186a691aab84d3360f5a62d88c8863e2241a"
+    },
+    {
+      "path": "evidence/raw/native-candidate1/native-semantics-regressions.txt",
+      "bytes": 761,
+      "sha256": "cec2ea8ff5bf12eb8639c117efee7760848d6bf517774f6496550c34883f2eb8"
+    },
+    {
+      "path": "evidence/raw/native-candidate1/paired-visibility-preparation.json",
+      "bytes": 190,
+      "sha256": "8ef2ad005fdce361ec16b347e8b638bab0bc0b71d6c3c6d597c20a53fbe1ed96"
+    },
+    {
+      "path": "evidence/raw/native-candidate1/preparation-source.ts.txt",
+      "bytes": 2770,
+      "sha256": "703d525789980e16a4d35c8220f5eba0e7f25355f248dcd98475b880f9d5539f"
+    },
+    {
+      "path": "evidence/raw/native-candidate1/red/fact-access.json",
+      "bytes": 7072544,
+      "sha256": "12f9b877804067d40b5481376bb54e6dc6c028bfa9e0fcc8025e98feb86d79ac"
+    },
+    {
+      "path": "evidence/raw/native-candidate1/red-final/fact-access.json",
+      "bytes": 7072753,
+      "sha256": "25c4fa7da3c3ca1f431d1bd2f91eecccc3756418a64b079336fd11e983269818"
+    },
+    {
+      "path": "evidence/raw/native-candidate1/red-final-test.txt",
+      "bytes": 887,
+      "sha256": "049efb47b7ac6ccac5851ddcb572ca28d627300cab016e2bc91aeccfc297437d"
+    },
+    {
+      "path": "evidence/raw/native-candidate1/red-test.txt",
+      "bytes": 887,
+      "sha256": "969322374f740c6b8fcb62db0448998d4a3c691682953a21bc83e17c07e9b8d0"
+    },
+    {
+      "path": "evidence/raw/native-candidate1/red-visible/fact-access.json",
+      "bytes": 7072279,
+      "sha256": "a24ff5a7b5bf8fbdd6c58199d24409c535cd4e8738cee28afe94bd77cc5e704e"
+    },
+    {
+      "path": "evidence/raw/native-candidate1/red-visible-test.txt",
+      "bytes": 887,
+      "sha256": "cc27df449f341ec318979c1f34d69357df081614490411317ee86d5965a2ef55"
+    },
+    {
+      "path": "evidence/raw/native-candidate1/regression-work/evidence/raw/task2-scope-observations.jsonl",
+      "bytes": 1887,
+      "sha256": "f8eafdad065086c2b1afce4b18453270bd90589dc1a12bcb71cc778b7bcd77eb"
+    },
+    {
+      "path": "evidence/raw/native-candidate1/regression-work/evidence/raw/task3-observations.jsonl",
+      "bytes": 16392,
+      "sha256": "c270d39888fff4e48c9020d7c2776580bde82de0dd161902940cdd726e3a0e48"
+    },
+    {
+      "path": "evidence/raw/native-candidate1/regression-work/evidence/raw/task5-complex-native.json",
+      "bytes": 342602,
+      "sha256": "7ac7d68ddb38d1f620ea171cbfabc60ee0a7a6a2d4672e4b197ab312d09ebadf"
+    },
+    {
+      "path": "evidence/raw/native-candidate1/typecheck.txt",
+      "bytes": 56,
+      "sha256": "0209619ba7964bea26a5e44936f769e1f0fb94755282779c9878a2d3d247d6da"
+    },
+    {
+      "path": "evidence/raw/native-candidate1/write-cost.json",
+      "bytes": 1908,
+      "sha256": "3c01b024f73b0b80e0e0e8b59d445d8bebfcd9996915bacf0a1da88cb277c656"
+    },
+    {
+      "path": "evidence/raw/native-candidate2/baseline/capture.log",
+      "bytes": 6717,
+      "sha256": "9c42d3679546b1490ab9b738393602ce19ff2fdd0d75f8423a17509224748d22"
+    },
+    {
+      "path": "evidence/raw/native-candidate2/baseline/fact-access.json",
+      "bytes": 7072850,
+      "sha256": "389c557f2a1db2341241a644697d9e216e17f26823acd63e76e0f08487b9d32f"
+    },
+    {
+      "path": "evidence/raw/native-candidate2/boundaries.log",
+      "bytes": 262,
+      "sha256": "9287ee079ef0f23635f9a707648a47d9bce2b5610056668e04c4fd8632817520"
+    },
+    {
+      "path": "evidence/raw/native-candidate2/build.log",
+      "bytes": 43,
+      "sha256": "23cc06998bc5d1af15b91e021c1dd1e98e239b7094da8ea781f1e39341b5a35f"
+    },
+    {
+      "path": "evidence/raw/native-candidate2/final-focused/fact-access.json",
+      "bytes": 7085257,
+      "sha256": "4d306281914b4232f7eb16f5e31289436a065a36285dd3bbeb2b02979df47dba"
+    },
+    {
+      "path": "evidence/raw/native-candidate2/final-focused.log",
+      "bytes": 556,
+      "sha256": "1ad8a6ead351a9a6c08042486857783b8b2fc88c8b37d1b2c7b8d4726f60d122"
+    },
+    {
+      "path": "evidence/raw/native-candidate2/final-seed.log",
+      "bytes": 84,
+      "sha256": "993389f3c5f0cbf79b20e18805ab38807c918d93cf0a28be54b500951198fcba"
+    },
+    {
+      "path": "evidence/raw/native-candidate2/green/fact-access.json",
+      "bytes": 7085233,
+      "sha256": "5a36c68ef77e8ee12430ddafb7ff761d1e3c067184f289b972064ae6061d14ca"
+    },
+    {
+      "path": "evidence/raw/native-candidate2/green.log",
+      "bytes": 558,
+      "sha256": "f35a13e7915d25b62b92aba1934f8d829bd8b459b161d6109fdc1b14dfcf7c1e"
+    },
+    {
+      "path": "evidence/raw/native-candidate2/history-regressions.log",
+      "bytes": 350,
+      "sha256": "80392c7aeea4c4827c8a2f37624df0bd2571b35f1801394c6f5813979b3a8da1"
+    },
+    {
+      "path": "evidence/raw/native-candidate2/paired-diagnostic.ts",
+      "bytes": 2255,
+      "sha256": "a2a1256f30ed4a111aae68e8d113c26d231aceb41de440fde186519050fb40a0"
+    },
+    {
+      "path": "evidence/raw/native-candidate2/paired-plans.json",
+      "bytes": 13819544,
+      "sha256": "270f198b766c256936304cfbfe4de8bb6ef4662eb72c0bb9492f9f7e7f61e068"
+    },
+    {
+      "path": "evidence/raw/native-candidate2/paired-plans.log",
+      "bytes": 1134,
+      "sha256": "c86b84dd71e7b02d04d8f46941f09737bf07788a67cdce91b1072d176ced3a7e"
+    },
+    {
+      "path": "evidence/raw/native-candidate2/red/fact-access.json",
+      "bytes": 7072937,
+      "sha256": "81bd845bcb5d0437b3451efa06c9a2a7b5574fee5dd4773cde98f74508155070"
+    },
+    {
+      "path": "evidence/raw/native-candidate2/red.log",
+      "bytes": 3577,
+      "sha256": "2edb6bdb6bffa9f50c542150ea858f311c877a5e01c4867d003a2b3e6f69dbdf"
+    },
+    {
+      "path": "evidence/raw/native-candidate2/test-cwd/evidence/raw/task3-observations.jsonl",
+      "bytes": 11039,
+      "sha256": "229236c8f31cc9bb46f03c9c94e27bfedbc445947d4c9c3465c85e94433b2fa1"
+    },
+    {
+      "path": "evidence/raw/native-candidate2/test-cwd/evidence/raw/task5-complex-native.json",
+      "bytes": 342604,
+      "sha256": "5652e8d97740ff1ae84fe3898a11e720f059ea8cd62a52bef63e1c1c4c27aebb"
+    },
+    {
+      "path": "evidence/raw/native-candidate2/typecheck.log",
+      "bytes": 56,
+      "sha256": "0209619ba7964bea26a5e44936f769e1f0fb94755282779c9878a2d3d247d6da"
+    },
+    {
+      "path": "evidence/raw/native-candidate2/verified/fact-access.json",
+      "bytes": 7085243,
+      "sha256": "a67a44352f8558e9c716282eb71d11b19ed65500bfe8427c7fb53eac25d6f353"
+    },
+    {
+      "path": "evidence/raw/native-candidate2/verified.log",
+      "bytes": 655,
+      "sha256": "c03095b0b0a184f09c39fe9234cd26da2b868af6a5332c06a82ea27a9687f32d"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/candidate1-results-note.md",
+      "bytes": 1367,
+      "sha256": "06d5eb4bfc83aea2a83e7ffa832b297d88aedd5aea876f32c4da725ddaedf129"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/candidate1-results-summary.json",
+      "bytes": 8895,
+      "sha256": "b1bd1503c543524fc8883e3edea2b6dc6bf640abdaf9464ddfecdb28e63a4221"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/cold/attribution.json",
+      "bytes": 903375,
+      "sha256": "c611638b98a67b8c6db2a14b3b3f0561ea8da84184c52f53379814aaeb6eaa7a"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/cold/audit-exit.txt",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/cold/controller-commit.txt",
+      "bytes": 41,
+      "sha256": "4e54457347dca16a7daea1f248a46e0127b9730dcd0a3c727e27ae09e4437fa6"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/cold/forensics/cold-transport-forensics.json",
+      "bytes": 238580,
+      "sha256": "6b009ff07e4cfb822043c09894cf0ccda3a0407d4b981ca165fa5d26f9fb7aad"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/cold/forensics/cold-transport-forensics.md",
+      "bytes": 14879,
+      "sha256": "61f746fe1a1672526fc74cc9583e80ff6a8eec7ffe8d27fe96daee53cdb6ae06"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/cold/forensics/cold-transport-forensics.py",
+      "bytes": 7560,
+      "sha256": "2c937dcb5253e617ddf42fb92013ab1c2b8171083048af59430d30b5b7b4fad4"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/cold/gate-exit.txt",
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/cold/independent-audit.json",
+      "bytes": 6407,
+      "sha256": "822140e593ad38435777ea01b7983893d81d7b4f2247a2f8be848453b458028f"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/cold/measurement/event-loop.jsonl",
+      "bytes": 253357,
+      "sha256": "1d6c27b4b1d9e19eed26de343224cb3290459c11b215f9a60dac38bcff26730b"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/cold/measurement/samples.jsonl.gz",
+      "bytes": 1203886,
+      "sha256": "8c25c289266069954be31e0f2945a144f5d3738493025db097bea6971795e7e9"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/cold/measurement/scenario-truth.json",
+      "bytes": 47848,
+      "sha256": "e6f9f0c2dd495f277a38eb6a658e71d0aabc5a46e42ff4d887974051b7e93996"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/cold/measurement/summary.json",
+      "bytes": 6591,
+      "sha256": "3867706c87d9f7dbdb54c57f36457d68d9a3b4839ea7379015a0022e51c8232b"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/cold/ready-A.json",
+      "bytes": 515,
+      "sha256": "ea1f2654108a251ec8b9ea6a46992ebf0f88c72f243c91055bc779a7cdd7c530"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/cold/ready-B.json",
+      "bytes": 514,
+      "sha256": "7f3e58a7c09ce72f07ed28b7d714d09005edd5f2da67859cb05375aacbb195ea"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/cold/resources.jsonl",
+      "bytes": 23935,
+      "sha256": "31332ef9a961f3dbec25d25da60396e8c76039d91b2bd939dd6ac2513f281f38"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/cold/runner-exit.txt",
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/cold/runner.txt",
+      "bytes": 4238,
+      "sha256": "0ed03ffc05ad27b0c14cefa3a5e567cd5a2ffbf05dc91321d44bc3e41cac23fc"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/cold/runtime/actual-data-counts.json",
+      "bytes": 176,
+      "sha256": "3e5fe312e9958d55113387884087907246e85760e1b1022566809e5e1687e487"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/cold/runtime/api-node-version.txt",
+      "bytes": 9,
+      "sha256": "f2ec568164f99546161909b0189b57bb5be3e80f8e2ccd8a51a4aed8c4055a04"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/cold/runtime/clock-bracket-capture.txt",
+      "bytes": 136,
+      "sha256": "b9a8d3895015a899908b551ca4fe2c3ff7fdceeed058ddf884c3f947b6a5e560"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/cold/runtime/clock-bracket.json",
+      "bytes": 1750,
+      "sha256": "264920e4073ee57ab801376787b9f9b7bac94ef3cdd311e410fbcd8493325903"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/cold/runtime/containers.json",
+      "bytes": 34972,
+      "sha256": "a947aa08b7bc486fd951254aa30d1520314cd6d30cd3daff2e54b1394e9503e0"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/cold/runtime/controller-commit.txt",
+      "bytes": 41,
+      "sha256": "4e54457347dca16a7daea1f248a46e0127b9730dcd0a3c727e27ae09e4437fa6"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/cold/runtime/postgresql-settings.json",
+      "bytes": 377,
+      "sha256": "8bf31f9e4e92b4d144028fcd5c37ca42e942f932b1164a03e7d23b98b8050600"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/cold/runtime/redis-version.txt",
+      "bytes": 90,
+      "sha256": "e6fc562e9f01b91366cfda4e5d87ffdbbe023590a5a225192ea51172d047ba68"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/cold/runtime/source-commit.txt",
+      "bytes": 41,
+      "sha256": "4e54457347dca16a7daea1f248a46e0127b9730dcd0a3c727e27ae09e4437fa6"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/cold/runtime-check.json",
+      "bytes": 290,
+      "sha256": "8501614bd317403011b725be1e6ed94bcd747c89d3bf45fcbeedab8f0ee33937"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/cold/seed.txt",
+      "bytes": 84,
+      "sha256": "993389f3c5f0cbf79b20e18805ab38807c918d93cf0a28be54b500951198fcba"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/cold/server-clock-attribution.json",
+      "bytes": 903375,
+      "sha256": "c611638b98a67b8c6db2a14b3b3f0561ea8da84184c52f53379814aaeb6eaa7a"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/cold/source-commit.txt",
+      "bytes": 41,
+      "sha256": "4e54457347dca16a7daea1f248a46e0127b9730dcd0a3c727e27ae09e4437fa6"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/cold/start-apis.txt",
+      "bytes": 130,
+      "sha256": "9ca0c6a55e728c2e2b9e4d942e8664fba327a2a2d77a61cc49d8309ddaa79d72"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/cold/supplement.json",
+      "bytes": 330267,
+      "sha256": "594e913e2fb324082049bca135a5cdecfc18213d32d9d95c3ea167082e7f4426"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/cold/transport-analysis-v3/candidate1-hot-compatibility.json",
+      "bytes": 233765,
+      "sha256": "a4ce2eabc74c44b90beb4eeabcb5fe4dbd8b73aa795c3d50d41cb16029a5f6d5"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/cold/transport-analysis-v3/candidate1-hot-compatibility.txt",
+      "bytes": 1215,
+      "sha256": "62a1c5fa7b69e7c7da88619290296b2eb8f3752820e81f1fc963e48e237f6472"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/cold/transport-analysis-v3/detail.txt",
+      "bytes": 194,
+      "sha256": "7af2ce929fd21ba43d504e57182f53b11ee8ddf12a3badd2790eaf07a20fa81b"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/cold/transport-analysis-v3/green-audit.txt",
+      "bytes": 1267,
+      "sha256": "f29018f8b6dcca2000bb055eaedcb7aba7348dca0c6f5eeed13b9eb2a6c3e5da"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/cold/transport-analysis-v3/green-unit.txt",
+      "bytes": 102,
+      "sha256": "b6a161abed43b9a0dba9259cd451b39b20b10425ac13cc14786554c0e6fac7f1"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/cold/transport-analysis-v3/independent-attribution-audit.json",
+      "bytes": 509523,
+      "sha256": "d040603b70e3eb8dd533cfb44eaca64a4b9a519538157296002f3e7823b23bc5"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/cold/transport-analysis-v3/red-audit.txt",
+      "bytes": 525,
+      "sha256": "5b495f8e3401e1a09ddb7a4cf5d75a104b48980700a932d09aa45a0228c391ec"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/cold/transport-analysis-v3/red-unit.txt",
+      "bytes": 621,
+      "sha256": "1bc81fd36ab3fd1e4579537c84b419eae7b4f5c456b617a655c99e1fc7d1f731"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/cold/transport-analysis-v3/stage1-hot-compatibility.json",
+      "bytes": 1011442,
+      "sha256": "300dd6f9c9b04ed037bebbabc7fd06b744abdf69fb056645beaf7cf7927d6e34"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/cold/transport-analysis-v3/stage1-hot-compatibility.txt",
+      "bytes": 1218,
+      "sha256": "1a45a2e0b4c76be189e6986aa6003694188c8c851da0fa8f3c48ac9ce691f2a3"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/cold/transport-analysis-v3/supplement.json",
+      "bytes": 464794,
+      "sha256": "fddfadefebef41ad58620fd27ee6b6f973d8cc4354a8a5008a0fc453c1e22dac"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/cold/transport-analysis-v3/unchanged-window-gate.json",
+      "bytes": 3975,
+      "sha256": "eb9e32cd6a805344f5aec895c1e5666d2b993f3be64ab245a8f377405440ded1"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/cold/window-gate.json",
+      "bytes": 3975,
+      "sha256": "eb9e32cd6a805344f5aec895c1e5666d2b993f3be64ab245a8f377405440ded1"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/cold/window-mode.txt",
+      "bytes": 10,
+      "sha256": "1e81270f1a47dce22a2e4985250c74b2e3374443734f1492b03ea2cd2af4ec48"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/cold/yxt-api-a-final-inspect.json",
+      "bytes": 8044,
+      "sha256": "334f60eb35bbd6c79ae2e49f1c5182a7a98e49ba7c81633aa84e1453c2a0dd1e"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/cold/yxt-api-a.log",
+      "bytes": 46794769,
+      "sha256": "fb3e4f1bbbc9c94708dcc5214db8c7eb1f939d7b6243128736af48ef9e439a3a"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/cold/yxt-api-b-final-inspect.json",
+      "bytes": 8044,
+      "sha256": "792a6647253bb945a7f4a31dfee12348adf7de54b1659d715899c6862f5de04b"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/cold/yxt-api-b.log",
+      "bytes": 46904656,
+      "sha256": "c3445e0e72472ba37ea0f31eaf86f50a86beb5e35fb11211cd03879f2086dbef"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/hot/attribution.json",
+      "bytes": 828130,
+      "sha256": "1b915ae63ca9885e21f7bfd02375c7d267741bc18c8d58dd87b718b62ce7529d"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/hot/audit-exit.txt",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/hot/build.txt",
+      "bytes": 1921,
+      "sha256": "e71320f48f718811210fcaaa85dd26d24289f75b90530d9b9c63eb113d6f384f"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/hot/controller-commit.txt",
+      "bytes": 41,
+      "sha256": "4e54457347dca16a7daea1f248a46e0127b9730dcd0a3c727e27ae09e4437fa6"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/hot/gate-exit.txt",
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/hot/independent-attribution-audit.json",
+      "bytes": 230482,
+      "sha256": "a0b2995e438dcfe7a6fd81e3e259b3b74c870fe82bbf20c1a388c7134a697599"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/hot/independent-audit.json",
+      "bytes": 6316,
+      "sha256": "75309a92d01f4d4f5ba77977891ddd0ffd7d5d06b702056cdd8e9c7dd62a031f"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/hot/measurement/event-loop.jsonl",
+      "bytes": 256798,
+      "sha256": "fe51b3c2baa5e3280e85afab484e4bb7d733190b010e6f51f4bcef9072253cb7"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/hot/measurement/prewarm.json",
+      "bytes": 9831,
+      "sha256": "9c82b220eb198fa269e0a6afc71715452ae052a8807303625f703ed4c9b0c115"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/hot/measurement/samples.jsonl.gz",
+      "bytes": 1391231,
+      "sha256": "4b30fbfc9fa71c40ca3c64fa22289d31c341bf78aa27af7ea6d1437e802364fe"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/hot/measurement/scenario-truth.json",
+      "bytes": 47848,
+      "sha256": "e6f9f0c2dd495f277a38eb6a658e71d0aabc5a46e42ff4d887974051b7e93996"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/hot/measurement/summary.json",
+      "bytes": 6514,
+      "sha256": "83f7133efa3ac309b33831bde6f31642941493e77e52f49371900b51b32e7073"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/hot/ready-A.json",
+      "bytes": 514,
+      "sha256": "feca35f91d4386ef902a1cf48d355eeeaab7cd9bdb8fb2ba6ae0ec407790c58e"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/hot/ready-B.json",
+      "bytes": 515,
+      "sha256": "7d8841c1733dd690b59b78c72a21b77ccbff84649139c6841785772986cd517f"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/hot/resources.jsonl",
+      "bytes": 26664,
+      "sha256": "9899e4d9171e846aa59b324214ca05ebe8d40d1e12ff4ae07e692ff706079e37"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/hot/runner-exit.txt",
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/hot/runner.txt",
+      "bytes": 4185,
+      "sha256": "0b70969bccfdc3ab5b1e034a66955556e0c8f021368fb89897fcc932fa9ef2e3"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/hot/runtime/actual-data-counts.json",
+      "bytes": 176,
+      "sha256": "700a118941c65ef1cc2cb3101b23eed9775e376c9732f8ec0f989f734c4eac84"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/hot/runtime/api-node-version.txt",
+      "bytes": 9,
+      "sha256": "f2ec568164f99546161909b0189b57bb5be3e80f8e2ccd8a51a4aed8c4055a04"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/hot/runtime/clock-bracket-capture.txt",
+      "bytes": 135,
+      "sha256": "0ae252a04078fd3ac98eebd0916b562d81d814c05171ecb02443ba1c264b7b80"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/hot/runtime/clock-bracket.json",
+      "bytes": 1740,
+      "sha256": "c5a8006496549b395e1d4f7c50232ebf8e5fdf7664ac5321c064c4d03e229d5c"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/hot/runtime/containers.json",
+      "bytes": 34970,
+      "sha256": "3ee0555b6bbcc5805a76adeac8a67d238d9ccba061cb1c183de14a750ee19bda"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/hot/runtime/controller-commit.txt",
+      "bytes": 41,
+      "sha256": "4e54457347dca16a7daea1f248a46e0127b9730dcd0a3c727e27ae09e4437fa6"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/hot/runtime/postgresql-settings.json",
+      "bytes": 377,
+      "sha256": "8bf31f9e4e92b4d144028fcd5c37ca42e942f932b1164a03e7d23b98b8050600"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/hot/runtime/redis-version.txt",
+      "bytes": 90,
+      "sha256": "e6fc562e9f01b91366cfda4e5d87ffdbbe023590a5a225192ea51172d047ba68"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/hot/runtime/source-commit.txt",
+      "bytes": 41,
+      "sha256": "4e54457347dca16a7daea1f248a46e0127b9730dcd0a3c727e27ae09e4437fa6"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/hot/runtime-check.json",
+      "bytes": 290,
+      "sha256": "03847f4fe0f541b0c4ad19be99ede04bffe567b8eec4b16244609a54b8e75bdc"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/hot/seed.txt",
+      "bytes": 84,
+      "sha256": "993389f3c5f0cbf79b20e18805ab38807c918d93cf0a28be54b500951198fcba"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/hot/server-clock-attribution.json",
+      "bytes": 828130,
+      "sha256": "1b915ae63ca9885e21f7bfd02375c7d267741bc18c8d58dd87b718b62ce7529d"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/hot/source-commit.txt",
+      "bytes": 41,
+      "sha256": "4e54457347dca16a7daea1f248a46e0127b9730dcd0a3c727e27ae09e4437fa6"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/hot/start-apis.txt",
+      "bytes": 130,
+      "sha256": "4b82530fb1f4dfd84a59e327f52569f766cc8e34f8678cb9069ab7c0c9814d1b"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/hot/supplement.json",
+      "bytes": 213680,
+      "sha256": "70832da85134497d583b4b3940aace699ad6623fd9c4f0ca73ea0124b54c5085"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/hot/window-gate.json",
+      "bytes": 3982,
+      "sha256": "3f8e318ecc8102aaca101744bcd0b0a580d5d78cc93ac2e9d5b9d3942a3299ed"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/hot/window-mode.txt",
+      "bytes": 10,
+      "sha256": "1e81270f1a47dce22a2e4985250c74b2e3374443734f1492b03ea2cd2af4ec48"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/hot/yxt-api-a-final-inspect.json",
+      "bytes": 8043,
+      "sha256": "6b04e3c2314c532e7f8d008ddda9e5fc11d6f3593c4d019b04842f5516810ac1"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/hot/yxt-api-a.log",
+      "bytes": 46673558,
+      "sha256": "0ebee4690862032fe312cdc69291b77c33fb115dfa27ccf6cc15a0113ca50bd7"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/hot/yxt-api-b-final-inspect.json",
+      "bytes": 8043,
+      "sha256": "ac83aa4725d157f59e6890bcc30e1d209b80d1ccec41c5509d555cdb91bb97cf"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/hot/yxt-api-b.log",
+      "bytes": 46558878,
+      "sha256": "72dc6ae75eb9e68f6c0303e69c522df492c86fdb8cf1f8466dc443d5dd9ea8b3"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regression-application-equivalence.json",
+      "bytes": 311,
+      "sha256": "681c27b4b7ffdef040f6421cc8b5f5a8cf69e1ef019164b0dcf478b903aef710"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regression-summary-verified/fault-timeline.md",
+      "bytes": 1909,
+      "sha256": "9377c0b65f662d4b6703c737a002167ceb771c5ab7eaf53e56af7dd1e5873f9c"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regression-summary-verified/regression-matrix.md",
+      "bytes": 75591,
+      "sha256": "697bec2f6edf11f078cab29fe49c7014460194ceb9bd76b9f94e904dece93a99"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regression-summary-verified/regression-summary.json",
+      "bytes": 6996,
+      "sha256": "79578755661e8be9d17c8583df6b4e981a0a09aeac7dff80de3d7e86588075d2"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/audit.json",
+      "bytes": 1409,
+      "sha256": "028dc9c5f90e50d5c5f2ed967a1f194348a77a79c3761368d6651a302b73d871"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/seed.txt",
+      "bytes": 84,
+      "sha256": "993389f3c5f0cbf79b20e18805ab38807c918d93cf0a28be54b500951198fcba"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/source-commit.txt",
+      "bytes": 41,
+      "sha256": "3952b1a76a1b5248568e54bcd0d19e342ab881e74904fdd3f55f13c94081b4ad"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/test-exit.txt",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/tests.tap",
+      "bytes": 4127,
+      "sha256": "4ed9cb663cd58246d67b28b226ec23b5ddbf0522d0d278964a38f25ab0b490cb"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/.dockerignore",
+      "bytes": 97,
+      "sha256": "ce09b6d53de152671ce4c6e365eef5e33334fcf7b49384f557d45107522d1c54"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/.gitignore",
+      "bytes": 103,
+      "sha256": "8b190d69760b5c692cc91191fa963ac02888beac294cfa4e2405bbc679bd6596"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/.superpowers/sdd/2026-09-23-permission-spike/final-fix-report.md",
+      "bytes": 14519,
+      "sha256": "0919475e5acee789d253e76fbdbb8cbc74064fd5dbd3a1adefdd0ad98a9efe26"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/.superpowers/sdd/2026-09-23-permission-spike/task-3-report.md",
+      "bytes": 31462,
+      "sha256": "9d73763ed0ff3ba39ab0c282ff4dbefce10f0c9b31eecdc72c754e1532321159"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/.superpowers/sdd/2026-09-23-permission-spike/task-4-report.md",
+      "bytes": 21605,
+      "sha256": "b11a3c6d1d87bbb779e83b69c51981bebccfaf467360d2a0c430691807d3972b"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/.superpowers/sdd/2026-09-23-permission-spike/task-5-fix-round1-report.md",
+      "bytes": 8950,
+      "sha256": "593fdde6f51a449e2dec22d4a2412eb7f6025ffab05978d9b1a94520636a4815"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/.superpowers/sdd/2026-09-23-permission-spike/task-5-report.md",
+      "bytes": 20409,
+      "sha256": "4a85251b9ad2f8d3829ffaab3920caf65c916fcb7cf4a0597cf9d91b8eb4497a"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/Dockerfile",
+      "bytes": 247,
+      "sha256": "8b545dc82825355267aea6c49184d340186d7486274115ce3892a425f56e521f"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/README.md",
+      "bytes": 17700,
+      "sha256": "9cd163cebe8399e18378f5b49fdac88e70ca9c81672859d49c6fa0aea22050b9"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/docs/acceptance-manifest.json",
+      "bytes": 24388,
+      "sha256": "2909d2e272a19e0e788709251f1823467ead436f9e6065b8b11b0145135ef106"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/docs/controller-acceptance-audit-notes.md",
+      "bytes": 6346,
+      "sha256": "8218be06a3636e9dc54d430f2be93d87bba9a6e06e8042fcbc7915f7cc1a8776"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/docs/coverage-map-contract.md",
+      "bytes": 1908,
+      "sha256": "fc8ccda4e6765b333c088dc507f01c4284617acf894cbfd2932fe2055fc14622"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/docs/decision-evidence.md",
+      "bytes": 3369,
+      "sha256": "45bbebfca86fee22ca518163bf87548cc70e73b5fd0fc744c1fc2dc54b93d742"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/docs/environment-log.md",
+      "bytes": 1791,
+      "sha256": "8e9a357bcf095559371ad954383397c21dc4d00204c082b0e1498ca0c5c5ea50"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/docs/final-report-contract.md",
+      "bytes": 4096,
+      "sha256": "68909cdcb32ebdf4454c513f9af60f96207b9e3030876f1b83481b932bc37949"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/docs/final-review-brief.md",
+      "bytes": 2905,
+      "sha256": "337da42a5ad4d9f7a70a3f4b025a7601e4349efc89f1da17c25df5063c3f7a2a"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/docs/kernel-contract.md",
+      "bytes": 15634,
+      "sha256": "f58ddaaab6504ab0d4ee1b0a8e82de6c7bc50b4c8271045a6cc719082286e387"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/docs/native-stage1-attribution.md",
+      "bytes": 18548,
+      "sha256": "2c7c23220cfe968ec75e2c446efdde21f938577adb74bc9d93f5e6061ed0890d"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/docs/performance-protocol.md",
+      "bytes": 4677,
+      "sha256": "419859e2f2b11f7e9f462332caa9444ca6e2f47529947fd278e28ad3d73dcae6"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/docs/post-spike-estimate-notes.md",
+      "bytes": 2699,
+      "sha256": "79361b7633dd1549a2f31c4a06efa03a307605c5603da26fdeea772ab5c4cd13"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/docs/reestimate-method.md",
+      "bytes": 1697,
+      "sha256": "a846f4f001c08797537704727e74c1d91d3070c5a237af48bd9ab3a200f371ee"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/docs/reuse-candidates.md",
+      "bytes": 3736,
+      "sha256": "69bf5e3faca34df8b62bbf6875c4000c38df0253af21ba4fe09ef6559286050a"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/docs/superpowers/plans/2026-09-23-native-candidate1.md",
+      "bytes": 4992,
+      "sha256": "07ea660708bfb8e0eeb134fb4b2c3f31ba79c00b91471440d3a03c85a046f1b9"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/docs/superpowers/plans/2026-09-23-native-performance-remediation.md",
+      "bytes": 6823,
+      "sha256": "2a3ee4ef6e4eba3a2dbe0e0e9cf036d54592d3fa9e16e567e2669699f82ac29e"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/docs/superpowers/plans/2026-09-23-permission-spike.md",
+      "bytes": 28136,
+      "sha256": "392e66f5f06e88b6ae6a8b6b401cf8ea479f6f0a88ef68bd69d26437a4ac096b"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/docs/superpowers/specs/2026-09-23-native-performance-remediation.md",
+      "bytes": 4827,
+      "sha256": "4b05015ad79ac9f32018bc6f1514ceb56aa41813345e57a4b0b544562f8fa17a"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/docs/task2-follow-up.md",
+      "bytes": 8955,
+      "sha256": "90e25869a6e683cc99cb0087ef3fbf97c0a8c2cfaf2482062d822aba866d3af5"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/docs/task3-coverage.json",
+      "bytes": 67698,
+      "sha256": "9e8d4f543b4ed6a9f7aef78456957222c937292eb63fc57af3b3dcfb3e9dcc5e"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/docs/task3-ports.md",
+      "bytes": 7911,
+      "sha256": "dae11bdd9913c83b1eab820181dbcf4b06b10e517264ee7eed8c7383e62e5eb2"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/docs/task4-coverage.json",
+      "bytes": 123567,
+      "sha256": "33fc2566199ef8d34891ae438fe2f08d40df4153bc6b3d02496395f69dd6ece1"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/docs/task4-ports.md",
+      "bytes": 6765,
+      "sha256": "b891b67abf22217b088ab41e78105b10e6a4d77f33c46790dfe54159bddd8caa"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/docs/task4-seed-contract.md",
+      "bytes": 9595,
+      "sha256": "b46d795b202af7541532063eac84f10c2b28d68531ba821c5bc459d1bd9c458b"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/docs/task5-benchmark-fixture.md",
+      "bytes": 2506,
+      "sha256": "e59eb27c68bf64868254fa3b0c455c21ad198a11c86ee7bc90f8028afae4caf0"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/docs/task5-ports.md",
+      "bytes": 7128,
+      "sha256": "589a176cb6363d864f082eee1ec7bfe0edd4feb355167487f02fb5a543e9ea45"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/docs/证据复核与复现.md",
+      "bytes": 4491,
+      "sha256": "9d3da146621c7f236a5d1b75ea8d41d7ac5f458820101fc70427a33c9d893bcb"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/evidence/browser-review.json",
+      "bytes": 9422,
+      "sha256": "07ce653cd5c1c2ea1c500e2555fa3f24304486227c296248f5d4ddb0832197bb"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/evidence/controller-semantic-review.json",
+      "bytes": 25794,
+      "sha256": "c6b99625f057d66441175c13e716cd98ca105df526c18b0714c05b7eac228ba1"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/evidence/coverage-map.json",
+      "bytes": 465682,
+      "sha256": "af59463c244b9c62c678dc23ec6ee99345ebf9ee17b1b3760e233bcb2d5f4b14"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/evidence/coverage-matrix.md",
+      "bytes": 180604,
+      "sha256": "5d90680a4a1cec3e9df54f7adb4aa8fb81c4ed6432e11ec1813723f9b5e55ad4"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/evidence/fault-summary.json",
+      "bytes": 9064,
+      "sha256": "125751a3f8e2e65b59d51067a53f53edebb7998ea39c312a7a4e9fd2116bf58a"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/evidence/fault-timeline.md",
+      "bytes": 3862,
+      "sha256": "9dc6ac9e2e2c304ce9f7193dd0ae3ea48cbad1adaafe411325064892e195360b"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/evidence/final-verdict.json",
+      "bytes": 649,
+      "sha256": "ea317ceafcefb7835102e0e8a3a8ada6d8d328c34ca418e77cce0381f1d28d43"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/evidence/performance-statistics.md",
+      "bytes": 7006,
+      "sha256": "0ad48b4df0141c89c1757cf053d5800bf6d5ac179df44cf649e099a1b308a724"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/evidence/performance-summary.json",
+      "bytes": 65874,
+      "sha256": "a7bdba46b62bd4dd7cdb1de26d10193b44b90a0176d216c3fd45a04ceeebebcf"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/evidence/raw/commit-timeline.jsonl",
+      "bytes": 2062,
+      "sha256": "9ac7c7ea620ecf3e81a53659910f3254ec92ee66a6354d49e3c9e4e8f0d86d35"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/evidence/raw/final-fix-http.jsonl",
+      "bytes": 33132,
+      "sha256": "d39b7d1a196f030f93251033d229dcbdfd408a887c066415170cb84d9bee7cbd"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/evidence/raw/http-observations.jsonl",
+      "bytes": 540172,
+      "sha256": "507f16487dcb9b469400616fb12b979e9d55ed311c371b444cb46eb6ce83491c"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/evidence/raw/observations.jsonl",
+      "bytes": 100370,
+      "sha256": "e3ba15cb17d89706295114348868e7b9e4f9b9ab3b58a161010abe24db42a7b4"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/evidence/raw/task5-complex-native.json",
+      "bytes": 342601,
+      "sha256": "cb3e7e662bc260ae6f9b78c03be1ceb315f99b636bb40eaf8e9527b95c08e65e"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/evidence/raw/task5-race-timeline.jsonl",
+      "bytes": 548,
+      "sha256": "0f451552e91d6db46a8979228d9425e8f388b53e7e16d2414f4152ca8ab35b1a"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/evidence/raw/task5-scans-native.json",
+      "bytes": 2808127,
+      "sha256": "a0e8b65173a5c97d410e822df9c96c017872e28a6906d2d7af6cda36abead4fd"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/package-lock.json",
+      "bytes": 88726,
+      "sha256": "fb63de84ac6ca26b309a5d17a18baa19e085383fad08d209edacfaac0e3edac8"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/package.json",
+      "bytes": 1832,
+      "sha256": "ab197b71df4e0527a5ad02fc4af1636dea85d33553bc0ce1deb1a81129d29359"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/scripts/benchmark-fixture.ts",
+      "bytes": 2082,
+      "sha256": "8dbf3bb80991df1f06839a68d6905d6c16890a25ed5275fbd3fd3e87b4f29b6e"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/scripts/benchmark-observation.ts",
+      "bytes": 1255,
+      "sha256": "26aae36147049521fa50306411d0ce75a62a0dfe377e912e3d84a76fb2d4d55f"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/scripts/benchmark-telemetry.ts",
+      "bytes": 1182,
+      "sha256": "176997d29e3cfe7b443cbf3d88808e51931ba0f02bc20db5ef436cdd679ee1e2"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/scripts/benchmark-truth.ts",
+      "bytes": 4374,
+      "sha256": "06f6e11c3f236edae33f51672ecec5fd0e2bc6e0abaceac63669ce639933f7f9"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/scripts/benchmark.ts",
+      "bytes": 7061,
+      "sha256": "4f7eb166e4bdb86c6d6bd554806f197e857fbcf3dfe55b188c1de3b713312ef1"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/scripts/build-task5-coverage.py",
+      "bytes": 12044,
+      "sha256": "a9639ef8cae619ebd62f846a0602ad23c285dba49a919216ac3f9e79beedce0d"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/scripts/evidence.ts",
+      "bytes": 1417,
+      "sha256": "52e6ec29eb1466bee30253d43aaf6beb151b67aae26519887f4372ec01dc3c2f"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/scripts/explain.ts",
+      "bytes": 1621,
+      "sha256": "811180306ca0e64212f40f6071b3226908c88aa15291a4568aa9fedf26fdfdc6"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/scripts/native-fact-access.ts",
+      "bytes": 4608,
+      "sha256": "e8c40e84dd202561bf11f74fe3ba70521ee14aabb992e82705db669cdb7a6fad"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/scripts/run-faults.ts",
+      "bytes": 2396,
+      "sha256": "9d637f32d8eaeafa368b2f5d9b15b0f2f59ebdfe5eaf884701d682fa3ffacc55"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/scripts/run-functional.ts",
+      "bytes": 7927,
+      "sha256": "2d534ddbde837c8b8834a7e89254ae5a6062422fb08a4117a2c2d4fd692296fd"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/scripts/seed.ts",
+      "bytes": 4166,
+      "sha256": "b335ddf10a7cf04cee28378f69b5a6bc25c4af1908aee6b4d1cd3d0c25f72263"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/scripts/task5-phase-smoke.ts",
+      "bytes": 1822,
+      "sha256": "9d462bfe64190cd7dcaa0cbdf47c60b1fe9898e619d32e1a4630747493bcbb27"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/scripts/task5-smoke.ts",
+      "bytes": 1209,
+      "sha256": "6f6e8e5f23a75dd548679b618dfe6e795c6480d3e08419545f5533300ecf08d4"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/sql/schema.sql",
+      "bytes": 20534,
+      "sha256": "961dfb9e97470e9e730cfbe50e4e4f8409f8619b4909bc58aa06daca6fc8bc40"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/sql/seed.sql",
+      "bytes": 4620,
+      "sha256": "9e991154ec13df55870b1381bdbd3ecf2cda3dfc2c2f27edaa4109dd09ce6dfa"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/src/account/exports.ts",
+      "bytes": 588,
+      "sha256": "2e7cdf187f42fe825f02492bbcd877a812632cc3ffee36390c852aa907a1434b"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/src/account/public.ts",
+      "bytes": 1522,
+      "sha256": "61e04c9f2b78ff9ca17453fd1e8c38063c6cc5599b433c9e96e01a062f320b40"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/src/account/service.ts",
+      "bytes": 4556,
+      "sha256": "f7f2371d34f0e9127baafe5713c687e3f04d2a76e29154de0787adb842770f75"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/src/authz/bulk-candidate.ts",
+      "bytes": 1428,
+      "sha256": "c9f6dbb1088429268bf0c477047f3422d4d78c1457ac70d7a3c104eeb736f6be"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/src/authz/cache.ts",
+      "bytes": 2649,
+      "sha256": "f8ecebcb5e402deda4ba737a9380a4348e6a68563f4f5d1c4796c7567698760d"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/src/authz/candidates.ts",
+      "bytes": 3590,
+      "sha256": "1b000b11d0bdcf65ce458f31aafc58ae9c0c72174fa944b337d5cc50a5dcb011"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/src/authz/company-service.ts",
+      "bytes": 2336,
+      "sha256": "a2d531b2e0f422d3ff7245f1f636e7299fc3077ea7e30c8c51d0ce2e97409b5d"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/src/authz/compiler.ts",
+      "bytes": 2639,
+      "sha256": "6941206738c4f2f78bbeaee38787423a77ab4c3bac1f375a94102221ed74b073"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/src/authz/contracts.ts",
+      "bytes": 6114,
+      "sha256": "fc0396079ef45f81e1c063bf2a735a4ecfc9500e0b12e2b4e99d3773833be8d2"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/src/authz/delegation-caps.ts",
+      "bytes": 1000,
+      "sha256": "1c40425ef1631270258d7a45c64c6e65bea5ed48cdb599ad8a9c5dbb781550a5"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/src/authz/delegation.ts",
+      "bytes": 5439,
+      "sha256": "e79fa12117f330baddc2a6cb95da61a00140bb07ede7fbd9ea52a571349c5e18"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/src/authz/export-worker.ts",
+      "bytes": 1373,
+      "sha256": "c8d18e44e86b4b7413744cddcf53f6916726c99dc229590d7a01d3d8346d7f6c"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/src/authz/media-ticket.ts",
+      "bytes": 1336,
+      "sha256": "2b67c8b01a121d29b2b3d736d4c59c4870f370ae592a7569c10f391d7ea5add1"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/src/authz/objects.ts",
+      "bytes": 2118,
+      "sha256": "ce7840304e3e35faa11d9e426cbf9af64a11f786ab0ae189f39d9799aa8ee4c3"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/src/authz/policy.ts",
+      "bytes": 10741,
+      "sha256": "2613ac8102f58f69c1ad303f74496b6d1fe1234adaf6bf0c4f94084e81509ac9"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/src/authz/public.ts",
+      "bytes": 625,
+      "sha256": "08b2b2fa08d8fce23c5dd4a7d2549999d0d1f99e78c78c4292d2f37480b5c302"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/src/authz/registry.ts",
+      "bytes": 3541,
+      "sha256": "d31bb8b8ce2976563995902b3476c1016439b1b86e847b96cea38bd6410b29e4"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/src/authz/revision.ts",
+      "bytes": 11459,
+      "sha256": "f693e1a6b162d4d8ca2fc3e26cc8463482ba7535e4551d0b801b333ed873879e"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/src/authz/role-service.ts",
+      "bytes": 10677,
+      "sha256": "869c2b213b019e89038b677b82f7519421faef6a6ffa2856ab6bbedd41a9f917"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/src/authz/scope.ts",
+      "bytes": 4939,
+      "sha256": "39cb213cc18bcc56847a39c936b1a8c464405f53f5caf4a9e0c678baa91138d0"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/src/bootstrap.ts",
+      "bytes": 13822,
+      "sha256": "e9675dd5b0ef280bf327915f2521d3abfafce408d8f2d5640596baf82cc714f6"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/src/contracts/ports.ts",
+      "bytes": 1131,
+      "sha256": "46b3e99dc6648776c7f5b5f884a59ae2d9c15bc94acbcc39860d1c9350e4fb2b"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/src/infrastructure/db.ts",
+      "bytes": 1910,
+      "sha256": "c0ff89993e19d289bc2f3e8fed380713f2e27b0eff7d8d792fa623ab11e6dd63"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/src/infrastructure/protected-exports.ts",
+      "bytes": 4209,
+      "sha256": "6f100c2ae78aa2399f84d6607ea44ab3b259471ae6aa333ee96bbcafb75ee5a6"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/src/infrastructure/sets.ts",
+      "bytes": 413,
+      "sha256": "5be7e803e9490e94e0724af924d3c8fa331097e9bc0caed45e0cbfbcdf70eea2"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/src/infrastructure/telemetry.ts",
+      "bytes": 10806,
+      "sha256": "969e70839e28deeb4d51c7498f7361ef50d8c680d4f7b92cfeb73598c3339558"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/src/knowledge/public.ts",
+      "bytes": 3314,
+      "sha256": "dac687350386fdf559a00f099d1c72d8256bef1d8dd76b831bb68c09817d0ebc"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/src/knowledge/service.ts",
+      "bytes": 15482,
+      "sha256": "beeda14851d6bf0c06395846460922181df4277508b556e081b5cb7e6b2b81c0"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/src/organization/public.ts",
+      "bytes": 2860,
+      "sha256": "3823a4ff06a6e7c13a8e1915bc4577e3a59ff926d341d9d4fdc2804893861116"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/src/organization/service.ts",
+      "bytes": 5947,
+      "sha256": "a7ee3b5e7d1b1023851e7779c01586c693484896de0563df1ab699ce7e2c9b7c"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/src/report/exports.ts",
+      "bytes": 996,
+      "sha256": "7c002855f75be89cd10b2c0a5c6f475a392b4dcc12a21c82562200c325e6e0f7"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/src/report/public.ts",
+      "bytes": 1851,
+      "sha256": "e137f0355d1835739fa723b825f7b397441bdf59c909f488227a1b80c92145a6"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/src/report/service.ts",
+      "bytes": 4557,
+      "sha256": "b28808e0d2f0b4b67d130b8a9d07424021f03f8c556f3374d301e63a0368eb42"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/src/training/enrollment-service.ts",
+      "bytes": 4423,
+      "sha256": "4fcf43adfb9130a620728b3a8b9e7638e9b85858a779592549e9ef32b293b28c"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/src/training/exports.ts",
+      "bytes": 1443,
+      "sha256": "ad227cad7fa213e558a85a71dd3bcaf6ef7fbd3db50f93caf03d597f39b43497"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/src/training/public.ts",
+      "bytes": 1600,
+      "sha256": "2cd6ff1a99e8339c17eb0570176788c1d8e05d5a7430eeb0aadd9454c02894db"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/src/training/service.ts",
+      "bytes": 6532,
+      "sha256": "158a473050969ca062734d3c3cba4adb11a1b370923ca7f8212b2de91805a183"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/test/benchmark-telemetry.test.ts",
+      "bytes": 1367,
+      "sha256": "08c932f0bc78d01c6e4b64ba50c5f01bfc512ad4f56b4897fb9b6f94f89f1ed5"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/test/cache.test.ts",
+      "bytes": 447,
+      "sha256": "e74a464c716f586229ea6d575562b33b74ed9ee0ec3cca98dbbac0f454829df5"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/test/final-fix-regressions.test.ts",
+      "bytes": 15845,
+      "sha256": "1fc8206dcfa214b88a3aecf04e312216d95a272eb0d8e1896777cb3dceb31e3a"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/test/fixtures.ts",
+      "bytes": 3684,
+      "sha256": "09a2575d02fe41fac91a92e736f17139c5ffbba68cd3a7f17be26c3c51abdf81"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/test/http.test.ts",
+      "bytes": 2187,
+      "sha256": "7f1f6434c51eb5869964effb3138a90005f224567e1995a1ab4b5dad5b033dbd"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/test/integration.test.ts",
+      "bytes": 5256,
+      "sha256": "3bd15964f7c119f5de2da876ec4f56b1d3e24b431b51970b76eda06b8c8082b6"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/test/kernel-benchmark.ts",
+      "bytes": 1786,
+      "sha256": "d05f1dfe5978fc5c018602fc03f7d2c4f6209fad7b0cf1ac5876ab55c52d5511"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/test/module-boundaries.test.ts",
+      "bytes": 1915,
+      "sha256": "72172ec6d586fea3f73a6842e07a62db5ce119eb4c9480614638e5eadcbdc024"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/test/native-fact-access.test.ts",
+      "bytes": 2280,
+      "sha256": "001f44e0a44ea6344733f80ba1c46ed116ea3026419bcd3d65b8b11df7ead795"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/test/races.test.ts",
+      "bytes": 4704,
+      "sha256": "23ef2ae227da652e89682cc6e03da12fe095f2d427a69bec07f1fda2c87d2c35"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/test/review-regressions.test.ts",
+      "bytes": 10004,
+      "sha256": "57aef08382ba892a9b27079cc96b8bba2d32e84e37041cc7308697ac62010302"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/test/semantic.test.ts",
+      "bytes": 23710,
+      "sha256": "2a9dab8125f273190141c3f07d58ea8cb39ec6e4b2b98ae3cf6a3ead1d43d549"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/test/task3-anchors.test.ts",
+      "bytes": 2929,
+      "sha256": "2a1b2c8deafe791c74d148f161117bc15954a0e42c55109727b54ecd62078fa6"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/test/task3-category-provenance.test.ts",
+      "bytes": 1479,
+      "sha256": "5e21c2d6d94a9888a9fe7c4008f6f46f55143d89bb91984dd02b9b2fb8ce3c4c"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/test/task3-company-cap.test.ts",
+      "bytes": 1617,
+      "sha256": "3a2cc3879ca48f31f35cd694acd441f450a7dd20432436394a7b52ef0da59226"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/test/task3-custom-regression.test.ts",
+      "bytes": 1597,
+      "sha256": "a231d32f118e9857bb890e4350f2b700228aac3cf4b983acced0698a207e7b5d"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/test/task3-delegation-matrix.test.ts",
+      "bytes": 7515,
+      "sha256": "cc50ade8868d0a0df60ba49e4632118f13b68267a604678a92c8afc66041d4dc"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/test/task3-delivery.test.ts",
+      "bytes": 2404,
+      "sha256": "6d13d406f3ed5830176053391d41b8db4579ecab91ff9108bf5ad785725f8ed9"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/test/task3-entry.test.ts",
+      "bytes": 943,
+      "sha256": "ff211bc5ecd14a0d523a4b3b048a03fa2bf7078d070854c3f554f45d4420b6bb"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/test/task3-helper.ts",
+      "bytes": 2887,
+      "sha256": "6d3270ca5b647edb4cdb66bc3f1bec8c9870bda60a071fc0b0eeeacb05e6b5de"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/test/task3-inheritance-caps.test.ts",
+      "bytes": 11255,
+      "sha256": "348f5acae0129f12b80caa8f34300562b357993e2a70cad99e6ec8005f4f1a98"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/test/task3-knowledge.test.ts",
+      "bytes": 5148,
+      "sha256": "c3cfb38185c056fd8b5624060a745a5676068cf421ced7dc9d551217cb05bea0"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/test/task3-lifecycle.test.ts",
+      "bytes": 3122,
+      "sha256": "0551a226bede25c4b27c610e5f284821be9e7eb40743dbe545bef7dca3569cbd"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/test/task3-object-set.test.ts",
+      "bytes": 1935,
+      "sha256": "f5ddc182960025f413da00ced3a2aeb91eac277733b601a13d63b1684573de45"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/test/task3-policy-recheck.test.ts",
+      "bytes": 2330,
+      "sha256": "1007edd9446c30dcdefc9077aea503cebb85fd31b86b678bac8df3c6b3c2716b"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/test/task3-populated-delegation.test.ts",
+      "bytes": 3058,
+      "sha256": "f233614a83aed5913af8139d449723e2ebaae951fd9a4d219c9ef80231488f8e"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/test/task3-protection.test.ts",
+      "bytes": 3240,
+      "sha256": "68074352788b5b212577b1686604ecbef32cf117c388efe2f07e44ec9b4415e2"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/test/task3-review-regressions.test.ts",
+      "bytes": 10518,
+      "sha256": "2ac65063b00330ef4d09d1340786987a195deb5fb54c58a91eb732bf7b85bbba"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/test/task3-role-company.test.ts",
+      "bytes": 1869,
+      "sha256": "7a99b7cd274e5b742dca0f09ed3ec9de0a856241c1faf2eb30bf3376c86f3304"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/test/task4-account-caps.test.ts",
+      "bytes": 1782,
+      "sha256": "2f8edfea1f847c80bb9d03f2393534fa8ee42618317e60f16bcec9d041e3695f"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/test/task4-account.test.ts",
+      "bytes": 2491,
+      "sha256": "462c5e65de59626a621b0cadaefdbae78ff370cc1afaa29e2383d5b3c12234d8"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/test/task4-company.test.ts",
+      "bytes": 5488,
+      "sha256": "aca36cf9b2595aa3e6eabeb6129806d88eebd340025ed5c4e0ad91421b1546d3"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/test/task4-current-history.test.ts",
+      "bytes": 4930,
+      "sha256": "9e5baa6c083c2ddaaf4aff80e72925b8da8135c36c936ec578b7e4d4286cb816"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/test/task4-delivery.test.ts",
+      "bytes": 4885,
+      "sha256": "12c3ab57432b8ab0215f47fb3360fafe9a750830fc538b6134e29965281b5cd8"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/test/task4-department-cap.test.ts",
+      "bytes": 2129,
+      "sha256": "5e3317df32fc87fdb6a36f8256693432728f98ed8aa1a7cfb4b83b3551d88a10"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/test/task4-department-null.test.ts",
+      "bytes": 591,
+      "sha256": "71458b8f2a20a26cf98f83af74b39949affe51dcf2dad2117bf5b4b2e748ef48"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/test/task4-empty-scope.test.ts",
+      "bytes": 2146,
+      "sha256": "4162ee0931087641704080cbde9263a8d39363524a5b8bb2a57bb977ebb0d01a"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/test/task4-helper.ts",
+      "bytes": 770,
+      "sha256": "2b0b7d78be64b2786ca8da76c712300d53780b84b88b6e4855474347fb2931bf"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/test/task4-history-caps.test.ts",
+      "bytes": 4981,
+      "sha256": "b4ca44558020f323c973b14026f7f2272702cf840902504e96ecd6318e09a366"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/test/task4-organization.test.ts",
+      "bytes": 4061,
+      "sha256": "2a22b47b28c087861cdba437ed9cc3a2ddf755abb037a4cdfd7d948ec4d14f88"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/test/task4-person-cap.test.ts",
+      "bytes": 1443,
+      "sha256": "bb97e2dce23f55d93a4804e73b468cdc58f41f7a6ad0eb8af5f71e44b06eac09"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/test/task4-review-regressions.test.ts",
+      "bytes": 7505,
+      "sha256": "ab531cca2fe423f34391eeb832f1546bf8684c2400182e9407458de9e19e5d90"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/test/task4-source-boundary.test.ts",
+      "bytes": 1170,
+      "sha256": "0c9ff0b14f7946f1264527dd4e4005642c1d74dc170e6a97ebb5e1582796bee1"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/test/task4-team.test.ts",
+      "bytes": 4334,
+      "sha256": "bfa3797886261af062840bb655bedd42c9575468286c056baab84e3304d920a6"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/test/task5-benchmark.test.ts",
+      "bytes": 797,
+      "sha256": "c4c2a890fb77a27f5b9f4c1f36800ad9e5e7074253b056efda54eccada3c302d"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/test/task5-enrollment-conflict.test.ts",
+      "bytes": 7419,
+      "sha256": "99ea34bab2a42b0a6747adf2a6ac98cd5b8ad3bca969a22a10f0bf81dfe9829a"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/test/task5-exports.test.ts",
+      "bytes": 4524,
+      "sha256": "8686fa29d4ff1815ec7979f0e84ee926c987d9b986b8b0d7c7d855d57d7af58b"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/test/task5-faults.test.ts",
+      "bytes": 7356,
+      "sha256": "82654487d68a6b4f3349169bad09bfb79b2df982e49c601d8b5b13c28753288b"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/test/task5-measurement.test.ts",
+      "bytes": 1570,
+      "sha256": "719acd843100e160baf42efa9c7d54842c0348e1086c97cfb741fb44696ad6d1"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/test/task5-navigation.test.ts",
+      "bytes": 5228,
+      "sha256": "f50ea0335ba64b70cebc2f3adb975ac70a8789ccd4e534cc47fffa5f7e778298"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/test/task5-node-independence.test.ts",
+      "bytes": 2271,
+      "sha256": "b9fe155490d4509943cb169e873535c7c3b76ecbe02522440e1a5e347dddeed1"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/test/task5-nplus1.test.ts",
+      "bytes": 2726,
+      "sha256": "126c19a839860ce32343fefe206dd7567d049d0042cef467ae5c05aceee81c90"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/test/task5-races.test.ts",
+      "bytes": 4075,
+      "sha256": "9d22f8600e7dee5d11caea2496c85e6867a6d07c07ef9d8eab8137d29dd55673"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/test/task5-runtime.test.ts",
+      "bytes": 6739,
+      "sha256": "07258bf9918da9e78c34cb3a775fed55cad988df2ecf7d2c55980ce66a807d97"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/test/task5-ticket.test.ts",
+      "bytes": 2320,
+      "sha256": "ace050d6e593b4ef2874669ff371b29c78daad1ae050c9e75ab8bb6900138396"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/test/task5-transfer.test.ts",
+      "bytes": 4533,
+      "sha256": "8211f73944b0544ed3beef1b04db46583f62890700e3fc09d48813848e794d63"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/test/task5-worker.test.ts",
+      "bytes": 4722,
+      "sha256": "3c4053b4ea34b3f4a4165f46f61141aa6b46fa366b3f94d66b8e424043120727"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/test/telemetry-http.test.ts",
+      "bytes": 7559,
+      "sha256": "e0b07d1780ceed1edb44f548c3abfdc1b682a581dfa7d451f888d83c126f8dd9"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/test/telemetry.test.ts",
+      "bytes": 6850,
+      "sha256": "6c6d06a90028cdfe2a89dc0b019ccd0e9fddfb1ee1e4c25035f7129c7ac93072"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/tools/audit-benchmark.py",
+      "bytes": 8810,
+      "sha256": "a87fd065672dbdc2b0743745e9f17839cc18366102cb9b8d8f646fee4e843112"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/tools/audit-coverage.py",
+      "bytes": 3892,
+      "sha256": "6eb6b48a3c458b10a8b12d75b0952cc28eb0770ad51cb54b5d8c9845e30da5ac"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/tools/audit-final-timeline.py",
+      "bytes": 2028,
+      "sha256": "caa3d4d077e264f6d10dfa373e8f57f17731fa3baa90e5fe0ee11fbf2fd347b6"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/tools/audit-native-attribution.py",
+      "bytes": 26990,
+      "sha256": "9443257f0b68af50527173d23898480ecb581389a9e80c04f3ad4d719326b59a"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/tools/capture-clock-bracket.py",
+      "bytes": 1906,
+      "sha256": "e15e0606f988d41cfd0fb841f772842537f3a27a3f001223f6f76bb5ddf4cc95"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/tools/capture-runtime.sh",
+      "bytes": 3206,
+      "sha256": "e145a5e837263c9837bd21bd056c0a2aa694fa5f2a8834ddf61f9e0a00fd618f"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/tools/enable-commit-timestamps.sh",
+      "bytes": 1567,
+      "sha256": "04cae39ae202c62e706ccc5645c8d8c4a6dfe263470a30b992f12c13953f9daa"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/tools/index-observations.py",
+      "bytes": 1459,
+      "sha256": "cc9ba6e998a3588fd3d4d07a027fa0e45af18f571f21f4ab85297523285edb6b"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/tools/native-attribution-detail.py",
+      "bytes": 7063,
+      "sha256": "440a0fa4a088988be81b16af1b2dbf04de5f9dc9b89b49a3c8d36522bf3d98bf"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/tools/native-attribution.py",
+      "bytes": 6878,
+      "sha256": "d513c8722371ec70c80e31874936e2d950c01537a60b5f6c0abc0b23ddc62dbc"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/tools/native-window-gate.py",
+      "bytes": 2232,
+      "sha256": "43fe80302dbf58fe7d3bf44ee6fd9642d99f42b74757571463cbf073e2d6b72b"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/tools/package-evidence.py",
+      "bytes": 4061,
+      "sha256": "76135be0642f794b87f306ceb203047d2377f922daf84eccdb276ad39a250f1b"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/tools/reference-window-gate.py",
+      "bytes": 1909,
+      "sha256": "2244cc97a24ceaba3ac34680b2451e469db17dd16c595fe135a221e31d3f514d"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/tools/render-coverage.py",
+      "bytes": 3329,
+      "sha256": "bd3a3010e2b5d6483eda6bb28a93f11e1fd13c3e85ea9c09336b5a6da3048646"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/tools/render-fault-summary.py",
+      "bytes": 4221,
+      "sha256": "d1e447b580f5cd9007237875a2764a93166aa9c35a5d0cef440a2f2dc80b25fd"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/tools/run-native-regressions.sh",
+      "bytes": 3452,
+      "sha256": "078a1a98c645296ae3bb7ff14b24f7ffc1d701468d28d3a11af911a96b85a14d"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/tools/run-native-window.sh",
+      "bytes": 4704,
+      "sha256": "31726ef010bc1f6356fbadbdbd972ef837feeb51b1b76764d10e5fd979d90f12"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/tools/run-reference-windows.sh",
+      "bytes": 4271,
+      "sha256": "bd13111a2dc15e056cda5b4d44af8756ae828f2963a0b0287614b4595198bdbc"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/tools/start-apis.sh",
+      "bytes": 2378,
+      "sha256": "008b0dbb736f6238373ff8bf9aabc9fa5e352b9dcc0039e361ca4b8f508021c1"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/tools/start-infrastructure.sh",
+      "bytes": 1536,
+      "sha256": "be23bf1f09f57b5a3c6f55db7e6afd4eef2c8d8b3f52cbd633b35cfb5835ae00"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/tools/summarize-native-regressions.py",
+      "bytes": 5698,
+      "sha256": "62dd1a61452619085052100a738b796d08a92e1120a895b67d0f721d04bce861"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/tools/summarize-performance.py",
+      "bytes": 7476,
+      "sha256": "5879ddc8f36525ead53a892f4df89e9c792103afd2aceb9f01e5c571c50c2aed"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/tools/verify-delivery.py",
+      "bytes": 6534,
+      "sha256": "dc0996549f7beb7d8412a4d065df1ed22b0adc0f07ccf0d6244f65f75b19216d"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/tools/verify-documents.py",
+      "bytes": 7771,
+      "sha256": "6d3c6ce19ca59becb5434bacea3db53231d7ab7b990c489a6418569d0f817b78"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/tsconfig.json",
+      "bytes": 332,
+      "sha256": "c89cd8f6a198a59bc845377348992321768f56d612afa1f1ff9fba87fa86728b"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate1/regressions/workspace/web/index.html",
+      "bytes": 5621,
+      "sha256": "2ddad44807861e99eda6c2057c943ae7c53ac492fdfdd3af175edf76e00e877f"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/cold/attribution.json",
+      "bytes": 939167,
+      "sha256": "e472280d43f3aa587031de725a01fadc0bc013ae0bba50387ccebd45c34b00e8"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/cold/audit-exit.txt",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/cold/controller-commit.txt",
+      "bytes": 41,
+      "sha256": "3e49fbfb7f7bfa8a7e82e21cd7cf38e3a72cd429a44c06de9c4f88e50b0e0a25"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/cold/gate-exit.txt",
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/cold/independent-attribution-audit.json",
+      "bytes": 407512,
+      "sha256": "ddfa28cac16fc02d2652ef81224603a3871c52a2987dc9240223189433614b13"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/cold/independent-audit.json",
+      "bytes": 6335,
+      "sha256": "c6b497e0e068f41f55ee6a60dede51fed86b6e7baba39f1c189e5f06429cefd8"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/cold/measurement/event-loop.jsonl",
+      "bytes": 256231,
+      "sha256": "a1f1e9755e90786ec5c5e4fc32309e1519cf41d1ae6ee22805fdcfab696c9cfc"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/cold/measurement/samples.jsonl.gz",
+      "bytes": 1104220,
+      "sha256": "e463b5d417440462a1074d7ba659e1f47f6c3d2564fb8d97ac8c11312e9d8b92"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/cold/measurement/scenario-truth.json",
+      "bytes": 47848,
+      "sha256": "e6f9f0c2dd495f277a38eb6a658e71d0aabc5a46e42ff4d887974051b7e93996"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/cold/measurement/summary.json",
+      "bytes": 6537,
+      "sha256": "cf7aafeaf42555888219c05845a596345d6235d1ba403706a9aa9623ce031a5b"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/cold/ready-A.json",
+      "bytes": 515,
+      "sha256": "1de5ceb235033e0f7bf9fbfda97f07b2c2ed8f00e8e2439ad682a8fe26cc6616"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/cold/ready-B.json",
+      "bytes": 514,
+      "sha256": "1273a2014617ac187c753ee276807e6d8c001e1e770cd68ba7d6f055ca685b55"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/cold/resources.jsonl",
+      "bytes": 24177,
+      "sha256": "6056329a5b9e7c817e2f37d0aef3cef26344b55300b3a0e86bf1d00f03471cc7"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/cold/runner-exit.txt",
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/cold/runner.txt",
+      "bytes": 4208,
+      "sha256": "d121e5e6b153d67ee509fb4ee679db23e5255413216b8c492edb6378a1c0976e"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/cold/runtime/actual-data-counts.json",
+      "bytes": 176,
+      "sha256": "bbb4d4f2de6dbf0cf09ad62dec46c0d3b978db62cb674138f261982248e4067f"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/cold/runtime/api-node-version.txt",
+      "bytes": 9,
+      "sha256": "f2ec568164f99546161909b0189b57bb5be3e80f8e2ccd8a51a4aed8c4055a04"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/cold/runtime/clock-bracket-capture.txt",
+      "bytes": 136,
+      "sha256": "727ac297520728bcc0dd98826521714ce16f3c7b0078d90961116e6dfd45034e"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/cold/runtime/clock-bracket.json",
+      "bytes": 1731,
+      "sha256": "60b324348af5696bc6b3cb5816d7ef797bfea900d2ed1496c3062c56245380f4"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/cold/runtime/containers.json",
+      "bytes": 34971,
+      "sha256": "806a55e1d654798dac33174ec178f45ae948e4a7b390b5c7fe2000b0872c88a0"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/cold/runtime/controller-commit.txt",
+      "bytes": 41,
+      "sha256": "3e49fbfb7f7bfa8a7e82e21cd7cf38e3a72cd429a44c06de9c4f88e50b0e0a25"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/cold/runtime/postgresql-settings.json",
+      "bytes": 377,
+      "sha256": "8bf31f9e4e92b4d144028fcd5c37ca42e942f932b1164a03e7d23b98b8050600"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/cold/runtime/redis-version.txt",
+      "bytes": 90,
+      "sha256": "e6fc562e9f01b91366cfda4e5d87ffdbbe023590a5a225192ea51172d047ba68"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/cold/runtime/source-commit.txt",
+      "bytes": 41,
+      "sha256": "3e49fbfb7f7bfa8a7e82e21cd7cf38e3a72cd429a44c06de9c4f88e50b0e0a25"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/cold/runtime-check.json",
+      "bytes": 290,
+      "sha256": "44925c4903bc439c0aa5f3c21d39a353d2f49928b19d8ea62410dab869aca548"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/cold/seed.txt",
+      "bytes": 84,
+      "sha256": "993389f3c5f0cbf79b20e18805ab38807c918d93cf0a28be54b500951198fcba"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/cold/server-clock-attribution.json",
+      "bytes": 939167,
+      "sha256": "e472280d43f3aa587031de725a01fadc0bc013ae0bba50387ccebd45c34b00e8"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/cold/source-commit.txt",
+      "bytes": 41,
+      "sha256": "3e49fbfb7f7bfa8a7e82e21cd7cf38e3a72cd429a44c06de9c4f88e50b0e0a25"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/cold/start-apis.txt",
+      "bytes": 130,
+      "sha256": "4cb9dfdaeb5b741bc373e18e5dd5577118ebe5be533765ff16e7dc72241af915"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/cold/supplement.json",
+      "bytes": 374117,
+      "sha256": "e352ed0218ff4514e788c8c4ea232b1b38e0cebefb1e1281f6f86a0c4737b346"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/cold/window-gate.json",
+      "bytes": 3986,
+      "sha256": "9a0ba4515698ce58f2dd97cae72560342119a8eeec7cfac46a033bdfbf29ddc4"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/cold/window-mode.txt",
+      "bytes": 10,
+      "sha256": "1e81270f1a47dce22a2e4985250c74b2e3374443734f1492b03ea2cd2af4ec48"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/cold/yxt-api-a-final-inspect.json",
+      "bytes": 8043,
+      "sha256": "4c394831471d8f94ff2d8b307ccd4ac05b62c4a834c4c5ac44786e5f722f9679"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/cold/yxt-api-a.log",
+      "bytes": 42866709,
+      "sha256": "5e712e9413b7952c8f71798b0b378b56a9bc91d2cd95995c6cf88d639490a70b"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/cold/yxt-api-b-final-inspect.json",
+      "bytes": 8044,
+      "sha256": "760e8e7f8ea96943ecc1edfd87c457658c69d6446225336450ed382feca1bfba"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/cold/yxt-api-b.log",
+      "bytes": 42741994,
+      "sha256": "0fffe294d9038c9d4902c8c0b547aa33eb541bc092e3683767f421e3459fc9b5"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/hot/attribution.json",
+      "bytes": 1083648,
+      "sha256": "93321c7f801c24d72a855848f229fb038926f76eae981998bb8a18d6482e9d39"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/hot/audit-exit.txt",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/hot/build.txt",
+      "bytes": 1921,
+      "sha256": "898ed5a3d513505df585adffad49dff3f4d34b18b0f39a4993bc9a75e56db794"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/hot/controller-commit.txt",
+      "bytes": 41,
+      "sha256": "3e49fbfb7f7bfa8a7e82e21cd7cf38e3a72cd429a44c06de9c4f88e50b0e0a25"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/hot/gate-exit.txt",
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/hot/independent-attribution-audit.json",
+      "bytes": 640541,
+      "sha256": "20c47e84b7ed10c630d77406435dd2957094d9f327a09c15d8fecdac2d2c6eab"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/hot/independent-audit.json",
+      "bytes": 6503,
+      "sha256": "a78fd311cf7fe345b47cdfd0090073c0bd7a51ee1a14e313d4e3e8e8a95a5e9c"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/hot/measurement/event-loop.jsonl",
+      "bytes": 257078,
+      "sha256": "b9a9f99d677ae242109351399c0eb2f28dae0c46512729a16ff5218b982789d5"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/hot/measurement/prewarm.json",
+      "bytes": 9830,
+      "sha256": "ef3cd9fe295e9f9a177cf59d03fb979728f14f71c048b635b2838377265248d4"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/hot/measurement/samples.jsonl.gz",
+      "bytes": 1037279,
+      "sha256": "ca65c158d72a1d753effa06cb85ddf943b5d9cd6d1037eb8baa346eb6b5412df"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/hot/measurement/scenario-truth.json",
+      "bytes": 47848,
+      "sha256": "e6f9f0c2dd495f277a38eb6a658e71d0aabc5a46e42ff4d887974051b7e93996"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/hot/measurement/summary.json",
+      "bytes": 6526,
+      "sha256": "023de8b42f1b543c770efd92b8031e237162ee4daad1b270484a031eba26c20d"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/hot/ready-A.json",
+      "bytes": 515,
+      "sha256": "c2bf51e8d8f8a85d5e194f52b750bd5d514031facc3178091f82f5c03423afe9"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/hot/ready-B.json",
+      "bytes": 514,
+      "sha256": "d67fc24193e90eadb58fbe113e40dc567cb91b3d9880504ca79e07edca693ade"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/hot/resources.jsonl",
+      "bytes": 26524,
+      "sha256": "1ab5820402ede84791e62f9fba7c006a23fc87b5f6de992e5b57459d6ae46d9a"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/hot/runner-exit.txt",
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/hot/runner.txt",
+      "bytes": 4197,
+      "sha256": "55a65ed37463473e0738e110c7bd984cf93fe39ca949d07f5b44dd5c862a830f"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/hot/runtime/actual-data-counts.json",
+      "bytes": 176,
+      "sha256": "63546a2098a574361510f82955686bbd8051e4b6824dcd8e264225102fe9d9ce"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/hot/runtime/api-node-version.txt",
+      "bytes": 9,
+      "sha256": "f2ec568164f99546161909b0189b57bb5be3e80f8e2ccd8a51a4aed8c4055a04"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/hot/runtime/clock-bracket-capture.txt",
+      "bytes": 135,
+      "sha256": "ad7f3acc00ae81a2cc8ffa8dc6469559538fe8a1070052e314a6a4875c2cbaa4"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/hot/runtime/clock-bracket.json",
+      "bytes": 1753,
+      "sha256": "bed465cc6f488ba2ab96609ccc0ca719b6cb897561c8c121b2c2fcc8679a9a5e"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/hot/runtime/containers.json",
+      "bytes": 34968,
+      "sha256": "04e10c1b6c27c79b519d3cb8808957e2b96ba75d5c32b5c388f658b1f27696fe"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/hot/runtime/controller-commit.txt",
+      "bytes": 41,
+      "sha256": "3e49fbfb7f7bfa8a7e82e21cd7cf38e3a72cd429a44c06de9c4f88e50b0e0a25"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/hot/runtime/postgresql-settings.json",
+      "bytes": 377,
+      "sha256": "8bf31f9e4e92b4d144028fcd5c37ca42e942f932b1164a03e7d23b98b8050600"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/hot/runtime/redis-version.txt",
+      "bytes": 90,
+      "sha256": "e6fc562e9f01b91366cfda4e5d87ffdbbe023590a5a225192ea51172d047ba68"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/hot/runtime/source-commit.txt",
+      "bytes": 41,
+      "sha256": "3e49fbfb7f7bfa8a7e82e21cd7cf38e3a72cd429a44c06de9c4f88e50b0e0a25"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/hot/runtime-check.json",
+      "bytes": 290,
+      "sha256": "e9b05f72e653e422799f1b6aaa367c2dc59b6e6371af885222a8404d36468e34"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/hot/seed.txt",
+      "bytes": 84,
+      "sha256": "993389f3c5f0cbf79b20e18805ab38807c918d93cf0a28be54b500951198fcba"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/hot/server-clock-attribution.json",
+      "bytes": 1083648,
+      "sha256": "93321c7f801c24d72a855848f229fb038926f76eae981998bb8a18d6482e9d39"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/hot/source-commit.txt",
+      "bytes": 41,
+      "sha256": "3e49fbfb7f7bfa8a7e82e21cd7cf38e3a72cd429a44c06de9c4f88e50b0e0a25"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/hot/start-apis.txt",
+      "bytes": 130,
+      "sha256": "8adf56b2d4eca325cadf2f105b4d64ab87c004b9fe853f6e1eb306e2dd5cdbb5"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/hot/supplement.json",
+      "bytes": 602031,
+      "sha256": "2925c0171827e7af4a7199449c0f5c44f2e44b1312034ecdac3f67e46b9c2ce7"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/hot/window-gate.json",
+      "bytes": 3983,
+      "sha256": "c712e48de6825b226fa0a877ead12b86b7b8f521808c60125cd570963f481bac"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/hot/window-mode.txt",
+      "bytes": 10,
+      "sha256": "1e81270f1a47dce22a2e4985250c74b2e3374443734f1492b03ea2cd2af4ec48"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/hot/yxt-api-a-final-inspect.json",
+      "bytes": 8042,
+      "sha256": "b93c065d0c8e6414452b4dc30593a815c17b245a227c3d4425f3df495f0810c6"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/hot/yxt-api-a.log",
+      "bytes": 34631233,
+      "sha256": "1573c36ca341beaba430b375d3461ff1ba8e7532d8fb4b05a45bd64f19ae66ca"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/hot/yxt-api-b-final-inspect.json",
+      "bytes": 8042,
+      "sha256": "57744acdee705c2c7a09a0f88f8792a7a096378cc5540e48368eec99ab557f6d"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/hot/yxt-api-b.log",
+      "bytes": 34540275,
+      "sha256": "16d6291f5a52a216ce409fdc8f52d78bd15fc287adbf6a7221b1b14911c9dead"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regression-summary/fault-timeline.md",
+      "bytes": 1909,
+      "sha256": "7359901a1e09911d8f2f6ad5d83d8a251669688d07bb5722a13d7746cb916767"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regression-summary/regression-matrix.md",
+      "bytes": 75591,
+      "sha256": "008cf4975205b82ec4e6da13fc93a04a5ce167d0223fd3a7d51da8afa023ce20"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regression-summary/regression-summary.json",
+      "bytes": 6996,
+      "sha256": "3e2e44917f578dfb33a0e6e3ee7088b428cd2278d06cdba5ab1d4cba4102d7b7"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/audit.json",
+      "bytes": 1409,
+      "sha256": "0eab82ada351005bf38cb92aeaaaea133f32476aff891fbe9f5d02e9b645aff4"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/seed.txt",
+      "bytes": 84,
+      "sha256": "993389f3c5f0cbf79b20e18805ab38807c918d93cf0a28be54b500951198fcba"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/source-commit.txt",
+      "bytes": 41,
+      "sha256": "3e49fbfb7f7bfa8a7e82e21cd7cf38e3a72cd429a44c06de9c4f88e50b0e0a25"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/test-exit.txt",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/tests.tap",
+      "bytes": 4116,
+      "sha256": "250da70d3d34001b630865e7f585978ad79da11657a1a34e8b3d358f0b83422c"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/.dockerignore",
+      "bytes": 97,
+      "sha256": "ce09b6d53de152671ce4c6e365eef5e33334fcf7b49384f557d45107522d1c54"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/.gitignore",
+      "bytes": 103,
+      "sha256": "8b190d69760b5c692cc91191fa963ac02888beac294cfa4e2405bbc679bd6596"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/.superpowers/sdd/2026-09-23-permission-spike/final-fix-report.md",
+      "bytes": 14519,
+      "sha256": "0919475e5acee789d253e76fbdbb8cbc74064fd5dbd3a1adefdd0ad98a9efe26"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/.superpowers/sdd/2026-09-23-permission-spike/task-3-report.md",
+      "bytes": 31462,
+      "sha256": "9d73763ed0ff3ba39ab0c282ff4dbefce10f0c9b31eecdc72c754e1532321159"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/.superpowers/sdd/2026-09-23-permission-spike/task-4-report.md",
+      "bytes": 21605,
+      "sha256": "b11a3c6d1d87bbb779e83b69c51981bebccfaf467360d2a0c430691807d3972b"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/.superpowers/sdd/2026-09-23-permission-spike/task-5-fix-round1-report.md",
+      "bytes": 8950,
+      "sha256": "593fdde6f51a449e2dec22d4a2412eb7f6025ffab05978d9b1a94520636a4815"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/.superpowers/sdd/2026-09-23-permission-spike/task-5-report.md",
+      "bytes": 20409,
+      "sha256": "4a85251b9ad2f8d3829ffaab3920caf65c916fcb7cf4a0597cf9d91b8eb4497a"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/Dockerfile",
+      "bytes": 247,
+      "sha256": "8b545dc82825355267aea6c49184d340186d7486274115ce3892a425f56e521f"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/README.md",
+      "bytes": 17700,
+      "sha256": "9cd163cebe8399e18378f5b49fdac88e70ca9c81672859d49c6fa0aea22050b9"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/docs/acceptance-manifest.json",
+      "bytes": 24388,
+      "sha256": "2909d2e272a19e0e788709251f1823467ead436f9e6065b8b11b0145135ef106"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/docs/controller-acceptance-audit-notes.md",
+      "bytes": 6346,
+      "sha256": "8218be06a3636e9dc54d430f2be93d87bba9a6e06e8042fcbc7915f7cc1a8776"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/docs/coverage-map-contract.md",
+      "bytes": 1908,
+      "sha256": "fc8ccda4e6765b333c088dc507f01c4284617acf894cbfd2932fe2055fc14622"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/docs/decision-evidence.md",
+      "bytes": 3369,
+      "sha256": "45bbebfca86fee22ca518163bf87548cc70e73b5fd0fc744c1fc2dc54b93d742"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/docs/environment-log.md",
+      "bytes": 1791,
+      "sha256": "8e9a357bcf095559371ad954383397c21dc4d00204c082b0e1498ca0c5c5ea50"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/docs/final-report-contract.md",
+      "bytes": 4096,
+      "sha256": "68909cdcb32ebdf4454c513f9af60f96207b9e3030876f1b83481b932bc37949"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/docs/final-review-brief.md",
+      "bytes": 2905,
+      "sha256": "337da42a5ad4d9f7a70a3f4b025a7601e4349efc89f1da17c25df5063c3f7a2a"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/docs/kernel-contract.md",
+      "bytes": 15634,
+      "sha256": "f58ddaaab6504ab0d4ee1b0a8e82de6c7bc50b4c8271045a6cc719082286e387"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/docs/native-stage1-attribution.md",
+      "bytes": 18548,
+      "sha256": "2c7c23220cfe968ec75e2c446efdde21f938577adb74bc9d93f5e6061ed0890d"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/docs/performance-protocol.md",
+      "bytes": 4677,
+      "sha256": "419859e2f2b11f7e9f462332caa9444ca6e2f47529947fd278e28ad3d73dcae6"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/docs/post-spike-estimate-notes.md",
+      "bytes": 2699,
+      "sha256": "79361b7633dd1549a2f31c4a06efa03a307605c5603da26fdeea772ab5c4cd13"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/docs/reestimate-method.md",
+      "bytes": 1697,
+      "sha256": "a846f4f001c08797537704727e74c1d91d3070c5a237af48bd9ab3a200f371ee"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/docs/reuse-candidates.md",
+      "bytes": 3736,
+      "sha256": "69bf5e3faca34df8b62bbf6875c4000c38df0253af21ba4fe09ef6559286050a"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/docs/superpowers/plans/2026-09-23-native-candidate1.md",
+      "bytes": 4992,
+      "sha256": "07ea660708bfb8e0eeb134fb4b2c3f31ba79c00b91471440d3a03c85a046f1b9"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/docs/superpowers/plans/2026-09-23-native-candidate2.md",
+      "bytes": 5934,
+      "sha256": "988e0b00835661bd43eb5a47936cf7c2e572adad6b297b1713675fe0b279636f"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/docs/superpowers/plans/2026-09-23-native-performance-remediation.md",
+      "bytes": 6823,
+      "sha256": "2a3ee4ef6e4eba3a2dbe0e0e9cf036d54592d3fa9e16e567e2669699f82ac29e"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/docs/superpowers/plans/2026-09-23-permission-spike.md",
+      "bytes": 28136,
+      "sha256": "392e66f5f06e88b6ae6a8b6b401cf8ea479f6f0a88ef68bd69d26437a4ac096b"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/docs/superpowers/specs/2026-09-23-native-performance-remediation.md",
+      "bytes": 4827,
+      "sha256": "4b05015ad79ac9f32018bc6f1514ceb56aa41813345e57a4b0b544562f8fa17a"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/docs/task2-follow-up.md",
+      "bytes": 8955,
+      "sha256": "90e25869a6e683cc99cb0087ef3fbf97c0a8c2cfaf2482062d822aba866d3af5"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/docs/task3-coverage.json",
+      "bytes": 67698,
+      "sha256": "9e8d4f543b4ed6a9f7aef78456957222c937292eb63fc57af3b3dcfb3e9dcc5e"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/docs/task3-ports.md",
+      "bytes": 7911,
+      "sha256": "dae11bdd9913c83b1eab820181dbcf4b06b10e517264ee7eed8c7383e62e5eb2"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/docs/task4-coverage.json",
+      "bytes": 123567,
+      "sha256": "33fc2566199ef8d34891ae438fe2f08d40df4153bc6b3d02496395f69dd6ece1"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/docs/task4-ports.md",
+      "bytes": 6765,
+      "sha256": "b891b67abf22217b088ab41e78105b10e6a4d77f33c46790dfe54159bddd8caa"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/docs/task4-seed-contract.md",
+      "bytes": 9595,
+      "sha256": "b46d795b202af7541532063eac84f10c2b28d68531ba821c5bc459d1bd9c458b"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/docs/task5-benchmark-fixture.md",
+      "bytes": 2506,
+      "sha256": "e59eb27c68bf64868254fa3b0c455c21ad198a11c86ee7bc90f8028afae4caf0"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/docs/task5-ports.md",
+      "bytes": 7128,
+      "sha256": "589a176cb6363d864f082eee1ec7bfe0edd4feb355167487f02fb5a543e9ea45"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/docs/证据复核与复现.md",
+      "bytes": 4491,
+      "sha256": "9d3da146621c7f236a5d1b75ea8d41d7ac5f458820101fc70427a33c9d893bcb"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/evidence/browser-review.json",
+      "bytes": 9422,
+      "sha256": "07ce653cd5c1c2ea1c500e2555fa3f24304486227c296248f5d4ddb0832197bb"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/evidence/controller-semantic-review.json",
+      "bytes": 25794,
+      "sha256": "c6b99625f057d66441175c13e716cd98ca105df526c18b0714c05b7eac228ba1"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/evidence/coverage-map.json",
+      "bytes": 465682,
+      "sha256": "af59463c244b9c62c678dc23ec6ee99345ebf9ee17b1b3760e233bcb2d5f4b14"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/evidence/coverage-matrix.md",
+      "bytes": 180604,
+      "sha256": "5d90680a4a1cec3e9df54f7adb4aa8fb81c4ed6432e11ec1813723f9b5e55ad4"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/evidence/fault-summary.json",
+      "bytes": 9064,
+      "sha256": "125751a3f8e2e65b59d51067a53f53edebb7998ea39c312a7a4e9fd2116bf58a"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/evidence/fault-timeline.md",
+      "bytes": 3862,
+      "sha256": "9dc6ac9e2e2c304ce9f7193dd0ae3ea48cbad1adaafe411325064892e195360b"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/evidence/final-verdict.json",
+      "bytes": 649,
+      "sha256": "ea317ceafcefb7835102e0e8a3a8ada6d8d328c34ca418e77cce0381f1d28d43"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/evidence/performance-statistics.md",
+      "bytes": 7006,
+      "sha256": "0ad48b4df0141c89c1757cf053d5800bf6d5ac179df44cf649e099a1b308a724"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/evidence/performance-summary.json",
+      "bytes": 65874,
+      "sha256": "a7bdba46b62bd4dd7cdb1de26d10193b44b90a0176d216c3fd45a04ceeebebcf"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/evidence/raw/commit-timeline.jsonl",
+      "bytes": 2060,
+      "sha256": "e243085051f22acea62460f4c08cd5da7794f712878b7bca7b2a57f579290d18"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/evidence/raw/final-fix-http.jsonl",
+      "bytes": 33131,
+      "sha256": "d1694cafcbc27a4495740d5d4cd8a5410658485e1811bd8098e9642c9922f99e"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/evidence/raw/http-observations.jsonl",
+      "bytes": 540734,
+      "sha256": "138e6e1377dc699f4baaa54728d20665a9bd42d424d9f2552398e8b8ac92f03f"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/evidence/raw/observations.jsonl",
+      "bytes": 100370,
+      "sha256": "df60df1093ba3fd35d3a78fa475e00661dc7df2588256c01ff12e4e60fe9df35"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/evidence/raw/task5-complex-native.json",
+      "bytes": 342595,
+      "sha256": "4efd312711fcbb2a00c4b8733e11877c2f72aeab2227d192fefa03a48de31c47"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/evidence/raw/task5-race-timeline.jsonl",
+      "bytes": 548,
+      "sha256": "e9b51792d33c93638327da22e0ab4e9e50f95ddda6710bf97a9a4e6db92a3526"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/evidence/raw/task5-scans-native.json",
+      "bytes": 2808125,
+      "sha256": "591b256dfe399683c317653e60eed6c6d323e08b1d7f6e812add1fd77eb6e01a"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/package-lock.json",
+      "bytes": 88726,
+      "sha256": "fb63de84ac6ca26b309a5d17a18baa19e085383fad08d209edacfaac0e3edac8"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/package.json",
+      "bytes": 1832,
+      "sha256": "ab197b71df4e0527a5ad02fc4af1636dea85d33553bc0ce1deb1a81129d29359"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/scripts/benchmark-fixture.ts",
+      "bytes": 2082,
+      "sha256": "8dbf3bb80991df1f06839a68d6905d6c16890a25ed5275fbd3fd3e87b4f29b6e"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/scripts/benchmark-observation.ts",
+      "bytes": 1255,
+      "sha256": "26aae36147049521fa50306411d0ce75a62a0dfe377e912e3d84a76fb2d4d55f"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/scripts/benchmark-telemetry.ts",
+      "bytes": 1182,
+      "sha256": "176997d29e3cfe7b443cbf3d88808e51931ba0f02bc20db5ef436cdd679ee1e2"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/scripts/benchmark-truth.ts",
+      "bytes": 4374,
+      "sha256": "06f6e11c3f236edae33f51672ecec5fd0e2bc6e0abaceac63669ce639933f7f9"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/scripts/benchmark.ts",
+      "bytes": 7061,
+      "sha256": "4f7eb166e4bdb86c6d6bd554806f197e857fbcf3dfe55b188c1de3b713312ef1"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/scripts/build-task5-coverage.py",
+      "bytes": 12044,
+      "sha256": "a9639ef8cae619ebd62f846a0602ad23c285dba49a919216ac3f9e79beedce0d"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/scripts/evidence.ts",
+      "bytes": 1417,
+      "sha256": "52e6ec29eb1466bee30253d43aaf6beb151b67aae26519887f4372ec01dc3c2f"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/scripts/explain.ts",
+      "bytes": 1621,
+      "sha256": "811180306ca0e64212f40f6071b3226908c88aa15291a4568aa9fedf26fdfdc6"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/scripts/native-fact-access.ts",
+      "bytes": 4648,
+      "sha256": "e965c53585a3ebcb6fc9eb2f018c313b3041dcf46e7cf16871c81dc483a0dcfd"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/scripts/run-faults.ts",
+      "bytes": 2396,
+      "sha256": "9d637f32d8eaeafa368b2f5d9b15b0f2f59ebdfe5eaf884701d682fa3ffacc55"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/scripts/run-functional.ts",
+      "bytes": 7927,
+      "sha256": "2d534ddbde837c8b8834a7e89254ae5a6062422fb08a4117a2c2d4fd692296fd"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/scripts/seed.ts",
+      "bytes": 4166,
+      "sha256": "b335ddf10a7cf04cee28378f69b5a6bc25c4af1908aee6b4d1cd3d0c25f72263"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/scripts/task5-phase-smoke.ts",
+      "bytes": 1822,
+      "sha256": "9d462bfe64190cd7dcaa0cbdf47c60b1fe9898e619d32e1a4630747493bcbb27"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/scripts/task5-smoke.ts",
+      "bytes": 1209,
+      "sha256": "6f6e8e5f23a75dd548679b618dfe6e795c6480d3e08419545f5533300ecf08d4"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/sql/schema.sql",
+      "bytes": 20534,
+      "sha256": "961dfb9e97470e9e730cfbe50e4e4f8409f8619b4909bc58aa06daca6fc8bc40"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/sql/seed.sql",
+      "bytes": 4620,
+      "sha256": "9e991154ec13df55870b1381bdbd3ecf2cda3dfc2c2f27edaa4109dd09ce6dfa"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/src/account/exports.ts",
+      "bytes": 588,
+      "sha256": "2e7cdf187f42fe825f02492bbcd877a812632cc3ffee36390c852aa907a1434b"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/src/account/public.ts",
+      "bytes": 1522,
+      "sha256": "61e04c9f2b78ff9ca17453fd1e8c38063c6cc5599b433c9e96e01a062f320b40"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/src/account/service.ts",
+      "bytes": 4556,
+      "sha256": "f7f2371d34f0e9127baafe5713c687e3f04d2a76e29154de0787adb842770f75"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/src/authz/bulk-candidate.ts",
+      "bytes": 1428,
+      "sha256": "c9f6dbb1088429268bf0c477047f3422d4d78c1457ac70d7a3c104eeb736f6be"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/src/authz/cache.ts",
+      "bytes": 2649,
+      "sha256": "f8ecebcb5e402deda4ba737a9380a4348e6a68563f4f5d1c4796c7567698760d"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/src/authz/candidates.ts",
+      "bytes": 3590,
+      "sha256": "1b000b11d0bdcf65ce458f31aafc58ae9c0c72174fa944b337d5cc50a5dcb011"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/src/authz/company-service.ts",
+      "bytes": 2336,
+      "sha256": "a2d531b2e0f422d3ff7245f1f636e7299fc3077ea7e30c8c51d0ce2e97409b5d"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/src/authz/compiler.ts",
+      "bytes": 4204,
+      "sha256": "0583924f511e9625c3b7fb218203d61d9369ff70f9c6b55c61f0f4e9004ca6d0"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/src/authz/contracts.ts",
+      "bytes": 6114,
+      "sha256": "fc0396079ef45f81e1c063bf2a735a4ecfc9500e0b12e2b4e99d3773833be8d2"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/src/authz/delegation-caps.ts",
+      "bytes": 1000,
+      "sha256": "1c40425ef1631270258d7a45c64c6e65bea5ed48cdb599ad8a9c5dbb781550a5"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/src/authz/delegation.ts",
+      "bytes": 5439,
+      "sha256": "e79fa12117f330baddc2a6cb95da61a00140bb07ede7fbd9ea52a571349c5e18"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/src/authz/export-worker.ts",
+      "bytes": 1373,
+      "sha256": "c8d18e44e86b4b7413744cddcf53f6916726c99dc229590d7a01d3d8346d7f6c"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/src/authz/media-ticket.ts",
+      "bytes": 1336,
+      "sha256": "2b67c8b01a121d29b2b3d736d4c59c4870f370ae592a7569c10f391d7ea5add1"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/src/authz/objects.ts",
+      "bytes": 2118,
+      "sha256": "ce7840304e3e35faa11d9e426cbf9af64a11f786ab0ae189f39d9799aa8ee4c3"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/src/authz/policy.ts",
+      "bytes": 10741,
+      "sha256": "2613ac8102f58f69c1ad303f74496b6d1fe1234adaf6bf0c4f94084e81509ac9"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/src/authz/public.ts",
+      "bytes": 625,
+      "sha256": "08b2b2fa08d8fce23c5dd4a7d2549999d0d1f99e78c78c4292d2f37480b5c302"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/src/authz/registry.ts",
+      "bytes": 3541,
+      "sha256": "d31bb8b8ce2976563995902b3476c1016439b1b86e847b96cea38bd6410b29e4"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/src/authz/revision.ts",
+      "bytes": 11459,
+      "sha256": "f693e1a6b162d4d8ca2fc3e26cc8463482ba7535e4551d0b801b333ed873879e"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/src/authz/role-service.ts",
+      "bytes": 10677,
+      "sha256": "869c2b213b019e89038b677b82f7519421faef6a6ffa2856ab6bbedd41a9f917"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/src/authz/scope.ts",
+      "bytes": 4939,
+      "sha256": "39cb213cc18bcc56847a39c936b1a8c464405f53f5caf4a9e0c678baa91138d0"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/src/bootstrap.ts",
+      "bytes": 13822,
+      "sha256": "e9675dd5b0ef280bf327915f2521d3abfafce408d8f2d5640596baf82cc714f6"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/src/contracts/ports.ts",
+      "bytes": 1131,
+      "sha256": "46b3e99dc6648776c7f5b5f884a59ae2d9c15bc94acbcc39860d1c9350e4fb2b"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/src/infrastructure/db.ts",
+      "bytes": 1910,
+      "sha256": "c0ff89993e19d289bc2f3e8fed380713f2e27b0eff7d8d792fa623ab11e6dd63"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/src/infrastructure/protected-exports.ts",
+      "bytes": 4209,
+      "sha256": "6f100c2ae78aa2399f84d6607ea44ab3b259471ae6aa333ee96bbcafb75ee5a6"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/src/infrastructure/sets.ts",
+      "bytes": 413,
+      "sha256": "5be7e803e9490e94e0724af924d3c8fa331097e9bc0caed45e0cbfbcdf70eea2"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/src/infrastructure/telemetry.ts",
+      "bytes": 10806,
+      "sha256": "969e70839e28deeb4d51c7498f7361ef50d8c680d4f7b92cfeb73598c3339558"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/src/knowledge/public.ts",
+      "bytes": 3314,
+      "sha256": "dac687350386fdf559a00f099d1c72d8256bef1d8dd76b831bb68c09817d0ebc"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/src/knowledge/service.ts",
+      "bytes": 15482,
+      "sha256": "beeda14851d6bf0c06395846460922181df4277508b556e081b5cb7e6b2b81c0"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/src/organization/public.ts",
+      "bytes": 2860,
+      "sha256": "3823a4ff06a6e7c13a8e1915bc4577e3a59ff926d341d9d4fdc2804893861116"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/src/organization/service.ts",
+      "bytes": 5947,
+      "sha256": "a7ee3b5e7d1b1023851e7779c01586c693484896de0563df1ab699ce7e2c9b7c"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/src/report/exports.ts",
+      "bytes": 996,
+      "sha256": "7c002855f75be89cd10b2c0a5c6f475a392b4dcc12a21c82562200c325e6e0f7"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/src/report/public.ts",
+      "bytes": 1851,
+      "sha256": "e137f0355d1835739fa723b825f7b397441bdf59c909f488227a1b80c92145a6"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/src/report/service.ts",
+      "bytes": 6139,
+      "sha256": "4403ee2b33f058110b52aa3de922dcac4196c4576c3ef3eeb35cb8062ac69087"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/src/training/enrollment-service.ts",
+      "bytes": 4423,
+      "sha256": "4fcf43adfb9130a620728b3a8b9e7638e9b85858a779592549e9ef32b293b28c"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/src/training/exports.ts",
+      "bytes": 1443,
+      "sha256": "ad227cad7fa213e558a85a71dd3bcaf6ef7fbd3db50f93caf03d597f39b43497"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/src/training/public.ts",
+      "bytes": 1600,
+      "sha256": "2cd6ff1a99e8339c17eb0570176788c1d8e05d5a7430eeb0aadd9454c02894db"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/src/training/service.ts",
+      "bytes": 6532,
+      "sha256": "158a473050969ca062734d3c3cba4adb11a1b370923ca7f8212b2de91805a183"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/test/benchmark-telemetry.test.ts",
+      "bytes": 1367,
+      "sha256": "08c932f0bc78d01c6e4b64ba50c5f01bfc512ad4f56b4897fb9b6f94f89f1ed5"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/test/cache.test.ts",
+      "bytes": 447,
+      "sha256": "e74a464c716f586229ea6d575562b33b74ed9ee0ec3cca98dbbac0f454829df5"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/test/final-fix-regressions.test.ts",
+      "bytes": 15845,
+      "sha256": "1fc8206dcfa214b88a3aecf04e312216d95a272eb0d8e1896777cb3dceb31e3a"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/test/fixtures.ts",
+      "bytes": 3684,
+      "sha256": "09a2575d02fe41fac91a92e736f17139c5ffbba68cd3a7f17be26c3c51abdf81"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/test/http.test.ts",
+      "bytes": 2187,
+      "sha256": "7f1f6434c51eb5869964effb3138a90005f224567e1995a1ab4b5dad5b033dbd"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/test/integration.test.ts",
+      "bytes": 5256,
+      "sha256": "3bd15964f7c119f5de2da876ec4f56b1d3e24b431b51970b76eda06b8c8082b6"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/test/kernel-benchmark.ts",
+      "bytes": 1786,
+      "sha256": "d05f1dfe5978fc5c018602fc03f7d2c4f6209fad7b0cf1ac5876ab55c52d5511"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/test/module-boundaries.test.ts",
+      "bytes": 1915,
+      "sha256": "72172ec6d586fea3f73a6842e07a62db5ce119eb4c9480614638e5eadcbdc024"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/test/native-fact-access.test.ts",
+      "bytes": 2280,
+      "sha256": "001f44e0a44ea6344733f80ba1c46ed116ea3026419bcd3d65b8b11df7ead795"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/test/native-history-relation.test.ts",
+      "bytes": 14203,
+      "sha256": "df3839e7e798050d264b6ddd56805e695d30e9b314f9a9b80c06ca4cd2afb79b"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/test/native-transport-audit.test.py",
+      "bytes": 4058,
+      "sha256": "2ced34b3b883de5b3155fcaeffd3a1f3316ee3be175fb94e7c322abac8a68a1d"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/test/races.test.ts",
+      "bytes": 4704,
+      "sha256": "23ef2ae227da652e89682cc6e03da12fe095f2d427a69bec07f1fda2c87d2c35"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/test/review-regressions.test.ts",
+      "bytes": 10004,
+      "sha256": "57aef08382ba892a9b27079cc96b8bba2d32e84e37041cc7308697ac62010302"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/test/semantic.test.ts",
+      "bytes": 23710,
+      "sha256": "2a9dab8125f273190141c3f07d58ea8cb39ec6e4b2b98ae3cf6a3ead1d43d549"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/test/task3-anchors.test.ts",
+      "bytes": 2929,
+      "sha256": "2a1b2c8deafe791c74d148f161117bc15954a0e42c55109727b54ecd62078fa6"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/test/task3-category-provenance.test.ts",
+      "bytes": 1479,
+      "sha256": "5e21c2d6d94a9888a9fe7c4008f6f46f55143d89bb91984dd02b9b2fb8ce3c4c"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/test/task3-company-cap.test.ts",
+      "bytes": 1617,
+      "sha256": "3a2cc3879ca48f31f35cd694acd441f450a7dd20432436394a7b52ef0da59226"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/test/task3-custom-regression.test.ts",
+      "bytes": 1597,
+      "sha256": "a231d32f118e9857bb890e4350f2b700228aac3cf4b983acced0698a207e7b5d"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/test/task3-delegation-matrix.test.ts",
+      "bytes": 7515,
+      "sha256": "cc50ade8868d0a0df60ba49e4632118f13b68267a604678a92c8afc66041d4dc"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/test/task3-delivery.test.ts",
+      "bytes": 2404,
+      "sha256": "6d13d406f3ed5830176053391d41b8db4579ecab91ff9108bf5ad785725f8ed9"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/test/task3-entry.test.ts",
+      "bytes": 943,
+      "sha256": "ff211bc5ecd14a0d523a4b3b048a03fa2bf7078d070854c3f554f45d4420b6bb"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/test/task3-helper.ts",
+      "bytes": 2887,
+      "sha256": "6d3270ca5b647edb4cdb66bc3f1bec8c9870bda60a071fc0b0eeeacb05e6b5de"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/test/task3-inheritance-caps.test.ts",
+      "bytes": 11255,
+      "sha256": "348f5acae0129f12b80caa8f34300562b357993e2a70cad99e6ec8005f4f1a98"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/test/task3-knowledge.test.ts",
+      "bytes": 5148,
+      "sha256": "c3cfb38185c056fd8b5624060a745a5676068cf421ced7dc9d551217cb05bea0"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/test/task3-lifecycle.test.ts",
+      "bytes": 3122,
+      "sha256": "0551a226bede25c4b27c610e5f284821be9e7eb40743dbe545bef7dca3569cbd"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/test/task3-object-set.test.ts",
+      "bytes": 1935,
+      "sha256": "f5ddc182960025f413da00ced3a2aeb91eac277733b601a13d63b1684573de45"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/test/task3-policy-recheck.test.ts",
+      "bytes": 2330,
+      "sha256": "1007edd9446c30dcdefc9077aea503cebb85fd31b86b678bac8df3c6b3c2716b"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/test/task3-populated-delegation.test.ts",
+      "bytes": 3058,
+      "sha256": "f233614a83aed5913af8139d449723e2ebaae951fd9a4d219c9ef80231488f8e"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/test/task3-protection.test.ts",
+      "bytes": 3240,
+      "sha256": "68074352788b5b212577b1686604ecbef32cf117c388efe2f07e44ec9b4415e2"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/test/task3-review-regressions.test.ts",
+      "bytes": 10518,
+      "sha256": "2ac65063b00330ef4d09d1340786987a195deb5fb54c58a91eb732bf7b85bbba"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/test/task3-role-company.test.ts",
+      "bytes": 1869,
+      "sha256": "7a99b7cd274e5b742dca0f09ed3ec9de0a856241c1faf2eb30bf3376c86f3304"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/test/task4-account-caps.test.ts",
+      "bytes": 1782,
+      "sha256": "2f8edfea1f847c80bb9d03f2393534fa8ee42618317e60f16bcec9d041e3695f"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/test/task4-account.test.ts",
+      "bytes": 2491,
+      "sha256": "462c5e65de59626a621b0cadaefdbae78ff370cc1afaa29e2383d5b3c12234d8"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/test/task4-company.test.ts",
+      "bytes": 5488,
+      "sha256": "aca36cf9b2595aa3e6eabeb6129806d88eebd340025ed5c4e0ad91421b1546d3"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/test/task4-current-history.test.ts",
+      "bytes": 4930,
+      "sha256": "9e5baa6c083c2ddaaf4aff80e72925b8da8135c36c936ec578b7e4d4286cb816"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/test/task4-delivery.test.ts",
+      "bytes": 4885,
+      "sha256": "12c3ab57432b8ab0215f47fb3360fafe9a750830fc538b6134e29965281b5cd8"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/test/task4-department-cap.test.ts",
+      "bytes": 2129,
+      "sha256": "5e3317df32fc87fdb6a36f8256693432728f98ed8aa1a7cfb4b83b3551d88a10"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/test/task4-department-null.test.ts",
+      "bytes": 591,
+      "sha256": "71458b8f2a20a26cf98f83af74b39949affe51dcf2dad2117bf5b4b2e748ef48"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/test/task4-empty-scope.test.ts",
+      "bytes": 2146,
+      "sha256": "4162ee0931087641704080cbde9263a8d39363524a5b8bb2a57bb977ebb0d01a"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/test/task4-helper.ts",
+      "bytes": 770,
+      "sha256": "2b0b7d78be64b2786ca8da76c712300d53780b84b88b6e4855474347fb2931bf"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/test/task4-history-caps.test.ts",
+      "bytes": 4981,
+      "sha256": "b4ca44558020f323c973b14026f7f2272702cf840902504e96ecd6318e09a366"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/test/task4-organization.test.ts",
+      "bytes": 4061,
+      "sha256": "2a22b47b28c087861cdba437ed9cc3a2ddf755abb037a4cdfd7d948ec4d14f88"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/test/task4-person-cap.test.ts",
+      "bytes": 1443,
+      "sha256": "bb97e2dce23f55d93a4804e73b468cdc58f41f7a6ad0eb8af5f71e44b06eac09"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/test/task4-review-regressions.test.ts",
+      "bytes": 7505,
+      "sha256": "ab531cca2fe423f34391eeb832f1546bf8684c2400182e9407458de9e19e5d90"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/test/task4-source-boundary.test.ts",
+      "bytes": 1170,
+      "sha256": "0c9ff0b14f7946f1264527dd4e4005642c1d74dc170e6a97ebb5e1582796bee1"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/test/task4-team.test.ts",
+      "bytes": 4334,
+      "sha256": "bfa3797886261af062840bb655bedd42c9575468286c056baab84e3304d920a6"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/test/task5-benchmark.test.ts",
+      "bytes": 797,
+      "sha256": "c4c2a890fb77a27f5b9f4c1f36800ad9e5e7074253b056efda54eccada3c302d"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/test/task5-enrollment-conflict.test.ts",
+      "bytes": 7419,
+      "sha256": "99ea34bab2a42b0a6747adf2a6ac98cd5b8ad3bca969a22a10f0bf81dfe9829a"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/test/task5-exports.test.ts",
+      "bytes": 4524,
+      "sha256": "8686fa29d4ff1815ec7979f0e84ee926c987d9b986b8b0d7c7d855d57d7af58b"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/test/task5-faults.test.ts",
+      "bytes": 7356,
+      "sha256": "82654487d68a6b4f3349169bad09bfb79b2df982e49c601d8b5b13c28753288b"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/test/task5-measurement.test.ts",
+      "bytes": 1570,
+      "sha256": "719acd843100e160baf42efa9c7d54842c0348e1086c97cfb741fb44696ad6d1"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/test/task5-navigation.test.ts",
+      "bytes": 5228,
+      "sha256": "f50ea0335ba64b70cebc2f3adb975ac70a8789ccd4e534cc47fffa5f7e778298"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/test/task5-node-independence.test.ts",
+      "bytes": 2271,
+      "sha256": "b9fe155490d4509943cb169e873535c7c3b76ecbe02522440e1a5e347dddeed1"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/test/task5-nplus1.test.ts",
+      "bytes": 2726,
+      "sha256": "126c19a839860ce32343fefe206dd7567d049d0042cef467ae5c05aceee81c90"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/test/task5-races.test.ts",
+      "bytes": 4075,
+      "sha256": "9d22f8600e7dee5d11caea2496c85e6867a6d07c07ef9d8eab8137d29dd55673"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/test/task5-runtime.test.ts",
+      "bytes": 6739,
+      "sha256": "07258bf9918da9e78c34cb3a775fed55cad988df2ecf7d2c55980ce66a807d97"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/test/task5-ticket.test.ts",
+      "bytes": 2320,
+      "sha256": "ace050d6e593b4ef2874669ff371b29c78daad1ae050c9e75ab8bb6900138396"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/test/task5-transfer.test.ts",
+      "bytes": 4533,
+      "sha256": "8211f73944b0544ed3beef1b04db46583f62890700e3fc09d48813848e794d63"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/test/task5-worker.test.ts",
+      "bytes": 4722,
+      "sha256": "3c4053b4ea34b3f4a4165f46f61141aa6b46fa366b3f94d66b8e424043120727"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/test/telemetry-http.test.ts",
+      "bytes": 7559,
+      "sha256": "e0b07d1780ceed1edb44f548c3abfdc1b682a581dfa7d451f888d83c126f8dd9"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/test/telemetry.test.ts",
+      "bytes": 6850,
+      "sha256": "6c6d06a90028cdfe2a89dc0b019ccd0e9fddfb1ee1e4c25035f7129c7ac93072"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/tools/audit-benchmark.py",
+      "bytes": 8810,
+      "sha256": "a87fd065672dbdc2b0743745e9f17839cc18366102cb9b8d8f646fee4e843112"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/tools/audit-coverage.py",
+      "bytes": 3892,
+      "sha256": "6eb6b48a3c458b10a8b12d75b0952cc28eb0770ad51cb54b5d8c9845e30da5ac"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/tools/audit-final-timeline.py",
+      "bytes": 2028,
+      "sha256": "caa3d4d077e264f6d10dfa373e8f57f17731fa3baa90e5fe0ee11fbf2fd347b6"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/tools/audit-native-attribution.py",
+      "bytes": 37559,
+      "sha256": "1ee4a844c7ab6b87d1598d5b23d8eacbac0505c244e30170dca626a85170a1e9"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/tools/capture-clock-bracket.py",
+      "bytes": 1906,
+      "sha256": "e15e0606f988d41cfd0fb841f772842537f3a27a3f001223f6f76bb5ddf4cc95"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/tools/capture-runtime.sh",
+      "bytes": 3206,
+      "sha256": "e145a5e837263c9837bd21bd056c0a2aa694fa5f2a8834ddf61f9e0a00fd618f"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/tools/enable-commit-timestamps.sh",
+      "bytes": 1567,
+      "sha256": "04cae39ae202c62e706ccc5645c8d8c4a6dfe263470a30b992f12c13953f9daa"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/tools/index-observations.py",
+      "bytes": 1459,
+      "sha256": "cc9ba6e998a3588fd3d4d07a027fa0e45af18f571f21f4ab85297523285edb6b"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/tools/native-attribution-detail.py",
+      "bytes": 9737,
+      "sha256": "58f9b8f29385ad3e8e48a5d9edfd526b0eaf7eafb6281fa966c6a499e208cd51"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/tools/native-attribution.py",
+      "bytes": 6878,
+      "sha256": "d513c8722371ec70c80e31874936e2d950c01537a60b5f6c0abc0b23ddc62dbc"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/tools/native-window-gate.py",
+      "bytes": 2232,
+      "sha256": "43fe80302dbf58fe7d3bf44ee6fd9642d99f42b74757571463cbf073e2d6b72b"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/tools/package-evidence.py",
+      "bytes": 4061,
+      "sha256": "76135be0642f794b87f306ceb203047d2377f922daf84eccdb276ad39a250f1b"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/tools/reference-window-gate.py",
+      "bytes": 1909,
+      "sha256": "2244cc97a24ceaba3ac34680b2451e469db17dd16c595fe135a221e31d3f514d"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/tools/render-coverage.py",
+      "bytes": 3329,
+      "sha256": "bd3a3010e2b5d6483eda6bb28a93f11e1fd13c3e85ea9c09336b5a6da3048646"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/tools/render-fault-summary.py",
+      "bytes": 4221,
+      "sha256": "d1e447b580f5cd9007237875a2764a93166aa9c35a5d0cef440a2f2dc80b25fd"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/tools/run-native-regressions.sh",
+      "bytes": 3452,
+      "sha256": "078a1a98c645296ae3bb7ff14b24f7ffc1d701468d28d3a11af911a96b85a14d"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/tools/run-native-window.sh",
+      "bytes": 4704,
+      "sha256": "31726ef010bc1f6356fbadbdbd972ef837feeb51b1b76764d10e5fd979d90f12"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/tools/run-reference-windows.sh",
+      "bytes": 4271,
+      "sha256": "bd13111a2dc15e056cda5b4d44af8756ae828f2963a0b0287614b4595198bdbc"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/tools/start-apis.sh",
+      "bytes": 2378,
+      "sha256": "008b0dbb736f6238373ff8bf9aabc9fa5e352b9dcc0039e361ca4b8f508021c1"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/tools/start-infrastructure.sh",
+      "bytes": 1536,
+      "sha256": "be23bf1f09f57b5a3c6f55db7e6afd4eef2c8d8b3f52cbd633b35cfb5835ae00"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/tools/summarize-native-regressions.py",
+      "bytes": 5769,
+      "sha256": "aadd52046918be2fadfb75d93cf519c7b7368e8c7f530fc0da0ed53cc60a9242"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/tools/summarize-performance.py",
+      "bytes": 7476,
+      "sha256": "5879ddc8f36525ead53a892f4df89e9c792103afd2aceb9f01e5c571c50c2aed"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/tools/verify-delivery.py",
+      "bytes": 6534,
+      "sha256": "dc0996549f7beb7d8412a4d065df1ed22b0adc0f07ccf0d6244f65f75b19216d"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/tools/verify-documents.py",
+      "bytes": 7771,
+      "sha256": "6d3c6ce19ca59becb5434bacea3db53231d7ab7b990c489a6418569d0f817b78"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/tsconfig.json",
+      "bytes": 332,
+      "sha256": "c89cd8f6a198a59bc845377348992321768f56d612afa1f1ff9fba87fa86728b"
+    },
+    {
+      "path": "evidence/raw/native-remediation-candidate2/regressions/workspace/web/index.html",
+      "bytes": 5621,
+      "sha256": "2ddad44807861e99eda6c2057c943ae7c53ac492fdfdd3af175edf76e00e877f"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/complete.json",
+      "bytes": 828,
+      "sha256": "e70c1f8e0ce813858ca11c0059fccbb414460b97652a2c59ad9ed01f1cb1b3b7"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/cost-diagnostic-controller.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/cost-diagnostic-seed.txt",
+      "bytes": 84,
+      "sha256": "993389f3c5f0cbf79b20e18805ab38807c918d93cf0a28be54b500951198fcba"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/cost-promotion-tests.txt",
+      "bytes": 1898,
+      "sha256": "328146129497cd16c87fea2384a4f9ed1af480c2c9c0fdc0de144ca8e7af780e"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/cost-promotion-typecheck.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/environment.json",
+      "bytes": 213,
+      "sha256": "ca663669d108dc41644de2673463184c4bf470e26a655f42437df029b927ae10"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/history-broad-company-universe.json",
+      "bytes": 848,
+      "sha256": "db8cd91046692d35a02f38b0de9f38c0daad8ecd8ae474da2a82e204f7e9756b"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/history-broad-frozen-authority-cold-baseline-preflight.json",
+      "bytes": 43058,
+      "sha256": "94644fcb3f27d27fe5d46b6be86cc95772b94785f3509b5d13c6d9da0342f9e4"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/history-broad-frozen-authority-cold-trials.jsonl",
+      "bytes": 480847,
+      "sha256": "50f8b3d0d412ae5305ec214f60987a31ffb9af050ccf3b3e9b816e6f2697ad09"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/history-broad-frozen-authority-cold-variant-preflight.json",
+      "bytes": 28543,
+      "sha256": "111bbb8669b29e087aa522dde270f7ebe90aa378a1eeca4bfb499594a3196b72"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/history-broad-frozen-authority-full-audit.json",
+      "bytes": 5139,
+      "sha256": "13c262c894ad25788e91de3697846f64f2fcc1315bd7868ebf3405dba664a621"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/history-broad-frozen-authority-hot-baseline-preflight.json",
+      "bytes": 35292,
+      "sha256": "990dda41742d26145b6d1705a08969fb29adb855097ced6f3faad32d97ca1802"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/history-broad-frozen-authority-hot-trials.jsonl",
+      "bytes": 415989,
+      "sha256": "4c1359bcd5de2ca3401791c029cba04036c9f412af84a3d347886598d069bbdb"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/history-broad-frozen-authority-hot-variant-preflight.json",
+      "bytes": 20778,
+      "sha256": "d0fffb36084abd784909287b77fef607fb49502fae97fd0ade5a59121ec5cdb0"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/history-broad-no-company-ceiling-cold-baseline-preflight.json",
+      "bytes": 43059,
+      "sha256": "4f06fdb869310aa9834ac08ed0de87b6f523756ed3518053e836a5808b83e308"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/history-broad-no-company-ceiling-cold-trials.jsonl",
+      "bytes": 574423,
+      "sha256": "4e9ddd43d6aaed4c77667099351df96eab347fdc1e75e5741348809101122628"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/history-broad-no-company-ceiling-cold-variant-preflight.json",
+      "bytes": 43290,
+      "sha256": "6b658e23d918c53cdb42c9ab3e6637a79880543f8b97994f03f5ba52340945a8"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/history-broad-no-company-ceiling-full-audit.json",
+      "bytes": 5121,
+      "sha256": "f6a932b52417bbccc5838c98c9a57ca14f8eeaa3ae339dabd79c8906caf8fa8d"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/history-broad-no-company-ceiling-hot-baseline-preflight.json",
+      "bytes": 35296,
+      "sha256": "539b2a0084b104eb167f3ba6ebdbaee4afc1a023a6689a036b57de630d43a778"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/history-broad-no-company-ceiling-hot-trials.jsonl",
+      "bytes": 509443,
+      "sha256": "db28e980f8af55151fc51298744ca06d050b415822f56ad8d9e3ded6073e667b"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/history-broad-no-company-ceiling-hot-variant-preflight.json",
+      "bytes": 35519,
+      "sha256": "8beb75864efbfd9e32b5c9e4e1c55556dd2a71da780d5f98453eb8546fb93c31"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/history-broad-no-pair-cap-cold-baseline-preflight.json",
+      "bytes": 43027,
+      "sha256": "4b780d8a7c1339e6fc99cbea26f237702638dae2b85531c7fbe05e8c1b6d5e42"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/history-broad-no-pair-cap-cold-trials.jsonl",
+      "bytes": 574016,
+      "sha256": "dfbff3f6294eb5ccc282e9b9f8f1f883e170cf6bb4958719be490600147d1a7b"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/history-broad-no-pair-cap-cold-variant-preflight.json",
+      "bytes": 43054,
+      "sha256": "9a0f224c84f49b1fc245a713e4d87b789b5eb44f1a273ba54ef1e180ca90f156"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/history-broad-no-pair-cap-full-audit.json",
+      "bytes": 5122,
+      "sha256": "426415225d2149c5a6880752f417e4295b06622dbeba13506403b0881cb7a0ff"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/history-broad-no-pair-cap-hot-baseline-preflight.json",
+      "bytes": 35293,
+      "sha256": "e69472825ae70c7882a741c54a46252c561eb123640f48b3296ddcc34d671f78"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/history-broad-no-pair-cap-hot-trials.jsonl",
+      "bytes": 509125,
+      "sha256": "3caf23e35287e52f833019bc696a1370b4ab967efa122ce22b0f85dbd79b2afd"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/history-broad-no-pair-cap-hot-variant-preflight.json",
+      "bytes": 35296,
+      "sha256": "a71243e177e706cb760c27fc87d49e073ef3723f1ad03ffc023a3c0d82bdd71d"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/history-broad-one-source-cold-baseline-preflight.json",
+      "bytes": 43054,
+      "sha256": "21f03924e4872306842c3361d3db994bf61dd2602c6495f0a4e97d44299a0832"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/history-broad-one-source-cold-trials.jsonl",
+      "bytes": 574031,
+      "sha256": "47427d567cb295d6bba613cdc2cf3a2ff90f39a4eb7f743bf02c3e855e51dc27"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/history-broad-one-source-cold-variant-preflight.json",
+      "bytes": 43058,
+      "sha256": "af52ff39ddbbab5905a1e5e151c4c4d1d64d38dda6a4647e8c7a7d5f565d0694"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/history-broad-one-source-full-audit.json",
+      "bytes": 5139,
+      "sha256": "446b320a47994b6f9c7fd4c4a2d44bb5e4e0537336ac69be59c101adae084196"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/history-broad-one-source-hot-baseline-preflight.json",
+      "bytes": 35289,
+      "sha256": "b686e48ddb20637930fcbe0d286cc0e9b2119e7113d9ded6637c4ff13f2c4e20"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/history-broad-one-source-hot-trials.jsonl",
+      "bytes": 509018,
+      "sha256": "d03187d1758f16b08c57a633994be8c8a7c24853e542815f68632290871f8515"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/history-broad-one-source-hot-variant-preflight.json",
+      "bytes": 35290,
+      "sha256": "8b9647f02fafaf2da9511a49783267e1575f67b428777a13c7b81efddf4c1598"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/history-broad-setup.json",
+      "bytes": 17418,
+      "sha256": "611d85ce8e255360da7107dae17088804b1f6c15fcb89e649dd82dee40686461"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/history-constrained-company-universe.json",
+      "bytes": 848,
+      "sha256": "cac2bee7aef2c23b47a535d81a3d6191f94907595ffe47f1722d577c4c65f5f1"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/history-constrained-frozen-authority-cold-baseline-preflight.json",
+      "bytes": 25564810,
+      "sha256": "3392d407d7a8337cee3cfd5cb232b166af45ee633ba00df7ca77f1c876c66a56"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/history-constrained-frozen-authority-cold-trials.jsonl",
+      "bytes": 156929678,
+      "sha256": "34381d0dfc9c3d3a9eb4ead89f7c7654b3c2c142706e7748caa0d70de01d8504"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/history-constrained-frozen-authority-cold-variant-preflight.json",
+      "bytes": 25550085,
+      "sha256": "9af2b78a383a09d91f984efcae24a92def1a5f5d4a1e14cae08a4f140fabace9"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/history-constrained-frozen-authority-full-audit.json",
+      "bytes": 9041941,
+      "sha256": "2bbcf2314dc2f4f71050393e493de9c4a4e4896b3b35e00b1032ff7f0fcc4c13"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/history-constrained-frozen-authority-hot-baseline-preflight.json",
+      "bytes": 18592728,
+      "sha256": "af4645a890357295c2d8a3b905119ad77a4abba52fc38ee5a070e8a4ad2b16da"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/history-constrained-frozen-authority-hot-trials.jsonl",
+      "bytes": 120890594,
+      "sha256": "7dcae62d632f65abe3146638220a7291b7adc4d924947ea9b6f7acaffe60d854"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/history-constrained-frozen-authority-hot-variant-preflight.json",
+      "bytes": 18577998,
+      "sha256": "bed635626d0258387aed929eaa25a589d43c49ebc399191d80aca9c614c47632"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/history-constrained-no-company-ceiling-cold-baseline-preflight.json",
+      "bytes": 25564816,
+      "sha256": "1929010a1002ad9cf27b5339d5c1b60a5da19d9a40486c9f1b09be748fbeb702"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/history-constrained-no-company-ceiling-cold-trials.jsonl",
+      "bytes": 157025118,
+      "sha256": "9bdc61fcfcead568a975d76009c232942be9813adc94bb53cef0869c38e85a70"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/history-constrained-no-company-ceiling-cold-variant-preflight.json",
+      "bytes": 25565057,
+      "sha256": "0eebe83fff128184a5e8c9f3b0d002edfd36619a2dea55124efa464f1823e2fe"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/history-constrained-no-company-ceiling-full-audit.json",
+      "bytes": 9041924,
+      "sha256": "9a5456ac3b304996cff17a3915182c46b33fcf954f834b59d002aac833af7bda"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/history-constrained-no-company-ceiling-hot-baseline-preflight.json",
+      "bytes": 18592729,
+      "sha256": "997b7e0aee8836eb43f02eb1d960b291915b502a5fdefb530b96a0cb5f354b56"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/history-constrained-no-company-ceiling-hot-trials.jsonl",
+      "bytes": 120986073,
+      "sha256": "fcdb376c18e69bee75ca2d1aacf704f7df70175e93608db9fc132dfc47a2bbaa"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/history-constrained-no-company-ceiling-hot-variant-preflight.json",
+      "bytes": 18592974,
+      "sha256": "a730d57fa075cc61ba4857dc273ed205cc95a084da34202a0d5d16aed9cecc41"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/history-constrained-no-pair-cap-cold-baseline-preflight.json",
+      "bytes": 25564816,
+      "sha256": "c9def9b324fa7bec2cb38808a17e5ad7cbf43732635628f135e711128688fc2d"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/history-constrained-no-pair-cap-cold-trials.jsonl",
+      "bytes": 131641425,
+      "sha256": "2336e9fd915631229c24af26a20be0938c86a4250a5ddd326bd82b71abccb514"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/history-constrained-no-pair-cap-cold-variant-preflight.json",
+      "bytes": 18712870,
+      "sha256": "ef2c524b5b930b048bcb1855238bd279271b993ab8fd4f1d7939b8783139988f"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/history-constrained-no-pair-cap-full-audit.json",
+      "bytes": 6503293,
+      "sha256": "4f4d64492bf9b1ac61fb5646666aada743ad90b8d0ca6268790e116ea24bdbe4"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/history-constrained-no-pair-cap-hot-baseline-preflight.json",
+      "bytes": 18592713,
+      "sha256": "bc81a628107fd77cd390e0da565e9c4c426bfe0a841d54d93c3f3dbb4c32e6db"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/history-constrained-no-pair-cap-hot-trials.jsonl",
+      "bytes": 95602291,
+      "sha256": "1d093928ebc4d6a2bf94c6dacf4f94ca937b74287359282dfa9c5deda3270ccd"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/history-constrained-no-pair-cap-hot-variant-preflight.json",
+      "bytes": 11740782,
+      "sha256": "5fc38b930c2382531720f7379398df7bc5a0d0da86846c666524b7d75459f3c6"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/history-constrained-one-source-cold-baseline-preflight.json",
+      "bytes": 25564812,
+      "sha256": "a587284c77dd75ccbdfebf95e271e2fbdfaeaacc178a2badd5ad20d43e88c9f4"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/history-constrained-one-source-cold-trials.jsonl",
+      "bytes": 135012948,
+      "sha256": "000568dbed90df5488e0510d033dfc593596959c0a6c8db9051cfe3a635f2b0d"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/history-constrained-one-source-cold-variant-preflight.json",
+      "bytes": 18910219,
+      "sha256": "5b4a720069bfd1dc26238a79c696f8aa128090df0a1f05b0f1bf0ab0640da42e"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/history-constrained-one-source-full-audit.json",
+      "bytes": 7261002,
+      "sha256": "e86b5b72ed82275b8623b9499a86d0c81e0744f053aa7fe9718bb14142a789a2"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/history-constrained-one-source-hot-baseline-preflight.json",
+      "bytes": 18592723,
+      "sha256": "397aa179ddb4f983bcb3c553a98c9785cb3f8bcb5a45272b0d983f483c6b10a4"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/history-constrained-one-source-hot-trials.jsonl",
+      "bytes": 98973820,
+      "sha256": "5104bf2c8abceb907125c402916774771f5358ee99dc18e4b1de322bde6d639e"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/history-constrained-one-source-hot-variant-preflight.json",
+      "bytes": 11938130,
+      "sha256": "03b4ede22435f29e4467ff6ce283ef06959c8021045c4df7fa5bb149fe2b4f30"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/history-constrained-setup.json",
+      "bytes": 3499282,
+      "sha256": "9216930334612f2050effc8b7582bca8caa64df41b36941929463d82316840d1"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/independent-results-audit.json",
+      "bytes": 12165,
+      "sha256": "177a2413af28d6ecaf1ffd36d857ee559f0c03e7cf3725ff83e520dc29dc750b"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/list-broad-frozen-authority-cold-baseline-preflight.json",
+      "bytes": 375008,
+      "sha256": "6525b247d6b5b343b78354319c7a89e74cd670dcb5eee26f8c65948449d0fd94"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/list-broad-frozen-authority-cold-trials.jsonl",
+      "bytes": 2147396,
+      "sha256": "88c97e9454dd52ef4c91273e1376544ca3ff17b36913ab85fd5c44156c59bea9"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/list-broad-frozen-authority-cold-variant-preflight.json",
+      "bytes": 360498,
+      "sha256": "593cacb5b1af7f957e678be18361f01baa9ecfe7e2d46212a0b1a619deebca2e"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/list-broad-frozen-authority-full-audit.json",
+      "bytes": 6584,
+      "sha256": "49ce00596421a4fe0441d0df74d0562155fca0330ec59af2ea3ec5da06a17306"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/list-broad-frozen-authority-hot-baseline-preflight.json",
+      "bytes": 367238,
+      "sha256": "92aece5bfcd696d1d45f269580c7ea722e74a3281309dd1f6659cb54ff55ffd4"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/list-broad-frozen-authority-hot-trials.jsonl",
+      "bytes": 2082459,
+      "sha256": "8ee2909f6afc6a76f8571cd692d3dbadfc0c21e0b4ebdbc93c9c4378c663a0c3"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/list-broad-frozen-authority-hot-variant-preflight.json",
+      "bytes": 352735,
+      "sha256": "41cd0f5a2cbceb2905e4f02d66024534a735b8a7365881fdc55d945f8428a75d"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/list-broad-no-company-ceiling-cold-baseline-preflight.json",
+      "bytes": 375006,
+      "sha256": "13c303b853c29b54dd378928c1e362ca9a031026f60d94dddcd974729102d971"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/list-broad-no-company-ceiling-cold-trials.jsonl",
+      "bytes": 2241077,
+      "sha256": "2e8ac56ed1dd360cdda90328b3315f49f0ddae51c627836211380ceb35d7245a"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/list-broad-no-company-ceiling-cold-variant-preflight.json",
+      "bytes": 375002,
+      "sha256": "e1fe23c71a71b0f94181ac67a2d990e1a63cb51680c31a7de15b3a24c168d1b4"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/list-broad-no-company-ceiling-full-audit.json",
+      "bytes": 6576,
+      "sha256": "2fe6697365a5e790a7ca03b8a4f221ba1c489fa4268debed91f4d082c42e2acc"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/list-broad-no-company-ceiling-hot-baseline-preflight.json",
+      "bytes": 367248,
+      "sha256": "f5b59bc6e9da113580cdb1460311c52881ddaa49d15d7721f2c0abd32bd01b44"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/list-broad-no-company-ceiling-hot-trials.jsonl",
+      "bytes": 2176021,
+      "sha256": "a536ff4a8942d5d1f77b8e0257ac91eb24708828dbcb2fe24ac4c55c55902e0d"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/list-broad-no-company-ceiling-hot-variant-preflight.json",
+      "bytes": 367238,
+      "sha256": "258dbb02d95128d94fabd941236ffaf4b09049e10fabc220dc86a9471884cdc5"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/list-broad-one-source-cold-baseline-preflight.json",
+      "bytes": 375007,
+      "sha256": "e09c9bb9501922accd41ddeafc6c47d30a6eba4b9a672464850dc6a71e59851a"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/list-broad-one-source-cold-trials.jsonl",
+      "bytes": 1467810,
+      "sha256": "0a115c5e3bc3d079bb10e934533da6719b186a2d2d10beb3a25add4dcb47cf9d"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/list-broad-one-source-cold-variant-preflight.json",
+      "bytes": 53381,
+      "sha256": "494d5b11a87d3967a0b886010bb29a56c48730a88e9758d421f8070525bf2f4b"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/list-broad-one-source-full-audit.json",
+      "bytes": 5832,
+      "sha256": "0fdb2b816c3211f05d9a492fe3db42886301f35b4da6a2e707b00661aab2a058"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/list-broad-one-source-hot-baseline-preflight.json",
+      "bytes": 367246,
+      "sha256": "af7c88a5605f9a99515d19a1562c1f6257df9e5033345fba48234b2ca1e89ebe"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/list-broad-one-source-hot-trials.jsonl",
+      "bytes": 1402689,
+      "sha256": "a428bfd2eca3a69764e76b108b17222c6b2ed69efff316374ef338aeed10007a"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/list-broad-one-source-hot-variant-preflight.json",
+      "bytes": 45619,
+      "sha256": "4589af4b7f702a21408565ecb4821ff1c532c5460faa5adbbd01cfce21219d9f"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/list-broad-setup.json",
+      "bytes": 22275,
+      "sha256": "1d10a7709d8d5e979d32c6ed690953a925b78f41695c13e7d7df3b31f48f3bc1"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/list-broad-unbound-raw-fields-cold-baseline-preflight.json",
+      "bytes": 375009,
+      "sha256": "054b5add2acdfafadecb268ee4c7f6c5f2b7e99ca6ce3d55d30368722705a874"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/list-broad-unbound-raw-fields-cold-trials.jsonl",
+      "bytes": 2281075,
+      "sha256": "6c102809fbbe99ef8f2f3bbb6bca896731a734cce0b248d06f0d296a2bb24816"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/list-broad-unbound-raw-fields-cold-variant-preflight.json",
+      "bytes": 378984,
+      "sha256": "dd75741fcfe75324b836381a48befdf2c98844c2530ae6ed02cd391e0e2802cd"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/list-broad-unbound-raw-fields-full-audit.json",
+      "bytes": 6353,
+      "sha256": "27c8106b0c8057ea169ab276e924d50631e7c60f162f601486cb5b6212c0ce87"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/list-broad-unbound-raw-fields-hot-baseline-preflight.json",
+      "bytes": 367252,
+      "sha256": "a5a6e29efceae319f5cfc87c070ee912f401f69fd757d6887a77f6d68adc099a"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/list-broad-unbound-raw-fields-hot-trials.jsonl",
+      "bytes": 2215912,
+      "sha256": "b3e96a8148a25b5ee4004ec4deb0e69fb71179cda085c124790706c77becd1a6"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/list-broad-unbound-raw-fields-hot-variant-preflight.json",
+      "bytes": 371221,
+      "sha256": "a4ef6cc13bbe2294d4bfb356940f8b982dbbb5739201e3aa367171caacc2aa55"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/list-constrained-frozen-authority-cold-baseline-preflight.json",
+      "bytes": 24819790,
+      "sha256": "05c65e8c661cbc3c09a69db33f235db436bda077874a489da28aa9d7a22f9859"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/list-constrained-frozen-authority-cold-trials.jsonl",
+      "bytes": 159635711,
+      "sha256": "3c411cf7c65564e2dea391bcece946b99dcd308a7e7b150e33415e98c8550f45"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/list-constrained-frozen-authority-cold-variant-preflight.json",
+      "bytes": 24805063,
+      "sha256": "ef56ef22c98189e109089a907beeeb746e7400a68f77af9171b70d1e47c9a79f"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/list-constrained-frozen-authority-full-audit.json",
+      "bytes": 6608029,
+      "sha256": "c5aed62cc60b763f2fffe79240106c0b4d48b4af382b91d05ff164ae24ad3a7f"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/list-constrained-frozen-authority-hot-baseline-preflight.json",
+      "bytes": 17847701,
+      "sha256": "2576e84424c8752bfb319c0b27c4e5cb859c4fdf9d97a597cc5ea2307ca189ba"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/list-constrained-frozen-authority-hot-trials.jsonl",
+      "bytes": 123596646,
+      "sha256": "fd1f715e12474ecc734440ee2cd577de359f22cfdf173ebdf54c461b75447e41"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/list-constrained-frozen-authority-hot-variant-preflight.json",
+      "bytes": 17832973,
+      "sha256": "509384d8437c8723d5511ea5947557b928be7ee13cd17a3f10b9a539f3bfd2cf"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/list-constrained-no-company-ceiling-cold-baseline-preflight.json",
+      "bytes": 24819788,
+      "sha256": "0275225e5a0515c9e7e8181a39cd72272f8f18ca5a5fd2ad1af8b6388bd0b298"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/list-constrained-no-company-ceiling-cold-trials.jsonl",
+      "bytes": 159731329,
+      "sha256": "d4f6d04d1898444b69409ed7f1d2c92295b1abbdba1856ed6737f055b69e080f"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/list-constrained-no-company-ceiling-cold-variant-preflight.json",
+      "bytes": 24819780,
+      "sha256": "e4beaced1a892ce47582f2f1f13db1bfe4005fc2fad69ddf9a7c0b52c6b1f098"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/list-constrained-no-company-ceiling-full-audit.json",
+      "bytes": 6608022,
+      "sha256": "7984bc1ac65164fdf36f0c96f9b25b30d56614882a584f09d80cf8aea184da4c"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/list-constrained-no-company-ceiling-hot-baseline-preflight.json",
+      "bytes": 17847705,
+      "sha256": "18a5ed3be395216638ce217b6cdc39f4574b167857f70c8bfdb570ee4eb68a42"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/list-constrained-no-company-ceiling-hot-trials.jsonl",
+      "bytes": 123692254,
+      "sha256": "e97e54fb3c94a846722c9b882f10ac2285d819334e5925dd88461b9d655b981c"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/list-constrained-no-company-ceiling-hot-variant-preflight.json",
+      "bytes": 17847693,
+      "sha256": "693f4d3d9339e490ba22327969c8452471e5db1eaf4583f43a812154e74a1477"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/list-constrained-one-source-cold-baseline-preflight.json",
+      "bytes": 24819785,
+      "sha256": "8633eaa0fdae8b46e88ade700961dcb0a2e12b953c66ffc525630cec851f105d"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/list-constrained-one-source-cold-trials.jsonl",
+      "bytes": 137194220,
+      "sha256": "0f13c331d7f761a4d41379002a0c1fc5881f3c629fe3ffb18ee592e1db5dbb6f"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/list-constrained-one-source-cold-variant-preflight.json",
+      "bytes": 18459625,
+      "sha256": "40200eb643f561e5897c42a77fe4b444d8aa4d366a914c6e4ffc1fc97f08660c"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/list-constrained-one-source-full-audit.json",
+      "bytes": 5305598,
+      "sha256": "d7d790d6661fe908f764123643137e96cf166af85d18a7e9bb6e20818ddae7b6"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/list-constrained-one-source-hot-baseline-preflight.json",
+      "bytes": 17847702,
+      "sha256": "0f772eb4b09fcf0b5be4be6eea83f1386c942b015e5740b0dc2f0b131e19db87"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/list-constrained-one-source-hot-trials.jsonl",
+      "bytes": 101155198,
+      "sha256": "9f7a5b37810c7b7a66e266a64d408d8aa005f5084346c08acefb7750d3bfac16"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/list-constrained-one-source-hot-variant-preflight.json",
+      "bytes": 11487536,
+      "sha256": "59914bbc7d41b99070eff56bf4037125fc06b213f538ca1fc8664445961ae7a9"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/list-constrained-setup.json",
+      "bytes": 3504661,
+      "sha256": "1df7a10a43ab1f97a8ad728fc6eba2a3a4f1b29953990f031333383bca28c5db"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/list-constrained-unbound-raw-fields-cold-baseline-preflight.json",
+      "bytes": 24819791,
+      "sha256": "9a3cbebb4783ef7156d3a7119808fcec69a00a66a08d5667849a2269652f0e15"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/list-constrained-unbound-raw-fields-cold-trials.jsonl",
+      "bytes": 159746615,
+      "sha256": "351fdc1472a656a53701e49bb06c00d6466046eae8e0ce2e864d2ab9a8f0268d"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/list-constrained-unbound-raw-fields-cold-variant-preflight.json",
+      "bytes": 24821318,
+      "sha256": "6ff5b3ee2018fed2c96d6ef0bf361d69864c163bd0dd90ae4fbf62fa1ebe41af"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/list-constrained-unbound-raw-fields-full-audit.json",
+      "bytes": 6607956,
+      "sha256": "fe3a876b3c08d6c2507fd06c65c08e7ba77d93944e8d0654f3c9a7ff26b7d8ba"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/list-constrained-unbound-raw-fields-hot-baseline-preflight.json",
+      "bytes": 17847704,
+      "sha256": "6c6314064b10cfeb0643e477dd3dba2f3e8eb9586f664a537c70ae2a432ae44a"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/list-constrained-unbound-raw-fields-hot-trials.jsonl",
+      "bytes": 123707656,
+      "sha256": "2ddf42cd7e828f2269a59c23456577451fff0c949edd2d22e4e95e56ba26c977"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/list-constrained-unbound-raw-fields-hot-variant-preflight.json",
+      "bytes": 17849230,
+      "sha256": "bc48970af7152025a37e1d6c434f4561bd3d24c4f7b8a6e96bcf90a9063fdac7"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/manifest.json",
+      "bytes": 1878,
+      "sha256": "c5f734f178fb481301709d1aaf864cd7c1b22dca9ae75e0a512d9b897f8b0f44"
+    },
+    {
+      "path": "evidence/raw/native-remediation-cost-drivers/summary.json",
+      "bytes": 635334,
+      "sha256": "1ba3b2495e0c61947e2f622dc506c4731187e89fcbcfb569ad83e0bb7e2bcda1"
+    },
+    {
+      "path": "evidence/raw/native-remediation-final-summary/cost-drivers.md",
+      "bytes": 7575,
+      "sha256": "6a793e017b4ae5a6a3d0a8d7b8a21d06443d9462c3c1e3d60fc45a736428fe7a"
+    },
+    {
+      "path": "evidence/raw/native-remediation-final-summary/denial-fault-statistics.json",
+      "bytes": 17591,
+      "sha256": "380bc520c75e8ed72413eae2ccc73f8216925227717aebf7d55cb3523e3c4c77"
+    },
+    {
+      "path": "evidence/raw/native-remediation-final-summary/denial-fault-statistics.md",
+      "bytes": 1982,
+      "sha256": "672ce77f0bd7e6864537890cb9683c58affa233404e8a9aad738594adeb92d19"
+    },
+    {
+      "path": "evidence/raw/native-remediation-final-summary/reproduction/README.md",
+      "bytes": 1030,
+      "sha256": "3f93b30659ab391d9166c0ff4718b6681e71a7771dff8bd85d6688ecd87e7388"
+    },
+    {
+      "path": "evidence/raw/native-remediation-final-summary/reproduction/audit-cost-results.py",
+      "bytes": 3061,
+      "sha256": "7c668431fcf73d38d708ebc4b2aafa10d0aacaa6814587d65ff334e861acc5fc"
+    },
+    {
+      "path": "evidence/raw/native-remediation-final-summary/reproduction/final-report-template.md",
+      "bytes": 8968,
+      "sha256": "3d4ba3b82027feb49982de5e43434cb553b1a7298afc679d870e41bd278bee03"
+    },
+    {
+      "path": "evidence/raw/native-remediation-final-summary/reproduction/original-paths.json",
+      "bytes": 1868,
+      "sha256": "786aeab37fa8ce674398d714b27a91a739d645146e4bbbc043fca7310eb931bd"
+    },
+    {
+      "path": "evidence/raw/native-remediation-final-summary/reproduction/package-final.py",
+      "bytes": 3659,
+      "sha256": "510a39ee268895635ff8cbc9771ac347d6a7ba4ed2cc916de982570c34635c75"
+    },
+    {
+      "path": "evidence/raw/native-remediation-final-summary/reproduction/render-final-report.py",
+      "bytes": 13936,
+      "sha256": "aa7c39d6e48bc66d4df405f3904ce7b62230013e845bed4137eeb8bf29d1a593"
+    },
+    {
+      "path": "evidence/raw/native-remediation-final-summary/reproduction/summarize-denial-faults.py",
+      "bytes": 3980,
+      "sha256": "5175e4a8dfb6b224c5bdfa5acbfebfc4c9a405939faf3cc653bef56231916f07"
+    },
+    {
+      "path": "evidence/raw/native-remediation-final-summary/reproduction/summarize-final-windows.py",
+      "bytes": 2634,
+      "sha256": "5b152317f732824d0c4121ed5b8d8a087f3e42bbbe50bfae94c44926cd9cbca6"
+    },
+    {
+      "path": "evidence/raw/native-remediation-final-summary/reproduction/verify-final-delivery.py",
+      "bytes": 4122,
+      "sha256": "68e54d72ade5e7288d07dc2c1bf819e8b4c366edd2a9a84ee6d881d44e3af4c3"
+    },
+    {
+      "path": "evidence/raw/native-remediation-final-summary/source-equivalence.json",
+      "bytes": 491,
+      "sha256": "06ea89e76641514aa98b7d35769ef1cb332d9b7a6e9aa545817377d477557ddb"
+    },
+    {
+      "path": "evidence/raw/native-remediation-final-summary/verdict.json",
+      "bytes": 566,
+      "sha256": "14ee3426f065bed1d4273288924ce179d94e6c8beca6b9054b8c06ed0349bb43"
+    },
+    {
+      "path": "evidence/raw/native-remediation-final-summary/windows.json",
+      "bytes": 700350,
+      "sha256": "12b2f407d687d436ffb6010bab89ec18c597471f5263b0fdb3cc37493591ddc8"
+    },
+    {
+      "path": "evidence/raw/native-remediation-final-summary/windows.md",
+      "bytes": 2335,
+      "sha256": "cdb8498f5c4e93a7230e702bc92e595a9309b63c20cf1b77c8d9d9ac162a8d64"
+    },
+    {
+      "path": ".superpowers/sdd/2026-09-23-native-performance-remediation/candidate1-preparation.ts",
+      "bytes": 2770,
+      "sha256": "703d525789980e16a4d35c8220f5eba0e7f25355f248dcd98475b880f9d5539f"
+    },
+    {
+      "path": ".superpowers/sdd/2026-09-23-native-performance-remediation/cold-timeout-draft-report.md",
+      "bytes": 4426,
+      "sha256": "a6252c748cec748a56ceec09677dae6d86e38b0defd89a83f9341eaedccfb30a"
+    },
+    {
+      "path": ".superpowers/sdd/2026-09-23-native-performance-remediation/cold-timeout-draft.ts",
+      "bytes": 7356,
+      "sha256": "82654487d68a6b4f3349169bad09bfb79b2df982e49c601d8b5b13c28753288b"
+    },
+    {
+      "path": ".superpowers/sdd/2026-09-23-native-performance-remediation/cold-timeout.patch",
+      "bytes": 1395,
+      "sha256": "10d2c7c9aa1eda49dd6444803ab26e069f7f49fa86061a61078890ab28be8667"
+    },
+    {
+      "path": ".superpowers/sdd/2026-09-23-native-performance-remediation/cold-transport-forensics.json",
+      "bytes": 238580,
+      "sha256": "6b009ff07e4cfb822043c09894cf0ccda3a0407d4b981ca165fa5d26f9fb7aad"
+    },
+    {
+      "path": ".superpowers/sdd/2026-09-23-native-performance-remediation/cold-transport-forensics.md",
+      "bytes": 14879,
+      "sha256": "61f746fe1a1672526fc74cc9583e80ff6a8eec7ffe8d27fe96daee53cdb6ae06"
+    },
+    {
+      "path": ".superpowers/sdd/2026-09-23-native-performance-remediation/cold-transport-forensics.py",
+      "bytes": 7560,
+      "sha256": "2c937dcb5253e617ddf42fb92013ab1c2b8171083048af59430d30b5b7b4fad4"
+    },
+    {
+      "path": ".superpowers/sdd/2026-09-23-native-performance-remediation/cost-driver-design.md",
+      "bytes": 16430,
+      "sha256": "e648d10af90a9b3306a349fdb03a26c52da76cb35275515207e7d01bd9a6daa8"
+    },
+    {
+      "path": ".superpowers/sdd/2026-09-23-native-performance-remediation/cost-driver-draft/README.md",
+      "bytes": 12886,
+      "sha256": "02224f17b484658f8ec73f88aac798f78493563887b54944f4621fa425b45be3"
+    },
+    {
+      "path": ".superpowers/sdd/2026-09-23-native-performance-remediation/cost-driver-draft/c2-adaptation-report.md",
+      "bytes": 7100,
+      "sha256": "cd2c435642c85e404fb6f9cf977ddf800f84a3e3c0e57b22f46dff69e72d27b6"
+    },
+    {
+      "path": ".superpowers/sdd/2026-09-23-native-performance-remediation/cost-driver-draft/c2-final-review.md",
+      "bytes": 3557,
+      "sha256": "cd19a0dbdaf750beaa554abe209df1a0ff6c82ec2341297d18ea5126112b0833"
+    },
+    {
+      "path": ".superpowers/sdd/2026-09-23-native-performance-remediation/cost-driver-draft/c2-green.txt",
+      "bytes": 1893,
+      "sha256": "7c489cb20a13bd70bc6480c82f3b3478b8c17485dfaf0884a08329fdd235ac82"
+    },
+    {
+      "path": ".superpowers/sdd/2026-09-23-native-performance-remediation/cost-driver-draft/c2-red.txt",
+      "bytes": 3915,
+      "sha256": "fdefe8ad85fdb2a96e00f113b234aa4338accc3fffe35d0aa21e0e84a05f2e9e"
+    },
+    {
+      "path": ".superpowers/sdd/2026-09-23-native-performance-remediation/cost-driver-draft/describe.json",
+      "bytes": 476,
+      "sha256": "a1187efa0256a14d16b43b8a68f35df3dd7a867564fe75450eddfdd1b4771f9b"
+    },
+    {
+      "path": ".superpowers/sdd/2026-09-23-native-performance-remediation/cost-driver-draft/diagnostic.test.ts",
+      "bytes": 16518,
+      "sha256": "28034dd24ea43dd7dbf9f2497c1d5b7c12f4deebfd5a7ff8a8ce52724678bb16"
+    },
+    {
+      "path": ".superpowers/sdd/2026-09-23-native-performance-remediation/cost-driver-draft/diagnostic.ts",
+      "bytes": 28561,
+      "sha256": "cb1012d8fe717c84a7e266b84502957da8938525d4374af3b296850bc78375d1"
+    },
+    {
+      "path": ".superpowers/sdd/2026-09-23-native-performance-remediation/cost-driver-draft/offline-red.txt",
+      "bytes": 2310,
+      "sha256": "1b7aef1f8a8826ed11dc575f17ef39db5691db24eacfb1256ba6133921cda4f5"
+    },
+    {
+      "path": ".superpowers/sdd/2026-09-23-native-performance-remediation/cost-driver-draft/offline-test.txt",
+      "bytes": 1333,
+      "sha256": "d356d70ffbe9b256dd4f7f768fe147cdeea2fca0872a75b8a1d8a6ce515d5db5"
+    },
+    {
+      "path": ".superpowers/sdd/2026-09-23-native-performance-remediation/cost-driver-draft/prepare-promotion.py",
+      "bytes": 1866,
+      "sha256": "da65416b858c645796a9e03f7ce694f811004207f553631c158dc5480c861c48"
+    },
+    {
+      "path": ".superpowers/sdd/2026-09-23-native-performance-remediation/cost-driver-draft/promotion/README.md",
+      "bytes": 1028,
+      "sha256": "d2076c29f825f1ed28807db6439b1cfe68e2a61c7b3e59bd330ac2deb068bb88"
+    },
+    {
+      "path": ".superpowers/sdd/2026-09-23-native-performance-remediation/cost-driver-draft/promotion/scripts/native-cost-drivers.ts",
+      "bytes": 28486,
+      "sha256": "937f155a951463e9bec99c3bc5f2bc44918ec18a7a76147588b0d321ffcda691"
+    },
+    {
+      "path": ".superpowers/sdd/2026-09-23-native-performance-remediation/cost-driver-draft/promotion/test/native-cost-drivers.test.ts",
+      "bytes": 16655,
+      "sha256": "ff1826a61f961e7d53004472f45bf42dd5431661cd488dd5067026182c022325"
+    },
+    {
+      "path": ".superpowers/sdd/2026-09-23-native-performance-remediation/cost-driver-draft/promotion-manifest.json",
+      "bytes": 463,
+      "sha256": "ab7b75e732838d1d830c1ca567786192df4dc83c1180edde2a63d1732a3d7112"
+    },
+    {
+      "path": ".superpowers/sdd/2026-09-23-native-performance-remediation/cost-driver-draft/promotion-offline-test.txt",
+      "bytes": 1892,
+      "sha256": "bd0a767c1ec326c2ed9e84f9f767361df6d838ed575431407da238701d6db194"
+    },
+    {
+      "path": ".superpowers/sdd/2026-09-23-native-performance-remediation/cost-driver-draft/promotion-typecheck.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".superpowers/sdd/2026-09-23-native-performance-remediation/cost-driver-draft/promotion.patch",
+      "bytes": 45921,
+      "sha256": "9f66f41f9dabf8ceda2be72dbedba05ead005e223feceff8645f24cb93c2b6c1"
+    },
+    {
+      "path": ".superpowers/sdd/2026-09-23-native-performance-remediation/cost-driver-draft/review-p3-fingerprints.json",
+      "bytes": 544,
+      "sha256": "308c7a078941dc6fd777e8709e434281adf5c07755d36a3f3598f105b0ef5018"
+    },
+    {
+      "path": ".superpowers/sdd/2026-09-23-native-performance-remediation/cost-driver-draft/review-p3-green.txt",
+      "bytes": 1333,
+      "sha256": "d356d70ffbe9b256dd4f7f768fe147cdeea2fca0872a75b8a1d8a6ce515d5db5"
+    },
+    {
+      "path": ".superpowers/sdd/2026-09-23-native-performance-remediation/cost-driver-draft/review-p3-red.txt",
+      "bytes": 3561,
+      "sha256": "e9d77086cc786a9f790199d13721b0b2c7a5d19636222577f9c00555c28b43be"
+    },
+    {
+      "path": ".superpowers/sdd/2026-09-23-native-performance-remediation/cost-driver-draft/review-p3-report.md",
+      "bytes": 2779,
+      "sha256": "976bc444617d67ff5c15bfd9e4e59457bf42b8e05b2bec4bb5c564351189fcc0"
+    },
+    {
+      "path": ".superpowers/sdd/2026-09-23-native-performance-remediation/cost-driver-draft/typecheck.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".superpowers/sdd/2026-09-23-native-performance-remediation/cost-driver-draft-review.md",
+      "bytes": 11143,
+      "sha256": "acba01f3a59bd306a068ded98a50f1b39ad04b80f1c4a538a610e70b806f2a9e"
+    },
+    {
+      "path": ".superpowers/sdd/2026-09-23-native-performance-remediation/historical-forensics.md",
+      "bytes": 6702,
+      "sha256": "fe29d69bd237376782de09a2650c3f5a64039899a58e60c2f21fd4f7140fc454"
+    },
+    {
+      "path": ".superpowers/sdd/2026-09-23-native-performance-remediation/native-regression-fix-static-review.md",
+      "bytes": 10039,
+      "sha256": "bb3f4767168552053ebd5a382bd58bff085b5399035515c2a69af9d5f95ea540"
+    },
+    {
+      "path": ".superpowers/sdd/2026-09-23-native-performance-remediation/native-regression-harness-review.md",
+      "bytes": 8984,
+      "sha256": "cda1a1756de834fc506e9af9158c671d34d895a484101f3ea7622a560ab5e6a7"
+    },
+    {
+      "path": ".superpowers/sdd/2026-09-23-native-performance-remediation/progress.md",
+      "bytes": 9557,
+      "sha256": "145742ca87c802abe86159f68bc191de8e4b1ef31679f24aa0d7a8566ce6d46f"
+    },
+    {
+      "path": ".superpowers/sdd/2026-09-23-native-performance-remediation/review-9645980..d8c294f.diff",
+      "bytes": 26634,
+      "sha256": "cd0e8c63a6dc48028d6d96f2aefed1b8e69f0c87fdf9644f67f54d29541195b8"
+    },
+    {
+      "path": ".superpowers/sdd/2026-09-23-native-performance-remediation/review-abbb971..6c07605.diff",
+      "bytes": 78373,
+      "sha256": "d695f7825cd16ce5244bed4d979a819ae73de233b117e9bf54991427804b5365"
+    },
+    {
+      "path": ".superpowers/sdd/2026-09-23-native-performance-remediation/review-d8c294f..dfa6341.diff",
+      "bytes": 80994,
+      "sha256": "80c0275e528e5f84d2c21025c4559f36232959056c98c2fc90b7eb28ed350fbb"
+    },
+    {
+      "path": ".superpowers/sdd/2026-09-23-native-performance-remediation/review-ecbee8b..bc09202.diff",
+      "bytes": 10491,
+      "sha256": "5005a2f44103a86d72b3c5166f514bd61191e4d0797758882fbd4a1966b72ee2"
+    },
+    {
+      "path": ".superpowers/sdd/2026-09-23-native-performance-remediation/review-final-abbb971..dfa6341.diff",
+      "bytes": 199641,
+      "sha256": "18e7409fe91e82d9a56c8994f1c78d7da28d69a0d83d3b783f71b3bfe7160554"
+    },
+    {
+      "path": ".superpowers/sdd/2026-09-23-native-performance-remediation/task-1-brief.md",
+      "bytes": 2529,
+      "sha256": "0fef7ce08630cbd23f730bd754b166e3eb2f2cd43d4e55b418358137d5e2f16c"
+    },
+    {
+      "path": ".superpowers/sdd/2026-09-23-native-performance-remediation/task-1-report.md",
+      "bytes": 13991,
+      "sha256": "598fdc66674f24bc398ba3cd4a56a29469018803f22d9f73655d51e9f4a959aa"
+    },
+    {
+      "path": ".superpowers/sdd/2026-09-23-native-performance-remediation/task-1-review.md",
+      "bytes": 10508,
+      "sha256": "acef69776b46eb5b02e78619866671e33b06458f742f5c0c73b0f80ea9c24fe4"
+    },
+    {
+      "path": ".superpowers/sdd/2026-09-23-native-performance-remediation/task-2-audit.md",
+      "bytes": 26156,
+      "sha256": "c10d7aa7ab397f753f73b4c212858cf84dbc2be1e0096d182f00b04ce992c7b8"
+    },
+    {
+      "path": ".superpowers/sdd/2026-09-23-native-performance-remediation/task-3-candidate1-report.md",
+      "bytes": 11742,
+      "sha256": "ea06c503e46cc5d9c0aff805c6d36de0f0da9b8e51d68a8ef1916fea72b03380"
+    },
+    {
+      "path": ".superpowers/sdd/2026-09-23-native-performance-remediation/task-3-candidate1-review.md",
+      "bytes": 7295,
+      "sha256": "7a10f27a70e8de56d314a9c1d4c0be280e1554d984475e78adc518b4418c3193"
+    },
+    {
+      "path": ".superpowers/sdd/2026-09-23-native-performance-remediation/task-3-candidate2-report.md",
+      "bytes": 9506,
+      "sha256": "e73b09ddab206e739d76feda48e90bd824ada2877e26b1f007e4af7bfc708cf6"
+    },
+    {
+      "path": ".superpowers/sdd/2026-09-23-native-performance-remediation/task-3-candidate2-review.md",
+      "bytes": 8483,
+      "sha256": "0d0adc3c923577d16999ca31e3e483461b07ba7cf7a45546c546b8123416874f"
+    },
+    {
+      "path": ".superpowers/sdd/2026-09-23-native-performance-remediation/task-3-transport-audit-fix.md",
+      "bytes": 8615,
+      "sha256": "9b2cb152a38e5c4c633d0732197a5688af3d3ac28701d4db0988852eeba45a23"
+    },
+    {
+      "path": ".superpowers/sdd/2026-09-23-native-performance-remediation/task-3-transport-audit-review.md",
+      "bytes": 7106,
+      "sha256": "ef08ea773d43a5f5da8795568bf9d848223bcc0c3d32f5b307bf77f7b54965eb"
+    },
+    {
+      "path": ".superpowers/sdd/2026-09-23-native-performance-remediation/task-4-final-review.md",
+      "bytes": 19438,
+      "sha256": "7d40531733cab33a8e07c8c2159d371d1a4541764176319e0d1b781138c8b2f6"
+    },
+    {
+      "path": ".superpowers/sdd/2026-09-23-native-performance-remediation/transport-helper.py.txt",
+      "bytes": 7217,
+      "sha256": "c4f05e9ebb30fc6f884c68012368c1466d2bf9bfb506c31d395e76d0ae58f520"
+    }
+  ],
+  "count": 811,
+  "scope": "Raw observations, reviews, including failed and superseded drafts; final authoritative locations named in report. Symlinked dependencies excluded."
+}

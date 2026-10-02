@@ -1,0 +1,65 @@
+{
+  "startAt": "2026-09-22T19:51:53.412Z",
+  "endAt": "2026-09-22T19:51:56.417Z",
+  "durationMs": 3005.183958,
+  "configuredSeconds": 3,
+  "concurrency": 4,
+  "total": 1430,
+  "candidate": "casbin",
+  "cache": "hot",
+  "scenario": "list-broad",
+  "phase": "success",
+  "urls": [
+    "http://127.0.0.1:4311",
+    "http://127.0.0.1:4312"
+  ],
+  "pageSize": 50,
+  "queryCounts": {
+    "8": 1430
+  },
+  "instances": {
+    "B": 597,
+    "A": 833
+  },
+  "cacheHits": {
+    "L1": 1430
+  },
+  "referenceWindow": false,
+  "samplingRatio": 1,
+  "success": {
+    "count": 1430,
+    "p50": 8.272249999999985,
+    "p95": 9.199666999999863,
+    "p99": 10.60220900000013
+  },
+  "denial": {
+    "count": 0,
+    "p50": null,
+    "p95": null,
+    "p99": null
+  },
+  "failure": {
+    "count": 0,
+    "p50": null,
+    "p95": null,
+    "p99": null
+  },
+  "authorization_error": {
+    "count": 0,
+    "p50": null,
+    "p95": null,
+    "p99": null
+  },
+  "permission": {
+    "count": 1430,
+    "p50": 3.3058749999981956,
+    "p95": 4.021500000002561,
+    "p99": 4.867709000005561
+  },
+  "data": {
+    "count": 1430,
+    "p50": 4.628166999995301,
+    "p95": 5.175291999999899,
+    "p99": 5.4803329999995185
+  }
+}

@@ -1,0 +1,190 @@
+▶ native: independent benchmark complete result oracle
+  ✖ list-broad (42.680209ms)
+  ✖ list-constrained (2.293584ms)
+  ✖ history-broad (82.874875ms)
+  ✖ history-constrained (1.679375ms)
+✖ native: independent benchmark complete result oracle (445.225375ms)
+▶ casbin: independent benchmark complete result oracle
+  ✖ list-broad (29.18975ms)
+  ✖ list-constrained (1.547125ms)
+  ✖ history-broad (88.473041ms)
+  ✖ history-constrained (1.565917ms)
+✖ casbin: independent benchmark complete result oracle (409.810959ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 0
+ℹ fail 10
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1112.729334
+
+✖ failing tests:
+
+test at test/task5-benchmark.test.ts:1:427
+✖ list-broad (42.680209ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+  + 'bef4e136f796a7645a8fca60595b16150f5aa84abededefce1e92821367339bf'
+  - 'bd603134d121a43542536f562bed2d6aca6b1c2a63ba909b1c1d90a2b41b42be'
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task5-benchmark.test.ts:10:3)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task5-benchmark.test.ts:8:60)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'bef4e136f796a7645a8fca60595b16150f5aa84abededefce1e92821367339bf',
+    expected: 'bd603134d121a43542536f562bed2d6aca6b1c2a63ba909b1c1d90a2b41b42be',
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task5-benchmark.test.ts:1:427
+✖ list-constrained (2.293584ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  
+  403 !== 200
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task5-benchmark.test.ts:9:66)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task5-benchmark.test.ts:8:60)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 403,
+    expected: 200,
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task5-benchmark.test.ts:1:427
+✖ history-broad (82.874875ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+  + 'd0840fbe36b7b3a92af97931877e317dfd684368613b1d969fef7c023b2e571d'
+  - 'a9a0f1f8fbf7aa8ab8e14d47986d0611e075afaa661df67c60274f42c1fb7d6e'
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task5-benchmark.test.ts:10:3)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task5-benchmark.test.ts:8:60)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'd0840fbe36b7b3a92af97931877e317dfd684368613b1d969fef7c023b2e571d',
+    expected: 'a9a0f1f8fbf7aa8ab8e14d47986d0611e075afaa661df67c60274f42c1fb7d6e',
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task5-benchmark.test.ts:1:427
+✖ history-constrained (1.679375ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  
+  403 !== 200
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task5-benchmark.test.ts:9:66)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task5-benchmark.test.ts:8:60)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 403,
+    expected: 200,
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task5-benchmark.test.ts:1:427
+✖ list-broad (29.18975ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+  + 'bef4e136f796a7645a8fca60595b16150f5aa84abededefce1e92821367339bf'
+  - 'bd603134d121a43542536f562bed2d6aca6b1c2a63ba909b1c1d90a2b41b42be'
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task5-benchmark.test.ts:10:3)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task5-benchmark.test.ts:8:60)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'bef4e136f796a7645a8fca60595b16150f5aa84abededefce1e92821367339bf',
+    expected: 'bd603134d121a43542536f562bed2d6aca6b1c2a63ba909b1c1d90a2b41b42be',
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task5-benchmark.test.ts:1:427
+✖ list-constrained (1.547125ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  
+  403 !== 200
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task5-benchmark.test.ts:9:66)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task5-benchmark.test.ts:8:60)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 403,
+    expected: 200,
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task5-benchmark.test.ts:1:427
+✖ history-broad (88.473041ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+  + 'd0840fbe36b7b3a92af97931877e317dfd684368613b1d969fef7c023b2e571d'
+  - 'a9a0f1f8fbf7aa8ab8e14d47986d0611e075afaa661df67c60274f42c1fb7d6e'
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task5-benchmark.test.ts:10:3)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task5-benchmark.test.ts:8:60)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'd0840fbe36b7b3a92af97931877e317dfd684368613b1d969fef7c023b2e571d',
+    expected: 'a9a0f1f8fbf7aa8ab8e14d47986d0611e075afaa661df67c60274f42c1fb7d6e',
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at test/task5-benchmark.test.ts:1:427
+✖ history-constrained (1.565917ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  
+  403 !== 200
+  
+      at observe (/Users/peng/Agent本地开发/云学堂权限预研/test/task3-helper.ts:18:9)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task5-benchmark.test.ts:9:66)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/Users/peng/Agent本地开发/云学堂权限预研/test/task5-benchmark.test.ts:8:60)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 403,
+    expected: 200,
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

@@ -1,0 +1,42 @@
+2026-09-22T19:29:22.832309+00:00
+$ npm run test:semantic
+
+> permission-v83-spike@0.0.1 test:semantic
+> tsx --test test/semantic.test.ts
+
+✔ literal team, own department and subtree differ (0.906334ms)
+✔ node/action sources never cross product; own-role override, empty and delete (3.623292ms)
+✔ override cannot invent navigation/actions/raw fields or follow new membership (0.263875ms)
+✔ six scope explicit boundaries and revision-bound organization facts (0.270709ms)
+✔ raw fields are tied to matching source and all hard caps precede union (0.465ms)
+✔ appointments derive exact backend and project grants; revoke preserves other source (2.837458ms)
+✔ SELF uses only each registered node anchor and wallet exception stays narrow (1.597333ms)
+✔ category locks, independent actions, public and extensible subjects use common grants (0.561541ms)
+✔ selected management membership, resolved set/field caps and levels constrain delegation (0.520875ms)
+✔ ambiguous duplicate source IDs fail closed in both candidates (0.101959ms)
+✔ bulk query plan resolves once, preserves source-field pairs, rejects port binding mismatch (0.694625ms)
+✔ appointment revocation/company/state and public custom replacement negatives (0.562167ms)
+✔ each scope permits and rejects literal resources on each engine (0.8295ms)
+✔ delegation additionally requires role mutation action from selected membership (0.0735ms)
+✔ wallet hard facts: native: known separate old-company account (0.04625ms)
+✔ wallet hard facts: native: missing data company (0.019042ms)
+✔ wallet hard facts: native: empty data company (0.017125ms)
+✔ wallet hard facts: native: blank data company (0.017458ms)
+✔ wallet hard facts: native: missing reference status (0.016ms)
+✔ wallet hard facts: native: unbound reviewer account (0.017625ms)
+✔ wallet hard facts: casbin: known separate old-company account (0.428667ms)
+✔ wallet hard facts: casbin: missing data company (0.018292ms)
+✔ wallet hard facts: casbin: empty data company (0.025458ms)
+✔ wallet hard facts: casbin: blank data company (0.020959ms)
+✔ wallet hard facts: casbin: missing reference status (0.018667ms)
+✔ wallet hard facts: casbin: unbound reviewer account (0.01475ms)
+ℹ tests 26
+ℹ suites 0
+ℹ pass 26
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 129.086625
+
+exit=0

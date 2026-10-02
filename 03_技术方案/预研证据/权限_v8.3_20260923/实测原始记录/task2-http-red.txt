@@ -1,0 +1,38 @@
+✖ real HTTP appointments derive backend then revoke last; direct object denied (10.327583ms)
+✖ real HTTP frozen export denied after source revoke and auth headers cannot spoof identity (2.958583ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 0
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 101.660041
+
+✖ failing tests:
+
+test at test/http.test.ts:1:514
+✖ real HTTP appointments derive backend then revoke last; direct object denied (10.327583ms)
+  [TypeError: fetch failed] {
+    [cause]: Error: connect ECONNREFUSED 127.0.0.1:4311
+        at TCPConnectWrap.afterConnect [as oncomplete] (node:net:2021:16) {
+      errno: -61,
+      code: 'ECONNREFUSED',
+      syscall: 'connect',
+      address: '127.0.0.1',
+      port: 4311
+    }
+  }
+
+test at test/http.test.ts:1:1258
+✖ real HTTP frozen export denied after source revoke and auth headers cannot spoof identity (2.958583ms)
+  [TypeError: fetch failed] {
+    [cause]: Error: connect ECONNREFUSED 127.0.0.1:4311
+        at TCPConnectWrap.afterConnect [as oncomplete] (node:net:2021:16) {
+      errno: -61,
+      code: 'ECONNREFUSED',
+      syscall: 'connect',
+      address: '127.0.0.1',
+      port: 4311
+    }
+  }

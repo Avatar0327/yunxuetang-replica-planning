@@ -1,0 +1,1839 @@
+# Review package: 2d21695..72adfaa
+
+## Commits
+72adfaa feat(spike): add source-bound authorization kernel and Casbin candidate
+
+## Files changed
+ docs/kernel-contract.md  |  92 ++++++
+ package-lock.json        | 733 +++++++++++++++++++++++++++++++++++++++++++++++
+ package.json             |  25 ++
+ src/authz/candidates.ts  |  64 +++++
+ src/authz/contracts.ts   | 212 ++++++++++++++
+ src/authz/delegation.ts  |  70 +++++
+ src/authz/policy.ts      | 156 ++++++++++
+ src/authz/scope.ts       |  82 ++++++
+ test/fixtures.ts         |  22 ++
+ test/kernel-benchmark.ts |  24 ++
+ test/semantic.test.ts    | 265 +++++++++++++++++
+ tsconfig.json            |   1 +
+ 12 files changed, 1746 insertions(+)
+
+## Diff
+diff --git a/docs/kernel-contract.md b/docs/kernel-contract.md
+new file mode 100644
+index 0000000..8c8686b
+--- /dev/null
++++ b/docs/kernel-contract.md
+@@ -0,0 +1,92 @@
++# Task 1 central authorization kernel contract
++
++This is an isolated permission spike, based on approved 04/T-05/T-06/T-07/T-15/T-16. Unit/object-match evidence does not pass any full AUTH-T01–T24 gate. No HTTP, SQL, authoritative revision read, Redis, persistence or UI is implemented here.
++
++## Trusted input boundary
++
++All exported structures describe **internal server facts**, not API DTOs. Transport must load context, memberships, overrides, appointments, node dictionary, effective catalog ancestry and subject membership from authoritative ports. Do not accept grants, ScopeSpec, allowed person IDs, company caps, `businessAllowed`, `published`, `affectedCompanyIds`, resolver callbacks or raw-field flags from clients. Validate external identifiers against tenant-qualified database relations. Reject unknown schema versions, nodes, scopes and subject types. Protect immutable snapshots by current tenant authorization revision; the kernel's numeric binding is not a database freshness proof.
++
++`contracts.ts` is authoritative for exported types. IDs are opaque strings; actions are registered exact strings, with no wildcard or prefix authorization. Context has tenantId/personId/revision, status, primary department, internal flag, current company and server-loaded companyIds. External company caps always reduce to current company even if supplied companyIds contains more. Resource.enabled/deleted are **current target status**; historical status and department do not override them. All resource/company/state facts must come from the owning module.
++
++## Exported signatures
++
++```ts
++// policy.ts
++normalizePolicy(input: NormalizeInput): EffectiveGrant[]
++normalizeCatalog(input: NormalizeCatalogInput): EffectiveGrant[]
++buildQueryPolicy(input: QueryInput): Promise<QueryPolicy>
++backendCapabilities(grants: readonly EffectiveGrant[], nodes: readonly NodeDefinition[]):
++  { backend: boolean; nodes: string[] }
++hardAllowed(context: Context, node: NodeDefinition | undefined, resource: Resource,
++  affectedCompanyIds?: readonly string[], action?: string): boolean
++validContext(context: Context): boolean
++activeMembership(membership: Membership, context: Context): boolean
++subjectMatches(subject: Subject, context: Context, resolvers: SubjectResolvers): boolean
++
++// scope.ts
++companyCap(context: Context): string[]
++makeScope(context: Context, node: NodeDefinition, action: string,
++  scope: Scope, jurisdiction?: Scope): ScopeSpec | null
++resolveScope(spec: ScopeSpec, org: OrganizationSnapshot): ResolvedScope
++scopeMatches(scope: ResolvedScope, resource: Resource): boolean
++teamMembers(context: Context, org: OrganizationSnapshot): string[]
++
++// delegation.ts
++assertCanDelegate(input: DelegateInput): Promise<void>
++assertGrantSubset(input: GrantSubsetInput): Promise<void>
++
++// candidates.ts
++new NativeCandidate(): Candidate
++new CasbinCandidate(): Candidate
++// both:
++match(input: MatchInput): Promise<MatchResult>
++// CASBIN_MODEL is exported for review.
++```
++
++`NormalizeInput` contains context/nodes/memberships and optional appointments, explicit appointmentCapabilities and SubjectResolvers. `NormalizeCatalogInput` contains context/nodes/nodeId/catalog/courseId/subjectResolvers and optional customBrowse. `QueryInput` contains context/nodes/grants/nodeId/action and `organization: OrganizationPublic`. `DelegateInput` contains context/nodes/memberships/managementRoleMembershipId, operation create/edit, targetLevel, proposed[] and trusted `resolveObjects(spec): Promise<ObjectSet>`.
++
++`EffectiveGrant` keeps sourceId, sourceKind, optional membershipId, tenantId, actorId, revision, nodeId, action, rawFields, delegable and ScopeSpec **together**. Source IDs are `role:<membership>:<node>:<action>`, `appointment:<appointment>:<node>:<action>` and `catalog:<grant-id>`. Duplicate generated source IDs fail normalization closed. Do not concatenate independently normalized batches with colliding source IDs.
++
++`MatchResult` has allowed, sourceIds, rawFields and revision. Fields are unioned **only over sources which actually match this object for this action**. Native matches registered exact dimensions and source scopes. Casbin builds real model/policy rows and independently enforces each candidate source with a central scope predicate, then collects actual matching source IDs. It does not consume a Native allow boolean. Common hard constraints and semantic normalization intentionally remain shared. Casbin cannot replace override processing, organization relationships, SQL compilation, field projection, delegation subsets or revision/revocation protocols.
++
++## Normalization and closed semantics
++
++Each valid membership contributes its node policy after its own matching override is applied. Null override means zero grant; absent override inherits. An override with another membership ID does not attach to a regranted membership. Scope override cannot create navigation/actions/raw fields. `managed` resolves only that membership's department jurisdiction; missing or unsupported jurisdiction becomes an empty department set. A jurisdiction is currently the explicit `departments` shape, with includeDescendants default false. Other scopes are unaffected by jurisdiction. No implicit global personal upper bound is added.
++
++`all` remains an all marker and does not enumerate people. Department scopes use **current** organization members, not historical department snapshots. ownDept excludes descendants; ownDeptSubtree includes the primary department subtree; no primary department gives empty. The pure reference resolver rejects invalid subtree hierarchy (cycles, invalid parents, >20 depth); production organization must also reject invalid hierarchy writes. Team is strictly managerId == actor, never recursive. `teamMembers` is only relation resolution: Task2 must additionally enforce the registered project team-management action, project switch, current target status and companies before a command.
++
++SELF anchors are registered by node: personId for learning/account, uploaderId for course maintenance, createdBy for project configuration, ownerId for face-to-face. No universal createdBy fallback. Unsupported scope/node combinations yield no grants. Unknown subject resolvers yield no grant; thrown resolver errors deny. Built-ins are authenticated same-tenant public and exact user; catalog_creator compares current authoritative creator. Additional subject types resolve to the same common grant structure.
++
++Appointment capabilities are a server-owned explicit table. Normalization accepts only project resource nodes and exact registered actions and produces objectIds containing that project, no raw fields and no delegation. The backend shell is derived from normalized management grants, never a permanent global role. Consumers must normalize current facts again after revocation; capabilities alone do not authorize data. A scope with no currently resolved objects can retain a navigation hint, but cannot return any records.
++
++Catalog.grants must already be the owning module's effective ancestry policy, including forced ancestor grants and `lockedBy`. Supplying customBrowse when locked throws, including for the creator. Unlocked customBrowse replaces browse only; maintain/distribute/download remain independent. Creator rights are explicit catalog_creator grants, not a matcher bypass. Mutation commands must resolve ancestry authoritatively, reject locked changes, and run `assertGrantSubset` for replacement grants, in addition to their own registered mutation capability. This pure module does not persist ancestry or implement parent-append commands. Download preconditions and publication are action-specific authoritative facts (`publishedActions`, resource.published/businessAllowed), not inferred from browse.
++
++## Bulk SQL consumption (Task 2)
++
++```ts
++const grants = normalizePolicy(serverSnapshot);
++const plan = await buildQueryPolicy({
++  context, nodes, grants, nodeId: 'personal-learning',
++  action: 'report.personal-learning.view', organization: organizationPublic,
++});
++// Revalidate tenant revision before using plan; discard/rebuild or deny on change.
++return reportRepository.listAndCount(compileReportPlan(plan), pagination);
++```
++
++`OrganizationPublic.resolveScopeMembers(specs: readonly ScopeSpec[], authzRevision: number): Promise<ResolvedScope[]>` is called **once per build**, in input order; results retain exactly their original spec. Empty source list does not call the port. `buildQueryPolicy` validates every selected source binding and every returned spec (including node/action/actor/revision/company cap) and rejects mismatch. QueryPolicy carries tenant/actor/revision/node/action/resourceType/companyIds/companyMode/requirePublished plus `sources: {sourceId, rawFields, resolved}[]`. ResolvedScope has all/personIds and optional anchor/anchorIds/objectIds. ObjectIds is an additional intersection even when all is true.
++
++The repository compiler maps these controlled fields to module-owned columns. For each source, compile its own object/ownership/person predicate; OR source predicates for visible rows, and independently OR only raw-capable source predicates for each raw field's CASE projection. Retain sourceIds internally for audit. Apply tenant, resource state, company and publication constraints **before** sorting/pagination/count/aggregate. Share one authorized relation between list/count/detail/export; no per-row engine enforce or organization queries. `scopeMatches` and candidate classes are reference object checks and microtiming candidates, not the production list algorithm. A bulk caller must never flatten rawFields across all sources before row matching.
++
++CompanyMode current companyId applies to personnel/current objects; dataCompanyId binds historical facts; history grouping may use historicalDepartmentId only after authorization. content means content-level permission and does not share the creator's personnel data. ownWallet is exclusively the registered own-account read path: additionally constrain personId = actor, separate each dataCompanyId account, forbid cross-company offsets/references, and never use this mode for management/history reports. Whole-project commands pass the authoritative complete affectedCompanyIds to hardAllowed and must reject unless **every** affected company is covered; do not pass only visible participants.
++
++## Delegation and dynamic sources
++
++`assertCanDelegate` takes one selected managementRoleMembershipId, verifies its active provenance/status and level, and normalizes only that membership. It does not borrow other memberships' ranges or raw fields. The same selected membership must also grant role-management / authz.role.create or authz.role.update (registered all scope), according to operation; a business delegable flag alone is insufficient. Creation accepts only levels 2/3; editing rejects level1 and equal/higher target levels. Creation still requires all selected-context delegation caps. Appointments are not input and cannot delegate. Proposed objects are compared to resolved capability sets, not scope enum ranks; per-object raw-field coverage must be a subset too. Empty proposed sets cannot mint unavailable raw fields.
++
++`assertGrantSubset` exposes the same selected-membership action/set/field check for category/override mutations without role-specific levels/actions. Its input is DelegateInput without operation/targetLevel; the caller must separately enforce its own mutation action and lock rules.
++
++The trusted resolveObjects port returns ObjectSet with tenantId/actorId/revision/nodeId/action/objectIds and must enumerate or otherwise accurately resolve **all** corresponding permitted business objects with company/state caps. Binding is checked; the kernel cannot verify a dishonest port's data. This includes non-person anchors such as course uploader; do not substitute a person-ID resolver for a course object resolver. On persistence save source membership, resolved cap snapshot, revision, and dependencies. Source/organization changes must freeze dependents as recheck_required in the same authority transaction; recheck may mark active or suspended. Inactive/recheck_required/suspended memberships deny now. Graph propagation, cycle rejection, transaction locks and restore are Task2 persistence work, not proven by these pure tests.
++
++## Evidence and limitations
++
++`npm run test:semantic` tests independently literal expected IDs/fields on both engines. Set SEMANTIC_EVIDENCE to an output JSONL filename for detailed shared-helper comparisons. `npm run bench:kernel` prints actual candidate microtimings and versions, including model setup cost; these are not HTTP/SQL performance numbers or SLA evidence. Raw RED/GREEN/audit/microbench evidence lives in evidence/raw (ignored by Git), with commands in the task report. Exact runtime dependencies are locked; csv-parse 7.0.2 overrides Casbin's vulnerable dependency and the exercised model path passes tests. File-backed CSV adapters are not part of this candidate.
+diff --git a/package-lock.json b/package-lock.json
+new file mode 100644
+index 0000000..3ad318f
+--- /dev/null
++++ b/package-lock.json
+@@ -0,0 +1,733 @@
++{
++  "name": "permission-v83-spike",
++  "version": "0.0.1",
++  "lockfileVersion": 3,
++  "requires": true,
++  "packages": {
++    "": {
++      "name": "permission-v83-spike",
++      "version": "0.0.1",
++      "dependencies": {
++        "casbin": "5.38.0"
++      },
++      "devDependencies": {
++        "@types/node": "24.10.1",
++        "tsx": "4.20.6",
++        "typescript": "5.9.3"
++      },
++      "engines": {
++        "node": ">=24 <25"
++      }
++    },
++    "node_modules/@casbin/expression-eval": {
++      "version": "5.3.0",
++      "resolved": "https://registry.npmjs.org/@casbin/expression-eval/-/expression-eval-5.3.0.tgz",
++      "integrity": "sha512-mMTHMYXcnBBv/zMvxMpcdVyt2bfw8Y0GnmRLbkFQ1CVJZb4XZp7xWjRh7ymOLuJdsu58rci9gmOOv/99DtJvPA==",
++      "license": "MIT",
++      "dependencies": {
++        "jsep": "^0.3.0"
++      }
++    },
++    "node_modules/@esbuild/aix-ppc64": {
++      "version": "0.25.12",
++      "resolved": "https://registry.npmjs.org/@esbuild/aix-ppc64/-/aix-ppc64-0.25.12.tgz",
++      "integrity": "sha512-Hhmwd6CInZ3dwpuGTF8fJG6yoWmsToE+vYgD4nytZVxcu1ulHpUQRAB1UJ8+N1Am3Mz4+xOByoQoSZf4D+CpkA==",
++      "cpu": [
++        "ppc64"
++      ],
++      "dev": true,
++      "license": "MIT",
++      "optional": true,
++      "os": [
++        "aix"
++      ],
++      "engines": {
++        "node": ">=18"
++      }
++    },
++    "node_modules/@esbuild/android-arm": {
++      "version": "0.25.12",
++      "resolved": "https://registry.npmjs.org/@esbuild/android-arm/-/android-arm-0.25.12.tgz",
++      "integrity": "sha512-VJ+sKvNA/GE7Ccacc9Cha7bpS8nyzVv0jdVgwNDaR4gDMC/2TTRc33Ip8qrNYUcpkOHUT5OZ0bUcNNVZQ9RLlg==",
++      "cpu": [
++        "arm"
++      ],
++      "dev": true,
++      "license": "MIT",
++      "optional": true,
++      "os": [
++        "android"
++      ],
++      "engines": {
++        "node": ">=18"
++      }
++    },
++    "node_modules/@esbuild/android-arm64": {
++      "version": "0.25.12",
++      "resolved": "https://registry.npmjs.org/@esbuild/android-arm64/-/android-arm64-0.25.12.tgz",
++      "integrity": "sha512-6AAmLG7zwD1Z159jCKPvAxZd4y/VTO0VkprYy+3N2FtJ8+BQWFXU+OxARIwA46c5tdD9SsKGZ/1ocqBS/gAKHg==",
++      "cpu": [
++        "arm64"
++      ],
++      "dev": true,
++      "license": "MIT",
++      "optional": true,
++      "os": [
++        "android"
++      ],
++      "engines": {
++        "node": ">=18"
++      }
++    },
++    "node_modules/@esbuild/android-x64": {
++      "version": "0.25.12",
++      "resolved": "https://registry.npmjs.org/@esbuild/android-x64/-/android-x64-0.25.12.tgz",
++      "integrity": "sha512-5jbb+2hhDHx5phYR2By8GTWEzn6I9UqR11Kwf22iKbNpYrsmRB18aX/9ivc5cabcUiAT/wM+YIZ6SG9QO6a8kg==",
++      "cpu": [
++        "x64"
++      ],
++      "dev": true,
++      "license": "MIT",
++      "optional": true,
++      "os": [
++        "android"
++      ],
++      "engines": {
++        "node": ">=18"
++      }
++    },
++    "node_modules/@esbuild/darwin-arm64": {
++      "version": "0.25.12",
++      "resolved": "https://registry.npmjs.org/@esbuild/darwin-arm64/-/darwin-arm64-0.25.12.tgz",
++      "integrity": "sha512-N3zl+lxHCifgIlcMUP5016ESkeQjLj/959RxxNYIthIg+CQHInujFuXeWbWMgnTo4cp5XVHqFPmpyu9J65C1Yg==",
++      "cpu": [
++        "arm64"
++      ],
++      "dev": true,
++      "license": "MIT",
++      "optional": true,
++      "os": [
++        "darwin"
++      ],
++      "engines": {
++        "node": ">=18"
++      }
++    },
++    "node_modules/@esbuild/darwin-x64": {
++      "version": "0.25.12",
++      "resolved": "https://registry.npmjs.org/@esbuild/darwin-x64/-/darwin-x64-0.25.12.tgz",
++      "integrity": "sha512-HQ9ka4Kx21qHXwtlTUVbKJOAnmG1ipXhdWTmNXiPzPfWKpXqASVcWdnf2bnL73wgjNrFXAa3yYvBSd9pzfEIpA==",
++      "cpu": [
++        "x64"
++      ],
++      "dev": true,
++      "license": "MIT",
++      "optional": true,
++      "os": [
++        "darwin"
++      ],
++      "engines": {
++        "node": ">=18"
++      }
++    },
++    "node_modules/@esbuild/freebsd-arm64": {
++      "version": "0.25.12",
++      "resolved": "https://registry.npmjs.org/@esbuild/freebsd-arm64/-/freebsd-arm64-0.25.12.tgz",
++      "integrity": "sha512-gA0Bx759+7Jve03K1S0vkOu5Lg/85dou3EseOGUes8flVOGxbhDDh/iZaoek11Y8mtyKPGF3vP8XhnkDEAmzeg==",
++      "cpu": [
++        "arm64"
++      ],
++      "dev": true,
++      "license": "MIT",
++      "optional": true,
++      "os": [
++        "freebsd"
++      ],
++      "engines": {
++        "node": ">=18"
++      }
++    },
++    "node_modules/@esbuild/freebsd-x64": {
++      "version": "0.25.12",
++      "resolved": "https://registry.npmjs.org/@esbuild/freebsd-x64/-/freebsd-x64-0.25.12.tgz",
++      "integrity": "sha512-TGbO26Yw2xsHzxtbVFGEXBFH0FRAP7gtcPE7P5yP7wGy7cXK2oO7RyOhL5NLiqTlBh47XhmIUXuGciXEqYFfBQ==",
++      "cpu": [
++        "x64"
++      ],
++      "dev": true,
++      "license": "MIT",
++      "optional": true,
++      "os": [
++        "freebsd"
++      ],
++      "engines": {
++        "node": ">=18"
++      }
++    },
++    "node_modules/@esbuild/linux-arm": {
++      "version": "0.25.12",
++      "resolved": "https://registry.npmjs.org/@esbuild/linux-arm/-/linux-arm-0.25.12.tgz",
++      "integrity": "sha512-lPDGyC1JPDou8kGcywY0YILzWlhhnRjdof3UlcoqYmS9El818LLfJJc3PXXgZHrHCAKs/Z2SeZtDJr5MrkxtOw==",
++      "cpu": [
++        "arm"
++      ],
++      "dev": true,
++      "license": "MIT",
++      "optional": true,
++      "os": [
++        "linux"
++      ],
++      "engines": {
++        "node": ">=18"
++      }
++    },
++    "node_modules/@esbuild/linux-arm64": {
++      "version": "0.25.12",
++      "resolved": "https://registry.npmjs.org/@esbuild/linux-arm64/-/linux-arm64-0.25.12.tgz",
++      "integrity": "sha512-8bwX7a8FghIgrupcxb4aUmYDLp8pX06rGh5HqDT7bB+8Rdells6mHvrFHHW2JAOPZUbnjUpKTLg6ECyzvas2AQ==",
++      "cpu": [
++        "arm64"
++      ],
++      "dev": true,
++      "license": "MIT",
++      "optional": true,
++      "os": [
++        "linux"
++      ],
++      "engines": {
++        "node": ">=18"
++      }
++    },
++    "node_modules/@esbuild/linux-ia32": {
++      "version": "0.25.12",
++      "resolved": "https://registry.npmjs.org/@esbuild/linux-ia32/-/linux-ia32-0.25.12.tgz",
++      "integrity": "sha512-0y9KrdVnbMM2/vG8KfU0byhUN+EFCny9+8g202gYqSSVMonbsCfLjUO+rCci7pM0WBEtz+oK/PIwHkzxkyharA==",
++      "cpu": [
++        "ia32"
++      ],
++      "dev": true,
++      "license": "MIT",
++      "optional": true,
++      "os": [
++        "linux"
++      ],
++      "engines": {
++        "node": ">=18"
++      }
++    },
++    "node_modules/@esbuild/linux-loong64": {
++      "version": "0.25.12",
++      "resolved": "https://registry.npmjs.org/@esbuild/linux-loong64/-/linux-loong64-0.25.12.tgz",
++      "integrity": "sha512-h///Lr5a9rib/v1GGqXVGzjL4TMvVTv+s1DPoxQdz7l/AYv6LDSxdIwzxkrPW438oUXiDtwM10o9PmwS/6Z0Ng==",
++      "cpu": [
++        "loong64"
++      ],
++      "dev": true,
++      "license": "MIT",
++      "optional": true,
++      "os": [
++        "linux"
++      ],
++      "engines": {
++        "node": ">=18"
++      }
++    },
++    "node_modules/@esbuild/linux-mips64el": {
++      "version": "0.25.12",
++      "resolved": "https://registry.npmjs.org/@esbuild/linux-mips64el/-/linux-mips64el-0.25.12.tgz",
++      "integrity": "sha512-iyRrM1Pzy9GFMDLsXn1iHUm18nhKnNMWscjmp4+hpafcZjrr2WbT//d20xaGljXDBYHqRcl8HnxbX6uaA/eGVw==",
++      "cpu": [
++        "mips64el"
++      ],
++      "dev": true,
++      "license": "MIT",
++      "optional": true,
++      "os": [
++        "linux"
++      ],
++      "engines": {
++        "node": ">=18"
++      }
++    },
++    "node_modules/@esbuild/linux-ppc64": {
++      "version": "0.25.12",
++      "resolved": "https://registry.npmjs.org/@esbuild/linux-ppc64/-/linux-ppc64-0.25.12.tgz",
++      "integrity": "sha512-9meM/lRXxMi5PSUqEXRCtVjEZBGwB7P/D4yT8UG/mwIdze2aV4Vo6U5gD3+RsoHXKkHCfSxZKzmDssVlRj1QQA==",
++      "cpu": [
++        "ppc64"
++      ],
++      "dev": true,
++      "license": "MIT",
++      "optional": true,
++      "os": [
++        "linux"
++      ],
++      "engines": {
++        "node": ">=18"
++      }
++    },
++    "node_modules/@esbuild/linux-riscv64": {
++      "version": "0.25.12",
++      "resolved": "https://registry.npmjs.org/@esbuild/linux-riscv64/-/linux-riscv64-0.25.12.tgz",
++      "integrity": "sha512-Zr7KR4hgKUpWAwb1f3o5ygT04MzqVrGEGXGLnj15YQDJErYu/BGg+wmFlIDOdJp0PmB0lLvxFIOXZgFRrdjR0w==",
++      "cpu": [
++        "riscv64"
++      ],
++      "dev": true,
++      "license": "MIT",
++      "optional": true,
++      "os": [
++        "linux"
++      ],
++      "engines": {
++        "node": ">=18"
++      }
++    },
++    "node_modules/@esbuild/linux-s390x": {
++      "version": "0.25.12",
++      "resolved": "https://registry.npmjs.org/@esbuild/linux-s390x/-/linux-s390x-0.25.12.tgz",
++      "integrity": "sha512-MsKncOcgTNvdtiISc/jZs/Zf8d0cl/t3gYWX8J9ubBnVOwlk65UIEEvgBORTiljloIWnBzLs4qhzPkJcitIzIg==",
++      "cpu": [
++        "s390x"
++      ],
++      "dev": true,
++      "license": "MIT",
++      "optional": true,
++      "os": [
++        "linux"
++      ],
++      "engines": {
++        "node": ">=18"
++      }
++    },
++    "node_modules/@esbuild/linux-x64": {
++      "version": "0.25.12",
++      "resolved": "https://registry.npmjs.org/@esbuild/linux-x64/-/linux-x64-0.25.12.tgz",
++      "integrity": "sha512-uqZMTLr/zR/ed4jIGnwSLkaHmPjOjJvnm6TVVitAa08SLS9Z0VM8wIRx7gWbJB5/J54YuIMInDquWyYvQLZkgw==",
++      "cpu": [
++        "x64"
++      ],
++      "dev": true,
++      "license": "MIT",
++      "optional": true,
++      "os": [
++        "linux"
++      ],
++      "engines": {
++        "node": ">=18"
++      }
++    },
++    "node_modules/@esbuild/netbsd-arm64": {
++      "version": "0.25.12",
++      "resolved": "https://registry.npmjs.org/@esbuild/netbsd-arm64/-/netbsd-arm64-0.25.12.tgz",
++      "integrity": "sha512-xXwcTq4GhRM7J9A8Gv5boanHhRa/Q9KLVmcyXHCTaM4wKfIpWkdXiMog/KsnxzJ0A1+nD+zoecuzqPmCRyBGjg==",
++      "cpu": [
++        "arm64"
++      ],
++      "dev": true,
++      "license": "MIT",
++      "optional": true,
++      "os": [
++        "netbsd"
++      ],
++      "engines": {
++        "node": ">=18"
++      }
++    },
++    "node_modules/@esbuild/netbsd-x64": {
++      "version": "0.25.12",
++      "resolved": "https://registry.npmjs.org/@esbuild/netbsd-x64/-/netbsd-x64-0.25.12.tgz",
++      "integrity": "sha512-Ld5pTlzPy3YwGec4OuHh1aCVCRvOXdH8DgRjfDy/oumVovmuSzWfnSJg+VtakB9Cm0gxNO9BzWkj6mtO1FMXkQ==",
++      "cpu": [
++        "x64"
++      ],
++      "dev": true,
++      "license": "MIT",
++      "optional": true,
++      "os": [
++        "netbsd"
++      ],
++      "engines": {
++        "node": ">=18"
++      }
++    },
++    "node_modules/@esbuild/openbsd-arm64": {
++      "version": "0.25.12",
++      "resolved": "https://registry.npmjs.org/@esbuild/openbsd-arm64/-/openbsd-arm64-0.25.12.tgz",
++      "integrity": "sha512-fF96T6KsBo/pkQI950FARU9apGNTSlZGsv1jZBAlcLL1MLjLNIWPBkj5NlSz8aAzYKg+eNqknrUJ24QBybeR5A==",
++      "cpu": [
++        "arm64"
++      ],
++      "dev": true,
++      "license": "MIT",
++      "optional": true,
++      "os": [
++        "openbsd"
++      ],
++      "engines": {
++        "node": ">=18"
++      }
++    },
++    "node_modules/@esbuild/openbsd-x64": {
++      "version": "0.25.12",
++      "resolved": "https://registry.npmjs.org/@esbuild/openbsd-x64/-/openbsd-x64-0.25.12.tgz",
++      "integrity": "sha512-MZyXUkZHjQxUvzK7rN8DJ3SRmrVrke8ZyRusHlP+kuwqTcfWLyqMOE3sScPPyeIXN/mDJIfGXvcMqCgYKekoQw==",
++      "cpu": [
++        "x64"
++      ],
++      "dev": true,
++      "license": "MIT",
++      "optional": true,
++      "os": [
++        "openbsd"
++      ],
++      "engines": {
++        "node": ">=18"
++      }
++    },
++    "node_modules/@esbuild/openharmony-arm64": {
++      "version": "0.25.12",
++      "resolved": "https://registry.npmjs.org/@esbuild/openharmony-arm64/-/openharmony-arm64-0.25.12.tgz",
++      "integrity": "sha512-rm0YWsqUSRrjncSXGA7Zv78Nbnw4XL6/dzr20cyrQf7ZmRcsovpcRBdhD43Nuk3y7XIoW2OxMVvwuRvk9XdASg==",
++      "cpu": [
++        "arm64"
++      ],
++      "dev": true,
++      "license": "MIT",
++      "optional": true,
++      "os": [
++        "openharmony"
++      ],
++      "engines": {
++        "node": ">=18"
++      }
++    },
++    "node_modules/@esbuild/sunos-x64": {
++      "version": "0.25.12",
++      "resolved": "https://registry.npmjs.org/@esbuild/sunos-x64/-/sunos-x64-0.25.12.tgz",
++      "integrity": "sha512-3wGSCDyuTHQUzt0nV7bocDy72r2lI33QL3gkDNGkod22EsYl04sMf0qLb8luNKTOmgF/eDEDP5BFNwoBKH441w==",
++      "cpu": [
++        "x64"
++      ],
++      "dev": true,
++      "license": "MIT",
++      "optional": true,
++      "os": [
++        "sunos"
++      ],
++      "engines": {
++        "node": ">=18"
++      }
++    },
++    "node_modules/@esbuild/win32-arm64": {
++      "version": "0.25.12",
++      "resolved": "https://registry.npmjs.org/@esbuild/win32-arm64/-/win32-arm64-0.25.12.tgz",
++      "integrity": "sha512-rMmLrur64A7+DKlnSuwqUdRKyd3UE7oPJZmnljqEptesKM8wx9J8gx5u0+9Pq0fQQW8vqeKebwNXdfOyP+8Bsg==",
++      "cpu": [
++        "arm64"
++      ],
++      "dev": true,
++      "license": "MIT",
++      "optional": true,
++      "os": [
++        "win32"
++      ],
++      "engines": {
++        "node": ">=18"
++      }
++    },
++    "node_modules/@esbuild/win32-ia32": {
++      "version": "0.25.12",
++      "resolved": "https://registry.npmjs.org/@esbuild/win32-ia32/-/win32-ia32-0.25.12.tgz",
++      "integrity": "sha512-HkqnmmBoCbCwxUKKNPBixiWDGCpQGVsrQfJoVGYLPT41XWF8lHuE5N6WhVia2n4o5QK5M4tYr21827fNhi4byQ==",
++      "cpu": [
++        "ia32"
++      ],
++      "dev": true,
++      "license": "MIT",
++      "optional": true,
++      "os": [
++        "win32"
++      ],
++      "engines": {
++        "node": ">=18"
++      }
++    },
++    "node_modules/@esbuild/win32-x64": {
++      "version": "0.25.12",
++      "resolved": "https://registry.npmjs.org/@esbuild/win32-x64/-/win32-x64-0.25.12.tgz",
++      "integrity": "sha512-alJC0uCZpTFrSL0CCDjcgleBXPnCrEAhTBILpeAp7M/OFgoqtAetfBzX0xM00MUsVVPpVjlPuMbREqnZCXaTnA==",
++      "cpu": [
++        "x64"
++      ],
++      "dev": true,
++      "license": "MIT",
++      "optional": true,
++      "os": [
++        "win32"
++      ],
++      "engines": {
++        "node": ">=18"
++      }
++    },
++    "node_modules/@types/node": {
++      "version": "24.10.1",
++      "resolved": "https://registry.npmjs.org/@types/node/-/node-24.10.1.tgz",
++      "integrity": "sha512-GNWcUTRBgIRJD5zj+Tq0fKOJ5XZajIiBroOF0yvj2bSU1WvNdYS/dn9UxwsujGW4JX06dnHyjV2y9rRaybH0iQ==",
++      "dev": true,
++      "license": "MIT",
++      "dependencies": {
++        "undici-types": "~7.16.0"
++      }
++    },
++    "node_modules/await-lock": {
++      "version": "2.2.2",
++      "resolved": "https://registry.npmjs.org/await-lock/-/await-lock-2.2.2.tgz",
++      "integrity": "sha512-aDczADvlvTGajTDjcjpJMqRkOF6Qdz3YbPZm/PyW6tKPkx2hlYBzxMhEywM/tU72HrVZjgl5VCdRuMlA7pZ8Gw==",
++      "license": "MIT"
++    },
++    "node_modules/balanced-match": {
++      "version": "1.0.2",
++      "resolved": "https://registry.npmjs.org/balanced-match/-/balanced-match-1.0.2.tgz",
++      "integrity": "sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==",
++      "license": "MIT"
++    },
++    "node_modules/base64-js": {
++      "version": "1.5.1",
++      "resolved": "https://registry.npmjs.org/base64-js/-/base64-js-1.5.1.tgz",
++      "integrity": "sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==",
++      "funding": [
++        {
++          "type": "github",
++          "url": "https://github.com/sponsors/feross"
++        },
++        {
++          "type": "patreon",
++          "url": "https://www.patreon.com/feross"
++        },
++        {
++          "type": "consulting",
++          "url": "https://feross.org/support"
++        }
++      ],
++      "license": "MIT"
++    },
++    "node_modules/brace-expansion": {
++      "version": "2.1.7",
++      "resolved": "https://registry.npmjs.org/brace-expansion/-/brace-expansion-2.1.7.tgz",
++      "integrity": "sha512-uZbew1NqdmPDTMJ8ah1y+b+9QEJrfkXFk3RcTQw3X0jW/xRUvFKsg1CfQdSYGdTbXZWExtU3J3ccxtnfw1Fi0g==",
++      "license": "MIT",
++      "dependencies": {
++        "balanced-match": "^1.0.0"
++      }
++    },
++    "node_modules/buffer": {
++      "version": "6.0.3",
++      "resolved": "https://registry.npmjs.org/buffer/-/buffer-6.0.3.tgz",
++      "integrity": "sha512-FTiCpNxtwiZZHEZbcbTIcZjERVICn9yq/pDFkTl95/AxzD1naBctN7YO68riM/gLSDY7sdrMby8hofADYuuqOA==",
++      "funding": [
++        {
++          "type": "github",
++          "url": "https://github.com/sponsors/feross"
++        },
++        {
++          "type": "patreon",
++          "url": "https://www.patreon.com/feross"
++        },
++        {
++          "type": "consulting",
++          "url": "https://feross.org/support"
++        }
++      ],
++      "license": "MIT",
++      "dependencies": {
++        "base64-js": "^1.3.1",
++        "ieee754": "^1.2.1"
++      }
++    },
++    "node_modules/casbin": {
++      "version": "5.38.0",
++      "resolved": "https://registry.npmjs.org/casbin/-/casbin-5.38.0.tgz",
++      "integrity": "sha512-0VI0j18XtftaMj3nnv6CM3h0EvtB8IWPdxWD1t1myyUBOUboMSsMrU9PUtYFX9oAAXRpY2DWNTF1mXUG+QcYvw==",
++      "license": "Apache-2.0",
++      "dependencies": {
++        "@casbin/expression-eval": "^5.3.0",
++        "await-lock": "^2.0.1",
++        "buffer": "^6.0.3",
++        "csv-parse": "^5.5.6",
++        "minimatch": "^7.4.2"
++      }
++    },
++    "node_modules/csv-parse": {
++      "version": "7.0.2",
++      "resolved": "https://registry.npmjs.org/csv-parse/-/csv-parse-7.0.2.tgz",
++      "integrity": "sha512-uKZghv9UmPkMVLYy//KZ9HFAIJsl7wkhoEdIL0+rhuSY9pZQlhaeGEDPIe+/w7eh81MOql8Q/9+inAGWG6ZHYA==",
++      "license": "MIT"
++    },
++    "node_modules/esbuild": {
++      "version": "0.25.12",
++      "resolved": "https://registry.npmjs.org/esbuild/-/esbuild-0.25.12.tgz",
++      "integrity": "sha512-bbPBYYrtZbkt6Os6FiTLCTFxvq4tt3JKall1vRwshA3fdVztsLAatFaZobhkBC8/BrPetoa0oksYoKXoG4ryJg==",
++      "dev": true,
++      "hasInstallScript": true,
++      "license": "MIT",
++      "bin": {
++        "esbuild": "bin/esbuild"
++      },
++      "engines": {
++        "node": ">=18"
++      },
++      "optionalDependencies": {
++        "@esbuild/aix-ppc64": "0.25.12",
++        "@esbuild/android-arm": "0.25.12",
++        "@esbuild/android-arm64": "0.25.12",
++        "@esbuild/android-x64": "0.25.12",
++        "@esbuild/darwin-arm64": "0.25.12",
++        "@esbuild/darwin-x64": "0.25.12",
++        "@esbuild/freebsd-arm64": "0.25.12",
++        "@esbuild/freebsd-x64": "0.25.12",
++        "@esbuild/linux-arm": "0.25.12",
++        "@esbuild/linux-arm64": "0.25.12",
++        "@esbuild/linux-ia32": "0.25.12",
++        "@esbuild/linux-loong64": "0.25.12",
++        "@esbuild/linux-mips64el": "0.25.12",
++        "@esbuild/linux-ppc64": "0.25.12",
++        "@esbuild/linux-riscv64": "0.25.12",
++        "@esbuild/linux-s390x": "0.25.12",
++        "@esbuild/linux-x64": "0.25.12",
++        "@esbuild/netbsd-arm64": "0.25.12",
++        "@esbuild/netbsd-x64": "0.25.12",
++        "@esbuild/openbsd-arm64": "0.25.12",
++        "@esbuild/openbsd-x64": "0.25.12",
++        "@esbuild/openharmony-arm64": "0.25.12",
++        "@esbuild/sunos-x64": "0.25.12",
++        "@esbuild/win32-arm64": "0.25.12",
++        "@esbuild/win32-ia32": "0.25.12",
++        "@esbuild/win32-x64": "0.25.12"
++      }
++    },
++    "node_modules/fsevents": {
++      "version": "2.3.3",
++      "resolved": "https://registry.npmjs.org/fsevents/-/fsevents-2.3.3.tgz",
++      "integrity": "sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==",
++      "dev": true,
++      "hasInstallScript": true,
++      "license": "MIT",
++      "optional": true,
++      "os": [
++        "darwin"
++      ],
++      "engines": {
++        "node": "^8.16.0 || ^10.6.0 || >=11.0.0"
++      }
++    },
++    "node_modules/get-tsconfig": {
++      "version": "4.14.3",
++      "resolved": "https://registry.npmjs.org/get-tsconfig/-/get-tsconfig-4.14.3.tgz",
++      "integrity": "sha512-++QEw4DIY7WGoukz+/+A/8dGYPT9l9yIadnmSgZ8Rjr3YVSVDipQSO9CdnJo9ePqFqUUqh+wk9uIaoiAwsiPkA==",
++      "dev": true,
++      "license": "MIT",
++      "dependencies": {
++        "resolve-pkg-maps": "^1.0.0"
++      },
++      "funding": {
++        "url": "https://github.com/privatenumber/get-tsconfig?sponsor=1"
++      }
++    },
++    "node_modules/ieee754": {
++      "version": "1.2.1",
++      "resolved": "https://registry.npmjs.org/ieee754/-/ieee754-1.2.1.tgz",
++      "integrity": "sha512-dcyqhDvX1C46lXZcVqCpK+FtMRQVdIMN6/Df5js2zouUsqG7I6sFxitIC+7KYK29KdXOLHdu9zL4sFnoVQnqaA==",
++      "funding": [
++        {
++          "type": "github",
++          "url": "https://github.com/sponsors/feross"
++        },
++        {
++          "type": "patreon",
++          "url": "https://www.patreon.com/feross"
++        },
++        {
++          "type": "consulting",
++          "url": "https://feross.org/support"
++        }
++      ],
++      "license": "BSD-3-Clause"
++    },
++    "node_modules/jsep": {
++      "version": "0.3.5",
++      "resolved": "https://registry.npmjs.org/jsep/-/jsep-0.3.5.tgz",
++      "integrity": "sha512-AoRLBDc6JNnKjNcmonituEABS5bcfqDhQAWWXNTFrqu6nVXBpBAGfcoTGZMFlIrh9FjmE1CQyX9CTNwZrXMMDA==",
++      "license": "MIT",
++      "engines": {
++        "node": ">= 6.0.0"
++      }
++    },
++    "node_modules/minimatch": {
++      "version": "7.4.9",
++      "resolved": "https://registry.npmjs.org/minimatch/-/minimatch-7.4.9.tgz",
++      "integrity": "sha512-Brg/fp/iAVDOQoHxkuN5bEYhyQlZhxddI78yWsCbeEwTHXQjlNLtiJDUsp1GIptVqMI7/gkJMz4vVAc01mpoBw==",
++      "license": "ISC",
++      "dependencies": {
++        "brace-expansion": "^2.0.2"
++      },
++      "engines": {
++        "node": ">=10"
++      },
++      "funding": {
++        "url": "https://github.com/sponsors/isaacs"
++      }
++    },
++    "node_modules/resolve-pkg-maps": {
++      "version": "1.0.0",
++      "resolved": "https://registry.npmjs.org/resolve-pkg-maps/-/resolve-pkg-maps-1.0.0.tgz",
++      "integrity": "sha512-seS2Tj26TBVOC2NIc2rOe2y2ZO7efxITtLZcGSOnHHNOQ7CkiUBfw0Iw2ck6xkIhPwLhKNLS8BO+hEpngQlqzw==",
++      "dev": true,
++      "license": "MIT",
++      "funding": {
++        "url": "https://github.com/privatenumber/resolve-pkg-maps?sponsor=1"
++      }
++    },
++    "node_modules/tsx": {
++      "version": "4.20.6",
++      "resolved": "https://registry.npmjs.org/tsx/-/tsx-4.20.6.tgz",
++      "integrity": "sha512-ytQKuwgmrrkDTFP4LjR0ToE2nqgy886GpvRSpU0JAnrdBYppuY5rLkRUYPU1yCryb24SsKBTL/hlDQAEFVwtZg==",
++      "dev": true,
++      "license": "MIT",
++      "dependencies": {
++        "esbuild": "~0.25.0",
++        "get-tsconfig": "^4.7.5"
++      },
++      "bin": {
++        "tsx": "dist/cli.mjs"
++      },
++      "engines": {
++        "node": ">=18.0.0"
++      },
++      "optionalDependencies": {
++        "fsevents": "~2.3.3"
++      }
++    },
++    "node_modules/typescript": {
++      "version": "5.9.3",
++      "resolved": "https://registry.npmjs.org/typescript/-/typescript-5.9.3.tgz",
++      "integrity": "sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw==",
++      "dev": true,
++      "license": "Apache-2.0",
++      "bin": {
++        "tsc": "bin/tsc",
++        "tsserver": "bin/tsserver"
++      },
++      "engines": {
++        "node": ">=14.17"
++      }
++    },
++    "node_modules/undici-types": {
++      "version": "7.16.0",
++      "resolved": "https://registry.npmjs.org/undici-types/-/undici-types-7.16.0.tgz",
++      "integrity": "sha512-Zz+aZWSj8LE6zoxD+xrjh4VfkIG8Ya6LvYkZqtUQGJPZjYl53ypCaUwWqo7eI0x66KBGeRo+mlBEkMSeSZ38Nw==",
++      "dev": true,
++      "license": "MIT"
++    }
++  }
++}
+diff --git a/package.json b/package.json
+new file mode 100644
+index 0000000..44474fc
+--- /dev/null
++++ b/package.json
+@@ -0,0 +1,25 @@
++{
++  "name": "permission-v83-spike",
++  "private": true,
++  "type": "module",
++  "version": "0.0.1",
++  "engines": {
++    "node": ">=24 <25"
++  },
++  "scripts": {
++    "test:semantic": "tsx --test test/semantic.test.ts",
++    "typecheck": "tsc --noEmit",
++    "bench:kernel": "tsx test/kernel-benchmark.ts"
++  },
++  "dependencies": {
++    "casbin": "5.38.0"
++  },
++  "devDependencies": {
++    "@types/node": "24.10.1",
++    "tsx": "4.20.6",
++    "typescript": "5.9.3"
++  },
++  "overrides": {
++    "csv-parse": "7.0.2"
++  }
++}
+diff --git a/src/authz/candidates.ts b/src/authz/candidates.ts
+new file mode 100644
+index 0000000..b717087
+--- /dev/null
++++ b/src/authz/candidates.ts
+@@ -0,0 +1,64 @@
++import { newEnforcer, newModel } from 'casbin';
++import type { Candidate, EffectiveGrant, MatchInput, MatchResult } from './contracts.js';
++import { hardAllowed } from './policy.js';
++import { resolveScope, scopeMatches } from './scope.js';
++function result(input: MatchInput, grants: readonly EffectiveGrant[]): MatchResult {
++    return { allowed: grants.length > 0, sourceIds: [...new Set(grants.map(g => g.sourceId))].sort(), rawFields: [...new Set(grants.flatMap(g => g.rawFields))].sort(), revision: input.context.revision };
++}
++function validGrant(g: EffectiveGrant, input: MatchInput): boolean {
++    const c = input.context, s = g.scope;
++    return g.tenantId === c.tenantId && g.actorId === c.personId && g.revision === c.revision && s.tenantId === c.tenantId && s.actorId === c.personId && s.revision === c.revision && s.nodeId === g.nodeId && s.action === g.action;
++}
++export class NativeCandidate implements Candidate {
++    readonly name = 'native';
++    async match(input: MatchInput): Promise<MatchResult> {
++        const node = input.nodes.find(n => n.id === input.nodeId);
++        if (!hardAllowed(input.context, node, input.resource, input.affectedCompanyIds, input.action))
++            return result(input, []);
++        try {
++            return result(input, input.grants.filter(g => validGrant(g, input) && g.nodeId === input.nodeId && g.action === input.action && scopeMatches(resolveScope(g.scope, input.organization), input.resource)));
++        }
++        catch {
++            return result(input, []);
++        }
++    }
++}
++/** The request's source selector lets each enforce collect an independent policy source.
++ * This is a semantic candidate benchmark, never the list-query execution strategy. */
++export const CASBIN_MODEL = `
++[request_definition]
++r = tenant, actor, node, action, revision, source, object
++[policy_definition]
++p = tenant, actor, node, action, revision, source
++[policy_effect]
++e = some(where (p.eft == allow))
++[matchers]
++m = r.tenant == p.tenant && r.actor == p.actor && r.node == p.node && r.action == p.action && r.revision == p.revision && r.source == p.source && scopeForSource(p.source, r.object)
++`;
++export class CasbinCandidate implements Candidate {
++    readonly name = 'casbin';
++    async match(input: MatchInput): Promise<MatchResult> {
++        const node = input.nodes.find(n => n.id === input.nodeId);
++        if (!hardAllowed(input.context, node, input.resource, input.affectedCompanyIds, input.action))
++            return result(input, []);
++        try {
++            const enforcer = await newEnforcer(newModel(CASBIN_MODEL));
++            const sourceMap = new Map<string, EffectiveGrant>();
++            for (const g of input.grants) {
++                if (!validGrant(g, input))
++                    continue;
++                sourceMap.set(g.sourceId, g);
++                await enforcer.addPolicy(g.tenantId, g.actorId, g.nodeId, g.action, String(g.revision), g.sourceId);
++            }
++            enforcer.addFunction('scopeForSource', (source, object) => { const g = sourceMap.get(String(source)); return !!g && scopeMatches(resolveScope(g.scope, input.organization), object as MatchInput['resource']); });
++            const matched: EffectiveGrant[] = [];
++            for (const g of sourceMap.values())
++                if (await enforcer.enforce(input.context.tenantId, input.context.personId, input.nodeId, input.action, String(input.context.revision), g.sourceId, input.resource))
++                    matched.push(g);
++            return result(input, matched);
++        }
++        catch {
++            return result(input, []);
++        }
++    }
++}
+diff --git a/src/authz/contracts.ts b/src/authz/contracts.ts
+new file mode 100644
+index 0000000..567df58
+--- /dev/null
++++ b/src/authz/contracts.ts
+@@ -0,0 +1,212 @@
++/** Internal server-fact contracts. Never deserialize these from request bodies. */
++export type ScopeKind = 'all' | 'ownDeptSubtree' | 'ownDept' | 'departments' | 'managed' | 'self';
++export type Scope = {
++    kind: 'all' | 'ownDeptSubtree' | 'ownDept' | 'managed' | 'self';
++} | {
++    kind: 'departments';
++    departmentIds: string[];
++    includeDescendants?: boolean;
++};
++export type Anchor = 'personId' | 'uploaderId' | 'createdBy' | 'ownerId';
++export interface Context {
++    tenantId: string;
++    personId: string;
++    companyId: string;
++    companyIds: string[];
++    internal: boolean;
++    authenticated: boolean;
++    enabled: boolean;
++    deleted: boolean;
++    revision: number;
++    departmentId?: string;
++}
++export interface NodeDefinition {
++    id: string;
++    resourceType: string;
++    actions: string[];
++    scopes: ScopeKind[];
++    selfAnchor?: Anchor;
++    departmentAnchor?: 'personId';
++    companyMode: 'companyId' | 'dataCompanyId' | 'content' | 'ownWallet';
++    backend: boolean;
++    rawFields: string[];
++    publishedActions?: string[];
++}
++export interface Subject {
++    type: string;
++    id: string;
++}
++export type SubjectResolver = (subject: Subject, context: Context) => boolean;
++export type SubjectResolvers = Record<string, SubjectResolver>;
++export type Provenance = 'system_origin' | 'active' | 'inactive' | 'recheck_required' | 'suspended';
++export interface NodePolicy {
++    nodeId: string;
++    navigation: boolean;
++    actions: string[];
++    rawFields: string[];
++    scope: Scope;
++    delegableActions: string[];
++}
++export interface Membership {
++    id: string;
++    tenantId: string;
++    personId: string;
++    roleId: string;
++    level: 1 | 2 | 3;
++    active: boolean;
++    provenance: Provenance;
++    policies: NodePolicy[];
++    jurisdiction?: Scope;
++    overrides?: {
++        membershipId: string;
++        nodeId: string;
++        scope: Scope | null;
++    }[];
++    subject?: Subject;
++}
++export interface Appointment {
++    id: string;
++    tenantId: string;
++    personId: string;
++    projectId: string;
++    active: boolean;
++}
++export interface AppointmentCapability {
++    nodeId: string;
++    actions: string[];
++}
++export interface ScopeSpec {
++    tenantId: string;
++    actorId: string;
++    revision: number;
++    nodeId: string;
++    action: string;
++    resourceType: string;
++    scope: Scope;
++    departmentId?: string;
++    anchor?: Anchor;
++    departmentAnchor?: 'personId';
++    companyIds: string[];
++    companyMode: NodeDefinition['companyMode'];
++    objectIds?: string[];
++    managerId?: string;
++}
++export interface EffectiveGrant {
++    sourceId: string;
++    sourceKind: 'role' | 'appointment' | 'catalog';
++    membershipId?: string;
++    tenantId: string;
++    actorId: string;
++    revision: number;
++    nodeId: string;
++    action: string;
++    rawFields: string[];
++    delegable: boolean;
++    scope: ScopeSpec;
++}
++export interface Resource {
++    id: string;
++    tenantId: string;
++    type: string;
++    companyId?: string;
++    dataCompanyId?: string;
++    personId?: string;
++    uploaderId?: string;
++    createdBy?: string;
++    ownerId?: string;
++    enabled: boolean;
++    deleted: boolean;
++    exists: boolean;
++    published?: boolean;
++    businessAllowed?: boolean;
++    crossCompanyReference?: boolean;
++    historicalDepartmentId?: string;
++}
++export interface OrganizationSnapshot {
++    tenantId: string;
++    revision: number;
++    departments: {
++        id: string;
++        parentId?: string;
++    }[];
++    people: {
++        id: string;
++        departmentId?: string;
++        managerId?: string;
++    }[];
++}
++export interface ResolvedScope {
++    spec: ScopeSpec;
++    all: boolean;
++    personIds: string[];
++    anchor?: Anchor;
++    anchorIds?: string[];
++    objectIds?: string[];
++}
++/** Task2 provides the real version-bound organization implementation, called once per batch. */
++export interface OrganizationPublic {
++    resolveScopeMembers(specs: readonly ScopeSpec[], authzRevision: number): Promise<ResolvedScope[]>;
++}
++export interface MatchInput {
++    context: Context;
++    nodeId: string;
++    action: string;
++    resource: Resource;
++    nodes: readonly NodeDefinition[];
++    grants: readonly EffectiveGrant[];
++    organization: OrganizationSnapshot;
++    affectedCompanyIds?: string[];
++}
++export interface MatchResult {
++    allowed: boolean;
++    sourceIds: string[];
++    rawFields: string[];
++    revision: number;
++}
++export interface Candidate {
++    readonly name: string;
++    match(input: MatchInput): Promise<MatchResult>;
++}
++export interface CatalogGrant {
++    id: string;
++    action: string;
++    subject: Subject;
++}
++export interface Catalog {
++    id: string;
++    tenantId: string;
++    creatorId: string;
++    lockedBy?: string;
++    grants: CatalogGrant[];
++}
++export interface ObjectSet {
++    tenantId: string;
++    actorId: string;
++    revision: number;
++    nodeId: string;
++    action: string;
++    objectIds: string[];
++}
++export interface ProposedGrant {
++    nodeId: string;
++    action: string;
++    scope: Scope;
++    rawFields: string[];
++}
++export interface QuerySource {
++    sourceId: string;
++    rawFields: string[];
++    resolved: ResolvedScope;
++}
++export interface QueryPolicy {
++    tenantId: string;
++    actorId: string;
++    revision: number;
++    nodeId: string;
++    action: string;
++    resourceType: string;
++    companyIds: string[];
++    companyMode: NodeDefinition['companyMode'];
++    requirePublished: boolean;
++    sources: QuerySource[];
++}
+diff --git a/src/authz/delegation.ts b/src/authz/delegation.ts
+new file mode 100644
+index 0000000..6fe8995
+--- /dev/null
++++ b/src/authz/delegation.ts
+@@ -0,0 +1,70 @@
++import type { Context, Membership, NodeDefinition, ObjectSet, ProposedGrant, ScopeSpec } from './contracts.js';
++import { activeMembership, normalizePolicy, validContext } from './policy.js';
++import { makeScope } from './scope.js';
++export interface DelegateInput {
++    context: Context;
++    nodes: readonly NodeDefinition[];
++    memberships: readonly Membership[];
++    managementRoleMembershipId: string;
++    operation: 'create' | 'edit';
++    targetLevel: 1 | 2 | 3;
++    proposed: readonly ProposedGrant[];
++    resolveObjects: (spec: ScopeSpec) => Promise<ObjectSet>;
++}
++function checkBound(set: ObjectSet, spec: ScopeSpec) { if (set.tenantId !== spec.tenantId || set.actorId !== spec.actorId || set.revision !== spec.revision || set.nodeId !== spec.nodeId || set.action !== spec.action)
++    throw new Error('delegation resolution binding mismatch'); }
++/** Object resolver is a trusted module port: compare actual same-node/action object sets. */
++export async function assertCanDelegate(input: DelegateInput): Promise<void> {
++    const m = input.memberships.find(m => m.id === input.managementRoleMembershipId);
++    if (!validContext(input.context) || !m || !activeMembership(m, input.context))
++        throw new Error('inactive management membership');
++    if (![2, 3].includes(input.targetLevel) || !['create', 'edit'].includes(input.operation) || (input.operation === 'edit' && input.targetLevel <= m.level))
++        throw new Error('role level forbidden');
++    const normalized = normalizePolicy({ context: input.context, nodes: input.nodes, memberships: [m] });
++    const mutationAction = input.operation === 'create' ? 'authz.role.create' : 'authz.role.update';
++    if (!normalized.some(g => g.nodeId === 'role-management' && g.action === mutationAction && g.scope.scope.kind === 'all'))
++        throw new Error('role mutation action not allowed in selected membership');
++    await assertGrantSubset(input);
++}
++
++/** Capability subset check reused by non-role grants; caller checks its own mutation action and locks. */
++export type GrantSubsetInput = Omit<DelegateInput, 'operation' | 'targetLevel'>;
++export async function assertGrantSubset(input: GrantSubsetInput): Promise<void> {
++    const m = input.memberships.find(m => m.id === input.managementRoleMembershipId);
++    if (!validContext(input.context) || !m || !activeMembership(m, input.context))
++        throw new Error('inactive management membership');
++    const grants = normalizePolicy({ context: input.context, nodes: input.nodes, memberships: [m] }).filter(g => g.delegable);
++    for (const p of input.proposed) {
++        const node = input.nodes.find(n => n.id === p.nodeId);
++        if (!node)
++            throw new Error('unknown node');
++        const scope = makeScope(input.context, node, p.action, p.scope, m.jurisdiction);
++        if (!scope)
++            throw new Error('unsupported scope/action');
++        const candidates = grants.filter(g => g.nodeId === p.nodeId && g.action === p.action);
++        if (!candidates.length)
++            throw new Error('action not delegable');
++        const proposed = await input.resolveObjects(scope);
++        checkBound(proposed, scope);
++        const coverage = new Map<string, Set<string>>();
++        for (const g of candidates) {
++            const cap = await input.resolveObjects(g.scope);
++            checkBound(cap, g.scope);
++            for (const id of cap.objectIds) {
++                const fields = coverage.get(id) ?? new Set<string>();
++                for (const f of g.rawFields)
++                    fields.add(f);
++                coverage.set(id, fields);
++            }
++        }
++        for (const id of proposed.objectIds) {
++            if (!coverage.has(id))
++                throw new Error('scope exceeds selected membership');
++            if (!p.rawFields.every(f => coverage.get(id)!.has(f)))
++                throw new Error('field exceeds selected membership');
++        }
++        // A currently empty proposed set must not be used to mint future raw-field powers.
++        if (!p.rawFields.every(f => node.rawFields.includes(f) && candidates.some(g => g.rawFields.includes(f))))
++            throw new Error('field not delegable');
++    }
++}
+diff --git a/src/authz/policy.ts b/src/authz/policy.ts
+new file mode 100644
+index 0000000..b566fad
+--- /dev/null
++++ b/src/authz/policy.ts
+@@ -0,0 +1,156 @@
++import type { Appointment, AppointmentCapability, Catalog, CatalogGrant, Context, EffectiveGrant, Membership, NodeDefinition, Resource, Subject, SubjectResolvers } from './contracts.js';
++import { companyCap, makeScope } from './scope.js';
++export function validContext(context: Context): boolean { return context.authenticated && context.enabled && !context.deleted && Number.isSafeInteger(context.revision) && context.revision >= 0; }
++export function activeMembership(membership: Membership, context: Context): boolean { return membership.active && membership.tenantId === context.tenantId && membership.personId === context.personId && ['system_origin', 'active'].includes(membership.provenance); }
++export function subjectMatches(subject: Subject, context: Context, resolvers: SubjectResolvers): boolean {
++    if (!validContext(context))
++        return false;
++    if (subject.type === 'public')
++        return subject.id === context.tenantId;
++    if (subject.type === 'user')
++        return subject.id === context.personId;
++    const resolver = Object.prototype.hasOwnProperty.call(resolvers, subject.type) ? resolvers[subject.type] : undefined;
++    if (!resolver)
++        return false;
++    try {
++        return resolver(subject, context) === true;
++    }
++    catch {
++        return false;
++    }
++}
++export interface NormalizeInput {
++    context: Context;
++    nodes: readonly NodeDefinition[];
++    memberships: readonly Membership[];
++    appointments?: readonly Appointment[];
++    appointmentCapabilities?: readonly AppointmentCapability[];
++    subjectResolvers?: SubjectResolvers;
++}
++export function normalizePolicy(input: NormalizeInput): EffectiveGrant[] {
++    const { context, nodes } = input;
++    if (!validContext(context))
++        return [];
++    const output: EffectiveGrant[] = [];
++    for (const m of input.memberships) {
++        if (!activeMembership(m, context) || (m.subject && !subjectMatches(m.subject, context, input.subjectResolvers ?? {})))
++            continue;
++        for (const p of m.policies) {
++            const node = nodes.find(n => n.id === p.nodeId);
++            if (!node || !p.navigation)
++                continue;
++            const overrides = m.overrides?.filter(o => o.membershipId === m.id && o.nodeId === node.id) ?? [];
++            if (overrides.length > 1)
++                continue;
++            const scope = overrides.length ? overrides[0]!.scope : p.scope;
++            if (!scope)
++                continue;
++            for (const action of p.actions) {
++                const spec = makeScope(context, node, action, scope, m.jurisdiction);
++                if (!spec)
++                    continue;
++                output.push({ sourceId: `role:${m.id}:${node.id}:${action}`, sourceKind: 'role', membershipId: m.id, tenantId: context.tenantId, actorId: context.personId, revision: context.revision, nodeId: node.id, action, rawFields: p.rawFields.filter(f => node.rawFields.includes(f)), delegable: p.delegableActions.includes(action), scope: spec });
++            }
++        }
++    }
++    for (const a of input.appointments ?? []) {
++        if (!a.active || a.tenantId !== context.tenantId || a.personId !== context.personId)
++            continue;
++        for (const cap of input.appointmentCapabilities ?? []) {
++            const node = nodes.find(n => n.id === cap.nodeId);
++            if (!node || node.resourceType !== 'project')
++                continue;
++            for (const action of cap.actions) {
++                const spec = makeScope(context, node, action, { kind: 'all' });
++                if (!spec)
++                    continue;
++                output.push({ sourceId: `appointment:${a.id}:${node.id}:${action}`, sourceKind: 'appointment', tenantId: context.tenantId, actorId: context.personId, revision: context.revision, nodeId: node.id, action, rawFields: [], delegable: false, scope: { ...spec, objectIds: [a.projectId] } });
++            }
++        }
++    }
++    return new Set(output.map(g => g.sourceId)).size === output.length ? output : [];
++}
++export function hardAllowed(context: Context, node: NodeDefinition | undefined, resource: Resource, affectedCompanyIds?: readonly string[], action?: string): boolean {
++    if (!validContext(context) || !node || resource.tenantId !== context.tenantId || resource.type !== node.resourceType || !resource.exists || !resource.enabled || resource.deleted || resource.businessAllowed === false)
++        return false;
++    if (action && (!node.actions.includes(action) || (node.publishedActions?.includes(action) && resource.published !== true)))
++        return false;
++    const cap = companyCap(context);
++    if (affectedCompanyIds && !affectedCompanyIds.every(id => cap.includes(id)))
++        return false;
++    if (node.companyMode === 'ownWallet')
++        return resource.personId === context.personId && !resource.crossCompanyReference;
++    if (node.companyMode === 'content')
++        return true;
++    const company = resource[node.companyMode];
++    return company !== undefined && cap.includes(company);
++}
++export function backendCapabilities(grants: readonly EffectiveGrant[], nodes: readonly NodeDefinition[]): {
++    backend: boolean;
++    nodes: string[];
++} {
++    const ids = [...new Set(grants.filter(g => nodes.some(n => n.id === g.nodeId && n.backend)).map(g => g.nodeId))].sort();
++    return { backend: ids.length > 0, nodes: ids };
++}
++export interface NormalizeCatalogInput {
++    context: Context;
++    nodes: readonly NodeDefinition[];
++    nodeId: string;
++    catalog: Catalog;
++    courseId: string;
++    customBrowse?: readonly CatalogGrant[];
++    subjectResolvers: SubjectResolvers;
++}
++export function normalizeCatalog(input: NormalizeCatalogInput): EffectiveGrant[] {
++    const { context, catalog } = input;
++    if (!validContext(context) || context.tenantId !== catalog.tenantId)
++        return [];
++    if (input.customBrowse !== undefined && catalog.lockedBy)
++        throw new Error('catalog locked by ancestor');
++    const node = input.nodes.find(n => n.id === input.nodeId);
++    if (!node)
++        return [];
++    const browse = 'knowledge.course.browse';
++    const grants = input.customBrowse === undefined ? catalog.grants : [...catalog.grants.filter(g => g.action !== browse), ...input.customBrowse.filter(g => g.action === browse)];
++    const output: EffectiveGrant[] = [];
++    for (const g of grants) {
++        const matches = g.subject.type === 'catalog_creator' ? g.subject.id === catalog.id && catalog.creatorId === context.personId : subjectMatches(g.subject, context, input.subjectResolvers);
++        if (!matches)
++            continue;
++        const scope = makeScope(context, node, g.action, { kind: 'all' });
++        if (!scope)
++            continue;
++        output.push({ sourceId: `catalog:${g.id}`, sourceKind: 'catalog', tenantId: context.tenantId, actorId: context.personId, revision: context.revision, nodeId: node.id, action: g.action, rawFields: [], delegable: false, scope: { ...scope, objectIds: [input.courseId] } });
++    }
++    return new Set(output.map(g => g.sourceId)).size === output.length ? output : [];
++}
++/** Select one node/action before a single bulk organization call. No SQL or row enforcement. */
++export interface QueryInput {
++    context: Context;
++    nodes: readonly NodeDefinition[];
++    grants: readonly EffectiveGrant[];
++    nodeId: string;
++    action: string;
++    organization: import('./contracts.js').OrganizationPublic;
++}
++export async function buildQueryPolicy(input: QueryInput): Promise<import('./contracts.js').QueryPolicy> {
++    const { isDeepStrictEqual } = await import('node:util');
++    const { context } = input, node = input.nodes.find(n => n.id === input.nodeId);
++    if (!validContext(context) || !node || !node.actions.includes(input.action))
++        throw new Error('invalid query context/node/action');
++    const selected = input.grants.filter(g => g.nodeId === node.id && g.action === input.action);
++    if (new Set(selected.map(g => g.sourceId)).size !== selected.length)
++        throw new Error('ambiguous source binding');
++    for (const g of selected) {
++        const s = g.scope;
++        if (g.tenantId !== context.tenantId || g.actorId !== context.personId || g.revision !== context.revision || s.tenantId !== g.tenantId || s.actorId !== g.actorId || s.revision !== g.revision || s.nodeId !== g.nodeId || s.action !== g.action || s.resourceType !== node.resourceType || s.companyMode !== node.companyMode || !isDeepStrictEqual(s.companyIds, companyCap(context)))
++            throw new Error('grant binding mismatch');
++    }
++    const resolved = selected.length ? await input.organization.resolveScopeMembers(selected.map(g => g.scope), context.revision) : [];
++    if (resolved.length !== selected.length)
++        throw new Error('resolution binding count mismatch');
++    for (const [i, r] of resolved.entries())
++        if (!isDeepStrictEqual(r.spec, selected[i]!.scope))
++            throw new Error('resolution binding mismatch');
++    return { tenantId: context.tenantId, actorId: context.personId, revision: context.revision, nodeId: node.id, action: input.action, resourceType: node.resourceType, companyIds: companyCap(context), companyMode: node.companyMode, requirePublished: node.publishedActions?.includes(input.action) ?? false, sources: selected.map((g, i) => ({ sourceId: g.sourceId, rawFields: g.rawFields, resolved: resolved[i]! })) };
++}
+diff --git a/src/authz/scope.ts b/src/authz/scope.ts
+new file mode 100644
+index 0000000..df61534
+--- /dev/null
++++ b/src/authz/scope.ts
+@@ -0,0 +1,82 @@
++import type { Context, NodeDefinition, OrganizationSnapshot, Resource, ResolvedScope, Scope, ScopeSpec } from './contracts.js';
++export function companyCap(context: Context): string[] { return [...new Set(context.internal ? context.companyIds : [context.companyId])].sort(); }
++export function makeScope(context: Context, node: NodeDefinition, action: string, scope: Scope, jurisdiction?: Scope): ScopeSpec | null {
++    if (!node.actions.includes(action) || !node.scopes.includes(scope.kind))
++        return null;
++    if (scope.kind === 'self' && !node.selfAnchor)
++        return null;
++    if (['ownDept', 'ownDeptSubtree', 'departments', 'managed'].includes(scope.kind) && !node.departmentAnchor)
++        return null;
++    const effective = scope.kind === 'managed' ? (jurisdiction?.kind === 'departments' ? jurisdiction : { kind: 'departments' as const, departmentIds: [] }) : scope;
++    return { tenantId: context.tenantId, actorId: context.personId, revision: context.revision, nodeId: node.id, action, resourceType: node.resourceType, scope: structuredClone(effective), departmentId: context.departmentId, anchor: node.selfAnchor, departmentAnchor: node.departmentAnchor, companyIds: companyCap(context), companyMode: node.companyMode };
++}
++function validate(spec: ScopeSpec, org: OrganizationSnapshot) {
++    if (spec.tenantId !== org.tenantId)
++        throw new Error('scope tenant mismatch');
++    if (spec.revision !== org.revision)
++        throw new Error('scope revision mismatch');
++}
++/** Pure reference implementation of the public organization port; no private table access. */
++export function resolveScope(spec: ScopeSpec, org: OrganizationSnapshot): ResolvedScope {
++    validate(spec, org);
++    const base: ResolvedScope = { spec, all: false, personIds: [], objectIds: spec.objectIds };
++    if (spec.managerId)
++        return { ...base, personIds: org.people.filter(p => p.managerId === spec.managerId).map(p => p.id).sort() };
++    if (spec.scope.kind === 'all')
++        return { ...base, all: true };
++    if (spec.scope.kind === 'self')
++        return spec.anchor === 'personId' ? { ...base, personIds: [spec.actorId] } : { ...base, anchor: spec.anchor, anchorIds: [spec.actorId] };
++    let roots: string[] = [];
++    let descendants = false;
++    if (spec.scope.kind === 'ownDept' || spec.scope.kind === 'ownDeptSubtree') {
++        roots = spec.departmentId ? [spec.departmentId] : [];
++        descendants = spec.scope.kind === 'ownDeptSubtree';
++    }
++    if (spec.scope.kind === 'departments') {
++        roots = spec.scope.departmentIds;
++        descendants = spec.scope.includeDescendants === true;
++    }
++    const known = new Set(org.departments.map(d => d.id));
++    const allowed = new Set(roots.filter(id => known.has(id)));
++    if (descendants) {
++        // Fail closed for malformed graph, cycles or depth > 20, even if a root would otherwise match.
++        const parents = new Map(org.departments.map(d => [d.id, d.parentId]));
++        for (const d of org.departments) {
++            let cursor: string | undefined = d.id;
++            const seen = new Set<string>();
++            while (cursor) {
++                if (seen.has(cursor) || seen.size >= 20 || !known.has(cursor))
++                    throw new Error('invalid department hierarchy');
++                seen.add(cursor);
++                cursor = parents.get(cursor);
++            }
++        }
++        for (let depth = 0; depth < 20; depth++) {
++            let added = false;
++            for (const d of org.departments)
++                if (d.parentId && allowed.has(d.parentId) && !allowed.has(d.id)) {
++                    allowed.add(d.id);
++                    added = true;
++                }
++            if (!added)
++                break;
++        }
++    }
++    return { ...base, personIds: org.people.filter(p => p.departmentId && allowed.has(p.departmentId)).map(p => p.id).sort() };
++}
++export function teamMembers(context: Context, org: OrganizationSnapshot): string[] {
++    validate({ tenantId: context.tenantId, revision: context.revision } as ScopeSpec, org);
++    return org.people.filter(p => p.managerId === context.personId).map(p => p.id).sort();
++}
++export function scopeMatches(scope: ResolvedScope, resource: Resource): boolean {
++    const spec = scope.spec;
++    if (resource.tenantId !== spec.tenantId || resource.type !== spec.resourceType)
++        return false;
++    if (scope.objectIds && !scope.objectIds.includes(resource.id))
++        return false;
++    if (scope.all)
++        return true;
++    if (scope.anchor)
++        return scope.anchorIds?.includes(resource[scope.anchor] ?? '') ?? false;
++    return scope.personIds.includes(resource.personId ?? '');
++}
+diff --git a/test/fixtures.ts b/test/fixtures.ts
+new file mode 100644
+index 0000000..b3860d9
+--- /dev/null
++++ b/test/fixtures.ts
+@@ -0,0 +1,22 @@
++import type { Context, Membership, NodeDefinition, OrganizationSnapshot, Resource, Scope } from '../src/authz/contracts.js';
++export const ctx: Context = { tenantId: 'T1', personId: 'M', companyId: 'I', companyIds: ['I', 'CA', 'CB'], internal: true, authenticated: true, enabled: true, deleted: false, revision: 7, departmentId: 'D1' };
++export const org: OrganizationSnapshot = { tenantId: 'T1', revision: 7, departments: [{ id: 'D1' }, { id: 'D11', parentId: 'D1' }, { id: 'D2' }], people: [
++        { id: 'A', departmentId: 'D1', managerId: 'M' }, { id: 'B', departmentId: 'D2', managerId: 'M' }, { id: 'C', departmentId: 'D1', managerId: 'N' }, { id: 'D', departmentId: 'D11', managerId: 'N' }, { id: 'E', departmentId: 'D2', managerId: 'A' }
++    ] };
++const six = ['all', 'ownDeptSubtree', 'ownDept', 'departments', 'managed', 'self'] as const;
++export const nodes: NodeDefinition[] = [
++    {id:'role-management',resourceType:'role',actions:['authz.role.create','authz.role.update'],scopes:['all'],companyMode:'content',backend:true,rawFields:[]},
++    { id: 'personal-learning', resourceType: 'learning', actions: ['report.personal-learning.view', 'report.personal-learning.edit', 'report.personal-learning.download'], scopes: [...six], selfAnchor: 'personId', departmentAnchor: 'personId', companyMode: 'dataCompanyId', backend: true, rawFields: ['phone'] },
++    { id: 'department-report', resourceType: 'learning', actions: ['report.department.view'], scopes: [...six], selfAnchor: 'personId', departmentAnchor: 'personId', companyMode: 'dataCompanyId', backend: true, rawFields: ['phone'] },
++    { id: 'account', resourceType: 'account', actions: ['account.view'], scopes: ['all', 'self'], selfAnchor: 'personId', companyMode: 'dataCompanyId', backend: false, rawFields: [] },
++    { id: 'wallet-own', resourceType: 'account', actions: ['account.own.view'], scopes: ['self'], selfAnchor: 'personId', companyMode: 'ownWallet', backend: false, rawFields: [] },
++    { id: 'course', resourceType: 'course', actions: ['knowledge.course.browse', 'knowledge.course.maintain', 'knowledge.course.distribute', 'knowledge.course.download'], scopes: ['all', 'self'], selfAnchor: 'uploaderId', companyMode: 'content', backend: true, rawFields: [] },
++    { id: 'project', resourceType: 'project', actions: ['training.project.view', 'training.project.update', 'training.project.export'], scopes: ['all', 'self'], selfAnchor: 'createdBy', companyMode: 'companyId', backend: true, rawFields: [] },
++    { id: 'face', resourceType: 'face', actions: ['training.face.update'], scopes: ['all', 'self'], selfAnchor: 'ownerId', companyMode: 'companyId', backend: true, rawFields: [] },
++    { id: 'organization', resourceType: 'person', actions: ['organization.person.view'], scopes: ['all', 'self'], selfAnchor: 'personId', companyMode: 'companyId', backend: true, rawFields: ['phone'] }
++];
++export function membership(id: string, scope: Scope = { kind: 'all' }, action = 'report.personal-learning.view', nodeId = 'personal-learning'): Membership {
++    return { id, personId: 'M', tenantId: 'T1', roleId: `role-${id}`, level: 2, active: true, provenance: 'system_origin', policies: [{ nodeId, navigation: true, actions: [action], rawFields: [], scope, delegableActions: [] }] };
++}
++export function learning(id: string, company = 'CA'): Resource { return { id: `L-${id}`, tenantId: 'T1', type: 'learning', personId: id, companyId: company, dataCompanyId: company, enabled: true, deleted: false, exists: true }; }
++export function project(id: string, company = 'CA'): Resource { return { id, tenantId: 'T1', type: 'project', companyId: company, enabled: true, deleted: false, exists: true, createdBy: 'N' }; }
+diff --git a/test/kernel-benchmark.ts b/test/kernel-benchmark.ts
+new file mode 100644
+index 0000000..a0fedf4
+--- /dev/null
++++ b/test/kernel-benchmark.ts
+@@ -0,0 +1,24 @@
++import { performance } from 'node:perf_hooks';
++import { createRequire } from 'node:module';
++import { NativeCandidate, CasbinCandidate } from '../src/authz/candidates.js';
++import { normalizePolicy } from '../src/authz/policy.js';
++import { ctx, nodes, org, membership, learning } from './fixtures.js';
++const require = createRequire(import.meta.url);
++const grants = normalizePolicy({ context: ctx, nodes, memberships: [membership('bench', { kind: 'ownDept' })] });
++const request = { context: ctx, nodes, grants, nodeId: 'personal-learning', action: 'report.personal-learning.view', resource: learning('A'), organization: org };
++const output = { kind: 'object-match microbenchmark; includes Casbin enforcer/model construction; NOT HTTP/SQL evidence', timestamp: new Date().toISOString(), node: process.version, casbin: require('casbin/package.json').version, typescript: require('typescript/package.json').version, platform: process.platform, arch: process.arch, iterations: 200, results: [] as unknown[] };
++for (const engine of [new NativeCandidate(), new CasbinCandidate()]) {
++    const samples: number[] = [];
++    for (let i = 0; i < 20; i++)
++        await engine.match(request);
++    for (let i = 0; i < 200; i++) {
++        const t = performance.now();
++        const r = await engine.match(request);
++        samples.push(performance.now() - t);
++        if (!r.allowed || r.sourceIds[0] !== 'role:bench:personal-learning:report.personal-learning.view')
++            throw new Error('benchmark correctness mismatch');
++    }
++    samples.sort((a, b) => a - b);
++    output.results.push({ candidate: engine.name, count: samples.length, p50_ms: samples[99], p95_ms: samples[189], p99_ms: samples[197], min_ms: samples[0], max_ms: samples[199] });
++}
++console.log(JSON.stringify(output, null, 2));
+diff --git a/test/semantic.test.ts b/test/semantic.test.ts
+new file mode 100644
+index 0000000..5cbef93
+--- /dev/null
++++ b/test/semantic.test.ts
+@@ -0,0 +1,265 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import { appendFileSync } from 'node:fs';
++import { ctx, org, nodes, membership, learning, project } from './fixtures.js';
++import { normalizePolicy, normalizeCatalog, backendCapabilities, hardAllowed } from '../src/authz/policy.js';
++import { resolveScope, scopeMatches, teamMembers } from '../src/authz/scope.js';
++import { NativeCandidate, CasbinCandidate } from '../src/authz/candidates.js';
++import { assertCanDelegate } from '../src/authz/delegation.js';
++import type { Context, EffectiveGrant, Membership, Resource, Scope, ScopeSpec } from '../src/authz/contracts.js';
++const engines = [new NativeCandidate(), new CasbinCandidate()];
++const view = 'report.personal-learning.view', edit = 'report.personal-learning.edit';
++function plan(ms: Membership[], context = ctx, extra: Parameters<typeof normalizePolicy>[0]['appointments'] = []) {
++    return normalizePolicy({ context, nodes, memberships: ms, appointments: extra, appointmentCapabilities: [{ nodeId: 'project', actions: ['training.project.view', 'training.project.update', 'training.project.export'] }], subjectResolvers: {} });
++}
++async function match(ms: Membership[], resource: Resource, action = view, nodeId = 'personal-learning', context = ctx) {
++    const grants = plan(ms, context);
++    const expectedResults = [];
++    for (const engine of engines)
++        expectedResults.push(await engine.match({ context, nodeId, action, resource, nodes, grants, organization: org }));
++    return expectedResults;
++}
++async function expectSources(ms: Membership[], resource: Resource, expected: string[], action = view, nodeId = 'personal-learning', context = ctx, fields: string[] = []) {
++    for (const [i, result] of (await match(ms, resource, action, nodeId, context)).entries()) {
++        if (process.env.SEMANTIC_EVIDENCE)
++            appendFileSync(process.env.SEMANTIC_EVIDENCE, JSON.stringify({ timestamp: new Date().toISOString(), candidate: engines[i]!.name, resourceId: resource.id, tenantId: context.tenantId, nodeId, action, expectedSources: expected, actualSources: result.sourceIds, expectedRawFields: fields, actualRawFields: result.rawFields }) + '\n');
++        assert.deepEqual(result.sourceIds, expected, `${engines[i]!.name}: ${resource.id}/${action}`);
++        assert.deepEqual(result.rawFields, fields, `${engines[i]!.name}: fields ${resource.id}/${action}`);
++    }
++}
++test('literal team, own department and subtree differ', () => {
++    assert.deepEqual(teamMembers(ctx, org), ['A', 'B']);
++    const own = plan([membership('own', { kind: 'ownDept' })])[0]!.scope;
++    assert.deepEqual(resolveScope(own, org).personIds, ['A', 'C']);
++    assert.deepEqual(resolveScope(plan([membership('sub', { kind: 'ownDeptSubtree' })])[0]!.scope, org).personIds, ['A', 'C', 'D']);
++});
++test('node/action sources never cross product; own-role override, empty and delete', async () => {
++    const a = membership('edit', { kind: 'ownDept' }, edit), b = membership('view');
++    await expectSources([a, b], learning('B'), ['role:view:personal-learning:' + view]);
++    await expectSources([a, b], learning('B'), [], edit);
++    await expectSources([a, b], learning('C'), ['role:edit:personal-learning:' + edit], edit);
++    a.overrides = [{ membershipId: 'edit', nodeId: 'personal-learning', scope: { kind: 'self' } }];
++    await expectSources([a, b], learning('C'), [], edit);
++    await expectSources([a, b], learning('B'), ['role:view:personal-learning:' + view]);
++    await expectSources([a, b], learning('M'), ['role:edit:personal-learning:' + edit], edit);
++    a.overrides[0]!.scope = null;
++    assert.equal(plan([a]).length, 0);
++    delete a.overrides;
++    await expectSources([a], learning('C'), ['role:edit:personal-learning:' + edit], edit);
++    const department = membership('dept', { kind: 'ownDept' }, 'report.department.view', 'department-report');
++    await expectSources([b, department], learning('B'), [], 'report.department.view', 'department-report');
++    await expectSources([b, department], learning('C'), ['role:dept:department-report:report.department.view'], 'report.department.view', 'department-report');
++    await expectSources([a, b], learning('B'), [], 'report.personal-learning.download');
++});
++test('override cannot invent navigation/actions/raw fields or follow new membership', async () => {
++    const m = membership('old', { kind: 'ownDept' }, edit);
++    m.overrides = [{ membershipId: 'old', nodeId: 'personal-learning', scope: { kind: 'all' } }];
++    await expectSources([m], learning('B'), [], view);
++    await expectSources([m], learning('B'), ['role:old:personal-learning:' + edit], edit);
++    m.policies[0]!.navigation = false;
++    assert.equal(plan([m]).length, 0);
++    m.policies[0]!.navigation = true;
++    m.id = 'new';
++    await expectSources([m], learning('B'), [], edit);
++});
++test('six scope explicit boundaries and revision-bound organization facts', () => {
++    const cases: [
++        Scope,
++        string[]
++    ][] = [
++        [{ kind: 'all' }, []], [{ kind: 'ownDept' }, ['A', 'C']], [{ kind: 'ownDeptSubtree' }, ['A', 'C', 'D']],
++        [{ kind: 'departments', departmentIds: ['D1'] }, ['A', 'C']], [{ kind: 'departments', departmentIds: ['D1'], includeDescendants: true }, ['A', 'C', 'D']],
++        [{ kind: 'departments', departmentIds: [] }, []], [{ kind: 'departments', departmentIds: ['unknown'] }, []], [{ kind: 'managed' }, []], [{ kind: 'self' }, ['M']]
++    ];
++    for (const [scope, expected] of cases) {
++        const s = plan([membership('s', scope)])[0]!.scope;
++        const r = resolveScope(s, org);
++        assert.deepEqual(r.personIds, expected);
++        assert.equal(r.all, scope.kind === 'all');
++    }
++    const m = membership('j', { kind: 'managed' });
++    m.jurisdiction = { kind: 'departments', departmentIds: ['D2'] };
++    assert.deepEqual(resolveScope(plan([m])[0]!.scope, org).personIds, ['B', 'E']);
++    assert.deepEqual(resolveScope(plan([membership('other', { kind: 'managed' }), m])[0]!.scope, org).personIds, []);
++    const missing = { ...ctx, departmentId: undefined };
++    assert.deepEqual(resolveScope(plan([membership('s', { kind: 'ownDept' })], missing)[0]!.scope, org).personIds, []);
++    assert.throws(() => resolveScope(plan([m])[0]!.scope, { ...org, revision: 8 }), /revision/);
++    assert.throws(() => resolveScope(plan([m])[0]!.scope, { ...org, tenantId: 'T2' }), /tenant/);
++    assert.equal(plan([membership('bad', { kind: 'ownDept' }, 'knowledge.course.maintain', 'course')]).length, 0);
++});
++test('raw fields are tied to matching source and all hard caps precede union', async () => {
++    const a = membership('raw', { kind: 'ownDept' });
++    a.policies[0]!.rawFields = ['phone'];
++    const b = membership('masked', { kind: 'departments', departmentIds: ['D2'] });
++    await expectSources([a, b], learning('A'), ['role:raw:personal-learning:' + view], view, 'personal-learning', ctx, ['phone']);
++    await expectSources([a, b], learning('B'), ['role:masked:personal-learning:' + view]);
++    for (const bad of [{ ...learning('A'), tenantId: 'T2' }, { ...learning('A'), enabled: false }, { ...learning('A'), deleted: true }, { ...learning('A'), exists: false }])
++        await expectSources([a, b], bad, []);
++    for (const bad of [{ ...ctx, enabled: false }, { ...ctx, deleted: true }, { ...ctx, authenticated: false }])
++        await expectSources([a, b], learning('A'), [], view, 'personal-learning', bad);
++    await expectSources([a, b], learning('A', 'CB'), [], view, 'personal-learning', { ...ctx, internal: false, companyId: 'CA', companyIds: ['CA', 'CB'] });
++    await expectSources([a, b], learning('A'), [], view, 'unknown');
++    const unknown = membership('unknown');
++    unknown.subject = { type: 'missing', id: 'X' };
++    assert.equal(plan([unknown]).length, 0);
++    for (const state of ['inactive', 'recheck_required', 'suspended'] as const) {
++        const m = membership('stale');
++        m.provenance = state;
++        assert.equal(plan([m]).length, 0);
++    }
++});
++test('appointments derive exact backend and project grants; revoke preserves other source', async () => {
++    const appointment = (id: string) => ({ id, personId: 'M', tenantId: 'T1', projectId: id, active: true });
++    const grants = plan([], ctx, [appointment('P'), appointment('Q')]);
++    assert.equal(backendCapabilities(plan([]), nodes).backend, false);
++    assert.deepEqual(backendCapabilities(grants, nodes), { backend: true, nodes: ['project'] });
++    for (const engine of engines) {
++        for (const [id, expected] of [['P', ['appointment:P:project:training.project.view']], ['Q', ['appointment:Q:project:training.project.view']], ['R', []]] as const) {
++            const r = await engine.match({ context: ctx, nodeId: 'project', action: 'training.project.view', resource: project(id), nodes, grants, organization: org });
++            assert.deepEqual(r.sourceIds, expected);
++            assert.deepEqual(r.rawFields, []);
++        }
++        const r = await engine.match({ context: ctx, nodeId: 'organization', action: 'organization.person.view', resource: { ...project('P'), type: 'person' }, nodes, grants, organization: org });
++        assert.deepEqual(r.sourceIds, []);
++    }
++    assert.deepEqual(backendCapabilities(plan([], ctx, [appointment('Q')]), nodes), { backend: true, nodes: ['project'] });
++    assert.equal(backendCapabilities(plan([]), nodes).backend, false);
++    assert.equal(backendCapabilities(plan([membership('lawful')]), nodes).backend, true);
++    assert.equal(grants.some(g => g.delegable), false);
++    assert.equal(hardAllowed({ ...ctx, companyIds: ['CA'] }, nodes.find(n => n.id === 'project')!, project('P'), ['CA', 'CB']), false);
++});
++test('SELF uses only each registered node anchor and wallet exception stays narrow', async () => {
++    const rows: [
++        string,
++        string,
++        string,
++        string
++    ][] = [['personal-learning', view, 'learning', 'personId'], ['account', 'account.view', 'account', 'personId'], ['course', 'knowledge.course.maintain', 'course', 'uploaderId'], ['project', 'training.project.update', 'project', 'createdBy'], ['face', 'training.face.update', 'face', 'ownerId']];
++    for (const [node, action, type, anchor] of rows) {
++        const m = membership('self', { kind: 'self' }, action, node), r = { ...project('x'), type, [anchor]: 'M', dataCompanyId: 'CA' };
++        await expectSources([m], r, [`role:self:${node}:${action}`], action, node);
++        await expectSources([m], { ...r, [anchor]: 'N', ...(anchor === 'createdBy' ? {} : { createdBy: 'M' }) }, [], action, node);
++    }
++    const customer = { ...ctx, personId: 'A', internal: false, companyId: 'CB', companyIds: ['CB'] };
++    const m = membership('history', { kind: 'self' });
++    m.personId = 'A';
++    await expectSources([m], { ...learning('A', 'CB'), dataCompanyId: 'CA' }, [], view, 'personal-learning', customer);
++    const wallet = membership('wallet', { kind: 'self' }, 'account.own.view', 'wallet-own');
++    wallet.personId = 'A';
++    await expectSources([wallet], { ...learning('A', 'CB'), type: 'account', dataCompanyId: 'CA' }, ['role:wallet:wallet-own:account.own.view'], 'account.own.view', 'wallet-own', customer);
++    await expectSources([wallet], { ...learning('B'), type: 'account' }, [], 'account.own.view', 'wallet-own', customer);
++    await expectSources([wallet], { ...learning('A'), type: 'account', crossCompanyReference: true }, [], 'account.own.view', 'wallet-own', customer);
++    // Historical department D2 does not remove current D1 person A; current D2 B cannot borrow historical D1.
++    await expectSources([membership('current', { kind: 'ownDept' })], { ...learning('A'), historicalDepartmentId: 'D2' }, ['role:current:personal-learning:' + view]);
++    await expectSources([membership('current', { kind: 'ownDept' })], { ...learning('B'), historicalDepartmentId: 'D1' }, []);
++});
++test('category locks, independent actions, public and extensible subjects use common grants', async () => {
++    const catalog = { id: 'cat', tenantId: 'T1', creatorId: 'M', lockedBy: 'parent', grants: [{ id: 'public', action: 'knowledge.course.browse', subject: { type: 'public', id: 'T1' } }] };
++    assert.throws(() => normalizeCatalog({ context: ctx, nodes, nodeId: 'course', catalog, courseId: 'C', customBrowse: [], subjectResolvers: {} }), /locked/);
++    const unlocked = { ...catalog, lockedBy: undefined, grants: [...catalog.grants, { id: 'maint', action: 'knowledge.course.maintain', subject: { type: 'user', id: 'M' } }] };
++    const replaced = normalizeCatalog({ context: ctx, nodes, nodeId: 'course', catalog: unlocked, courseId: 'C', customBrowse: [{ id: 'class', action: 'knowledge.course.browse', subject: { type: 'classroom_member', id: 'class-1' } }], subjectResolvers: { classroom_member: (_s, c) => c.personId === 'M' } });
++    for (const engine of engines) {
++        const base = { context: ctx, nodeId: 'course', resource: { ...project('C'), type: 'course' }, nodes, grants: replaced, organization: org };
++        assert.deepEqual((await engine.match({ ...base, action: 'knowledge.course.browse' })).sourceIds, ['catalog:class']);
++        assert.deepEqual((await engine.match({ ...base, action: 'knowledge.course.maintain' })).sourceIds, ['catalog:maint']);
++        assert.deepEqual((await engine.match({ ...base, action: 'knowledge.course.download' })).sourceIds, []);
++        assert.deepEqual((await engine.match({ ...base, action: 'knowledge.course.distribute' })).sourceIds, []);
++        assert.deepEqual((await engine.match({ ...base, action: 'knowledge.course.browse', resource: { ...base.resource, tenantId: 'T2' } })).sourceIds, []);
++    }
++    assert.equal(normalizeCatalog({ context: { ...ctx, authenticated: false }, nodes, nodeId: 'course', catalog: unlocked, courseId: 'C', subjectResolvers: {} }).length, 0);
++    assert.equal(normalizeCatalog({ context: ctx, nodes, nodeId: 'course', catalog: { ...unlocked, creatorId: 'N', grants: [{ id: 'unknown', action: 'knowledge.course.browse', subject: { type: 'missing', id: 'x' } }] }, courseId: 'C', subjectResolvers: {} }).length, 0);
++});
++test('selected management membership, resolved set/field caps and levels constrain delegation', async () => {
++    const a = membership('A', { kind: 'ownDept' }, edit), b = membership('B', { kind: 'all' }, edit);
++    a.policies[0]!.delegableActions = [edit];
++    b.policies[0]!.delegableActions = [edit];
++    b.policies[0]!.rawFields = ['phone'];
++    const resolver = async (s: ScopeSpec) => ({ tenantId: s.tenantId, revision: s.revision, nodeId: s.nodeId, action: s.action, actorId: s.actorId, objectIds: resolveScope(s, org).all ? ['A', 'B', 'C', 'D', 'E'] : resolveScope(s, org).personIds });
++    a.policies.push({nodeId:'role-management',navigation:true,actions:['authz.role.create','authz.role.update'],scope:{kind:'all'},rawFields:[],delegableActions:[]});
++    const args = { context: ctx, nodes, memberships: [a, b], managementRoleMembershipId: 'A', operation: 'create' as const, targetLevel: 3 as const, proposed: [{ nodeId: 'personal-learning', action: edit, scope: { kind: 'departments', departmentIds: ['D1'] } as Scope, rawFields: [] }], resolveObjects: resolver };
++    await assertCanDelegate(args);
++    for (const change of [{ targetLevel: 1 }, { operation: 'edit', targetLevel: 1 }, { operation: 'edit', targetLevel: 2 }])
++        await assert.rejects(() => assertCanDelegate({ ...args, ...change } as typeof args));
++    await assert.rejects(() => assertCanDelegate({ ...args, proposed: [{ ...args.proposed[0]!, scope: { kind: 'all' } }] }), /scope/);
++    await assert.rejects(() => assertCanDelegate({ ...args, proposed: [{ ...args.proposed[0]!, rawFields: ['phone'] }] }), /field/);
++    await assert.rejects(() => assertCanDelegate({ ...args, proposed: [{ ...args.proposed[0]!, action: view }] }), /action/);
++    a.provenance = 'recheck_required';
++    await assert.rejects(() => assertCanDelegate(args));
++    a.provenance = 'system_origin';
++    a.policies[0]!.delegableActions = [];
++    await assert.rejects(() => assertCanDelegate(args), /action/);
++    a.policies[0]!.delegableActions = [edit];
++    await assertCanDelegate({ ...args, targetLevel: 2 });
++    a.level = 3;
++    await assert.rejects(() => assertCanDelegate({ ...args, operation: 'edit' }), /level/);
++    a.level = 1;
++    await assertCanDelegate({ ...args, targetLevel: 2 });
++    await assert.rejects(() => assertCanDelegate({ ...args, operation: 'edit', targetLevel: 1 }), /level/);
++});
++test('ambiguous duplicate source IDs fail closed in both candidates', async () => {
++    const raw = membership('collision', { kind: 'ownDept' });
++    raw.policies[0]!.rawFields = ['phone'];
++    const broad = membership('collision', { kind: 'all' });
++    await expectSources([raw, broad], learning('B'), []);
++});
++test('bulk query plan resolves once, preserves source-field pairs, rejects port binding mismatch', async () => {
++    const { buildQueryPolicy } = await import('../src/authz/policy.js');
++    const a = membership('raw', { kind: 'ownDept' });
++    a.policies[0]!.rawFields = ['phone'];
++    const grants = plan([a, membership('b', { kind: 'departments', departmentIds: ['D2'] })]);
++    let calls = 0;
++    const port = { resolveScopeMembers: async (specs: readonly ScopeSpec[], revision: number) => { calls++; assert.equal(revision, 7); return specs.map(s => resolveScope(s, org)); } };
++    const p = await buildQueryPolicy({ context: ctx, nodes, grants, nodeId: 'personal-learning', action: view, organization: port });
++    assert.equal(calls, 1);
++    assert.deepEqual(p.sources.map(s => ({ source: s.sourceId, ids: s.resolved.personIds, fields: s.rawFields })), [
++        { source: 'role:raw:personal-learning:' + view, ids: ['A', 'C'], fields: ['phone'] },
++        { source: 'role:b:personal-learning:' + view, ids: ['B', 'E'], fields: [] }
++    ]);
++    assert.deepEqual(p.companyIds, ['CA', 'CB', 'I']);
++    await assert.rejects(() => buildQueryPolicy({ context: ctx, nodes, grants, nodeId: 'personal-learning', action: view, organization: { resolveScopeMembers: async (specs) => specs.map(s => ({ ...resolveScope(s, org), spec: { ...s, revision: 8 } })) } }), /binding/);
++});
++test('appointment revocation/company/state and public custom replacement negatives', async () => {
++    const ap = (id: string, active = true) => ({ id, personId: 'M', tenantId: 'T1', projectId: id, active });
++    for (const engine of engines) {
++        const req = { context: ctx, nodes, nodeId: 'project', action: 'training.project.view', resource: project('P'), organization: org };
++        assert.deepEqual((await engine.match({ ...req, grants: plan([], ctx, [ap('P', false), ap('Q')]) })).sourceIds, []);
++        assert.deepEqual((await engine.match({ ...req, resource: project('Q'), grants: plan([], ctx, [ap('P', false), ap('Q')]) })).sourceIds, ['appointment:Q:project:training.project.view']);
++        const customer = { ...ctx, internal: false, companyId: 'CA', companyIds: ['CA', 'CB'] };
++        assert.deepEqual((await engine.match({ ...req, context: customer, resource: project('P', 'CB'), grants: plan([], customer, [ap('P')]) })).sourceIds, []);
++        assert.deepEqual((await engine.match({ ...req, action: 'training.project.update', affectedCompanyIds: ['CA', 'CB'], context: customer, grants: plan([], customer, [ap('P')]) })).sourceIds, []);
++        assert.deepEqual((await engine.match({ ...req, resource: { ...project('P'), businessAllowed: false }, grants: plan([], ctx, [ap('P')]) })).sourceIds, []);
++        const catalog = { id: 'cat', tenantId: 'T1', creatorId: 'N', grants: [{ id: 'public', action: 'knowledge.course.browse', subject: { type: 'public', id: 'T1' } }] };
++        const base = { context: ctx, nodes, nodeId: 'course', action: 'knowledge.course.browse', resource: { ...project('C'), type: 'course' }, organization: org };
++        const catInput = { context: ctx, nodes, nodeId: 'course', catalog, courseId: 'C', subjectResolvers: {} };
++        assert.deepEqual((await engine.match({ ...base, grants: normalizeCatalog(catInput) })).sourceIds, ['catalog:public']);
++        assert.deepEqual((await engine.match({ ...base, grants: normalizeCatalog({ ...catInput, customBrowse: [] }) })).sourceIds, []);
++    }
++});
++test('each scope permits and rejects literal resources on each engine', async () => {
++    for (const [scope, yes, no] of [
++        [{ kind: 'all' }, 'A', null], [{ kind: 'ownDept' }, 'C', 'D'], [{ kind: 'ownDeptSubtree' }, 'D', 'B'],
++        [{ kind: 'departments', departmentIds: ['D2'] }, 'B', 'A'], [{ kind: 'self' }, 'M', 'A']
++    ] as [
++        Scope,
++        string,
++        string | null
++    ][]) {
++        const m = membership('scope', scope);
++        await expectSources([m], learning(yes), ['role:scope:personal-learning:' + view]);
++        if (no)
++            await expectSources([m], learning(no), []);
++        await expectSources([m], { ...learning(yes), tenantId: 'T2' }, []);
++    }
++    const managed = membership('scope', { kind: 'managed' });
++    managed.jurisdiction = { kind: 'departments', departmentIds: ['D2'] };
++    await expectSources([managed], learning('E'), ['role:scope:personal-learning:' + view]);
++    await expectSources([managed], learning('C'), []);
++    delete managed.jurisdiction;
++    await expectSources([managed], learning('E'), []);
++    const missing = membership('scope', { kind: 'ownDeptSubtree' });
++    await expectSources([missing], learning('A'), [], view, 'personal-learning', { ...ctx, departmentId: undefined });
++});
++test('delegation additionally requires role mutation action from selected membership', async () => {
++ const a=membership('A',{kind:'ownDept'},edit);a.policies[0]!.delegableActions=[edit];
++ await assert.rejects(()=>assertCanDelegate({context:ctx,nodes,memberships:[a],managementRoleMembershipId:'A',operation:'create',targetLevel:3,proposed:[],resolveObjects:async s=>({...s,objectIds:[]})}),/role mutation action/);
++});
+diff --git a/tsconfig.json b/tsconfig.json
+new file mode 100644
+index 0000000..6ae4bbd
+--- /dev/null
++++ b/tsconfig.json
+@@ -0,0 +1 @@
++{"compilerOptions":{"target":"ES2023","module":"NodeNext","moduleResolution":"NodeNext","strict":true,"noUncheckedIndexedAccess":true,"esModuleInterop":true,"skipLibCheck":true,"outDir":"dist"},"include":["src/**/*.ts","test/**/*.ts"]}

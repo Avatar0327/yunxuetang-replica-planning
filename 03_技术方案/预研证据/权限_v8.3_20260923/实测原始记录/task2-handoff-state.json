@@ -1,0 +1,11 @@
+{
+  "commit": "b707efb7528007af7467b9a45ce54d6006c3092d",
+  "at": "2026-09-22T20:05:40.787Z",
+  "counts": {
+    "people": 50000,
+    "other": 500,
+    "departments": 2000,
+    "facts": 1000000,
+    "active_appointments": 0
+  }
+}

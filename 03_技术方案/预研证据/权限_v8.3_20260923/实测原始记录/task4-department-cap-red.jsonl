@@ -1,0 +1,10 @@
+{"candidate":"native","name":"person-only move denied","expected":403,"actual":200,"at":"2026-09-22T22:07:06.953Z"}
+{"candidate":"native","name":"department source covers D11 and parent D1","expected":200,"actual":503,"at":"2026-09-22T22:07:06.964Z"}
+{"candidate":"native","name":"department parent outside cap","expected":403,"actual":503,"at":"2026-09-22T22:07:06.972Z"}
+{"candidate":"native","name":"department child D11 outside cap","expected":403,"actual":503,"at":"2026-09-22T22:07:06.979Z"}
+{"candidate":"native","name":"department root has no parent object","expected":200,"actual":503,"at":"2026-09-22T22:07:06.985Z"}
+{"candidate":"casbin","name":"person-only move denied","expected":403,"actual":200,"at":"2026-09-22T22:07:07.322Z"}
+{"candidate":"casbin","name":"department source covers D11 and parent D1","expected":200,"actual":503,"at":"2026-09-22T22:07:07.329Z"}
+{"candidate":"casbin","name":"department parent outside cap","expected":403,"actual":503,"at":"2026-09-22T22:07:07.336Z"}
+{"candidate":"casbin","name":"department child D11 outside cap","expected":403,"actual":503,"at":"2026-09-22T22:07:07.342Z"}
+{"candidate":"casbin","name":"department root has no parent object","expected":200,"actual":503,"at":"2026-09-22T22:07:07.348Z"}

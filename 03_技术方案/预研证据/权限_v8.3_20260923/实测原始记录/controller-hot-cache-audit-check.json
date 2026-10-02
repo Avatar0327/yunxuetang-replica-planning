@@ -1,0 +1,34 @@
+{
+  "kind": "synthetic controller-auditor regression only, not HTTP/performance/permission evidence",
+  "checks": [
+    {
+      "cache": "L1",
+      "expected_audit_pass": true,
+      "actual_audit_pass": true,
+      "errors": []
+    },
+    {
+      "cache": "L2",
+      "expected_audit_pass": true,
+      "actual_audit_pass": true,
+      "errors": []
+    },
+    {
+      "cache": "cold",
+      "expected_audit_pass": false,
+      "actual_audit_pass": false,
+      "errors": [
+        "line 1: hot snapshot was not a measured L1/L2 hit"
+      ]
+    },
+    {
+      "cache": "hot",
+      "expected_audit_pass": false,
+      "actual_audit_pass": false,
+      "errors": [
+        "line 1: hot snapshot was not a measured L1/L2 hit"
+      ]
+    }
+  ],
+  "passed": 4
+}

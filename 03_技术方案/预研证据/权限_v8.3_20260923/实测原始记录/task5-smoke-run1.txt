@@ -1,0 +1,4 @@
+
+> permission-v83-spike@0.0.1 benchmark:smoke
+> tsx scripts/task5-smoke.ts
+

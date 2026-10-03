@@ -36,14 +36,23 @@
    ```
    原环境参考值：macOS 26.5.1，Apple M5 Pro，18 逻辑 CPU，48 GiB。如果不同，如实记录，**不要停**。
 2. Homebrew 安装 `node@24`（脚本写死使用 `/opt/homebrew/opt/node@24/bin`）、`python3`、`colima`、`docker` CLI。记录 `node --version`（原环境为 24.21.0）。
-3. Colima 实例名必须是 `yxt-permission`（脚本使用 docker context `colima-yxt-permission`）：
+3. Colima 实例名必须是 `yxt-permission`（脚本使用 docker context `colima-yxt-permission`）。
+   用户已确认：这台机器上**已经有** `yxt-permission` 实例（已停止，aarch64、10 CPU、24 GiB、35 GiB 磁盘，docker 运行时），大概率就是第 1 轮测量用的那个实例。**直接复用，不要删除，不要重建，不要改 CPU、内存、磁盘参数**：
    ```
-   colima start yxt-permission --vm-type vz --cpu 10 --memory 24 --disk 100
-   docker context ls; docker --context colima-yxt-permission info
+   colima start yxt-permission
    colima list
+   cat ~/.colima/yxt-permission/colima.yaml          # 记录 vmType（原环境为 vz）、cpu、memory、disk
+   docker context ls; docker --context colima-yxt-permission info
+   docker --context colima-yxt-permission ps -a --format '{{.Names}}\t{{.Image}}\t{{.Status}}'
+   docker --context colima-yxt-permission volume ls
+   ls -d /Users/*/Agent本地开发/云学堂权限预研 2>/dev/null   # 只用来记录是不是第 1 轮的同一台机器，不读、不改里面的内容
    ```
-   如果机器上已经有同名 Colima 实例，或已有 `yxt-pg`、`yxt-redis`、`yxt-api-a`、`yxt-api-b` 容器、`yxt-permission-pgdata` 卷：**先停下告诉用户**，不要自行删除。
-   如果这台机器的物理 CPU 少于 12 核或内存少于 32 GiB，导致无法分给 Colima 10 vCPU / 24 GiB：先停下告诉用户。
+   以上输出全部保存到 `evidence/raw/round2-baseline-817256b/existing-environment.txt`（第 4 步建好目录后再写入；也可以先存到临时文件，再移进去）。
+   遇到下面的情况，按对应方式处理：
+   - 已有容器 `yxt-api-a` 或 `yxt-api-b`（不论是否在运行）：**先停下告诉用户**。窗口脚本会拒绝运行，而且容器里可能留着第 1 轮的日志，不得自行删除。
+   - 已有 `yxt-pg`、`yxt-redis` 容器：先用 `docker --context colima-yxt-permission inspect yxt-pg yxt-redis` 核对。镜像 digest 必须分别是 `postgres@sha256:639ab7ce…b652`、`redis@sha256:c6eabf74…6f`（完整值见 `tools/start-infrastructure.sh`）；资源上限必须是 PG 4 CPU / 8 GiB、Redis 1 CPU / 1 GiB；PG 启动参数必须与脚本一致。全部一致就复用（`start-infrastructure.sh` 会直接 `docker start`）；任何一项不一致，先停下告诉用户。
+   - 已有 `yxt-permission-pgdata` 卷：复用。每个窗口的 seed 会重建合成数据 schema，不需要清空卷，也不得删除。
+   - `colima.yaml` 里 vmType 不是 vz，或 CPU、内存不是 10 / 24 GiB：先停下告诉用户。
 4. 克隆并检出：
    ```
    git clone https://github.com/Avatar0327/yunxuetang-permission-spike.git
@@ -52,7 +61,7 @@
    export PATH="/opt/homebrew/opt/node@24/bin:$PATH"
    npm ci
    git status --porcelain   # 必须为空
-   mkdir -p evidence/raw/round2-baseline-817256b
+   mkdir -p evidence/raw/round2-baseline-817256b   # 然后把第 3 步的输出存入 existing-environment.txt
    ```
 5. 预构建 API 镜像（只在需要时）：`tools/run-native-window.sh` 构建镜像时使用代理 `http://192.168.5.2:7890`。如果这台机器上没有这个代理，请**不要改脚本**，先手工构建同名、同标签的镜像，脚本检测到后会直接复用：
    ```

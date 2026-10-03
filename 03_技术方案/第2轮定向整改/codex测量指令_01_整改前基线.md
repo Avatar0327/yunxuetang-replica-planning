@@ -51,6 +51,7 @@
    遇到下面的情况，按对应方式处理：
    - 已有容器 `yxt-api-a` 或 `yxt-api-b`（不论是否在运行）：**先停下告诉用户**。窗口脚本会拒绝运行，而且容器里可能留着第 1 轮的日志，不得自行删除。
    - 已有 `yxt-pg`、`yxt-redis` 容器：先用 `docker --context colima-yxt-permission inspect yxt-pg yxt-redis` 核对。镜像 digest 必须分别是 `postgres@sha256:639ab7ce…b652`、`redis@sha256:c6eabf74…6f`（完整值见 `tools/start-infrastructure.sh`）；资源上限必须是 PG 4 CPU / 8 GiB、Redis 1 CPU / 1 GiB；PG 启动参数必须与脚本一致。全部一致就复用（`start-infrastructure.sh` 会直接 `docker start`）；任何一项不一致，先停下告诉用户。
+   - **已知例外（2026-10-03 核实）**：现有 `yxt-pg` 创建于提交 17ed824 之前，启动参数里没有 `-c track_commit_timestamp=on`。第 1 轮已在 2026-09-22T22:22Z 用仓库自带的 `tools/enable-commit-timestamps.sh` 以 `ALTER SYSTEM` 方式开启该参数，第 1 轮各参考窗口的 `postgresql-settings.json` 都记录为 `on`。因此仅这一项差异允许复用，条件是生效值为 on：启动容器后执行 `docker --context colima-yxt-permission exec yxt-pg psql -U spike -d permission_spike -X -A -t -c 'SHOW track_commit_timestamp'`，输出存入 `track-commit-timestamp-check.txt`。为 `on` 就继续；为 `off` 时，执行 `bash tools/enable-commit-timestamps.sh evidence/raw/round2-baseline-817256b/commit-timestamp-enablement` 后再继续（该脚本要求 4311/4312 端口空闲）。除此之外，任何参数不一致仍按上条停下。
    - 已有 `yxt-permission-pgdata` 卷：复用。每个窗口的 seed 会重建合成数据 schema，不需要清空卷，也不得删除。
    - `colima.yaml` 里 vmType 不是 vz，或 CPU、内存不是 10 / 24 GiB：先停下告诉用户。
 4. 克隆并检出：
